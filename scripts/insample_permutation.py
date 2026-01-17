@@ -1,9 +1,11 @@
 """
-Versión GENÉRICA del análisis MCPT sin Dask.
-Permite elegir la estrategia desde línea de comandos.
-Uso: python insample_permutation.py <estrategia>
+Versión GENÉRICA del análisis MCPT con soporte para Dask y visualización interactiva.
+Permite elegir la estrategia y backend desde línea de comandos.
+
+Uso: python insample_permutation.py <estrategia> [--backend dask|multiprocess]
 Ejemplo: python insample_permutation.py donchian
-         python insample_permutation.py moving_average
+         python insample_permutation.py hawkes --backend dask
+         python insample_permutation.py moving_average --backend multiprocess
 """
 
 import pandas as pd
@@ -18,18 +20,34 @@ import time
 from multiprocessing import Pool, cpu_count
 from tqdm import tqdm
 import importlib
+import argparse
 
 # Agregar directorio padre al path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 # Importar configuración de rutas
 from config.paths import (
-    BITCOIN_CSV, BITCOIN_PARQUET,
     BACKTEST_FIGURES,
-    get_plot_path, ensure_directories
+    ensure_directories,
+    TICKERS, get_ticker_data_paths
 )
 
 from backtest.mcpt.bar_permute import get_permutation
+
+# Import for interactive visualization (optional)
+try:
+    from visualization.interactive.lightweight_charts_viewer import create_interactive_chart
+    HAS_INTERACTIVE_VIS = True
+except ImportError:
+    HAS_INTERACTIVE_VIS = False
+
+# Import for Dask orchestration (optional)
+try:
+    from config.parallel_config import load_config as load_parallel_config
+    from orchestration.dask_runner import DaskOrchestrator
+    HAS_DASK = True
+except ImportError:
+    HAS_DASK = False
 
 
 # Variables globales para el worker (cargadas una sola vez por worker)
@@ -71,20 +89,68 @@ def process_permutation_generic(perm_i):
     return best_perm_pf, is_better, cum_rets
 
 
+def parse_args():
+    """Parse command line arguments."""
+    parser = argparse.ArgumentParser(
+        description='MCPT In-Sample Analysis with Dask support and interactive visualization'
+    )
+    parser.add_argument(
+        'strategy',
+        type=str,
+        help='Strategy name (e.g., donchian, hawkes, moving_average)'
+    )
+    parser.add_argument(
+        '--ticker',
+        type=str,
+        default='BTCUSD',
+        help=f'Ticker symbol (default: BTCUSD). Available: {", ".join(TICKERS.keys())}'
+    )
+    parser.add_argument(
+        '--train-start',
+        type=str,
+        default='2016-01-01',
+        help='Training period start date YYYY-MM-DD (default: 2016-01-01)'
+    )
+    parser.add_argument(
+        '--train-end',
+        type=str,
+        default='2020-01-01',
+        help='Training period end date YYYY-MM-DD (default: 2020-01-01)'
+    )
+    parser.add_argument(
+        '--backend',
+        choices=['multiprocess', 'dask'],
+        default='multiprocess',
+        help='Parallelization backend (default: multiprocess)'
+    )
+    parser.add_argument(
+        '--n-permutations',
+        type=int,
+        default=1000,
+        help='Number of permutations (default: 1000)'
+    )
+    parser.add_argument(
+        '--n-workers',
+        type=int,
+        default=None,
+        help='Number of workers (default: auto-detect)'
+    )
+    parser.add_argument(
+        '--no-interactive',
+        action='store_true',
+        help='Skip interactive visualization generation'
+    )
+    return parser.parse_args()
+
+
 if __name__ == '__main__':
+    args = parse_args()
+
     print("\n" + "="*70)
-    print("MCPT - VERSIÓN GENÉRICA (sin Dask)")
+    print(f"MCPT - VERSIÓN GENÉRICA (Backend: {args.backend.upper()})")
     print("="*70 + "\n")
 
-    # Validar argumentos de línea de comandos
-    if len(sys.argv) < 2:
-        print("ERROR: Debes especificar la estrategia")
-        print("Uso: python insample_permutation.py <estrategia.py>")
-        print("Ejemplo: python insample_permutation.py donchian.py")
-        print("         python insample_permutation.py moving_average.py")
-        sys.exit(1)
-
-    strategy_file = sys.argv[1]
+    strategy_file = args.strategy
 
     # Remover extensión .py si está presente
     if strategy_file.endswith('.py'):
@@ -109,27 +175,56 @@ if __name__ == '__main__':
     # Asegurar directorios
     ensure_directories()
 
-    # Configuración de workers - usar TODOS los cores
+    # Configuración de workers
     total_cpus = cpu_count()
-    n_workers = int(os.getenv('N_WORKERS', total_cpus))
+    if args.n_workers:
+        n_workers = min(args.n_workers, total_cpus)
+    else:
+        n_workers = int(os.getenv('N_WORKERS', min(15, total_cpus)))
+
+    # Número de permutaciones
+    n_permutations = args.n_permutations
+
+    # Get ticker data paths
+    try:
+        ticker_paths = get_ticker_data_paths(args.ticker)
+    except ValueError as e:
+        print(f"ERROR: {e}")
+        sys.exit(1)
 
     print(f"\nConfiguración:")
+    print(f"  Ticker:           {args.ticker}")
+    print(f"  Training period:  {args.train_start} to {args.train_end}")
     print(f"  CPUs disponibles: {total_cpus}")
     print(f"  Workers a usar:   {n_workers}")
-    print(f"  (Cambiar con: N_WORKERS=4 python {Path(__file__).name} {strategy_file})")
+    print(f"  Backend:          {args.backend}")
+    print(f"  Permutaciones:    {n_permutations}")
+    if HAS_DASK and args.backend == 'dask':
+        print(f"  Dask disponible:  ✓")
+    elif args.backend == 'dask' and not HAS_DASK:
+        print(f"  Dask disponible:  ✗ (usando multiprocess)")
+        args.backend = 'multiprocess'
     print("="*70 + "\n")
     sys.stdout.flush()
 
     # Cargar datos
-    print("Cargando datos...")
-    if BITCOIN_PARQUET.exists():
-        df = pd.read_parquet(BITCOIN_PARQUET)
+    print(f"Cargando datos de {args.ticker}...")
+    parquet_path = ticker_paths['parquet']
+    csv_path = ticker_paths['csv']
+
+    if parquet_path.exists():
+        df = pd.read_parquet(parquet_path)
         df.index = df.index.astype('datetime64[s]')
-    else:
+    elif csv_path.exists():
         print(f"Convirtiendo CSV a Parquet...")
-        df = pd.read_csv(BITCOIN_CSV, parse_dates=["timestamp"])
+        df = pd.read_csv(csv_path, parse_dates=["timestamp"])
         df = df.set_index("timestamp")
-        df.to_parquet(BITCOIN_PARQUET)
+        df.to_parquet(parquet_path)
+    else:
+        print(f"ERROR: No data files found for {args.ticker}")
+        print(f"  Expected parquet: {parquet_path}")
+        print(f"  Expected csv: {csv_path}")
+        sys.exit(1)
 
     print(f"✓ Datos cargados: {len(df)} filas\n")
 
@@ -138,7 +233,17 @@ if __name__ == '__main__':
     print("OPTIMIZACIÓN IN-SAMPLE")
     print("="*70)
 
-    train_df = df[(df.index.year >= 2016) & (df.index.year < 2020)]
+    # Filter by training period
+    train_start = pd.Timestamp(args.train_start)
+    train_end = pd.Timestamp(args.train_end)
+    train_df = df[(df.index >= train_start) & (df.index < train_end)]
+
+    if len(train_df) == 0:
+        print(f"ERROR: No data found in training period {args.train_start} to {args.train_end}")
+        sys.exit(1)
+
+    print(f"  Training period:    {train_start} to {train_end}")
+    print(f"  Training samples:   {len(train_df)}")
     result = strategy.optimize(train_df)
 
     # Desempaquetar resultado: último valor es pf, resto son parámetros
@@ -156,7 +261,6 @@ if __name__ == '__main__':
     sys.stdout.flush()
 
     # MCPT
-    n_permutations = 1000
     print(f"Ejecutando MCPT con {n_permutations} permutaciones usando {n_workers} workers...")
     print()
     sys.stdout.flush()
@@ -181,16 +285,51 @@ if __name__ == '__main__':
     # Chunksize más pequeño para mejor distribución de carga
     chunksize = max(1, n_permutations // (n_workers * 10))
 
-    # Procesamiento con multiprocessing y barra de progreso
-    # CLAVE: Pasar datos en initializer, no en args
-    with Pool(processes=n_workers,
-              initializer=_init_worker,
-              initargs=(strategy_name, train_data, train_index, train_columns, best_real_pf)) as pool:
-        for result in tqdm(pool.imap_unordered(process_permutation_generic, args_list, chunksize=chunksize),
-                        total=len(args_list),
-                        desc="Procesando tareas",
-                        ncols=80):
-            results.append(result)
+    # Select backend for parallel processing
+    if args.backend == 'dask' and HAS_DASK:
+        # Dask backend
+        print("Usando Dask para paralelización...")
+        from dask import delayed
+
+        config = load_parallel_config()
+        dask_config = config.get('dask', {})
+        dask_config['n_workers'] = n_workers
+
+        with DaskOrchestrator(dask_config) as orchestrator:
+            # Initialize global variables in the main process for delayed tasks
+            _init_worker(strategy_name, train_data, train_index, train_columns, best_real_pf)
+
+            # Create delayed tasks
+            tasks = [delayed(process_permutation_generic)(i) for i in args_list]
+
+            # Show dashboard info
+            dashboard_link = orchestrator.get_dashboard_link()
+            print(f"\n{'='*70}")
+            print(f"DASK DASHBOARD")
+            print(f"{'='*70}")
+            print(f"  Monitor progress at: {dashboard_link}")
+            print(f"  (Open in browser to view task progress, memory usage, etc.)")
+            print(f"{'='*70}\n")
+            sys.stdout.flush()
+
+            # Compute all tasks with progress bar
+            futures = orchestrator.client.compute(tasks)
+            for future in tqdm(orchestrator.client.gather(futures),
+                             total=len(tasks),
+                             desc="Procesando tareas (Dask)",
+                             ncols=80):
+                results.append(future)
+    else:
+        # Multiprocessing backend (default)
+        # CLAVE: Pasar datos en initializer, no en args
+        with Pool(processes=n_workers,
+                  initializer=_init_worker,
+                  initargs=(strategy_name, train_data, train_index, train_columns, best_real_pf)) as pool:
+            for result in tqdm(pool.imap_unordered(process_permutation_generic, args_list, chunksize=chunksize),
+                            total=len(args_list),
+                            desc="Procesando tareas",
+                            ncols=80):
+                results.append(result)
 
     total_time = time.time() - start_time
     print(f"\nTiempo total: {total_time:.0f}s")
@@ -283,6 +422,40 @@ if __name__ == '__main__':
     print(f"✓ Gráfico cumulative returns guardado: {output_file_cum}\n")
     plt.close()
 
+    # Generate interactive visualization if available and not disabled
+    if HAS_INTERACTIVE_VIS and not args.no_interactive:
+        print("Generando visualización interactiva...")
+
+        # Check if strategy has visualization() method
+        if hasattr(strategy, 'visualization'):
+            try:
+                vis_data = strategy.visualization(train_df, *best_params)
+                interactive_path = output_dir / 'interactive_chart.html'
+
+                result_path = create_interactive_chart(
+                    ohlc_data=train_df,
+                    vis_data=vis_data,
+                    strategy_name=strategy_name,
+                    params=tuple(best_params),
+                    output_path=interactive_path
+                )
+
+                if result_path:
+                    print(f"✓ Visualización interactiva: {result_path}\n")
+                else:
+                    print("  (No se pudo generar la visualización interactiva)\n")
+            except Exception as e:
+                print(f"  Error generando visualización interactiva: {e}\n")
+        else:
+            print(f"  Estrategia '{strategy_name}' no tiene método visualization()\n")
+    elif not HAS_INTERACTIVE_VIS:
+        print("Visualización interactiva no disponible (instalar: pip install lightweight-charts)\n")
+
     print("="*70)
     print("✓ ANÁLISIS COMPLETADO")
     print("="*70)
+    print(f"\nArchivos generados en: {output_dir}")
+    print(f"  - insample_mcpt.png")
+    print(f"  - insample_cumulative_mcpt.png")
+    if HAS_INTERACTIVE_VIS and not args.no_interactive and hasattr(strategy, 'visualization'):
+        print(f"  - interactive_chart.html")
