@@ -120,3 +120,45 @@ def optimize(ohlc: pd.DataFrame):
                 best_lb = lb
 
     return best_kappa, best_lb, best_pf
+
+
+def visualization(ohlc: pd.DataFrame, kappa: float, lookback: int):
+    """
+    Calculate all indicators needed for interactive visualization.
+
+    Args:
+        ohlc: DataFrame with OHLC data
+        kappa: Hawkes process decay parameter
+        lookback: Lookback period for percentiles
+
+    Returns:
+        dict with structure:
+        {
+            'indicators': {
+                'name': {'data': pd.Series, 'color': str, 'panel': str}
+            },
+            'signals': pd.Series with values 1 (long), -1 (short), 0 (flat)
+        }
+    """
+    # Calculate indicators
+    high = np.log(ohlc["high"])
+    low = np.log(ohlc["low"])
+    hl_range = high - low
+    atr = hl_range.rolling(336).mean()
+    norm_range = hl_range / atr
+    v_hawk = hawkes_process(norm_range, kappa)
+
+    q05 = v_hawk.rolling(lookback).quantile(0.05)
+    q95 = v_hawk.rolling(lookback).quantile(0.95)
+
+    # Calculate signals
+    signals = signal(ohlc, kappa, lookback)
+
+    return {
+        'indicators': {
+            'v_hawkes': {'data': v_hawk, 'color': 'yellow', 'panel': 'lower'},
+            'q05': {'data': q05, 'color': 'red', 'panel': 'lower'},
+            'q95': {'data': q95, 'color': 'blue', 'panel': 'lower'}
+        },
+        'signals': signals
+    }

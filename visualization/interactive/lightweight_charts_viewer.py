@@ -57,8 +57,7 @@ class LightweightChartsViewer:
     def create_candlestick_chart(
         self,
         data: pd.DataFrame,
-        title: str = "Trading Chart",
-        show_volume: bool = True
+        title: str = "Trading Chart"
     ):
         """
         Create an interactive candlestick chart.
@@ -66,7 +65,6 @@ class LightweightChartsViewer:
         Args:
             data: DataFrame with columns ['time', 'open', 'high', 'low', 'close', 'volume']
             title: Chart title
-            show_volume: Whether to show volume bars
 
         Returns:
             Chart object if available, None otherwise
@@ -79,9 +77,6 @@ class LightweightChartsViewer:
 
         chart = Chart(width=self.width, height=self.height)
         chart.set(data)
-
-        if show_volume and 'volume' in data.columns:
-            chart.volume_config(enabled=True)
 
         self._chart = chart
         return chart
@@ -207,6 +202,175 @@ def load_ohlc_data(symbol: str = "BTCUSD") -> pd.DataFrame:
             df['time'] = df.index
 
     return df
+
+
+def create_interactive_chart(
+    ohlc_data: pd.DataFrame,
+    vis_data: Dict[str, Any],
+    strategy_name: str,
+    params: tuple,
+    output_path: Path
+) -> Optional[Path]:
+    """
+    Generic function to create interactive charts for any strategy.
+
+    Args:
+        ohlc_data: DataFrame with OHLC data (index should be DatetimeIndex)
+        vis_data: Dict returned by strategy.visualization() with keys:
+            - 'indicators': dict mapping name -> {'data': Series, 'color': str, 'panel': str}
+            - 'signals': Series with 1 (long), -1 (short), 0 (flat)
+        strategy_name: Name of strategy (for title)
+        params: Tuple of optimized parameters
+        output_path: Where to save HTML file
+
+    Returns:
+        Path to saved file, or None if failed
+    """
+    try:
+        from lightweight_charts import Chart
+    except ImportError:
+        print("Warning: lightweight-charts not installed.")
+        print("Install with: pip install lightweight-charts")
+        return None
+
+    # Prepare OHLC data for lightweight-charts
+    df = ohlc_data.copy()
+
+    # Ensure we have the required columns
+    required_cols = ['open', 'high', 'low', 'close']
+    for col in required_cols:
+        if col not in df.columns:
+            raise ValueError(f"Missing required column: {col}")
+
+    # Convert index to 'time' column if needed
+    if 'time' not in df.columns:
+        if isinstance(df.index, pd.DatetimeIndex):
+            df = df.reset_index()
+            df = df.rename(columns={df.columns[0]: 'time'})
+        else:
+            df['time'] = df.index
+
+    # Create the main chart
+    chart = Chart(width=1400, height=800)
+
+    # Set OHLC data
+    chart.set(df[['time', 'open', 'high', 'low', 'close']])
+
+    # Process indicators
+    indicators = vis_data.get('indicators', {})
+    lower_panel_lines = []
+
+    for name, ind_spec in indicators.items():
+        data = ind_spec.get('data')
+        color = ind_spec.get('color', 'blue')
+        panel = ind_spec.get('panel', 'price')
+
+        if data is None or data.empty:
+            continue
+
+        # Prepare indicator data
+        ind_df = pd.DataFrame({
+            'time': data.index if isinstance(data.index, pd.DatetimeIndex) else pd.to_datetime(data.index),
+            'value': data.values
+        }).dropna()
+
+        if panel == 'price':
+            # Overlay on price chart
+            line = chart.create_line(
+                name=name.replace('_', ' ').title(),
+                color=color,
+                width=2
+            )
+            line.set(ind_df)
+        elif panel == 'lower':
+            # Will be added to subchart
+            lower_panel_lines.append({
+                'name': name,
+                'data': ind_df,
+                'color': color
+            })
+
+    # Create subchart for lower panel indicators
+    if lower_panel_lines:
+        subchart = chart.create_subchart(
+            width=1,
+            height=0.3,
+            sync=True
+        )
+        for line_spec in lower_panel_lines:
+            line = subchart.create_line(
+                name=line_spec['name'].replace('_', ' ').title(),
+                color=line_spec['color'],
+                width=2
+            )
+            line.set(line_spec['data'])
+
+    # Add signal markers
+    signals = vis_data.get('signals', pd.Series())
+    if not signals.empty:
+        # Detect signal changes (entries/exits)
+        signal_changes = signals.diff().fillna(0)
+
+        for idx in signals.index:
+            sig_val = signals.loc[idx]
+            change = signal_changes.loc[idx]
+
+            # Long entry (signal goes from non-1 to 1)
+            if sig_val == 1 and change != 0:
+                try:
+                    chart.marker(
+                        time=idx,
+                        position='below',
+                        shape='arrow_up',
+                        color='green',
+                        text='LONG'
+                    )
+                except Exception:
+                    pass  # Skip if marker fails
+
+            # Short entry (signal goes from non-(-1) to -1)
+            elif sig_val == -1 and change != 0:
+                try:
+                    chart.marker(
+                        time=idx,
+                        position='above',
+                        shape='arrow_down',
+                        color='red',
+                        text='SHORT'
+                    )
+                except Exception:
+                    pass
+
+            # Exit (signal goes to 0 from non-zero)
+            elif sig_val == 0 and change != 0:
+                try:
+                    chart.marker(
+                        time=idx,
+                        position='inside',
+                        shape='circle',
+                        color='yellow',
+                        text='EXIT'
+                    )
+                except Exception:
+                    pass
+
+    # Add watermark with strategy name and parameters
+    param_str = ', '.join([
+        f'{p:.3f}' if isinstance(p, float) else str(p)
+        for p in params
+    ])
+    chart.watermark(f'{strategy_name.upper()} | Params: {param_str}')
+
+    # Save to HTML
+    output_path = Path(output_path)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    try:
+        chart.save(str(output_path))
+        return output_path
+    except Exception as e:
+        print(f"Error saving chart: {e}")
+        return None
 
 
 if __name__ == "__main__":

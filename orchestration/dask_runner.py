@@ -5,6 +5,7 @@ Uses Dask with local scheduler for optional advanced parallelization.
 Configured for 16-core workstation with processes scheduler.
 """
 
+import logging
 from typing import List, Dict, Any, Optional
 from itertools import product
 import pandas as pd
@@ -61,7 +62,9 @@ class DaskRunner(BaseOrchestrator):
             n_workers=self.n_workers,
             threads_per_worker=self.threads_per_worker,
             memory_limit=self.memory_limit,
-            processes=True  # Use processes for CPU-bound tasks
+            processes=True,  # Use processes for CPU-bound tasks
+            silence_logs=logging.ERROR,
+            dashboard_address=':8787'
         )
         self._client = Client(self._cluster)
         self._is_initialized = True
@@ -247,3 +250,79 @@ def _dask_optimization_worker(
         }
         result.update(params)
         return result
+
+
+class DaskOrchestrator:
+    """
+    Simplified Dask orchestrator for direct use in scripts.
+
+    This is a lightweight wrapper that provides a Client directly
+    for use with dask.delayed and other Dask primitives.
+    """
+
+    def __init__(self, config: Optional[Dict[str, Any]] = None):
+        """
+        Initialize Dask orchestrator.
+
+        Args:
+            config: Configuration dictionary with keys:
+                - n_workers: Number of worker processes (default: 14)
+                - threads_per_worker: Threads per worker (default: 1)
+                - memory_limit: Memory limit per worker (default: '4GB')
+        """
+        config = config or {}
+        self.n_workers = config.get('n_workers', 14)
+        self.threads_per_worker = config.get('threads_per_worker', 1)
+        self.memory_limit = config.get('memory_limit', '4GB')
+        self._client = None
+        self._cluster = None
+        self._initialize()
+
+    def _initialize(self) -> None:
+        """Initialize Dask local cluster."""
+        try:
+            from dask.distributed import Client, LocalCluster
+        except ImportError:
+            raise ImportError(
+                "Dask distributed is required. "
+                "Install with: pip install dask[distributed]"
+            )
+
+        self._cluster = LocalCluster(
+            n_workers=self.n_workers,
+            threads_per_worker=self.threads_per_worker,
+            memory_limit=self.memory_limit,
+            processes=True,
+            silence_logs=logging.ERROR,
+            dashboard_address=':8787'
+        )
+        self._client = Client(self._cluster)
+
+    @property
+    def client(self):
+        """Get the Dask client."""
+        return self._client
+
+    def get_dashboard_link(self) -> Optional[str]:
+        """Get the Dask dashboard URL."""
+        if self._cluster is not None:
+            return self._cluster.dashboard_link
+        return None
+
+    def close(self) -> None:
+        """Close Dask client and cluster."""
+        if self._client is not None:
+            self._client.close()
+            self._client = None
+        if self._cluster is not None:
+            self._cluster.close()
+            self._cluster = None
+
+    def __enter__(self):
+        """Context manager entry."""
+        return self
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        """Context manager exit."""
+        self.close()
+        return False

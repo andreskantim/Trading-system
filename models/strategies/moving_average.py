@@ -68,3 +68,37 @@ def optimize(ohlc: pd.DataFrame, fast_range=(15, 25), slow_range=(140, 160)):
                 best_slow = slow
 
     return best_fast, best_slow, best_pf
+
+
+def visualization(ohlc: pd.DataFrame, fast: int, slow: int):
+    """
+    Calculate all indicators needed for interactive visualization.
+
+    Args:
+        ohlc: DataFrame with OHLC data
+        fast: Fast moving average period
+        slow: Slow moving average period
+
+    Returns:
+        dict with structure:
+        {
+            'indicators': {
+                'name': {'data': pd.Series, 'color': str, 'panel': str}
+            },
+            'signals': pd.Series with values 1 (long), -1 (short), 0 (flat)
+        }
+    """
+    # Calculate moving averages
+    fast_ma = ohlc['close'].rolling(fast).mean()
+    slow_ma = ohlc['close'].rolling(slow).mean()
+
+    # Calculate signals
+    signals = signal(ohlc, fast, slow)
+
+    return {
+        'indicators': {
+            'fast_ma': {'data': fast_ma, 'color': 'cyan', 'panel': 'price'},
+            'slow_ma': {'data': slow_ma, 'color': 'orange', 'panel': 'price'}
+        },
+        'signals': signals
+    }

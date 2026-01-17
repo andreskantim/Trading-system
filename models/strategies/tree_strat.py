@@ -88,3 +88,29 @@ def optimize(ohlc: pd.DataFrame):
         pf = pos / neg
 
     return model, pf
+
+
+def visualization(ohlc: pd.DataFrame, model):
+    """
+    Calculate all indicators needed for interactive visualization.
+
+    Args:
+        ohlc: DataFrame with OHLC data
+        model: Trained DecisionTreeClassifier model
+
+    Returns:
+        dict with structure:
+        {
+            'indicators': {
+                'name': {'data': pd.Series, 'color': str, 'panel': str}
+            },
+            'signals': pd.Series with values 1 (long), -1 (short), 0 (flat)
+        }
+    """
+    # Tree strategy doesn't have visual indicators, only signals
+    signals = signal(ohlc, model)
+
+    return {
+        'indicators': {},  # No additional indicators for tree strategy
+        'signals': signals
+    }

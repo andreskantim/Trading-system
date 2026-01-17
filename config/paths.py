@@ -43,9 +43,44 @@ DATA_DIR = PROJECT_ROOT / "data"
 BTCUSD_DATA_DIR = DATA_DIR / "BTCUSD"
 ETHUSD_DATA_DIR = DATA_DIR / "ETHUSD"
 
-# Archivos de datos principales
+# Archivos de datos principales (legacy - use TICKERS dict instead)
 BITCOIN_CSV = BTCUSD_DATA_DIR / "bitcoin_hourly.csv"
 BITCOIN_PARQUET = BTCUSD_DATA_DIR / "BTCUSD3600.pq"
+
+# ====================================================================
+# CONFIGURACIÓN DE TICKERS
+# ====================================================================
+
+TICKERS = {
+    'BTCUSD': {
+        'csv': DATA_DIR / 'BTCUSD' / 'bitcoin_hourly.csv',
+        'parquet': DATA_DIR / 'BTCUSD' / 'BTCUSD3600.pq'
+    },
+    'ETHUSD': {
+        'csv': DATA_DIR / 'ETHUSD' / 'ethereum_hourly.csv',
+        'parquet': DATA_DIR / 'ETHUSD' / 'ETHUSD3600.pq'
+    },
+}
+
+
+def get_ticker_data_paths(ticker_name: str) -> dict:
+    """
+    Get data paths for a specific ticker.
+
+    Args:
+        ticker_name: Name of the ticker (e.g., 'BTCUSD', 'ETHUSD')
+
+    Returns:
+        dict with 'csv' and 'parquet' paths
+
+    Raises:
+        ValueError: If ticker is not configured
+    """
+    ticker_upper = ticker_name.upper()
+    if ticker_upper not in TICKERS:
+        available = ', '.join(TICKERS.keys())
+        raise ValueError(f"Ticker '{ticker_name}' not configured. Available: {available}")
+    return TICKERS[ticker_upper]
 
 # ====================================================================
 # DIRECTORIOS DE SALIDA

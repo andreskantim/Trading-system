@@ -58,3 +58,36 @@ def optimize(ohlc: pd.DataFrame):
             best_lookback = lookback
 
     return best_lookback, best_pf
+
+
+def visualization(ohlc: pd.DataFrame, lookback: int):
+    """
+    Calculate all indicators needed for interactive visualization.
+
+    Args:
+        ohlc: DataFrame with OHLC data
+        lookback: Lookback period for Donchian channels
+
+    Returns:
+        dict with structure:
+        {
+            'indicators': {
+                'name': {'data': pd.Series, 'color': str, 'panel': str}
+            },
+            'signals': pd.Series with values 1 (long), -1 (short), 0 (flat)
+        }
+    """
+    # Calculate Donchian channels
+    upper = ohlc['close'].rolling(lookback - 1).max().shift(1)
+    lower = ohlc['close'].rolling(lookback - 1).min().shift(1)
+
+    # Calculate signals
+    signals = signal(ohlc, lookback)
+
+    return {
+        'indicators': {
+            'upper_channel': {'data': upper, 'color': 'green', 'panel': 'price'},
+            'lower_channel': {'data': lower, 'color': 'red', 'panel': 'price'}
+        },
+        'signals': signals
+    }
