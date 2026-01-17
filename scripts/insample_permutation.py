@@ -23,12 +23,13 @@ import importlib
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 # Importar configuración de rutas
-from config.path import (
+from config.paths import (
     BITCOIN_CSV, BITCOIN_PARQUET,
+    BACKTEST_FIGURES,
     get_plot_path, ensure_directories
 )
 
-from bar_permute import get_permutation
+from backtest.mcpt.bar_permute import get_permutation
 
 
 # Variables globales para el worker (cargadas una sola vez por worker)
@@ -39,7 +40,7 @@ _best_real_pf = None
 def _init_worker(strategy_name, train_data, train_index, train_columns, best_real_pf):
     """Inicializa el worker con el módulo de estrategia y datos"""
     global _strategy_module, _train_df, _best_real_pf
-    _strategy_module = importlib.import_module(f'strategies.{strategy_name}')
+    _strategy_module = importlib.import_module(f'models.strategies.{strategy_name}')
     # Crear DataFrame UNA SOLA VEZ por worker
     _train_df = pd.DataFrame(train_data, index=train_index, columns=train_columns)
     _best_real_pf = best_real_pf
@@ -93,7 +94,7 @@ if __name__ == '__main__':
 
     # Intentar importar el módulo de la estrategia
     try:
-        strategy = importlib.import_module(f'strategies.{strategy_name}')
+        strategy = importlib.import_module(f'models.strategies.{strategy_name}')
         print(f"✓ Estrategia cargada: {strategy_file}")
     except ModuleNotFoundError:
         print(f"ERROR: No se encontró el módulo '{strategy_name}.py'")
@@ -244,7 +245,7 @@ if __name__ == '__main__':
 
     # Crear directorio de salida para esta estrategia
     strategy_name_clean = strategy_file.replace(".py", "")
-    output_dir = Path(__file__).resolve().parent.parent / "output" / strategy_name_clean
+    output_dir = BACKTEST_FIGURES / strategy_name_clean
     output_dir.mkdir(parents=True, exist_ok=True)
 
     output_filename = f'insample_mcpt.png'

@@ -24,11 +24,11 @@ import importlib
 from typing import Optional
 import argparse
 
-# Agregar directorio padre al path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+# Agregar directorio raíz del proyecto al path
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 # Importar configuración de rutas
-from config.path import BITCOIN_PARQUET, ensure_directories
+from config.paths import BITCOIN_PARQUET, BACKTEST_FIGURES, ensure_directories
 
 
 def get_output_dir(strategy_name: str) -> Path:
@@ -41,7 +41,7 @@ def get_output_dir(strategy_name: str) -> Path:
     Returns:
         Path al directorio de salida
     """
-    output_dir = Path(__file__).resolve().parent.parent / "output" / strategy_name
+    output_dir = BACKTEST_FIGURES / strategy_name
     output_dir.mkdir(parents=True, exist_ok=True)
     return output_dir
 
@@ -205,7 +205,7 @@ def run_strategy(strategy_name: str, filters: Optional[list] = None):
 
     # Cargar estrategia
     try:
-        strategy = importlib.import_module(f'strategies.{strategy_name}')
+        strategy = importlib.import_module(f'models.strategies.{strategy_name}')
         print(f"✓ Estrategia cargada: {strategy_name}")
     except ModuleNotFoundError:
         print(f"ERROR: No se encontró la estrategia '{strategy_name}'")
