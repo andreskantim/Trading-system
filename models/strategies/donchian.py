@@ -71,8 +71,11 @@ def visualization(ohlc: pd.DataFrame, lookback: int):
     Returns:
         dict with structure:
         {
-            'indicators': {
-                'name': {'data': pd.Series, 'color': str, 'panel': str}
+            'indicators_in_price': {
+                'name': {'data': pd.Series, 'color': str}
+            },
+            'indicators_off_price': {
+                'name': {'data': pd.Series, 'color': str}
             },
             'signals': pd.Series with values 1 (long), -1 (short), 0 (flat)
         }
@@ -85,9 +88,12 @@ def visualization(ohlc: pd.DataFrame, lookback: int):
     signals = signal(ohlc, lookback)
 
     return {
-        'indicators': {
-            'upper_channel': {'data': upper, 'color': 'green', 'panel': 'price'},
-            'lower_channel': {'data': lower, 'color': 'red', 'panel': 'price'}
+        'indicators_in_price': {
+            'upper_channel': {'data': upper, 'color': 'green'},
+            'lower_channel': {'data': lower, 'color': 'red'}
+        },
+        'indicators_off_price': {
+            # No off-price indicators for Donchian strategy
         },
         'signals': signals
     }

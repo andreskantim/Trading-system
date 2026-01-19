@@ -82,8 +82,11 @@ def visualization(ohlc: pd.DataFrame, fast: int, slow: int):
     Returns:
         dict with structure:
         {
-            'indicators': {
-                'name': {'data': pd.Series, 'color': str, 'panel': str}
+            'indicators_in_price': {
+                'name': {'data': pd.Series, 'color': str}
+            },
+            'indicators_off_price': {
+                'name': {'data': pd.Series, 'color': str}
             },
             'signals': pd.Series with values 1 (long), -1 (short), 0 (flat)
         }
@@ -96,9 +99,12 @@ def visualization(ohlc: pd.DataFrame, fast: int, slow: int):
     signals = signal(ohlc, fast, slow)
 
     return {
-        'indicators': {
-            'fast_ma': {'data': fast_ma, 'color': 'cyan', 'panel': 'price'},
-            'slow_ma': {'data': slow_ma, 'color': 'orange', 'panel': 'price'}
+        'indicators_in_price': {
+            'fast_ma': {'data': fast_ma, 'color': 'cyan'},
+            'slow_ma': {'data': slow_ma, 'color': 'orange'}
+        },
+        'indicators_off_price': {
+            # No off-price indicators for MA strategy
         },
         'signals': signals
     }

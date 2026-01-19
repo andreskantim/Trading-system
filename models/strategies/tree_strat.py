@@ -101,8 +101,11 @@ def visualization(ohlc: pd.DataFrame, model):
     Returns:
         dict with structure:
         {
-            'indicators': {
-                'name': {'data': pd.Series, 'color': str, 'panel': str}
+            'indicators_in_price': {
+                'name': {'data': pd.Series, 'color': str}
+            },
+            'indicators_off_price': {
+                'name': {'data': pd.Series, 'color': str}
             },
             'signals': pd.Series with values 1 (long), -1 (short), 0 (flat)
         }
@@ -111,6 +114,11 @@ def visualization(ohlc: pd.DataFrame, model):
     signals = signal(ohlc, model)
 
     return {
-        'indicators': {},  # No additional indicators for tree strategy
+        'indicators_in_price': {
+            # No in-price indicators for tree strategy
+        },
+        'indicators_off_price': {
+            # No off-price indicators for tree strategy
+        },
         'signals': signals
     }

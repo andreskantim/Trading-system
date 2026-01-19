@@ -1,11 +1,11 @@
+#!/usr/bin/env python3
 import pandas as pd
 import importlib
 import argparse
 import sys
 from pathlib import Path
 
-# Configurar rutas del proyecto
-project_root = Path(__file__).resolve().parent
+project_root = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(project_root))
 
 from visualization.interactive.lightweight_charts_viewer import create_interactive_chart
@@ -22,26 +22,66 @@ def main():
     strat_name = args.strategy.replace('.py', '')
     try:
         strat = importlib.import_module(f'models.strategies.{strat_name}')
+        print(f"✓ Estrategia cargada: {strat_name}")
     except ModuleNotFoundError:
         print(f"Error: No se encontró la estrategia '{strat_name}'")
         return
 
     # 2. Cargar Datos
     paths = get_ticker_data_paths(args.ticker)
-    df = pd.read_parquet(paths['parquet']) if paths['parquet'].exists() else pd.read_csv(paths['csv'], index_col=0, parse_dates=True)
+    if paths['parquet'].exists():
+        df = pd.read_parquet(paths['parquet'])
+    else:
+        df = pd.read_csv(paths['csv'], index_col=0, parse_dates=True)
     
-    # 3. Obtener Parámetros (Optimizar si no se proveen)
+    print(f"✓ Datos cargados: {len(df)} filas")
+    
+    # 3. Obtener Parámetros
     if args.params:
         best_params = tuple(args.params)
-        print(f"Usando parámetros manuales: {best_params}")
+        print(f"➤ Usando parámetros manuales: {best_params}")
     else:
-        print("Optimizando para obtener mejores parámetros...")
-        *best_params, _ = strat.optimize(df)
+        print("➤ Optimizando para obtener mejores parámetros...")
+        result = strat.optimize(df)
+        best_params = result[:-1]  # Último valor es PF
         best_params = tuple(best_params)
+        print(f"➤ Mejores parámetros encontrados: {best_params}")
 
     # 4. Generar Visualización
     if hasattr(strat, 'visualization'):
-        vis_data = strat.visualization(df, *best_params)
+        vis_data_raw = strat.visualization(df, *best_params)
+        
+        # CONVERTIR FORMATO VIEJO A NUEVO
+        # Formato viejo: {'indicators': {'name': {'data': ..., 'color': ..., 'panel': 'price'/'lower'}}}
+        # Formato nuevo: {'indicators_in_price': {...}, 'indicators_off_price': {...}}
+        
+        vis_data = {
+            'indicators_in_price': {},
+            'indicators_off_price': {},
+            'signals': vis_data_raw.get('signals', pd.Series())
+        }
+        
+        # Si tiene 'indicators' (formato viejo), convertir
+        if 'indicators' in vis_data_raw:
+            for name, spec in vis_data_raw['indicators'].items():
+                panel = spec.get('panel', 'price')
+                if panel == 'price':
+                    vis_data['indicators_in_price'][name] = {
+                        'data': spec['data'],
+                        'color': spec.get('color', 'cyan')
+                    }
+                else:  # panel == 'lower' o cualquier otro
+                    vis_data['indicators_off_price'][name] = {
+                        'data': spec['data'],
+                        'color': spec.get('color', 'orange')
+                    }
+        
+        # Si ya tiene el formato nuevo, usarlo directamente
+        if 'indicators_in_price' in vis_data_raw:
+            vis_data['indicators_in_price'].update(vis_data_raw['indicators_in_price'])
+        if 'indicators_off_price' in vis_data_raw:
+            vis_data['indicators_off_price'].update(vis_data_raw['indicators_off_price'])
+        
         output_path = BACKTEST_FIGURES / strat_name / 'quick_chart.html'
         
         res = create_interactive_chart(
@@ -52,7 +92,8 @@ def main():
             output_path=output_path
         )
         
-        if res: print(f"✅ Gráfico generado en: {res}")
+        if res:
+            print(f"✅ Gráfico generado en: {res}")
     else:
         print(f"La estrategia '{strat_name}' no tiene el método .visualization()")
 

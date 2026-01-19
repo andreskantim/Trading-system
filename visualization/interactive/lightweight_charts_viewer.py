@@ -1,207 +1,35 @@
 """
-Lightweight Charts viewer for interactive trading data visualization.
+Lightweight Charts Viewer - Versión Final
 
-Provides candlestick charts with trading signals and indicators
-using the lightweight-charts library via Python bindings.
+Genera HTML con TradingView Lightweight Charts usando timestamp Unix.
+Compatible con WSL, abre navegador automáticamente.
 """
 
 from pathlib import Path
-from typing import Optional, List, Dict, Any
+from typing import Optional, Dict, Any
 import pandas as pd
 import sys
+import json
+import http.server
+import socketserver
+import subprocess
+import socket
 
-# Add project root to path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-from config.paths import (
-    DATA_DIR,
-    BACKTEST_FIGURES,
-    ensure_directories
-)
+from config.paths import BACKTEST_FIGURES, ensure_directories
 
 
-class LightweightChartsViewer:
-    """
-    Interactive chart viewer using lightweight-charts.
-
-    Provides methods for:
-    - Candlestick charts with OHLC data
-    - Volume bars
-    - Trading signals overlay
-    - Technical indicators
-    """
-
-    def __init__(self, width: int = 1200, height: int = 600):
-        """
-        Initialize the viewer.
-
-        Args:
-            width: Chart width in pixels
-            height: Chart height in pixels
-        """
-        self.width = width
-        self.height = height
-        self._chart = None
-        self._check_dependencies()
-
-    def _check_dependencies(self) -> None:
-        """Check if required dependencies are available."""
+def find_free_port(start_port=8000, max_attempts=10):
+    """Encuentra un puerto libre."""
+    for port in range(start_port, start_port + max_attempts):
         try:
-            from lightweight_charts import Chart
-            self._has_lightweight_charts = True
-        except ImportError:
-            self._has_lightweight_charts = False
-            print("Warning: lightweight-charts not installed. "
-                  "Install with: pip install lightweight-charts")
-
-    def create_candlestick_chart(
-        self,
-        data: pd.DataFrame,
-        title: str = "Trading Chart"
-    ):
-        """
-        Create an interactive candlestick chart.
-
-        Args:
-            data: DataFrame with columns ['time', 'open', 'high', 'low', 'close', 'volume']
-            title: Chart title
-
-        Returns:
-            Chart object if available, None otherwise
-        """
-        if not self._has_lightweight_charts:
-            print("Cannot create chart: lightweight-charts not installed")
-            return None
-
-        from lightweight_charts import Chart
-
-        chart = Chart(width=self.width, height=self.height)
-        chart.set(data)
-
-        self._chart = chart
-        return chart
-
-    def add_signals(
-        self,
-        signals: pd.DataFrame,
-        buy_color: str = 'green',
-        sell_color: str = 'red'
-    ) -> None:
-        """
-        Add buy/sell signals to the chart.
-
-        Args:
-            signals: DataFrame with columns ['time', 'signal']
-                     where signal is 1 for buy, -1 for sell
-            buy_color: Color for buy signals
-            sell_color: Color for sell signals
-        """
-        if self._chart is None:
-            print("No chart created yet. Call create_candlestick_chart first.")
-            return
-
-        for _, row in signals.iterrows():
-            if row['signal'] == 1:
-                self._chart.marker(time=row['time'], color=buy_color, shape='arrowUp')
-            elif row['signal'] == -1:
-                self._chart.marker(time=row['time'], color=sell_color, shape='arrowDown')
-
-    def add_line(
-        self,
-        data: pd.DataFrame,
-        name: str = "indicator",
-        color: str = 'blue',
-        width: int = 2
-    ) -> None:
-        """
-        Add a line indicator to the chart.
-
-        Args:
-            data: DataFrame with columns ['time', 'value']
-            name: Name of the indicator
-            color: Line color
-            width: Line width
-        """
-        if self._chart is None:
-            print("No chart created yet. Call create_candlestick_chart first.")
-            return
-
-        line = self._chart.create_line(name=name, color=color, width=width)
-        line.set(data)
-
-    def show(self, block: bool = True) -> None:
-        """
-        Display the chart.
-
-        Args:
-            block: Whether to block execution until chart is closed
-        """
-        if self._chart is None:
-            print("No chart created yet.")
-            return
-
-        self._chart.show(block=block)
-
-    def save_screenshot(self, filename: str) -> Optional[Path]:
-        """
-        Save a screenshot of the chart.
-
-        Args:
-            filename: Output filename
-
-        Returns:
-            Path to saved file, or None if failed
-        """
-        if self._chart is None:
-            print("No chart created yet.")
-            return None
-
-        ensure_directories()
-        output_path = BACKTEST_FIGURES / filename
-        self._chart.screenshot(str(output_path))
-        return output_path
-
-
-def load_ohlc_data(symbol: str = "BTCUSD") -> pd.DataFrame:
-    """
-    Load OHLC data for a given symbol.
-
-    Args:
-        symbol: Trading symbol (e.g., 'BTCUSD')
-
-    Returns:
-        DataFrame with OHLC data
-    """
-    from config.paths import BITCOIN_PARQUET, BITCOIN_CSV
-
-    # Try parquet first
-    if BITCOIN_PARQUET.exists():
-        df = pd.read_parquet(BITCOIN_PARQUET)
-    elif BITCOIN_CSV.exists():
-        df = pd.read_csv(BITCOIN_CSV)
-    else:
-        raise FileNotFoundError(f"No data file found for {symbol}")
-
-    # Ensure proper column names
-    column_mapping = {
-        'Open': 'open',
-        'High': 'high',
-        'Low': 'low',
-        'Close': 'close',
-        'Volume': 'volume'
-    }
-    df = df.rename(columns=column_mapping)
-
-    # Ensure time column
-    if 'time' not in df.columns:
-        if 'timestamp' in df.columns:
-            df['time'] = pd.to_datetime(df['timestamp'])
-        elif df.index.name == 'timestamp' or isinstance(df.index, pd.DatetimeIndex):
-            df['time'] = df.index
-        else:
-            df['time'] = df.index
-
-    return df
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                s.bind(('', port))
+                return port
+        except OSError:
+            continue
+    raise RuntimeError(f"No puerto libre encontrado entre {start_port}-{start_port+max_attempts}")
 
 
 def create_interactive_chart(
@@ -209,186 +37,409 @@ def create_interactive_chart(
     vis_data: Dict[str, Any],
     strategy_name: str,
     params: tuple,
-    output_path: Path
+    output_path: Path = None
 ) -> Optional[Path]:
     """
-    Generic function to create interactive charts for any strategy.
-
+    Genera gráfico HTML interactivo con Lightweight Charts.
+    
     Args:
-        ohlc_data: DataFrame with OHLC data (index should be DatetimeIndex)
-        vis_data: Dict returned by strategy.visualization() with keys:
-            - 'indicators': dict mapping name -> {'data': Series, 'color': str, 'panel': str}
-            - 'signals': Series with 1 (long), -1 (short), 0 (flat)
-        strategy_name: Name of strategy (for title)
-        params: Tuple of optimized parameters
-        output_path: Where to save HTML file
-
+        ohlc_data: DataFrame con OHLC data (index debe ser DatetimeIndex)
+        vis_data: Dict con 'indicators_in_price', 'indicators_off_price', 'signals'
+        strategy_name: Nombre de la estrategia
+        params: Tupla de parámetros
+        output_path: Ruta donde guardar HTML (opcional)
+    
     Returns:
-        Path to saved file, or None if failed
+        Path al archivo HTML generado
     """
-    try:
-        from lightweight_charts import Chart
-    except ImportError:
-        print("Warning: lightweight-charts not installed.")
-        print("Install with: pip install lightweight-charts")
-        return None
-
-    # Prepare OHLC data for lightweight-charts
+    
     df = ohlc_data.copy()
-
-    # Ensure we have the required columns
+    
+    # Validar columnas requeridas
     required_cols = ['open', 'high', 'low', 'close']
-    for col in required_cols:
-        if col not in df.columns:
-            raise ValueError(f"Missing required column: {col}")
-
-    # Convert index to 'time' column if needed
-    if 'time' not in df.columns:
-        if isinstance(df.index, pd.DatetimeIndex):
-            df = df.reset_index()
-            df = df.rename(columns={df.columns[0]: 'time'})
-        else:
-            df['time'] = df.index
-
-    # Create the main chart
-    chart = Chart(width=1400, height=800)
-
-    # Set OHLC data
-    chart.set(df[['time', 'open', 'high', 'low', 'close']])
-
-    # Process indicators
-    indicators = vis_data.get('indicators', {})
-    lower_panel_lines = []
-
-    for name, ind_spec in indicators.items():
-        data = ind_spec.get('data')
-        color = ind_spec.get('color', 'blue')
-        panel = ind_spec.get('panel', 'price')
-
+    if not all(col in df.columns for col in required_cols):
+        raise ValueError(f"DataFrame must have columns: {required_cols}")
+    
+    # Asegurar que el índice es DatetimeIndex
+    if not isinstance(df.index, pd.DatetimeIndex):
+        if 'timestamp' in df.columns:
+            df = df.set_index('timestamp')
+        df.index = pd.to_datetime(df.index)
+    
+    # Extraer componentes
+    indicators_in_price = vis_data.get('indicators_in_price', {})
+    indicators_off_price = vis_data.get('indicators_off_price', {})
+    signals = vis_data.get('signals', pd.Series())
+    
+    param_str = ', '.join([f'{p:.3f}' if isinstance(p, float) else str(p) for p in params])
+    
+    print(f"\n{'='*60}")
+    print(f"📊 {strategy_name.upper()} | {param_str}")
+    print(f"📈 Datos: {len(df):,} barras")
+    print(f"{'='*60}\n")
+    
+    # ==========================================
+    # 1. Preparar datos OHLC con timestamp Unix
+    # ==========================================
+    df_ohlc = df.copy()
+    df_ohlc['time'] = (df_ohlc.index.astype(int) // 10**9).astype(int)
+    df_ohlc = df_ohlc.dropna(subset=['open', 'high', 'low', 'close'])
+    df_ohlc = df_ohlc.sort_values('time')
+    df_ohlc = df_ohlc.drop_duplicates(subset=['time'], keep='first')
+    
+    ohlc_json = []
+    for _, row in df_ohlc[['time', 'open', 'high', 'low', 'close']].iterrows():
+        ohlc_json.append({
+            'time': int(row['time']),
+            'open': float(row['open']),
+            'high': float(row['high']),
+            'low': float(row['low']),
+            'close': float(row['close'])
+        })
+    
+    print(f"✓ OHLC: {len(ohlc_json):,} puntos")
+    
+    # ==========================================
+    # 2. Preparar indicadores in-price
+    # ==========================================
+    indicators_in_json = []
+    for name, spec in indicators_in_price.items():
+        data = spec.get('data')
         if data is None or data.empty:
             continue
-
-        # Prepare indicator data
+        
+        display_name = name.replace('_', ' ').title()
+        
+        # Convertir a timestamp Unix
         ind_df = pd.DataFrame({
-            'time': data.index if isinstance(data.index, pd.DatetimeIndex) else pd.to_datetime(data.index),
+            'time': (pd.to_datetime(data.index).astype(int) // 10**9).astype(int),
             'value': data.values
         }).dropna()
-
-        if panel == 'price':
-            # Overlay on price chart
-            line = chart.create_line(
-                name=name.replace('_', ' ').title(),
-                color=color,
-                width=2
-            )
-            line.set(ind_df)
-        elif panel == 'lower':
-            # Will be added to subchart
-            lower_panel_lines.append({
-                'name': name,
-                'data': ind_df,
-                'color': color
-            })
-
-    # Create subchart for lower panel indicators
-    if lower_panel_lines:
-        subchart = chart.create_subchart(
-            width=1,
-            height=0.3,
-            sync=True
-        )
-        for line_spec in lower_panel_lines:
-            line = subchart.create_line(
-                name=line_spec['name'].replace('_', ' ').title(),
-                color=line_spec['color'],
-                width=2
-            )
-            line.set(line_spec['data'])
-
-    # Add signal markers
-    signals = vis_data.get('signals', pd.Series())
+        ind_df = ind_df.drop_duplicates(subset=['time'], keep='first')
+        ind_df = ind_df.sort_values('time')
+        
+        indicators_in_json.append({
+            'name': display_name,
+            'color': spec.get('color', 'cyan'),
+            'data': ind_df.to_dict('records')
+        })
+        print(f"✓ {display_name}: {len(ind_df)} puntos")
+    
+    # ==========================================
+    # 3. Preparar indicadores off-price
+    # ==========================================
+    indicators_off_json = []
+    for name, spec in indicators_off_price.items():
+        data = spec.get('data')
+        if data is None or data.empty:
+            continue
+        
+        display_name = name.replace('_', ' ').title()
+        
+        # Convertir a timestamp Unix
+        ind_df = pd.DataFrame({
+            'time': (pd.to_datetime(data.index).astype(int) // 10**9).astype(int),
+            'value': data.values
+        }).dropna()
+        ind_df = ind_df.drop_duplicates(subset=['time'], keep='first')
+        ind_df = ind_df.sort_values('time')
+        
+        indicators_off_json.append({
+            'name': display_name,
+            'color': spec.get('color', 'orange'),
+            'data': ind_df.to_dict('records')
+        })
+        print(f"✓ {display_name} (subchart): {len(ind_df)} puntos")
+    
+    # ==========================================
+    # 4. Preparar marcadores de señales
+    # ==========================================
+    markers = []
     if not signals.empty:
-        # Detect signal changes (entries/exits)
         signal_changes = signals.diff().fillna(0)
-
         for idx in signals.index:
             sig_val = signals.loc[idx]
             change = signal_changes.loc[idx]
-
-            # Long entry (signal goes from non-1 to 1)
+            timestamp = int(pd.Timestamp(idx).value // 10**9)
+            
             if sig_val == 1 and change != 0:
-                try:
-                    chart.marker(
-                        time=idx,
-                        position='below',
-                        shape='arrow_up',
-                        color='green',
-                        text='LONG'
-                    )
-                except Exception:
-                    pass  # Skip if marker fails
-
-            # Short entry (signal goes from non-(-1) to -1)
+                markers.append({
+                    'time': timestamp,
+                    'position': 'belowBar',
+                    'color': '#26a69a',
+                    'shape': 'arrowUp',
+                    'text': 'L'
+                })
             elif sig_val == -1 and change != 0:
-                try:
-                    chart.marker(
-                        time=idx,
-                        position='above',
-                        shape='arrow_down',
-                        color='red',
-                        text='SHORT'
-                    )
-                except Exception:
-                    pass
-
-            # Exit (signal goes to 0 from non-zero)
-            elif sig_val == 0 and change != 0:
-                try:
-                    chart.marker(
-                        time=idx,
-                        position='inside',
-                        shape='circle',
-                        color='yellow',
-                        text='EXIT'
-                    )
-                except Exception:
-                    pass
-
-    # Add watermark with strategy name and parameters
-    param_str = ', '.join([
-        f'{p:.3f}' if isinstance(p, float) else str(p)
-        for p in params
-    ])
-    chart.watermark(f'{strategy_name.upper()} | Params: {param_str}')
-
-    # Save to HTML
+                markers.append({
+                    'time': timestamp,
+                    'position': 'aboveBar',
+                    'color': '#ef5350',
+                    'shape': 'arrowDown',
+                    'text': 'S'
+                })
+        print(f"✓ {len(markers)} señales")
+    
+    # ==========================================
+    # 5. Guardar archivos JSON
+    # ==========================================
+    if output_path is None:
+        ensure_directories()
+        output_dir = BACKTEST_FIGURES / strategy_name
+        output_dir.mkdir(parents=True, exist_ok=True)
+        output_path = output_dir / 'interactive_chart.html'
+    
     output_path = Path(output_path)
     output_path.parent.mkdir(parents=True, exist_ok=True)
+    
+    # Guardar JSON en archivos separados
+    data_file = output_path.parent / 'chart_data.json'
+    indicators_in_file = output_path.parent / 'indicators_in.json'
+    indicators_off_file = output_path.parent / 'indicators_off.json'
+    markers_file = output_path.parent / 'markers.json'
+    
+    with open(data_file, 'w', encoding='utf-8') as f:
+        json.dump(ohlc_json, f, ensure_ascii=False, allow_nan=False)
+    
+    with open(indicators_in_file, 'w', encoding='utf-8') as f:
+        json.dump(indicators_in_json, f, ensure_ascii=False, allow_nan=False)
+    
+    with open(indicators_off_file, 'w', encoding='utf-8') as f:
+        json.dump(indicators_off_json, f, ensure_ascii=False, allow_nan=False)
+    
+    with open(markers_file, 'w', encoding='utf-8') as f:
+        json.dump(markers, f, ensure_ascii=False, allow_nan=False)
+    
+    # DEBUG: Verificar qué se guardó
+    print(f"\n📂 Archivos JSON guardados:")
+    print(f"  - chart_data.json: {len(ohlc_json)} puntos")
+    print(f"  - indicators_in.json: {len(indicators_in_json)} indicadores")
+    print(f"  - indicators_off.json: {len(indicators_off_json)} indicadores")
+    for idx, ind in enumerate(indicators_off_json):
+        print(f"      [{idx}] {ind['name']}: {len(ind['data'])} puntos")
+    print(f"  - markers.json: {len(markers)} marcadores")
+    
+    has_subchart = len(indicators_off_json) > 0
+    
+    # ==========================================
+    # 6. Generar HTML
+    # ==========================================
+    html = f'''<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{strategy_name.upper()} - {param_str}</title>
+    <script src="https://unpkg.com/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
+    <style>
+        * {{ margin: 0; padding: 0; box-sizing: border-box; }}
+        body {{ 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            overflow: hidden;
+        }}
+        #container {{ 
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+        }}
+        #main-chart {{ flex: {"7" if has_subchart else "1"}; }}
+        #sub-chart {{ flex: 3; border-top: 1px solid #30363d; }}
+        .info {{
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: rgba(13, 17, 23, 0.95);
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 14px;
+            z-index: 1000;
+            border: 1px solid #30363d;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }}
+    </style>
+</head>
+<body>
+    <div class="info"><strong>{strategy_name.upper()}</strong> | {param_str}</div>
+    <div id="container">
+        <div id="main-chart"></div>
+        {"<div id='sub-chart'></div>" if has_subchart else ""}
+    </div>
+    <script>
+        // Cargar todos los datos desde archivos JSON
+        Promise.all([
+            fetch('chart_data.json').then(r => r.json()),
+            fetch('indicators_in.json').then(r => r.json()),
+            fetch('indicators_off.json').then(r => r.json()),
+            fetch('markers.json').then(r => r.json())
+        ]).then(([ohlcData, indicatorsIn, indicatorsOff, markers]) => {{
+            console.log('OHLC:', ohlcData.length, 'points');
+            console.log('In-price indicators:', indicatorsIn.length);
+            console.log('Off-price indicators:', indicatorsOff.length);
+            console.log('Markers:', markers.length);
+            
+            // Main chart
+            const mainChart = LightweightCharts.createChart(document.getElementById('main-chart'), {{
+                width: window.innerWidth,
+                height: {"window.innerHeight * 0.7" if has_subchart else "window.innerHeight"},
+                layout: {{
+                    background: {{ color: '#0d1117' }},
+                    textColor: '#c9d1d9',
+                }},
+                grid: {{
+                    vertLines: {{ color: 'rgba(197, 203, 206, 0.1)' }},
+                    horzLines: {{ color: 'rgba(197, 203, 206, 0.1)' }},
+                }},
+                crosshair: {{ mode: LightweightCharts.CrosshairMode.Normal }},
+                timeScale: {{ timeVisible: true, secondsVisible: false }},
+            }});
+            
+            // Candlestick series (API v4)
+            const candleSeries = mainChart.addCandlestickSeries({{
+                upColor: '#26a69a',
+                downColor: '#ef5350',
+                borderUpColor: '#26a69a',
+                borderDownColor: '#ef5350',
+                wickUpColor: '#26a69a',
+                wickDownColor: '#ef5350',
+            }});
+            candleSeries.setData(ohlcData);
+            
+            // Markers
+            if (markers.length > 0) {{
+                console.log('📍 Aplicando', markers.length, 'markers');
+                console.log('Muestra:', markers.slice(0, 2));
+                
+                if (typeof candleSeries.setMarkers === 'function') {{
+                    try {{
+                        candleSeries.setMarkers(markers);
+                        console.log('✓ Markers aplicados correctamente');
+                    }} catch (e) {{
+                        console.error('❌ Error aplicando markers:', e.message);
+                    }}
+                }} else {{
+                    console.error('❌ setMarkers no está disponible');
+                    console.log('Métodos disponibles:', Object.keys(candleSeries));
+                }}
+            }} else {{
+                console.log('⚠️  No hay markers para mostrar');
+            }}
+            
+            // In-price indicators (API v4)
+            indicatorsIn.forEach(ind => {{
+                const line = mainChart.addLineSeries({{
+                    color: ind.color,
+                    lineWidth: 2,
+                    title: ind.name,
+                }});
+                line.setData(ind.data);
+            }});
+            
+            {"" if not has_subchart else '''
+            // Subchart
+            const subChart = LightweightCharts.createChart(document.getElementById('sub-chart'), {
+                width: window.innerWidth,
+                height: window.innerHeight * 0.3,
+                layout: {
+                    background: { color: '#0d1117' },
+                    textColor: '#c9d1d9',
+                },
+                grid: {
+                    vertLines: { color: 'rgba(197, 203, 206, 0.1)' },
+                    horzLines: { color: 'rgba(197, 203, 206, 0.1)' },
+                },
+                timeScale: { timeVisible: true, secondsVisible: false },
+            });
+            
+            // Off-price indicators (API v4)
+            indicatorsOff.forEach(ind => {
+                const line = subChart.addLineSeries({
+                    color: ind.color,
+                    lineWidth: 2,
+                    title: ind.name,
+                });
+                line.setData(ind.data);
+            });
+            
+            // Sync timeframes
+            mainChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+                if (range) subChart.timeScale().setVisibleLogicalRange(range);
+            });
+            subChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+                if (range) mainChart.timeScale().setVisibleLogicalRange(range);
+            });
+            '''}
+            
+            // Responsive
+            window.addEventListener('resize', () => {{
+                mainChart.applyOptions({{ 
+                    width: window.innerWidth,
+                    height: {"window.innerHeight * 0.7" if has_subchart else "window.innerHeight"}
+                }});
+                {"subChart.applyOptions({ width: window.innerWidth, height: window.innerHeight * 0.3 });" if has_subchart else ""}
+            }});
+            
+            console.log('✅ Chart loaded successfully!');
+        }}).catch(error => {{
+            console.error('❌ Error loading data:', error);
+        }});
+    </script>
+</body>
+</html>'''
+    
+    # Guardar HTML
+    with open(output_path, 'w', encoding='utf-8') as f:
+        f.write(html)
+    
+    print(f"\n💾 Guardado: {output_path}\n")
+    
+    # Servir y abrir
+    serve_and_open(output_path)
+    
+    return output_path
 
+
+def serve_and_open(filepath: Path):
+    """Sirve HTML y abre navegador (WSL compatible)."""
+    
+    port = find_free_port()
+    
+    class QuietHandler(http.server.SimpleHTTPRequestHandler):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, directory=str(filepath.parent), **kwargs)
+        def log_message(self, format, *args):
+            pass
+    
+    httpd = socketserver.TCPServer(("", port), QuietHandler)
+    httpd.allow_reuse_address = True
+    
+    url = f"http://localhost:{port}/{filepath.name}"
+    
+    print(f"{'='*60}")
+    print(f"🌐 Servidor: http://localhost:{port}")
+    print(f"{'='*60}\n")
+    
+    # Abrir navegador (WSL -> Windows)
     try:
-        chart.save(str(output_path))
-        return output_path
-    except Exception as e:
-        print(f"Error saving chart: {e}")
-        return None
+        subprocess.Popen(['cmd.exe', '/c', 'start', url], 
+                        stdout=subprocess.DEVNULL, 
+                        stderr=subprocess.DEVNULL)
+        print(f"✓ Navegador abierto automáticamente")
+    except:
+        print(f"⚠️  Abre manualmente: {url}")
+    
+    print(f"\n💡 Presiona Ctrl+C para cerrar\n")
+    
+    try:
+        httpd.serve_forever()
+    except KeyboardInterrupt:
+        print("\n\n✓ Cerrando...")
+        httpd.shutdown()
+        httpd.server_close()
+        print("✓ Cerrado\n")
 
 
 if __name__ == "__main__":
-    # Example usage
-    print("Lightweight Charts Viewer")
-    print("=" * 50)
-
-    viewer = LightweightChartsViewer()
-
-    try:
-        data = load_ohlc_data("BTCUSD")
-        print(f"Loaded {len(data)} rows of data")
-
-        if viewer._has_lightweight_charts:
-            chart = viewer.create_candlestick_chart(data, title="BTCUSD Hourly")
-            viewer.show()
-        else:
-            print("Install lightweight-charts to view interactive charts:")
-            print("  pip install lightweight-charts")
-    except FileNotFoundError as e:
-        print(f"Data not found: {e}")
+    print("Lightweight Charts HTML Generator")

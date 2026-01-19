@@ -134,8 +134,11 @@ def visualization(ohlc: pd.DataFrame, kappa: float, lookback: int):
     Returns:
         dict with structure:
         {
-            'indicators': {
-                'name': {'data': pd.Series, 'color': str, 'panel': str}
+            'indicators_in_price': {
+                'name': {'data': pd.Series, 'color': str}
+            },
+            'indicators_off_price': {
+                'name': {'data': pd.Series, 'color': str}
             },
             'signals': pd.Series with values 1 (long), -1 (short), 0 (flat)
         }
@@ -155,10 +158,13 @@ def visualization(ohlc: pd.DataFrame, kappa: float, lookback: int):
     signals = signal(ohlc, kappa, lookback)
 
     return {
-        'indicators': {
-            'v_hawkes': {'data': v_hawk, 'color': 'yellow', 'panel': 'lower'},
-            'q05': {'data': q05, 'color': 'red', 'panel': 'lower'},
-            'q95': {'data': q95, 'color': 'blue', 'panel': 'lower'}
+        'indicators_in_price': {
+            # No indicators on price for Hawkes strategy
+        },
+        'indicators_off_price': {
+            'v_hawkes': {'data': v_hawk, 'color': 'yellow'},
+            'q05': {'data': q05, 'color': 'red'},
+            'q95': {'data': q95, 'color': 'cyan'}
         },
         'signals': signals
     }
