@@ -154,8 +154,16 @@ def visualization(ohlc: pd.DataFrame, kappa: float, lookback: int):
     norm_range = hl_range / atr
     v_hawk = hawkes_process(norm_range, kappa)
 
+    # CRÍTICO: v_hawk necesita warmup de atr (336) + norm_range
+    # Forzar NaN durante todo el periodo de warmup
+    v_hawk.iloc[:336] = np.nan
+
     q05 = v_hawk.rolling(lookback).quantile(0.05)
     q95 = v_hawk.rolling(lookback).quantile(0.95)
+
+    # Los quantiles necesitan warmup adicional de lookback sobre v_hawk
+    q05.iloc[:336 + lookback - 1] = np.nan
+    q95.iloc[:336 + lookback - 1] = np.nan
 
     # Calculate signals
     signals = signal(ohlc, kappa, lookback)

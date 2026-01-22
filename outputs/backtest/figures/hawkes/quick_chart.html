@@ -69,7 +69,13 @@
                     horzLines: { color: 'rgba(197, 203, 206, 0.1)' },
                 },
                 crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
-                timeScale: { timeVisible: true, secondsVisible: false },
+                timeScale: { 
+                    timeVisible: true, 
+                    secondsVisible: false,
+                    minBarSpacing: 0.001,
+                    rightOffset: 5,
+                    barSpacing: 6,
+                },
             });
 
             // ===================================================================
@@ -86,6 +92,7 @@
                     priceLineVisible: false,
                     lastValueVisible: false,
                     crosshairMarkerVisible: false,
+                    autoscaleInfoProvider: () => null,
                 });
 
                 const shadeData = [];
@@ -113,6 +120,7 @@
                 borderDownColor: '#ef5350',
                 wickUpColor: '#26a69a',
                 wickDownColor: '#ef5350',
+                priceLineVisible: false, 
             });
             candleSeries.setData(ohlcData);
             
@@ -145,7 +153,13 @@
                     vertLines: { color: 'rgba(197, 203, 206, 0.1)' },
                     horzLines: { color: 'rgba(197, 203, 206, 0.1)' },
                 },
-                timeScale: { timeVisible: true, secondsVisible: false },
+                timeScale: { 
+                    timeVisible: true, 
+                    secondsVisible: false,
+                    minBarSpacing: 0.001,
+                    rightOffset: 5,
+                    barSpacing: 6,
+                },
             });
             
             // Off-price indicators (API v4)
@@ -158,33 +172,28 @@
                     lastValueVisible: true,
                 });
                 
-                // Rellenar con null desde el inicio de OHLC hasta el primer dato válido
-                if (ind.data && ind.data.length > 0) {
-                    const firstIndicatorTime = ind.data[0].time;
-                    const firstOHLCTime = ohlcData[0].time;
+                // SOLUCIÓN: Asegurar que el primer timestamp coincida con OHLC
+                // Si el indicador tiene nulls al inicio, no hay problema porque
+                // ya comparten timestamps. El issue es que LWC calcula índices diferentes.
+                // Forzamos que todos usen el rango completo añadiendo punto invisible al inicio
+                const paddedData = [...ind.data];
+                
+                // Si el primer dato del indicador es null, añadir explícitamente
+                // un punto en el primer timestamp de OHLC
+                if (paddedData.length > 0 && ohlcData.length > 0) {
+                    const firstOhlcTime = ohlcData[0].time;
+                    const firstIndTime = paddedData[0].time;
                     
-                    // Si el indicador empieza después, añadir nulls al inicio
-                    const paddedData = [];
-                    if (firstIndicatorTime > firstOHLCTime) {
-                        // Añadir puntos null para todos los timestamps antes del primer dato
-                        ohlcData.forEach(bar => {
-                            if (bar.time < firstIndicatorTime) {
-                                paddedData.push({ time: bar.time, value: null });
-                            }
-                        });
+                    if (firstIndTime > firstOhlcTime) {
+                        // Insertar punto null al inicio para alinear índice lógico
+                        paddedData.unshift({ time: firstOhlcTime, value: null });
                     }
-        
-        // Añadir los datos reales del indicador
-        paddedData.push(...ind.data);
-        
-        line.setData(paddedData);
-        console.log('✓ Indicator', ind.name, ':', ind.data.length, 'points from', 
-                   new Date(ind.data[0].time * 1000).toISOString().split('T')[0], 
-                   'to', new Date(ind.data[ind.data.length-1].time * 1000).toISOString().split('T')[0]);
-    }
-});
+                }
+                
+                line.setData(paddedData);
+            });
             
-            // Sync timeframes (ORIGINAL - subscribeVisibleLogicalRangeChange)
+            // Sync timeframes (ORIGINAL)
             mainChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
                 if (range) subChart.timeScale().setVisibleLogicalRange(range);
             });

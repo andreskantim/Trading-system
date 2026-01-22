@@ -225,31 +225,19 @@ def create_interactive_chart(
         
         display_name = name.replace('_', ' ').title()
         
-        # Debug ANTES de eliminar NaN
-        nan_count_before = data.isna().sum()
-        total_before = len(data)
+        # Reindexar al índice completo de OHLC para tener los mismos timestamps
+        data_reindexed = data.reindex(df.index)
         
-        # Eliminar NaN directamente de la Serie
-        data_clean = data.dropna()
-        
-        # Debug DESPUÉS de eliminar NaN
-        nan_count_after = data_clean.isna().sum()
-        total_after = len(data_clean)
-        
-        if len(data_clean) == 0:
-            print(f"⚠️  {display_name}: todos NaN, omitiendo")
-            continue
-        
-        # Convertir a timestamp Unix (ahora sin NaN)
+        # Convertir directamente a timestamp Unix
         ind_df = pd.DataFrame({
-            'time': (pd.to_datetime(data_clean.index).astype(int) // 10**9).astype(int),
-            'value': data_clean.values
+            'time': (pd.to_datetime(data_reindexed.index).astype(int) // 10**9).astype(int),
+            'value': data_reindexed.values
         })
         ind_df = ind_df.drop_duplicates(subset=['time'], keep='first')
         ind_df = ind_df.sort_values('time')
         
-        # Verificar que no haya NaN en el JSON final
-        nan_in_json = ind_df['value'].isna().sum()
+        # Reemplazar NaN por None para JSON (se convierte a null)
+        ind_df['value'] = ind_df['value'].replace({np.nan: None})
         
         indicators_off_json.append({
             'name': display_name,
@@ -257,14 +245,12 @@ def create_interactive_chart(
             'data': ind_df.to_dict('records')
         })
         
-        # Debug: mostrar todo
-        first_date = data_clean.index[0]
-        last_date = data_clean.index[-1]
-        print(f"✓ {display_name} (subchart):")
-        print(f"    Antes: {total_before} puntos, {nan_count_before} NaN")
-        print(f"    Después dropna: {total_after} puntos, {nan_count_after} NaN")
-        print(f"    JSON final: {len(ind_df)} puntos, {nan_in_json} NaN")
-        print(f"    Rango: {first_date} a {last_date}")
+        # Debug
+        valid_count = data.notna().sum()
+        first_valid_idx = data.first_valid_index()
+        last_valid_idx = data.last_valid_index()
+        print(f"✓ {display_name} (subchart): {len(ind_df)} puntos totales, {valid_count} válidos")
+        print(f"    Rango válido: {first_valid_idx} a {last_valid_idx}")
     
     # ==========================================
     # 4. Calcular cumulative log returns
@@ -343,16 +329,6 @@ def create_interactive_chart(
                 })
         
         print(f"✓ {len(markers)} señales")
-        print(f"  Transiciones detectadas:")
-        for trans, count in transitions.items():
-            if count > 0:
-                print(f"    {trans}: {count}")
-        
-        # Debug: mostrar primeras y últimas señales
-        signal_values = signals.value_counts().to_dict()
-        print(f"  Distribución señales: {signal_values}")
-        print(f"  Primeras 10 señales: {signals.head(10).tolist()}")
-        print(f"  Últimas 10 señales: {signals.tail(10).tolist()}")
 
     # ==========================================
     # 5b. Extract trades for shading
@@ -395,16 +371,6 @@ def create_interactive_chart(
 
     with open(trades_file, 'w', encoding='utf-8') as f:
         json.dump(trades, f, ensure_ascii=False, allow_nan=False)
-    
-    # DEBUG: Verificar qué se guardó
-    print(f"\n📂 Archivos JSON guardados:")
-    print(f"  - chart_data.json: {len(ohlc_json)} puntos")
-    print(f"  - indicators_in.json: {len(indicators_in_json)} indicadores")
-    print(f"  - indicators_off.json: {len(indicators_off_json)} indicadores")
-    for idx, ind in enumerate(indicators_off_json):
-        print(f"      [{idx}] {ind['name']}: {len(ind['data'])} puntos")
-    print(f"  - markers.json: {len(markers)} marcadores")
-    print(f"  - trades.json: {len(trades)} trades")
     
     has_subchart = len(indicators_off_json) > 0
     
@@ -482,7 +448,13 @@ def create_interactive_chart(
                     horzLines: {{ color: 'rgba(197, 203, 206, 0.1)' }},
                 }},
                 crosshair: {{ mode: LightweightCharts.CrosshairMode.Normal }},
-                timeScale: {{ timeVisible: true, secondsVisible: false }},
+                timeScale: {{ 
+                    timeVisible: true, 
+                    secondsVisible: false,
+                    minBarSpacing: 0.001,
+                    rightOffset: 5,
+                    barSpacing: 6,
+                }},
             }});
 
             // ===================================================================
@@ -499,6 +471,7 @@ def create_interactive_chart(
                     priceLineVisible: false,
                     lastValueVisible: false,
                     crosshairMarkerVisible: false,
+                    autoscaleInfoProvider: () => null,
                 }});
 
                 const shadeData = [];
@@ -526,6 +499,7 @@ def create_interactive_chart(
                 borderDownColor: '#ef5350',
                 wickUpColor: '#26a69a',
                 wickDownColor: '#ef5350',
+                priceLineVisible: false, 
             }});
             candleSeries.setData(ohlcData);
             
@@ -558,7 +532,13 @@ def create_interactive_chart(
                     vertLines: { color: 'rgba(197, 203, 206, 0.1)' },
                     horzLines: { color: 'rgba(197, 203, 206, 0.1)' },
                 },
-                timeScale: { timeVisible: true, secondsVisible: false },
+                timeScale: { 
+                    timeVisible: true, 
+                    secondsVisible: false,
+                    minBarSpacing: 0.001,
+                    rightOffset: 5,
+                    barSpacing: 6,
+                },
             });
             
             // Off-price indicators (API v4)
@@ -571,33 +551,28 @@ def create_interactive_chart(
                     lastValueVisible: true,
                 });
                 
-                // Rellenar con null desde el inicio de OHLC hasta el primer dato válido
-                if (ind.data && ind.data.length > 0) {
-                    const firstIndicatorTime = ind.data[0].time;
-                    const firstOHLCTime = ohlcData[0].time;
+                // SOLUCIÓN: Asegurar que el primer timestamp coincida con OHLC
+                // Si el indicador tiene nulls al inicio, no hay problema porque
+                // ya comparten timestamps. El issue es que LWC calcula índices diferentes.
+                // Forzamos que todos usen el rango completo añadiendo punto invisible al inicio
+                const paddedData = [...ind.data];
+                
+                // Si el primer dato del indicador es null, añadir explícitamente
+                // un punto en el primer timestamp de OHLC
+                if (paddedData.length > 0 && ohlcData.length > 0) {
+                    const firstOhlcTime = ohlcData[0].time;
+                    const firstIndTime = paddedData[0].time;
                     
-                    // Si el indicador empieza después, añadir nulls al inicio
-                    const paddedData = [];
-                    if (firstIndicatorTime > firstOHLCTime) {
-                        // Añadir puntos null para todos los timestamps antes del primer dato
-                        ohlcData.forEach(bar => {
-                            if (bar.time < firstIndicatorTime) {
-                                paddedData.push({ time: bar.time, value: null });
-                            }
-                        });
+                    if (firstIndTime > firstOhlcTime) {
+                        // Insertar punto null al inicio para alinear índice lógico
+                        paddedData.unshift({ time: firstOhlcTime, value: null });
                     }
-        
-        // Añadir los datos reales del indicador
-        paddedData.push(...ind.data);
-        
-        line.setData(paddedData);
-        console.log('✓ Indicator', ind.name, ':', ind.data.length, 'points from', 
-                   new Date(ind.data[0].time * 1000).toISOString().split('T')[0], 
-                   'to', new Date(ind.data[ind.data.length-1].time * 1000).toISOString().split('T')[0]);
-    }
-});
+                }
+                
+                line.setData(paddedData);
+            });
             
-            // Sync timeframes (ORIGINAL - subscribeVisibleLogicalRangeChange)
+            // Sync timeframes (ORIGINAL)
             mainChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
                 if (range) subChart.timeScale().setVisibleLogicalRange(range);
             });
