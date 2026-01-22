@@ -69,6 +69,9 @@ def signal(ohlc: pd.DataFrame, kappa: float, lookback: int):
     Returns:
         Series con señales: 1 (long), -1 (short), 0 (flat)
     """
+    # Ensure lookback is integer for rolling window
+    lookback = int(lookback)
+
     high = np.log(ohlc["high"])
     low = np.log(ohlc["low"])
     close = np.log(ohlc["close"])
@@ -140,6 +143,9 @@ def visualization(ohlc: pd.DataFrame, kappa: float, lookback: int):
             'signals': pd.Series with values 1 (long), -1 (short), 0 (flat)
         }
     """
+    # Ensure lookback is integer for rolling window
+    lookback = int(lookback)
+
     # Calculate indicators
     high = np.log(ohlc["high"])
     low = np.log(ohlc["low"])

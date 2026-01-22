@@ -47,12 +47,14 @@
             fetch('chart_data.json').then(r => r.json()),
             fetch('indicators_in.json').then(r => r.json()),
             fetch('indicators_off.json').then(r => r.json()),
-            fetch('markers.json').then(r => r.json())
-        ]).then(([ohlcData, indicatorsIn, indicatorsOff, markers]) => {
+            fetch('markers.json').then(r => r.json()),
+            fetch('trades.json').then(r => r.json())
+        ]).then(([ohlcData, indicatorsIn, indicatorsOff, markers, trades]) => {
             console.log('OHLC:', ohlcData.length, 'points');
             console.log('In-price indicators:', indicatorsIn.length);
             console.log('Off-price indicators:', indicatorsOff.length);
             console.log('Markers:', markers.length);
+            console.log('Trades:', trades.length);
             
             // Main chart
             const mainChart = LightweightCharts.createChart(document.getElementById('main-chart'), {
@@ -69,6 +71,39 @@
                 crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
                 timeScale: { timeVisible: true, secondsVisible: false },
             });
+
+            // ===================================================================
+            // TRADE SHADING - Rectangles from entry price to exit price
+            // ===================================================================
+            trades.forEach((trade) => {
+                const topPrice = Math.max(trade.entry_price, trade.exit_price);
+                const bottomPrice = Math.min(trade.entry_price, trade.exit_price);
+                
+                const shadingSeries = mainChart.addHistogramSeries({
+                    color: trade.color,
+                    priceFormat: { type: 'price' },
+                    base: bottomPrice,
+                    priceLineVisible: false,
+                    lastValueVisible: false,
+                    crosshairMarkerVisible: false,
+                });
+
+                const shadeData = [];
+                ohlcData.forEach(bar => {
+                    if (bar.time >= trade.entry_time && bar.time <= trade.exit_time) {
+                        shadeData.push({
+                            time: bar.time,
+                            value: topPrice,
+                            color: trade.color
+                        });
+                    }
+                });
+
+                if (shadeData.length > 0) {
+                    shadingSeries.setData(shadeData);
+                }
+            });
+            console.log('✓ Trade shading applied:', trades.length, 'trades');
             
             // Candlestick series (API v4)
             const candleSeries = mainChart.addCandlestickSeries({
@@ -123,16 +158,33 @@
                     lastValueVisible: true,
                 });
                 
-                // Solo setear datos si hay datos válidos
+                // Rellenar con null desde el inicio de OHLC hasta el primer dato válido
                 if (ind.data && ind.data.length > 0) {
-                    line.setData(ind.data);
-                    console.log('✓ Indicator', ind.name, ':', ind.data.length, 'points from', 
-                               new Date(ind.data[0].time * 1000).toISOString().split('T')[0], 
-                               'to', new Date(ind.data[ind.data.length-1].time * 1000).toISOString().split('T')[0]);
-                }
-            });
+                    const firstIndicatorTime = ind.data[0].time;
+                    const firstOHLCTime = ohlcData[0].time;
+                    
+                    // Si el indicador empieza después, añadir nulls al inicio
+                    const paddedData = [];
+                    if (firstIndicatorTime > firstOHLCTime) {
+                        // Añadir puntos null para todos los timestamps antes del primer dato
+                        ohlcData.forEach(bar => {
+                            if (bar.time < firstIndicatorTime) {
+                                paddedData.push({ time: bar.time, value: null });
+                            }
+                        });
+                    }
+        
+        // Añadir los datos reales del indicador
+        paddedData.push(...ind.data);
+        
+        line.setData(paddedData);
+        console.log('✓ Indicator', ind.name, ':', ind.data.length, 'points from', 
+                   new Date(ind.data[0].time * 1000).toISOString().split('T')[0], 
+                   'to', new Date(ind.data[ind.data.length-1].time * 1000).toISOString().split('T')[0]);
+    }
+});
             
-            // Sync timeframes
+            // Sync timeframes (ORIGINAL - subscribeVisibleLogicalRangeChange)
             mainChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
                 if (range) subChart.timeScale().setVisibleLogicalRange(range);
             });

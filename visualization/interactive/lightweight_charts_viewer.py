@@ -6,7 +6,7 @@ Compatible con WSL, abre navegador automáticamente.
 """
 
 from pathlib import Path
-from typing import Optional, Dict, Any
+from typing import Optional, Dict, Any, List
 import pandas as pd
 import numpy as np
 import sys
@@ -19,6 +19,73 @@ import socket
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from config.paths import BACKTEST_FIGURES, ensure_directories
+
+
+def extract_trades_from_signals(signals: pd.Series, ohlc: pd.DataFrame) -> List[Dict]:
+    """
+    Extract individual trades from signals series for visualization.
+
+    Args:
+        signals: Series with 1 (long), -1 (short), 0 (flat)
+        ohlc: DataFrame with OHLC data
+
+    Returns:
+        List of trade dicts with entry/exit info and shading data
+    """
+    if signals.empty:
+        return []
+
+    trades = []
+    current_position = 0
+    entry_idx = None
+    entry_price = None
+
+    for i, idx in enumerate(signals.index):
+        sig = signals.loc[idx]
+
+        # Position change detected
+        if sig != current_position:
+            # Close existing position if we had one
+            if current_position != 0 and entry_idx is not None:
+                exit_price = ohlc.loc[idx, 'close'] if idx in ohlc.index else None
+                if exit_price is not None and entry_price is not None:
+                    # Calculate PnL
+                    if current_position == 1:  # Long
+                        pnl = exit_price - entry_price
+                        is_winner = pnl > 0
+                    else:  # Short
+                        pnl = entry_price - exit_price
+                        is_winner = pnl > 0
+
+                    entry_ts = int(pd.Timestamp(entry_idx).value // 10**9)
+                    exit_ts = int(pd.Timestamp(idx).value // 10**9)
+
+                    # Define colors with more opacity for better visibility
+                    win_color = 'rgba(38, 166, 154, 0.25)'  # Green
+                    loss_color = 'rgba(239, 83, 80, 0.25)'   # Red
+
+                    trades.append({
+                        'entry_time': entry_ts,
+                        'exit_time': exit_ts,
+                        'entry_price': float(entry_price),
+                        'exit_price': float(exit_price),
+                        'direction': int(current_position),
+                        'is_winner': bool(is_winner),
+                        'pnl': float(pnl),
+                        'color': win_color if is_winner else loss_color
+                    })
+
+            # Open new position
+            if sig != 0:
+                entry_idx = idx
+                entry_price = ohlc.loc[idx, 'close'] if idx in ohlc.index else None
+            else:
+                entry_idx = None
+                entry_price = None
+
+            current_position = sig
+
+    return trades
 
 
 def find_free_port(start_port=8000, max_attempts=10):
@@ -286,6 +353,14 @@ def create_interactive_chart(
         print(f"  Distribución señales: {signal_values}")
         print(f"  Primeras 10 señales: {signals.head(10).tolist()}")
         print(f"  Últimas 10 señales: {signals.tail(10).tolist()}")
+
+    # ==========================================
+    # 5b. Extract trades for shading
+    # ==========================================
+    trades = extract_trades_from_signals(signals, df)
+    winning_trades = len([t for t in trades if t['is_winner']])
+    losing_trades = len([t for t in trades if not t['is_winner']])
+    print(f"✓ {len(trades)} trades ({winning_trades} winners, {losing_trades} losers)")
         
     # ==========================================
     # 6. Guardar archivos JSON
@@ -304,6 +379,7 @@ def create_interactive_chart(
     indicators_in_file = output_path.parent / 'indicators_in.json'
     indicators_off_file = output_path.parent / 'indicators_off.json'
     markers_file = output_path.parent / 'markers.json'
+    trades_file = output_path.parent / 'trades.json'
     
     with open(data_file, 'w', encoding='utf-8') as f:
         json.dump(ohlc_json, f, ensure_ascii=False, allow_nan=False)
@@ -316,6 +392,9 @@ def create_interactive_chart(
     
     with open(markers_file, 'w', encoding='utf-8') as f:
         json.dump(markers, f, ensure_ascii=False, allow_nan=False)
+
+    with open(trades_file, 'w', encoding='utf-8') as f:
+        json.dump(trades, f, ensure_ascii=False, allow_nan=False)
     
     # DEBUG: Verificar qué se guardó
     print(f"\n📂 Archivos JSON guardados:")
@@ -325,6 +404,7 @@ def create_interactive_chart(
     for idx, ind in enumerate(indicators_off_json):
         print(f"      [{idx}] {ind['name']}: {len(ind['data'])} puntos")
     print(f"  - markers.json: {len(markers)} marcadores")
+    print(f"  - trades.json: {len(trades)} trades")
     
     has_subchart = len(indicators_off_json) > 0
     
@@ -380,12 +460,14 @@ def create_interactive_chart(
             fetch('chart_data.json').then(r => r.json()),
             fetch('indicators_in.json').then(r => r.json()),
             fetch('indicators_off.json').then(r => r.json()),
-            fetch('markers.json').then(r => r.json())
-        ]).then(([ohlcData, indicatorsIn, indicatorsOff, markers]) => {{
+            fetch('markers.json').then(r => r.json()),
+            fetch('trades.json').then(r => r.json())
+        ]).then(([ohlcData, indicatorsIn, indicatorsOff, markers, trades]) => {{
             console.log('OHLC:', ohlcData.length, 'points');
             console.log('In-price indicators:', indicatorsIn.length);
             console.log('Off-price indicators:', indicatorsOff.length);
             console.log('Markers:', markers.length);
+            console.log('Trades:', trades.length);
             
             // Main chart
             const mainChart = LightweightCharts.createChart(document.getElementById('main-chart'), {{
@@ -402,6 +484,39 @@ def create_interactive_chart(
                 crosshair: {{ mode: LightweightCharts.CrosshairMode.Normal }},
                 timeScale: {{ timeVisible: true, secondsVisible: false }},
             }});
+
+            // ===================================================================
+            // TRADE SHADING - Rectangles from entry price to exit price
+            // ===================================================================
+            trades.forEach((trade) => {{
+                const topPrice = Math.max(trade.entry_price, trade.exit_price);
+                const bottomPrice = Math.min(trade.entry_price, trade.exit_price);
+                
+                const shadingSeries = mainChart.addHistogramSeries({{
+                    color: trade.color,
+                    priceFormat: {{ type: 'price' }},
+                    base: bottomPrice,
+                    priceLineVisible: false,
+                    lastValueVisible: false,
+                    crosshairMarkerVisible: false,
+                }});
+
+                const shadeData = [];
+                ohlcData.forEach(bar => {{
+                    if (bar.time >= trade.entry_time && bar.time <= trade.exit_time) {{
+                        shadeData.push({{
+                            time: bar.time,
+                            value: topPrice,
+                            color: trade.color
+                        }});
+                    }}
+                }});
+
+                if (shadeData.length > 0) {{
+                    shadingSeries.setData(shadeData);
+                }}
+            }});
+            console.log('✓ Trade shading applied:', trades.length, 'trades');
             
             // Candlestick series (API v4)
             const candleSeries = mainChart.addCandlestickSeries({{
@@ -456,16 +571,33 @@ def create_interactive_chart(
                     lastValueVisible: true,
                 });
                 
-                // Solo setear datos si hay datos válidos
+                // Rellenar con null desde el inicio de OHLC hasta el primer dato válido
                 if (ind.data && ind.data.length > 0) {
-                    line.setData(ind.data);
-                    console.log('✓ Indicator', ind.name, ':', ind.data.length, 'points from', 
-                               new Date(ind.data[0].time * 1000).toISOString().split('T')[0], 
-                               'to', new Date(ind.data[ind.data.length-1].time * 1000).toISOString().split('T')[0]);
-                }
-            });
+                    const firstIndicatorTime = ind.data[0].time;
+                    const firstOHLCTime = ohlcData[0].time;
+                    
+                    // Si el indicador empieza después, añadir nulls al inicio
+                    const paddedData = [];
+                    if (firstIndicatorTime > firstOHLCTime) {
+                        // Añadir puntos null para todos los timestamps antes del primer dato
+                        ohlcData.forEach(bar => {
+                            if (bar.time < firstIndicatorTime) {
+                                paddedData.push({ time: bar.time, value: null });
+                            }
+                        });
+                    }
+        
+        // Añadir los datos reales del indicador
+        paddedData.push(...ind.data);
+        
+        line.setData(paddedData);
+        console.log('✓ Indicator', ind.name, ':', ind.data.length, 'points from', 
+                   new Date(ind.data[0].time * 1000).toISOString().split('T')[0], 
+                   'to', new Date(ind.data[ind.data.length-1].time * 1000).toISOString().split('T')[0]);
+    }
+});
             
-            // Sync timeframes
+            // Sync timeframes (ORIGINAL - subscribeVisibleLogicalRangeChange)
             mainChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
                 if (range) subChart.timeScale().setVisibleLogicalRange(range);
             });
