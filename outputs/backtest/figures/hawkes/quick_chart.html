@@ -84,21 +84,7 @@
             // Markers
             if (markers.length > 0) {
                 console.log('📍 Aplicando', markers.length, 'markers');
-                console.log('Muestra:', markers.slice(0, 2));
-                
-                if (typeof candleSeries.setMarkers === 'function') {
-                    try {
-                        candleSeries.setMarkers(markers);
-                        console.log('✓ Markers aplicados correctamente');
-                    } catch (e) {
-                        console.error('❌ Error aplicando markers:', e.message);
-                    }
-                } else {
-                    console.error('❌ setMarkers no está disponible');
-                    console.log('Métodos disponibles:', Object.keys(candleSeries));
-                }
-            } else {
-                console.log('⚠️  No hay markers para mostrar');
+                candleSeries.setMarkers(markers);
             }
             
             // In-price indicators (API v4)
@@ -133,8 +119,17 @@
                     color: ind.color,
                     lineWidth: 2,
                     title: ind.name,
+                    priceLineVisible: false,
+                    lastValueVisible: true,
                 });
-                line.setData(ind.data);
+                
+                // Solo setear datos si hay datos válidos
+                if (ind.data && ind.data.length > 0) {
+                    line.setData(ind.data);
+                    console.log('✓ Indicator', ind.name, ':', ind.data.length, 'points from', 
+                               new Date(ind.data[0].time * 1000).toISOString().split('T')[0], 
+                               'to', new Date(ind.data[ind.data.length-1].time * 1000).toISOString().split('T')[0]);
+                }
             });
             
             // Sync timeframes
@@ -144,6 +139,7 @@
             subChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
                 if (range) mainChart.timeScale().setVisibleLogicalRange(range);
             });
+            
             
             
             // Responsive

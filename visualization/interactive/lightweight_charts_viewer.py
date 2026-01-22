@@ -8,6 +8,7 @@ Compatible con WSL, abre navegador automáticamente.
 from pathlib import Path
 from typing import Optional, Dict, Any
 import pandas as pd
+import numpy as np
 import sys
 import json
 import http.server
@@ -71,6 +72,16 @@ def create_interactive_chart(
     indicators_off_price = vis_data.get('indicators_off_price', {})
     signals = vis_data.get('signals', pd.Series())
     
+    # Compatibilidad con formato legacy: 'indicators' con 'panel'
+    if 'indicators' in vis_data and (not indicators_in_price and not indicators_off_price):
+        legacy_indicators = vis_data.get('indicators', {})
+        for name, spec in legacy_indicators.items():
+            panel = spec.get('panel', 'price')
+            if panel in ['lower', 'off-price', 'subchart']:
+                indicators_off_price[name] = spec
+            else:
+                indicators_in_price[name] = spec
+    
     param_str = ', '.join([f'{p:.3f}' if isinstance(p, float) else str(p) for p in params])
     
     print(f"\n{'='*60}")
@@ -110,11 +121,18 @@ def create_interactive_chart(
         
         display_name = name.replace('_', ' ').title()
         
-        # Convertir a timestamp Unix
+        # Eliminar NaN directamente de la Serie
+        data_clean = data.dropna()
+        
+        if len(data_clean) == 0:
+            print(f"⚠️  {display_name}: todos NaN, omitiendo")
+            continue
+        
+        # Convertir a timestamp Unix (ahora sin NaN)
         ind_df = pd.DataFrame({
-            'time': (pd.to_datetime(data.index).astype(int) // 10**9).astype(int),
-            'value': data.values
-        }).dropna()
+            'time': (pd.to_datetime(data_clean.index).astype(int) // 10**9).astype(int),
+            'value': data_clean.values
+        })
         ind_df = ind_df.drop_duplicates(subset=['time'], keep='first')
         ind_df = ind_df.sort_values('time')
         
@@ -123,7 +141,11 @@ def create_interactive_chart(
             'color': spec.get('color', 'cyan'),
             'data': ind_df.to_dict('records')
         })
-        print(f"✓ {display_name}: {len(ind_df)} puntos")
+        
+        # Debug: mostrar rango temporal del indicador
+        first_date = data_clean.index[0]
+        last_date = data_clean.index[-1]
+        print(f"✓ {display_name}: {len(ind_df)} puntos ({first_date} a {last_date})")
     
     # ==========================================
     # 3. Preparar indicadores off-price
@@ -136,33 +158,93 @@ def create_interactive_chart(
         
         display_name = name.replace('_', ' ').title()
         
-        # Convertir a timestamp Unix
+        # Debug ANTES de eliminar NaN
+        nan_count_before = data.isna().sum()
+        total_before = len(data)
+        
+        # Eliminar NaN directamente de la Serie
+        data_clean = data.dropna()
+        
+        # Debug DESPUÉS de eliminar NaN
+        nan_count_after = data_clean.isna().sum()
+        total_after = len(data_clean)
+        
+        if len(data_clean) == 0:
+            print(f"⚠️  {display_name}: todos NaN, omitiendo")
+            continue
+        
+        # Convertir a timestamp Unix (ahora sin NaN)
         ind_df = pd.DataFrame({
-            'time': (pd.to_datetime(data.index).astype(int) // 10**9).astype(int),
-            'value': data.values
-        }).dropna()
+            'time': (pd.to_datetime(data_clean.index).astype(int) // 10**9).astype(int),
+            'value': data_clean.values
+        })
         ind_df = ind_df.drop_duplicates(subset=['time'], keep='first')
         ind_df = ind_df.sort_values('time')
+        
+        # Verificar que no haya NaN en el JSON final
+        nan_in_json = ind_df['value'].isna().sum()
         
         indicators_off_json.append({
             'name': display_name,
             'color': spec.get('color', 'orange'),
             'data': ind_df.to_dict('records')
         })
-        print(f"✓ {display_name} (subchart): {len(ind_df)} puntos")
+        
+        # Debug: mostrar todo
+        first_date = data_clean.index[0]
+        last_date = data_clean.index[-1]
+        print(f"✓ {display_name} (subchart):")
+        print(f"    Antes: {total_before} puntos, {nan_count_before} NaN")
+        print(f"    Después dropna: {total_after} puntos, {nan_count_after} NaN")
+        print(f"    JSON final: {len(ind_df)} puntos, {nan_in_json} NaN")
+        print(f"    Rango: {first_date} a {last_date}")
     
     # ==========================================
-    # 4. Preparar marcadores de señales
+    # 4. Calcular cumulative log returns
+    # ==========================================
+    if not signals.empty:
+        # Calcular log returns
+        log_returns = np.log(df['close']).diff().shift(-1)
+        
+        # Multiplicar por señales
+        strategy_returns = signals * log_returns
+        
+        # Eliminar NaN antes de acumular
+        strategy_returns_clean = strategy_returns.fillna(0)
+        
+        # Cumulative sum
+        cumulative_log = strategy_returns_clean.cumsum()
+        
+        # Mostrar estadísticas
+        final_cumulative = cumulative_log.iloc[-1] if len(cumulative_log) > 0 else 0
+        print(f"✓ Cumulative Log Returns: {final_cumulative:.6f}")
+    
+    # ==========================================
+    # 5. Preparar marcadores de señales
     # ==========================================
     markers = []
     if not signals.empty:
-        signal_changes = signals.diff().fillna(0)
-        for idx in signals.index:
+        prev_signal = 0  # Empezamos asumiendo flat o primera señal
+        
+        # Debug: contar tipos de transiciones
+        transitions = {'0->1': 0, '0->-1': 0, '1->0': 0, '-1->0': 0, '1->-1': 0, '-1->1': 0}
+        
+        for i, idx in enumerate(signals.index):
             sig_val = signals.loc[idx]
-            change = signal_changes.loc[idx]
-            timestamp = int(pd.Timestamp(idx).value // 10**9)
             
-            if sig_val == 1 and change != 0:
+            # Obtener señal anterior (si existe)
+            if i > 0:
+                prev_signal = signals.iloc[i-1]
+            
+            # Registrar transición
+            if prev_signal != sig_val:
+                trans_key = f'{int(prev_signal)}->{int(sig_val)}'
+                if trans_key in transitions:
+                    transitions[trans_key] += 1
+            
+            # Long entry (cualquier transición a 1)
+            if sig_val == 1 and prev_signal != 1:
+                timestamp = int(pd.Timestamp(idx).value // 10**9)
                 markers.append({
                     'time': timestamp,
                     'position': 'belowBar',
@@ -170,7 +252,10 @@ def create_interactive_chart(
                     'shape': 'arrowUp',
                     'text': 'L'
                 })
-            elif sig_val == -1 and change != 0:
+            
+            # Short entry (cualquier transición a -1)
+            elif sig_val == -1 and prev_signal != -1:
+                timestamp = int(pd.Timestamp(idx).value // 10**9)
                 markers.append({
                     'time': timestamp,
                     'position': 'aboveBar',
@@ -178,10 +263,32 @@ def create_interactive_chart(
                     'shape': 'arrowDown',
                     'text': 'S'
                 })
+            
+            # Exit (transición a 0 desde cualquier posición)
+            elif sig_val == 0 and prev_signal != 0:
+                timestamp = int(pd.Timestamp(idx).value // 10**9)
+                markers.append({
+                    'time': timestamp,
+                    'position': 'belowBar' if prev_signal == 1 else 'aboveBar',
+                    'color': '#ffa726',
+                    'shape': 'circle',
+                    'text': 'X'
+                })
+        
         print(f"✓ {len(markers)} señales")
-    
+        print(f"  Transiciones detectadas:")
+        for trans, count in transitions.items():
+            if count > 0:
+                print(f"    {trans}: {count}")
+        
+        # Debug: mostrar primeras y últimas señales
+        signal_values = signals.value_counts().to_dict()
+        print(f"  Distribución señales: {signal_values}")
+        print(f"  Primeras 10 señales: {signals.head(10).tolist()}")
+        print(f"  Últimas 10 señales: {signals.tail(10).tolist()}")
+        
     # ==========================================
-    # 5. Guardar archivos JSON
+    # 6. Guardar archivos JSON
     # ==========================================
     if output_path is None:
         ensure_directories()
@@ -222,7 +329,7 @@ def create_interactive_chart(
     has_subchart = len(indicators_off_json) > 0
     
     # ==========================================
-    # 6. Generar HTML
+    # 7. Generar HTML
     # ==========================================
     html = f'''<!DOCTYPE html>
 <html lang="en">
@@ -310,21 +417,7 @@ def create_interactive_chart(
             // Markers
             if (markers.length > 0) {{
                 console.log('📍 Aplicando', markers.length, 'markers');
-                console.log('Muestra:', markers.slice(0, 2));
-                
-                if (typeof candleSeries.setMarkers === 'function') {{
-                    try {{
-                        candleSeries.setMarkers(markers);
-                        console.log('✓ Markers aplicados correctamente');
-                    }} catch (e) {{
-                        console.error('❌ Error aplicando markers:', e.message);
-                    }}
-                }} else {{
-                    console.error('❌ setMarkers no está disponible');
-                    console.log('Métodos disponibles:', Object.keys(candleSeries));
-                }}
-            }} else {{
-                console.log('⚠️  No hay markers para mostrar');
+                candleSeries.setMarkers(markers);
             }}
             
             // In-price indicators (API v4)
@@ -359,8 +452,17 @@ def create_interactive_chart(
                     color: ind.color,
                     lineWidth: 2,
                     title: ind.name,
+                    priceLineVisible: false,
+                    lastValueVisible: true,
                 });
-                line.setData(ind.data);
+                
+                // Solo setear datos si hay datos válidos
+                if (ind.data && ind.data.length > 0) {
+                    line.setData(ind.data);
+                    console.log('✓ Indicator', ind.name, ':', ind.data.length, 'points from', 
+                               new Date(ind.data[0].time * 1000).toISOString().split('T')[0], 
+                               'to', new Date(ind.data[ind.data.length-1].time * 1000).toISOString().split('T')[0]);
+                }
             });
             
             // Sync timeframes
@@ -371,6 +473,7 @@ def create_interactive_chart(
                 if (range) mainChart.timeScale().setVisibleLogicalRange(range);
             });
             '''}
+            
             
             // Responsive
             window.addEventListener('resize', () => {{

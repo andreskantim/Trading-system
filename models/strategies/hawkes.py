@@ -35,28 +35,25 @@ def hawkes_process(data: pd.Series, kappa: float):
 def hawkes_vol_signal(close: pd.Series, v_hawk: pd.Series, lookback: int):
     """
     Genera señales basadas en volatilidad Hawkes
-
-    Args:
-        close: Serie de precios de cierre
-        v_hawk: Serie de volatilidad procesada por Hawkes
-        lookback: Periodo de lookback para cuantiles
-
-    Returns:
-        Serie con señales
     """
     signal = np.zeros(len(close))
     q05 = v_hawk.rolling(lookback).quantile(0.05)
     q95 = v_hawk.rolling(lookback).quantile(0.95)
     last_below = -1
     curr_sig = 0
+    
     for i in range(1, len(close)):
+        # Si volatilidad cae por debajo de q05 -> salir a flat
         if v_hawk.iloc[i] < q05.iloc[i]:
             last_below = i
             curr_sig = 0
-        if v_hawk.iloc[i] > q95.iloc[i] and v_hawk.iloc[i-1] <= q95.iloc[i-1] and last_below > 0:
+        # Solo generar NUEVA señal si estamos en FLAT (curr_sig == 0)
+        elif curr_sig == 0 and v_hawk.iloc[i] > q95.iloc[i] and v_hawk.iloc[i-1] <= q95.iloc[i-1] and last_below > 0:
             change = close.iloc[i] - close.iloc[last_below]
             curr_sig = 1 if change > 0 else -1
+        
         signal[i] = curr_sig
+    
     return pd.Series(signal, index=close.index)
 
 

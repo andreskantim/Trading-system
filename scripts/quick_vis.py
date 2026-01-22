@@ -32,7 +32,7 @@ def main():
     if paths['parquet'].exists():
         df = pd.read_parquet(paths['parquet'])
     else:
-        df = pd.read_csv(paths['csv'], index_col=0, parse_dates=True)
+        df = pd.read_csv(paths['csv'])
     
     print(f"✓ Datos cargados: {len(df)} filas")
     
