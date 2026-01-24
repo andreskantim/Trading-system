@@ -65,8 +65,8 @@ def optimize(ohlc: pd.DataFrame):
     best_threshold = 0.0
     r = np.log(ohlc['close']).diff().shift(-1)
 
-    for period in [6, 9, 12, 14, 21, 28]:
-        for threshold in [0.0, 0.5, 1.0, 1.5, 2.0]:
+    for period in [6, 12, 24, 48, 72]:
+        for threshold in [2.0, 3.0, 4.0, 5.0]:
             sig = signal(ohlc, period, threshold)
             sig_rets = sig * r
             pos = sig_rets[sig_rets > 0].sum()

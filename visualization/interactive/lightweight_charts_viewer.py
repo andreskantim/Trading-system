@@ -34,6 +34,21 @@ def extract_trades_from_signals(signals: pd.Series, ohlc: pd.DataFrame) -> List[
     """
     if signals.empty:
         return []
+    
+    # Contar cambios de señal (número de operaciones)
+    signal_changes = (signals != signals.shift()).sum()
+    
+    # Calcular duración en años
+    time_span = (ohlc.index[-1] - ohlc.index[0]).total_seconds() / (365.25 * 24 * 3600)
+    
+    # Señales por año
+    signals_per_year = signal_changes / time_span if time_span > 0 else 0
+    
+    # Si hay más de 100 señales/año, NO renderizar sombreados
+    if signals_per_year > 100:
+        print(f"⚠️  SOMBREADOS DESACTIVADOS: {signal_changes} señales en {time_span:.1f} años = {signals_per_year:.0f} señales/año")
+        print(f"    (Se mostrarán solo las flechas de señales)")
+        return []
 
     trades = []
     current_position = 0
@@ -42,6 +57,10 @@ def extract_trades_from_signals(signals: pd.Series, ohlc: pd.DataFrame) -> List[
 
     for i, idx in enumerate(signals.index):
         sig = signals.loc[idx]
+
+        # Skip NaN values during warmup period
+        if pd.isna(sig):
+            continue
 
         # Position change detected
         if sig != current_position:
@@ -290,7 +309,7 @@ def create_interactive_chart(
                 prev_signal = signals.iloc[i-1]
             
             # Registrar transición
-            if prev_signal != sig_val:
+            if prev_signal != sig_val and not pd.isna(sig_val) and not pd.isna(prev_signal):
                 trans_key = f'{int(prev_signal)}->{int(sig_val)}'
                 if trans_key in transitions:
                     transitions[trans_key] += 1

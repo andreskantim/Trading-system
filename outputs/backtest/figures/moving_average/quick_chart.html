@@ -47,12 +47,14 @@
             fetch('chart_data.json').then(r => r.json()),
             fetch('indicators_in.json').then(r => r.json()),
             fetch('indicators_off.json').then(r => r.json()),
-            fetch('markers.json').then(r => r.json())
-        ]).then(([ohlcData, indicatorsIn, indicatorsOff, markers]) => {
+            fetch('markers.json').then(r => r.json()),
+            fetch('trades.json').then(r => r.json())
+        ]).then(([ohlcData, indicatorsIn, indicatorsOff, markers, trades]) => {
             console.log('OHLC:', ohlcData.length, 'points');
             console.log('In-price indicators:', indicatorsIn.length);
             console.log('Off-price indicators:', indicatorsOff.length);
             console.log('Markers:', markers.length);
+            console.log('Trades:', trades.length);
             
             // Main chart
             const mainChart = LightweightCharts.createChart(document.getElementById('main-chart'), {
@@ -67,8 +69,48 @@
                     horzLines: { color: 'rgba(197, 203, 206, 0.1)' },
                 },
                 crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
-                timeScale: { timeVisible: true, secondsVisible: false },
+                timeScale: { 
+                    timeVisible: true, 
+                    secondsVisible: false,
+                    minBarSpacing: 0.001,
+                    rightOffset: 5,
+                    barSpacing: 6,
+                },
             });
+
+            // ===================================================================
+            // TRADE SHADING - Rectangles from entry price to exit price
+            // ===================================================================
+            trades.forEach((trade) => {
+                const topPrice = Math.max(trade.entry_price, trade.exit_price);
+                const bottomPrice = Math.min(trade.entry_price, trade.exit_price);
+                
+                const shadingSeries = mainChart.addHistogramSeries({
+                    color: trade.color,
+                    priceFormat: { type: 'price' },
+                    base: bottomPrice,
+                    priceLineVisible: false,
+                    lastValueVisible: false,
+                    crosshairMarkerVisible: false,
+                    autoscaleInfoProvider: () => null,
+                });
+
+                const shadeData = [];
+                ohlcData.forEach(bar => {
+                    if (bar.time >= trade.entry_time && bar.time <= trade.exit_time) {
+                        shadeData.push({
+                            time: bar.time,
+                            value: topPrice,
+                            color: trade.color
+                        });
+                    }
+                });
+
+                if (shadeData.length > 0) {
+                    shadingSeries.setData(shadeData);
+                }
+            });
+            console.log('✓ Trade shading applied:', trades.length, 'trades');
             
             // Candlestick series (API v4)
             const candleSeries = mainChart.addCandlestickSeries({
@@ -78,27 +120,14 @@
                 borderDownColor: '#ef5350',
                 wickUpColor: '#26a69a',
                 wickDownColor: '#ef5350',
+                priceLineVisible: false, 
             });
             candleSeries.setData(ohlcData);
             
             // Markers
             if (markers.length > 0) {
                 console.log('📍 Aplicando', markers.length, 'markers');
-                console.log('Muestra:', markers.slice(0, 2));
-                
-                if (typeof candleSeries.setMarkers === 'function') {
-                    try {
-                        candleSeries.setMarkers(markers);
-                        console.log('✓ Markers aplicados correctamente');
-                    } catch (e) {
-                        console.error('❌ Error aplicando markers:', e.message);
-                    }
-                } else {
-                    console.error('❌ setMarkers no está disponible');
-                    console.log('Métodos disponibles:', Object.keys(candleSeries));
-                }
-            } else {
-                console.log('⚠️  No hay markers para mostrar');
+                candleSeries.setMarkers(markers);
             }
             
             // In-price indicators (API v4)
@@ -110,6 +139,7 @@
                 });
                 line.setData(ind.data);
             });
+            
             
             
             

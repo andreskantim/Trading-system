@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RSI - 14.000, 30.000, 70.000</title>
+    <title>RSI - 28, 30, 80</title>
     <script src="https://unpkg.com/lightweight-charts@4.1.3/dist/lightweight-charts.standalone.production.js"></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -36,7 +36,7 @@
     </style>
 </head>
 <body>
-    <div class="info"><strong>RSI</strong> | 14.000, 30.000, 70.000</div>
+    <div class="info"><strong>RSI</strong> | 28, 30, 80</div>
     <div id="container">
         <div id="main-chart"></div>
         <div id='sub-chart'></div>
@@ -47,12 +47,14 @@
             fetch('chart_data.json').then(r => r.json()),
             fetch('indicators_in.json').then(r => r.json()),
             fetch('indicators_off.json').then(r => r.json()),
-            fetch('markers.json').then(r => r.json())
-        ]).then(([ohlcData, indicatorsIn, indicatorsOff, markers]) => {
+            fetch('markers.json').then(r => r.json()),
+            fetch('trades.json').then(r => r.json())
+        ]).then(([ohlcData, indicatorsIn, indicatorsOff, markers, trades]) => {
             console.log('OHLC:', ohlcData.length, 'points');
             console.log('In-price indicators:', indicatorsIn.length);
             console.log('Off-price indicators:', indicatorsOff.length);
             console.log('Markers:', markers.length);
+            console.log('Trades:', trades.length);
             
             // Main chart
             const mainChart = LightweightCharts.createChart(document.getElementById('main-chart'), {
@@ -67,13 +69,48 @@
                     horzLines: { color: 'rgba(197, 203, 206, 0.1)' },
                 },
                 crosshair: { mode: LightweightCharts.CrosshairMode.Normal },
-                timeScale: {
-                    timeVisible: true,
+                timeScale: { 
+                    timeVisible: true, 
                     secondsVisible: false,
-                    fixLeftEdge: false,
-                    fixRightEdge: false,
+                    minBarSpacing: 0.001,
+                    rightOffset: 5,
+                    barSpacing: 6,
                 },
             });
+
+            // ===================================================================
+            // TRADE SHADING - Rectangles from entry price to exit price
+            // ===================================================================
+            trades.forEach((trade) => {
+                const topPrice = Math.max(trade.entry_price, trade.exit_price);
+                const bottomPrice = Math.min(trade.entry_price, trade.exit_price);
+                
+                const shadingSeries = mainChart.addHistogramSeries({
+                    color: trade.color,
+                    priceFormat: { type: 'price' },
+                    base: bottomPrice,
+                    priceLineVisible: false,
+                    lastValueVisible: false,
+                    crosshairMarkerVisible: false,
+                    autoscaleInfoProvider: () => null,
+                });
+
+                const shadeData = [];
+                ohlcData.forEach(bar => {
+                    if (bar.time >= trade.entry_time && bar.time <= trade.exit_time) {
+                        shadeData.push({
+                            time: bar.time,
+                            value: topPrice,
+                            color: trade.color
+                        });
+                    }
+                });
+
+                if (shadeData.length > 0) {
+                    shadingSeries.setData(shadeData);
+                }
+            });
+            console.log('✓ Trade shading applied:', trades.length, 'trades');
             
             // Candlestick series (API v4)
             const candleSeries = mainChart.addCandlestickSeries({
@@ -83,6 +120,7 @@
                 borderDownColor: '#ef5350',
                 wickUpColor: '#26a69a',
                 wickDownColor: '#ef5350',
+                priceLineVisible: false, 
             });
             candleSeries.setData(ohlcData);
             
@@ -115,14 +153,15 @@
                     vertLines: { color: 'rgba(197, 203, 206, 0.1)' },
                     horzLines: { color: 'rgba(197, 203, 206, 0.1)' },
                 },
-                timeScale: {
-                    timeVisible: true,
+                timeScale: { 
+                    timeVisible: true, 
                     secondsVisible: false,
-                    fixLeftEdge: false,
-                    fixRightEdge: false,
+                    minBarSpacing: 0.001,
+                    rightOffset: 5,
+                    barSpacing: 6,
                 },
             });
-
+            
             // Off-price indicators (API v4)
             indicatorsOff.forEach(ind => {
                 const line = subChart.addLineSeries({
@@ -133,41 +172,34 @@
                     lastValueVisible: true,
                 });
                 
-                // Solo setear datos si hay datos válidos
-                if (ind.data && ind.data.length > 0) {
-                    line.setData(ind.data);
-                    console.log('✓ Indicator', ind.name, ':', ind.data.length, 'points from', 
-                               new Date(ind.data[0].time * 1000).toISOString().split('T')[0], 
-                               'to', new Date(ind.data[ind.data.length-1].time * 1000).toISOString().split('T')[0]);
+                // SOLUCIÓN: Asegurar que el primer timestamp coincida con OHLC
+                // Si el indicador tiene nulls al inicio, no hay problema porque
+                // ya comparten timestamps. El issue es que LWC calcula índices diferentes.
+                // Forzamos que todos usen el rango completo añadiendo punto invisible al inicio
+                const paddedData = [...ind.data];
+                
+                // Si el primer dato del indicador es null, añadir explícitamente
+                // un punto en el primer timestamp de OHLC
+                if (paddedData.length > 0 && ohlcData.length > 0) {
+                    const firstOhlcTime = ohlcData[0].time;
+                    const firstIndTime = paddedData[0].time;
+                    
+                    if (firstIndTime > firstOhlcTime) {
+                        // Insertar punto null al inicio para alinear índice lógico
+                        paddedData.unshift({ time: firstOhlcTime, value: null });
+                    }
                 }
+                
+                line.setData(paddedData);
             });
             
-            // Sync timeframes using TIME-BASED synchronization (not logical index)
-            // This ensures proper alignment even when indicator data starts later than OHLC
-            let isSyncing = false;
-
-            mainChart.timeScale().subscribeVisibleTimeRangeChange(timeRange => {
-                if (isSyncing || !timeRange) return;
-                isSyncing = true;
-                subChart.timeScale().setVisibleRange(timeRange);
-                isSyncing = false;
+            // Sync timeframes (ORIGINAL)
+            mainChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+                if (range) subChart.timeScale().setVisibleLogicalRange(range);
             });
-
-            subChart.timeScale().subscribeVisibleTimeRangeChange(timeRange => {
-                if (isSyncing || !timeRange) return;
-                isSyncing = true;
-                mainChart.timeScale().setVisibleRange(timeRange);
-                isSyncing = false;
+            subChart.timeScale().subscribeVisibleLogicalRangeChange(range => {
+                if (range) mainChart.timeScale().setVisibleLogicalRange(range);
             });
-
-            // Initial sync: fit main chart to full data range, then sync subchart
-            mainChart.timeScale().fitContent();
-            setTimeout(() => {
-                const mainRange = mainChart.timeScale().getVisibleRange();
-                if (mainRange) {
-                    subChart.timeScale().setVisibleRange(mainRange);
-                }
-            }, 100);
             
             
             

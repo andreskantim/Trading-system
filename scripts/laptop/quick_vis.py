@@ -49,39 +49,7 @@ def main():
 
     # 4. Generar Visualización
     if hasattr(strat, 'visualization'):
-        vis_data_raw = strat.visualization(df, *best_params)
-        
-        # CONVERTIR FORMATO VIEJO A NUEVO
-        # Formato viejo: {'indicators': {'name': {'data': ..., 'color': ..., 'panel': 'price'/'lower'}}}
-        # Formato nuevo: {'indicators_in_price': {...}, 'indicators_off_price': {...}}
-        
-        vis_data = {
-            'indicators_in_price': {},
-            'indicators_off_price': {},
-            'signals': vis_data_raw.get('signals', pd.Series())
-        }
-        
-        # Si tiene 'indicators' (formato viejo), convertir
-        if 'indicators' in vis_data_raw:
-            for name, spec in vis_data_raw['indicators'].items():
-                panel = spec.get('panel', 'price')
-                if panel == 'price':
-                    vis_data['indicators_in_price'][name] = {
-                        'data': spec['data'],
-                        'color': spec.get('color', 'cyan')
-                    }
-                else:  # panel == 'lower' o cualquier otro
-                    vis_data['indicators_off_price'][name] = {
-                        'data': spec['data'],
-                        'color': spec.get('color', 'orange')
-                    }
-        
-        # Si ya tiene el formato nuevo, usarlo directamente
-        if 'indicators_in_price' in vis_data_raw:
-            vis_data['indicators_in_price'].update(vis_data_raw['indicators_in_price'])
-        if 'indicators_off_price' in vis_data_raw:
-            vis_data['indicators_off_price'].update(vis_data_raw['indicators_off_price'])
-        
+        vis_data = strat.visualization(df, *best_params)
         output_path = BACKTEST_FIGURES / strat_name / 'quick_chart.html'
         
         res = create_interactive_chart(
