@@ -93,7 +93,7 @@ def test_models_imports():
             test_result("Import strategy modules", False, str(e))
 
         try:
-            from models import filters
+            from models import indicators
             test_result("Import models.filters", True)
         except ImportError as e:
             test_result("Import models.filters", False, str(e))

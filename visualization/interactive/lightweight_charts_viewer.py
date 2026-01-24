@@ -1,5 +1,17 @@
 """
-Lightweight Charts Viewer - Versión Final
+Lightweight Charts Viewer - v1.2
+
+CAMBIOS v1.2:
+- Números del eje Y centrados mediante alignLabels: true en rightPriceScale
+
+CAMBIOS v1.1:
+- Añadido width fijo (80px) en rightPriceScale para igualar ancho de escala de precios
+- fontSize: 12 en layout de ambos charts
+- Ahora la columna de números del eje Y tiene el mismo ancho horizontal
+
+CAMBIOS v1.0:
+- Tamaño de fuente unificado (fontSize: 12) en layout de ambos charts
+- Eliminado rightPriceScale innecesario que causaba inconsistencias
 
 Genera HTML con TradingView Lightweight Charts usando timestamp Unix.
 Compatible con WSL, abre navegador automáticamente.
@@ -461,6 +473,7 @@ def create_interactive_chart(
                 layout: {{
                     background: {{ color: '#0d1117' }},
                     textColor: '#c9d1d9',
+                    fontSize: 12,
                 }},
                 grid: {{
                     vertLines: {{ color: 'rgba(197, 203, 206, 0.1)' }},
@@ -473,6 +486,15 @@ def create_interactive_chart(
                     minBarSpacing: 0.001,
                     rightOffset: 5,
                     barSpacing: 6,
+                }},
+                rightPriceScale: {{
+                    borderVisible: false,
+                    scaleMargins: {{
+                        top: 0.1,
+                        bottom: 0.1,
+                    }},
+                    minimumWidth: 80,
+                    alignLabels: true,
                 }},
             }});
 
@@ -546,6 +568,7 @@ def create_interactive_chart(
                 layout: {
                     background: { color: '#0d1117' },
                     textColor: '#c9d1d9',
+                    fontSize: 12,
                 },
                 grid: {
                     vertLines: { color: 'rgba(197, 203, 206, 0.1)' },
@@ -557,6 +580,15 @@ def create_interactive_chart(
                     minBarSpacing: 0.001,
                     rightOffset: 5,
                     barSpacing: 6,
+                },
+                rightPriceScale: {
+                    borderVisible: false,
+                    scaleMargins: {
+                        top: 0.1,
+                        bottom: 0.1,
+                    },
+                    minimumWidth: 80,
+                    alignLabels: true,
                 },
             });
             
@@ -671,4 +703,4 @@ def serve_and_open(filepath: Path):
 
 
 if __name__ == "__main__":
-    print("Lightweight Charts HTML Generator")
+    print("Lightweight Charts HTML Generator - v1.0")

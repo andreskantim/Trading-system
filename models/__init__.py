@@ -3,10 +3,6 @@ Models module for Trading-System.
 
 Contains:
 - strategies/: Trading strategy implementations
-- filters/: Signal filtering modules
+- indicators/: Indicators without strategies
 """
-
-from models import strategies
-from models import filters
-
-__all__ = ['strategies', 'filters']
+__all__ = ['strategies', 'indicators']
