@@ -224,9 +224,74 @@ def ensure_exchange_dirs():
 ensure_exchange_dirs()
 
 
+# ====================================================================
+# GRUPOS DE TICKERS POR IMPORTANCIA
+# ====================================================================
+# Basado en volumen y capitalización de mercado
+
+# Top 10 cryptos (máxima liquidez y volumen)
+CRYPTO_10 = [
+    'BTC',   # Bitcoin
+    'ETH',   # Ethereum
+    'BNB',   # Binance Coin
+    'SOL',   # Solana
+    'XRP',   # Ripple
+    'ADA',   # Cardano
+    'DOGE',  # Dogecoin
+    'TRX',   # Tron
+    'AVAX',  # Avalanche
+    'DOT'    # Polkadot
+]
+
+# Top 25 cryptos (alta liquidez)
+CRYPTO_25 = CRYPTO_10 + [
+    'MATIC', # Polygon
+    'LINK',  # Chainlink
+    'UNI',   # Uniswap
+    'LTC',   # Litecoin
+    'ATOM',  # Cosmos
+    'XLM',   # Stellar
+    'ETC',   # Ethereum Classic
+    'FIL',   # Filecoin
+    'HBAR',  # Hedera
+    'VET',   # VeChain
+    'ALGO',  # Algorand
+    'AAVE',  # Aave
+    'GRT',   # The Graph
+    'SAND',  # Sandbox
+    'MANA'   # Decentraland
+]
+
+# Todos los cryptos configurados
+CRYPTO_ALL = get_all_symbols()
+
+# Diccionario de grupos para fácil acceso
+TICKER_GROUPS = {
+    'crypto_10': CRYPTO_10,
+    'crypto_25': CRYPTO_25,
+    'crypto_all': CRYPTO_ALL
+}
+
+
+def get_ticker_group(group_name: str) -> list:
+    """
+    Obtiene lista de tickers de un grupo.
+
+    Args:
+        group_name: Nombre del grupo ('crypto_10', 'crypto_25', 'crypto_all')
+
+    Returns:
+        Lista de símbolos de tickers
+    """
+    return TICKER_GROUPS.get(group_name, [])
+
+
 if __name__ == '__main__':
     print(f"Total tickers: {len(CRYPTO_TICKERS)}")
     print(f"Exchanges: {list(EXCHANGES.keys())}")
+    print(f"\nGrupos disponibles:")
+    for name, tickers in TICKER_GROUPS.items():
+        print(f"  {name}: {len(tickers)} tickers")
     print(f"\nTop 5 tickers:")
     for t in CRYPTO_TICKERS[:5]:
         print(f"  {t['symbol']}: kraken={t['kraken']}, binance={t['binance']}")

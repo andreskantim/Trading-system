@@ -1,9 +1,18 @@
+#!/usr/bin/env python3
 """
-Versión GENÉRICA del análisis Walk-Forward MCPT sin Dask.
-Permite elegir la estrategia desde línea de comandos.
-Uso: python walkforward_permutation.py <estrategia>
-Ejemplo: python walkforward_permutation.py donchian
-         python walkforward_permutation.py moving_average
+Walk-Forward MCPT Analysis
+
+Backtest walk-forward con test de permutaciones Monte Carlo (MCPT).
+Optimiza en período de entrenamiento y evalúa en período de walk-forward.
+
+Si no se especifican fechas, divide los datos 50/50 automáticamente.
+
+Usage:
+    python walkforward_permutation.py --ticker BTC --strategy donchian
+    python walkforward_permutation.py --ticker ETH --strategy hawkes --n-permutations 500
+    python walkforward_permutation.py --ticker SOL --strategy moving_average \\
+        --start-train 01/01/2018 --end-train 31/12/2020 \\
+        --start-walk 01/01/2021 --end-walk 31/12/2023
 """
 
 import pandas as pd
@@ -13,56 +22,55 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import os
 import sys
+import json
 from pathlib import Path
 import time
 from multiprocessing import Pool, cpu_count
 from tqdm import tqdm
 import importlib
+import argparse
 
+# Agregar directorio raíz al path
+project_root = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(project_root))
 
-# Agregar directorio padre al path
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
-
-# Importar configuración de rutas
-from config.paths import (
-    BITCOIN_PARQUET,
-    BACKTEST_FIGURES,
-    get_plot_path, ensure_directories
-)
-
+from config.paths import BACKTEST_FIGURES, BACKTEST_RESULTS, ensure_directories
 from backtest.mcpt.bar_permute import get_permutation
+from utils.data_loader import load_ticker_data, get_available_date_range
 
 
-# Variables globales para el worker (cargadas una sola vez por worker)
+# Variables globales para el worker
 _strategy_module = None
 _df = None
 _train_window = None
 _real_wf_pf = None
 
+
 def _init_worker(strategy_name, df_data, df_index, df_columns, train_window, real_wf_pf):
     """Inicializa el worker con el módulo de estrategia y datos"""
     global _strategy_module, _df, _train_window, _real_wf_pf
     _strategy_module = importlib.import_module(f'models.strategies.{strategy_name}')
-    # Crear DataFrame UNA SOLA VEZ por worker
     _df = pd.DataFrame(df_data, index=df_index, columns=df_columns)
     _train_window = train_window
     _real_wf_pf = real_wf_pf
 
 
-# Función para procesar una permutación (debe estar en nivel módulo para pickle)
-def walkforward_strategy(ohlc: pd.DataFrame, strategy, train_lookback: int = 24 * 365 * 4, train_step: int = 24 * 60):
+def walkforward_strategy(ohlc: pd.DataFrame, strategy, train_lookback: int, train_step: int = None):
     """
     Implementa walk-forward optimization genérica
 
     Args:
         ohlc: DataFrame con datos OHLC
-        strategy: Módulo de estrategia con funciones signal y optimize
+        strategy: Módulo de estrategia
         train_lookback: Ventana de entrenamiento en barras
-        train_step: Paso entre re-optimizaciones en barras
+        train_step: Paso entre re-optimizaciones (default: train_lookback // 12)
 
     Returns:
         Array con señales walk-forward
     """
+    if train_step is None:
+        train_step = max(train_lookback // 12, 24 * 30)  # Mínimo 30 días
+
     n = len(ohlc)
     wf_signal = np.full(n, np.nan)
     tmp_signal = None
@@ -70,9 +78,8 @@ def walkforward_strategy(ohlc: pd.DataFrame, strategy, train_lookback: int = 24 
     next_train = train_lookback
     for i in range(next_train, n):
         if i == next_train:
-            result = strategy.optimize(ohlc.iloc[i-train_lookback:i])
-            # Último valor es siempre el PF, el resto son parámetros
-            best_params = result[:-1]
+            result = strategy.optimize(ohlc.iloc[i - train_lookback:i])
+            best_params = result[:-1]  # Último valor es PF
             tmp_signal = strategy.signal(ohlc, *best_params)
             next_train += train_step
 
@@ -81,15 +88,14 @@ def walkforward_strategy(ohlc: pd.DataFrame, strategy, train_lookback: int = 24 
     return wf_signal
 
 
-def process_walkforward_permutation_generic(perm_i):
-    """Procesa una permutación individual de walk-forward - VERSIÓN OPTIMIZADA REAL"""
-    # Usar variables globales (ya cargadas en initializer)
+def process_walkforward_permutation(perm_i):
+    """Procesa una permutación individual de walk-forward"""
     strategy = _strategy_module
-    df_perm = _df.copy()  # Copiar para no modificar el original
+    df_perm = _df.copy()
     train_window = _train_window
     real_wf_pf = _real_wf_pf
 
-    # Ejecutar permutación CON SEED para reproducibilidad
+    # Permutar desde el inicio del período de walk-forward
     wf_perm = get_permutation(df_perm, start_index=train_window, seed=perm_i)
 
     # Calcular returns y señales
@@ -105,220 +111,331 @@ def process_walkforward_permutation_generic(perm_i):
     else:
         perm_pf = pos / neg
 
-    # Calcular cumulative returns
-    cum_rets = perm_rets.cumsum().values  # Convertir a numpy array
+    # Cumulative returns
+    cum_rets = perm_rets.cumsum().values
 
     is_better = 1 if perm_pf >= real_wf_pf else 0
     return perm_pf, is_better, cum_rets
 
 
-if __name__ == '__main__':
-    print("\n" + "="*70)
-    print("WALK-FORWARD MCPT - VERSIÓN GENÉRICA (sin Dask)")
-    print("="*70 + "\n")
+def save_results(results_dict: dict, ticker: str, strategy_name: str, output_dir: Path):
+    """Guarda resultados en JSON"""
+    output_dir.mkdir(parents=True, exist_ok=True)
 
-    # Validar argumentos de línea de comandos
-    if len(sys.argv) < 2:
-        print("ERROR: Debes especificar la estrategia")
-        print("Uso: python walkforward_permutation.py <estrategia.py>")
-        print("Ejemplo: python walkforward_permutation.py donchian.py")
-        print("         python walkforward_permutation.py moving_average.py")
-        sys.exit(1)
+    results_file = output_dir / f'{ticker}_walkforward_results.json'
+    with open(results_file, 'w') as f:
+        json.dump(results_dict, f, indent=2)
 
-    strategy_file = sys.argv[1]
+    print(f"  Resultados guardados: {results_file}")
+    return results_file
 
-    # Remover extensión .py si está presente
-    if strategy_file.endswith('.py'):
-        strategy_name = strategy_file[:-3]
+
+def print_summary(results_dict: dict):
+    """Imprime resumen de resultados"""
+    print("\n" + "=" * 70)
+    print("RESUMEN MCPT WALK-FORWARD")
+    print("=" * 70)
+    print(f"  Ticker:            {results_dict['ticker']}")
+    print(f"  Estrategia:        {results_dict['strategy']}")
+    print(f"  Período total:     {results_dict['period']['start']} - {results_dict['period']['end']}")
+    print(f"  Velas totales:     {results_dict['n_candles']:,}")
+    print(f"  Train window:      {results_dict['train_window']:,} velas")
+    print(f"  Permutaciones:     {results_dict['n_permutations']}")
+    print(f"  Real PF:           {results_dict['real_pf']:.4f}")
+    print(f"  P-Value:           {results_dict['p_value']:.4f}")
+
+    if results_dict['p_value'] < 0.05:
+        print(f"  Significativo (p < 0.05)")
     else:
-        strategy_name = strategy_file
+        print(f"  NO significativo (p >= 0.05)")
 
-    # Intentar importar el módulo de la estrategia
+    print("=" * 70)
+
+
+def parse_args():
+    """Parse command line arguments."""
+    parser = argparse.ArgumentParser(
+        description='MCPT Walk-Forward Analysis',
+        formatter_class=argparse.RawDescriptionHelpFormatter,
+        epilog=__doc__
+    )
+    parser.add_argument(
+        '--ticker',
+        type=str,
+        required=True,
+        help='Ticker a analizar (ej: BTC, ETH, SOL)'
+    )
+    parser.add_argument(
+        '--strategy',
+        type=str,
+        required=True,
+        help='Estrategia a testear (ej: donchian, hawkes)'
+    )
+    parser.add_argument(
+        '--start-train',
+        type=str,
+        help='Fecha inicio entrenamiento DD/MM/YYYY'
+    )
+    parser.add_argument(
+        '--end-train',
+        type=str,
+        help='Fecha fin entrenamiento DD/MM/YYYY'
+    )
+    parser.add_argument(
+        '--start-walk',
+        type=str,
+        help='Fecha inicio walk-forward DD/MM/YYYY'
+    )
+    parser.add_argument(
+        '--end-walk',
+        type=str,
+        help='Fecha fin walk-forward DD/MM/YYYY'
+    )
+    parser.add_argument(
+        '--n-permutations',
+        type=int,
+        default=1000,
+        help='Número de permutaciones (default: 1000, walk-forward es lento)'
+    )
+    parser.add_argument(
+        '--n-workers',
+        type=int,
+        default=None,
+        help='Número de workers (default: auto)'
+    )
+    return parser.parse_args()
+
+
+if __name__ == '__main__':
+    args = parse_args()
+
+    print("\n" + "=" * 70)
+    print("MCPT WALK-FORWARD ANALYSIS")
+    print("=" * 70 + "\n")
+
+    strategy_name = args.strategy.replace('.py', '')
+
+    # Importar estrategia
     try:
         strategy = importlib.import_module(f'models.strategies.{strategy_name}')
-        print(f"✓ Estrategia cargada: {strategy_file}")
+        print(f"Estrategia cargada: {strategy_name}")
     except ModuleNotFoundError:
-        print(f"ERROR: No se encontró el módulo '{strategy_name}.py'")
-        print("Estrategias disponibles: donchian, moving_average, tree_strat, hawkes, donchian_aft_loss")
+        print(f"ERROR: No se encontró el módulo '{strategy_name}'")
         sys.exit(1)
 
-    # Verificar que el módulo tiene las funciones requeridas
     if not hasattr(strategy, 'signal') or not hasattr(strategy, 'optimize'):
-        print(f"ERROR: El módulo '{strategy_name}' debe tener las funciones 'signal' y 'optimize'")
+        print(f"ERROR: '{strategy_name}' debe tener funciones 'signal' y 'optimize'")
         sys.exit(1)
 
-    # Asegurar directorios
     ensure_directories()
 
-    # Configuración de workers - usar TODOS los cores
+    # Configuración de workers
     total_cpus = cpu_count()
-    n_workers = int(os.getenv('N_WORKERS', total_cpus))
-
-    print(f"\nConfiguración:")
-    print(f"  CPUs disponibles: {total_cpus}")
-    print(f"  Workers a usar:   {n_workers}")
-    print(f"  (Cambiar con: N_WORKERS=4 python {Path(__file__).name} {strategy_file})")
-    print("="*70 + "\n")
-    sys.stdout.flush()
+    n_workers = args.n_workers if args.n_workers else min(15, total_cpus)
+    n_permutations = args.n_permutations
 
     # Cargar datos
-    print("Cargando datos...")
-    df = pd.read_parquet(BITCOIN_PARQUET)
-    df.index = df.index.astype('datetime64[s]')
-    df = df[(df.index.year >= 2018) & (df.index.year < 2024)]
-    print(f"✓ Datos cargados: {len(df)} filas (2018-2023)\n")
+    print(f"\nCargando datos de {args.ticker}...")
 
-    # Configuración walk-forward
-    train_window = 24 * 365 * 4  # 4 years of hourly data
+    start_available, end_available = get_available_date_range(args.ticker)
+    if start_available:
+        print(f"  Rango disponible: {start_available} - {end_available}")
 
-    print("="*70)
-    print("ANÁLISIS WALK-FORWARD")
-    print("="*70)
-    print(f"  Datos totales: {len(df)} períodos ({len(df)/24/365:.1f} años)")
-    print(f"  Train window: {train_window} períodos ({train_window/24/365:.1f} años)")
+    # Determinar fechas - auto-split 50/50 si no se especifican
+    if args.start_train and args.end_train and args.start_walk and args.end_walk:
+        # Usar fechas proporcionadas
+        df_full = load_ticker_data(args.ticker, start_date=args.start_train, end_date=args.end_walk)
+        train_start = pd.Timestamp(args.start_train, dayfirst=True)
+        train_end = pd.Timestamp(args.end_train, dayfirst=True)
+        walk_start = pd.Timestamp(args.start_walk, dayfirst=True)
+        walk_end = pd.Timestamp(args.end_walk, dayfirst=True)
+        print(f"  Usando fechas proporcionadas")
+    else:
+        # Auto-split 50/50
+        try:
+            df_full = load_ticker_data(args.ticker)
+        except (FileNotFoundError, ValueError) as e:
+            print(f"ERROR: {e}")
+            sys.exit(1)
 
-    # Calcular estrategia real
-    df['r'] = np.log(df['close']).diff().shift(-1)
-    df['wf_signal'] = walkforward_strategy(df, strategy, train_lookback=train_window)
-    wf_rets = df['wf_signal'] * df['r']
-    real_wf_pf = wf_rets[wf_rets > 0].sum() / wf_rets[wf_rets < 0].abs().sum()
+        mid_idx = len(df_full) // 2
+        mid_date = df_full.index[mid_idx]
+
+        train_start = df_full.index.min()
+        train_end = mid_date
+        walk_start = df_full.index[mid_idx + 1]
+        walk_end = df_full.index.max()
+
+        print(f"  Auto-split 50/50:")
+        print(f"    Train: {train_start.strftime('%d/%m/%Y')} - {train_end.strftime('%d/%m/%Y')}")
+        print(f"    Walk:  {walk_start.strftime('%d/%m/%Y')} - {walk_end.strftime('%d/%m/%Y')}")
+
+    print(f"  Datos cargados: {len(df_full):,} velas")
+    print(f"  Desde: {df_full.index.min()}")
+    print(f"  Hasta: {df_full.index.max()}")
+
+    # Calcular train_window (número de velas en período de train)
+    df_train = df_full[df_full.index <= train_end]
+    train_window = len(df_train)
+
+    print(f"\nConfiguración:")
+    print(f"  Workers:       {n_workers}")
+    print(f"  Permutaciones: {n_permutations}")
+    print(f"  Train window:  {train_window:,} velas ({train_window/24/365:.1f} años)")
+    print("=" * 70 + "\n")
+    sys.stdout.flush()
+
+    # Walk-forward analysis real
+    print("Ejecutando walk-forward real...")
+
+    df_full['r'] = np.log(df_full['close']).diff().shift(-1)
+    df_full['wf_signal'] = walkforward_strategy(df_full, strategy, train_lookback=train_window)
+    wf_rets = df_full['wf_signal'] * df_full['r']
+
+    # Profit factor
+    pos = wf_rets[wf_rets > 0].sum()
+    neg = wf_rets[wf_rets < 0].abs().sum()
+    real_wf_pf = pos / neg if neg != 0 else (np.inf if pos > 0 else 0.0)
     real_cum_rets = wf_rets.cumsum()
 
-    print(f"  Real Profit Factor: {real_wf_pf:.4f}")
-    print("="*70 + "\n")
+    print(f"  Real PF: {real_wf_pf:.4f}")
+    print("=" * 70 + "\n")
     sys.stdout.flush()
 
     # MCPT
-    n_permutations = 200
-    print(f"Ejecutando Walk-Forward MCPT con {n_permutations} permutaciones usando {n_workers} workers...")
-    print()
-    sys.stdout.flush()
+    print(f"Ejecutando Walk-Forward MCPT con {n_permutations} permutaciones...")
 
-    # Preparar datos para el initializer
-    df_data = df.values
-    df_index = df.index
-    df_columns = df.columns.tolist()
-
-    # OPTIMIZACIÓN CLAVE: Solo pasar índices, los datos van en initializer
+    df_data = df_full.values
+    df_index = df_full.index
+    df_columns = df_full.columns.tolist()
     args_list = list(range(n_permutations))
 
-    # Procesar con multiprocessing
     start_time = time.time()
-
-    print("="*70)
-    print("PROGRESO")
-    print("="*70)
-    print(f"  Inicio: {time.strftime('%H:%M:%S')}")
-    print("="*70 + "\n")
-
-    n_tasks = len(args_list)
-    results = []  # crea la lista vacía donde se guardarán los resultados
-
-    # Chunksize más pequeño para mejor distribución de carga
+    results = []
     chunksize = max(1, n_permutations // (n_workers * 10))
 
-    # CLAVE: Pasar datos en initializer, no en args
     with Pool(processes=n_workers,
               initializer=_init_worker,
               initargs=(strategy_name, df_data, df_index, df_columns, train_window, real_wf_pf)) as pool:
-        # tqdm envuelve pool.imap_unordered para mostrar progreso
-        for result in tqdm(pool.imap_unordered(process_walkforward_permutation_generic, args_list, chunksize=chunksize),
-                        total=n_tasks,
-                        desc="Procesando tareas",
-                        ncols=80):
+        for result in tqdm(pool.imap_unordered(process_walkforward_permutation, args_list, chunksize=chunksize),
+                          total=len(args_list),
+                          desc="Procesando",
+                          ncols=80):
             results.append(result)
 
     total_time = time.time() - start_time
-    print(f"\nTiempo total: {total_time:.0f}s")
 
     # Análisis de resultados
     permuted_pfs = [pf for pf, _, _ in results]
     perm_better_count = 1 + sum(is_better for _, is_better, _ in results)
     perm_cum_rets = [cum_rets for _, _, cum_rets in results]
-    walkforward_mcpt_pval = perm_better_count / n_permutations
+    p_value = perm_better_count / n_permutations
 
-    print("="*70)
-    print("RESULTADOS MCPT")
-    print("="*70)
-    print(f"  Permutaciones:     {len(results)}")
-    print(f"  Mejores que real:  {perm_better_count}")
-    print(f"  P-Value:           {walkforward_mcpt_pval:.4f}")
-    print(f"  Tiempo total:      {total_time:.1f}s ({total_time/60:.1f} min)")
-    print(f"  Velocidad:         {len(results)/total_time:.1f} tareas/s")
+    # Preparar resultados
+    results_dict = {
+        'ticker': args.ticker,
+        'strategy': strategy_name,
+        'period': {
+            'start': str(df_full.index.min()),
+            'end': str(df_full.index.max())
+        },
+        'train_period': {
+            'start': str(train_start),
+            'end': str(train_end)
+        },
+        'walk_period': {
+            'start': str(walk_start),
+            'end': str(walk_end)
+        },
+        'n_candles': len(df_full),
+        'train_window': train_window,
+        'n_permutations': n_permutations,
+        'real_pf': float(real_wf_pf),
+        'p_value': float(p_value),
+        'mean_perm_pf': float(np.mean(permuted_pfs)),
+        'std_perm_pf': float(np.std(permuted_pfs)),
+        'perm_better_count': int(perm_better_count),
+        'execution_time_seconds': float(total_time),
+        'significant': p_value < 0.05
+    }
 
-    if walkforward_mcpt_pval < 0.05:
-        print(f"  ✅ Significativo (p < 0.05)")
-    else:
-        print(f"  ⚠️  NO significativo (p >= 0.05)")
+    # Guardar resultados
+    output_dir = BACKTEST_RESULTS / strategy_name
+    save_results(results_dict, args.ticker, strategy_name, output_dir)
 
-    print("="*70 + "\n")
-    sys.stdout.flush()
+    # Imprimir resumen
+    print_summary(results_dict)
 
-    # Generar gráfico
-    print("Generando gráfico...")
+    # Generar gráficos
+    print("\nGenerando gráficos...")
+
+    fig_dir = BACKTEST_FIGURES / strategy_name
+    fig_dir.mkdir(parents=True, exist_ok=True)
+
+    # Gráfico 1: Histograma de PFs
     plt.style.use('dark_background')
     fig, ax = plt.subplots(figsize=(12, 7))
 
-    ax.hist(permuted_pfs, bins=50, color='steelblue',
-            alpha=0.7, edgecolor='white', label='Permutations')
-
-    ax.axvline(real_wf_pf, color='red', linestyle='--',
-               linewidth=2.5, label=f'Real PF: {real_wf_pf:.4f}')
+    ax.hist(permuted_pfs, bins=50, color='steelblue', alpha=0.7, edgecolor='white', label='Permutations')
+    ax.axvline(real_wf_pf, color='red', linestyle='--', linewidth=2.5, label=f'Real PF: {real_wf_pf:.4f}')
 
     mean_perm = np.mean(permuted_pfs)
-    ax.axvline(mean_perm, color='yellow', linestyle=':',
-               linewidth=2, alpha=0.7, label=f'Mean Perm: {mean_perm:.4f}')
+    ax.axvline(mean_perm, color='yellow', linestyle=':', linewidth=2, alpha=0.7, label=f'Mean: {mean_perm:.4f}')
 
     ax.set_xlabel("Profit Factor", fontsize=12)
     ax.set_ylabel("Frequency", fontsize=12)
-    ax.set_title(f"Walk-Forward MCPT ({strategy_file.replace('.py', '')}) | P-Value: {walkforward_mcpt_pval:.4f} | "
-                 f"{'Significant' if walkforward_mcpt_pval < 0.05 else 'Not Significant'}",
-                 fontsize=14, fontweight='bold')
+    ax.set_title(f"{args.ticker} Walk-Forward MCPT ({strategy_name}) | P-Value: {p_value:.4f}",
+                fontsize=14, fontweight='bold')
     ax.grid(True, alpha=0.3)
     ax.legend(fontsize=11, loc='upper right')
 
     plt.tight_layout()
-
-    # Crear directorio de salida para esta estrategia
-    strategy_name_clean = strategy_file.replace(".py", "")
-    output_dir = BACKTEST_FIGURES / strategy_name_clean
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    output_filename = f'walkforward_mcpt.png'
-    output_file = output_dir / output_filename
-    plt.savefig(output_file, dpi=150, bbox_inches='tight', facecolor='#0d1117')
-    print(f"✓ Gráfico guardado: {output_file}")
-    print(f"  (p-value: {walkforward_mcpt_pval:.4f})\n")
+    hist_file = fig_dir / f'{args.ticker}_walkforward_mcpt.png'
+    plt.savefig(hist_file, dpi=150, bbox_inches='tight', facecolor='#0d1117')
+    print(f"  Histograma: {hist_file}")
     plt.close()
 
-    # Generar gráfico de cumulative returns
-    print("Generando gráfico de cumulative returns...")
+    # Gráfico 2: Cumulative returns (OPTIMIZADO)
+    print("  Generando gráfico de cumulative returns...")
     fig, ax = plt.subplots(figsize=(14, 8))
 
-    # Graficar todas las permutaciones de manera más eficiente
-    # Convertir lista de arrays a matriz numpy y plotear de una vez
-    perm_matrix = np.array(perm_cum_rets).T  # Transponer para tener tiempo en filas
-    ax.plot(df.index, perm_matrix, color='white', alpha=0.05, linewidth=0.5)
+    # Convertir a matriz
+    perm_matrix = np.array(perm_cum_rets).T
 
-    # Graficar la estrategia real en rojo
-    ax.plot(df.index, real_cum_rets, color='red', linewidth=2.5,
-            label=f'Real Strategy (PF={real_wf_pf:.4f})', zorder=100)
+    # Calcular percentiles (mucho más rápido)
+    p5 = np.percentile(perm_matrix, 5, axis=1)
+    p25 = np.percentile(perm_matrix, 25, axis=1)
+    p50 = np.percentile(perm_matrix, 50, axis=1)
+    p75 = np.percentile(perm_matrix, 75, axis=1)
+    p95 = np.percentile(perm_matrix, 95, axis=1)
+
+    # Plot percentiles como bandas
+    ax.fill_between(df_full.index, p5, p95, color='white', alpha=0.1, label='5-95 percentil')
+    ax.fill_between(df_full.index, p25, p75, color='white', alpha=0.2, label='25-75 percentil')
+    ax.plot(df_full.index, p50, color='yellow', linewidth=1.5, alpha=0.6, label='Mediana perms')
+
+    # Plot estrategia real
+    ax.plot(df_full.index, real_cum_rets, color='red', linewidth=2.5,
+            label=f'Real (PF={real_wf_pf:.4f})', zorder=100)
+
+    # Marcar división train/walk
+    ax.axvline(train_end, color='cyan', linestyle='--', linewidth=1.5, alpha=0.7, label='Train/Walk split')
 
     ax.set_xlabel("Time", fontsize=12)
     ax.set_ylabel("Cumulative Log Return", fontsize=12)
-    ax.set_title(f"Walk-Forward Cumulative Returns ({strategy_file.replace('.py', '')}) | Real vs {len(perm_cum_rets)} Permutations",
-                 fontsize=14, fontweight='bold')
+    ax.set_title(f"{args.ticker} Walk-Forward Cumulative Returns ({strategy_name})",
+                fontsize=14, fontweight='bold')
     ax.grid(True, alpha=0.3)
     ax.legend(fontsize=11, loc='upper left')
 
     plt.tight_layout()
-
-    output_filename_cum = f'walkforward_cumulative_mcpt.png'
-    output_file_cum = output_dir / output_filename_cum
-    plt.savefig(output_file_cum, dpi=150, bbox_inches='tight', facecolor='#0d1117')
-    print(f"✓ Gráfico cumulative returns guardado: {output_file_cum}\n")
+    cum_file = fig_dir / f'{args.ticker}_walkforward_cumulative.png'
+    plt.savefig(cum_file, dpi=150, bbox_inches='tight', facecolor='#0d1117')
+    print(f"  Cumulative: {cum_file}")
     plt.close()
 
-    print("="*70)
-    print("✓ ANÁLISIS WALK-FORWARD COMPLETADO")
-    print("="*70)
+    print("\n" + "=" * 70)
+    print("ANÁLISIS COMPLETADO")
+    print("=" * 70)
+    print(f"  Tiempo total: {total_time:.1f}s ({total_time/60:.1f} min)")
+    print(f"  Velocidad:    {len(results)/total_time:.2f} tareas/s")
