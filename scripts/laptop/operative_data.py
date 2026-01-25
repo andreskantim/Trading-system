@@ -373,8 +373,8 @@ class DataConsolidator:
             })
             return
 
-        logger.info(f"Primary ({self.primary_source}): {len(primary_years)} anios - {primary_years}")
-        logger.info(f"Secondary ({self.secondary_source}): {len(secondary_years)} anios - {secondary_years}")
+        logger.info(f"Primary ({self.primary_source}): {len(primary_years)} años - {primary_years}")
+        logger.info(f"Secondary ({self.secondary_source}): {len(secondary_years)} años - {secondary_years}")
 
         # Calcular ajuste de volumen si hay datos en ambos exchanges
         adjustment_stats = None
