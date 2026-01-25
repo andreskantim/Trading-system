@@ -1,9 +1,0 @@
-2026-01-25 13:50:45,858 - INFO - ================================================================================
-2026-01-25 13:50:45,858 - INFO - Data Consolidator Initialized
-2026-01-25 13:50:45,858 - INFO - ================================================================================
-2026-01-25 13:50:45,858 - INFO - Primary source: binance
-2026-01-25 13:50:45,858 - INFO - Secondary source: kraken
-2026-01-25 13:50:45,859 - INFO - Cutoff date: 2017-07-14
-2026-01-25 13:50:45,859 - INFO - Min overlap candles: 720
-2026-01-25 13:50:45,859 - INFO - Min correlation: 0.95
-2026-01-25 13:50:45,859 - INFO - Output: /home/aherreros/Trading-system/data/operative/cryptocurrencies

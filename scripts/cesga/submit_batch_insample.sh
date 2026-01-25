@@ -2,10 +2,9 @@
 #SBATCH --job-name=batch_insample
 #SBATCH --output=logs/slurm/insample_%j.out
 #SBATCH --error=logs/slurm/insample_%j.err
-#SBATCH --time=24:00:00
-#SBATCH --ntasks=1
-#SBATCH --cpus-per-task=16
-#SBATCH --mem=32G
+#SBATCH -t 04:00:00
+#SBATCH -c 64
+#SBATCH --mem=32GB
 
 # ============================================================================
 # SLURM Script para Batch In-Sample Backtest en CESGA
@@ -22,26 +21,25 @@
 # Configuración por defecto (puede sobrescribirse con --export)
 GROUP=${GROUP:-crypto_10}
 STRATEGY=${STRATEGY:-hawkes}
-PERMS=${PERMS:-10000}
-WORKERS=${WORKERS:-16}
+PERMS=${PERMS:-1000}
+WORKERS=${WORKERS:-64}
 
 # Directorio del proyecto
 export TRADING_ROOT="${HOME}/Trading-system"
 cd $TRADING_ROOT
 
-# Cargar módulos (ajustar según configuración de CESGA)
+# Cargar solo el módulo base de CESGA (NO miniconda del sistema)
 module purge
-module load python/3.11
+module load cesga/2020
 
-# Activar entorno virtual
-if [ -d "${HOME}/trading_env" ]; then
-    source ${HOME}/trading_env/bin/activate
-elif [ -d "${TRADING_ROOT}/venv" ]; then
-    source ${TRADING_ROOT}/venv/bin/activate
-fi
+# Usar $STORE para conda (variable de entorno de CESGA)
+source ${STORE}/miniconda3/etc/profile.d/conda.sh
+conda activate trading_env
 
-# Crear directorio de logs si no existe
-mkdir -p logs/slurm
+# Verificar que el entorno está activo
+echo "Python: $(which python)"
+echo "Conda env: $CONDA_DEFAULT_ENV"
+python -c "import numpy, pandas; print('✓ Dependencias disponibles')"
 
 # Información del job
 echo "=============================================="
