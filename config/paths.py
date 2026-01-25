@@ -1,10 +1,7 @@
 """
 Configuración de rutas del proyecto Trading-System.
 
-Este módulo centraliza todas las rutas clave del proyecto usando paths relativos,
-lo que permite mover el proyecto a cualquier máquina manteniendo su estructura.
-
-Updated for new project organization optimized for 16-core local workstation.
+Solo rutas de directorios. La configuración de tickers está en tickers.py.
 """
 
 from pathlib import Path
@@ -13,44 +10,24 @@ from pathlib import Path
 # RUTAS BASE DEL PROYECTO
 # ====================================================================
 
-# Raíz del proyecto (directorio que contiene config/)
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
-
-# Directorio de configuración
 CONFIG_DIR = PROJECT_ROOT / "config"
-
-# ====================================================================
-# DIRECTORIOS PRINCIPALES
-# ====================================================================
-
-# Directorio de modelos (estrategias y filtros)
-MODELS_DIR = PROJECT_ROOT / "models"
-STRATEGIES_DIR = MODELS_DIR / "strategies"
-FILTERS_DIR = MODELS_DIR / "filters"
-
-# Directorio de scripts ejecutables
-SCRIPTS_DIR = PROJECT_ROOT / "scripts"
-
-# Directorio de orquestación
-ORCHESTRATION_DIR = PROJECT_ROOT / "orchestration"
 
 # ====================================================================
 # DIRECTORIOS DE DATOS
 # ====================================================================
 
-# Directorio principal de datos
 DATA_DIR = PROJECT_ROOT / "data"
+RAW_DATA_DIR = DATA_DIR / "raw"
+OPERATIVE_DATA_DIR = DATA_DIR / "operative"
+
+# Legacy paths (compatibilidad)
 BTCUSD_DATA_DIR = DATA_DIR / "BTCUSD"
 ETHUSD_DATA_DIR = DATA_DIR / "ETHUSD"
-
-# Archivos de datos principales (legacy - use TICKERS dict instead)
 BITCOIN_CSV = BTCUSD_DATA_DIR / "bitcoin_hourly.csv"
 BITCOIN_PARQUET = BTCUSD_DATA_DIR / "BTCUSD3600.pq"
 
-# ====================================================================
-# CONFIGURACIÓN DE TICKERS
-# ====================================================================
-
+# Legacy TICKERS dict (compatibilidad con scripts existentes)
 TICKERS = {
     'BTCUSD': {
         'csv': DATA_DIR / 'BTCUSD' / 'bitcoin_hourly.csv',
@@ -62,88 +39,68 @@ TICKERS = {
     },
 }
 
+# ====================================================================
+# DIRECTORIOS PRINCIPALES
+# ====================================================================
 
-def get_ticker_data_paths(ticker_name: str) -> dict:
-    """
-    Get data paths for a specific ticker.
-
-    Args:
-        ticker_name: Name of the ticker (e.g., 'BTCUSD', 'ETHUSD')
-
-    Returns:
-        dict with 'csv' and 'parquet' paths
-
-    Raises:
-        ValueError: If ticker is not configured
-    """
-    ticker_upper = ticker_name.upper()
-    if ticker_upper not in TICKERS:
-        available = ', '.join(TICKERS.keys())
-        raise ValueError(f"Ticker '{ticker_name}' not configured. Available: {available}")
-    return TICKERS[ticker_upper]
+MODELS_DIR = PROJECT_ROOT / "models"
+STRATEGIES_DIR = MODELS_DIR / "strategies"
+FILTERS_DIR = MODELS_DIR / "filters"
+SCRIPTS_DIR = PROJECT_ROOT / "scripts"
+ORCHESTRATION_DIR = PROJECT_ROOT / "orchestration"
 
 # ====================================================================
 # DIRECTORIOS DE SALIDA
 # ====================================================================
 
-# Directorio principal de salidas
 OUTPUTS_DIR = PROJECT_ROOT / "outputs"
-
-# Subdirectorios de backtest
 BACKTEST_DIR = OUTPUTS_DIR / "backtest"
 BACKTEST_RESULTS = BACKTEST_DIR / "results"
 BACKTEST_REPORTS = BACKTEST_DIR / "reports"
 BACKTEST_FIGURES = BACKTEST_DIR / "figures"
+LOGS_DIR = PROJECT_ROOT / "logs"
 
 # Alias para compatibilidad
 OUTPUT_DIR = OUTPUTS_DIR
 PLOTS_DIR = BACKTEST_FIGURES
-LOGS_DIR = BACKTEST_DIR / "logs"
 
 # ====================================================================
-# DIRECTORIOS DE BACKTEST Y MCPT
+# OTROS DIRECTORIOS
 # ====================================================================
 
-# Directorio de backtest (código y utilidades)
 BACKTEST_CODE_DIR = PROJECT_ROOT / "backtest"
 MCPT_DIR = BACKTEST_CODE_DIR / "mcpt"
 BOOTSTRAP_DIR = BACKTEST_CODE_DIR / "bootstrap"
-
-# ====================================================================
-# DIRECTORIOS DE VISUALIZACIÓN
-# ====================================================================
-
 VISUALIZATION_DIR = PROJECT_ROOT / "visualization"
 VIS_NON_INTERACTIVE = VISUALIZATION_DIR / "non_interactive"
 VIS_INTERACTIVE = VISUALIZATION_DIR / "interactive"
 VIS_UTILS = VISUALIZATION_DIR / "utils"
-
-# ====================================================================
-# DIRECTORIOS DE DOCUMENTACIÓN
-# ====================================================================
-
 DOCUMENTATION_DIR = PROJECT_ROOT / "documentation"
 PERM_ENTROPY_DIR = DOCUMENTATION_DIR / "PermutationEntropy"
 TRADE_DEPENDENCE_DIR = DOCUMENTATION_DIR / "TradeDependenceRunTest"
 VOLATILITY_HAWKES_DIR = DOCUMENTATION_DIR / "VolatilityHawkes"
-
-# ====================================================================
-# DIRECTORIO DE SCREENING
-# ====================================================================
-
 SCREENING_DIR = PROJECT_ROOT / "screening"
+
+# ====================================================================
+# PARÁMETROS GENERALES
+# ====================================================================
+
+OHLCV_COLUMNS = ['timestamp', 'open', 'high', 'low', 'close', 'volume']
+PARQUET_COMPRESSION = 'snappy'
+PARQUET_ENGINE = 'pyarrow'
+LOG_LEVEL = 'INFO'
+LOG_FORMAT = '%(asctime)s - %(levelname)s - %(message)s'
 
 # ====================================================================
 # FUNCIONES AUXILIARES
 # ====================================================================
 
 def ensure_directories():
-    """
-    Crea los directorios necesarios si no existen.
-    Llamar esta función al inicio de los scripts principales.
-    """
+    """Crea los directorios necesarios si no existen."""
     dirs_to_create = [
         DATA_DIR,
+        RAW_DATA_DIR,
+        OPERATIVE_DATA_DIR,
         BTCUSD_DATA_DIR,
         ETHUSD_DATA_DIR,
         OUTPUTS_DIR,
@@ -158,99 +115,43 @@ def ensure_directories():
         dir_path.mkdir(parents=True, exist_ok=True)
 
 
+def get_ticker_data_paths(ticker_name: str) -> dict:
+    """Get data paths for a specific ticker (legacy)."""
+    ticker_upper = ticker_name.upper()
+    if ticker_upper not in TICKERS:
+        available = ', '.join(TICKERS.keys())
+        raise ValueError(f"Ticker '{ticker_name}' not configured. Available: {available}")
+    return TICKERS[ticker_upper]
+
+
 def get_plot_path(filename: str) -> Path:
-    """
-    Genera una ruta completa para guardar un gráfico.
-
-    Args:
-        filename (str): Nombre del archivo (puede incluir subdirectorios)
-
-    Returns:
-        Path: Ruta completa al archivo de gráfico
-
-    Example:
-        >>> plot_path = get_plot_path('insample_mcpt_pval_0.0450.png')
-        >>> plt.savefig(plot_path)
-    """
+    """Genera ruta para guardar un gráfico."""
     return BACKTEST_FIGURES / filename
 
 
 def get_output_path(filename: str) -> Path:
-    """
-    Genera una ruta completa para guardar cualquier archivo de salida.
-
-    Args:
-        filename (str): Nombre del archivo
-
-    Returns:
-        Path: Ruta completa al archivo de salida
-    """
+    """Genera ruta para guardar archivo de salida."""
     return BACKTEST_RESULTS / filename
 
 
 def get_data_path(symbol: str, filename: str) -> Path:
-    """
-    Genera una ruta completa para un archivo de datos de un símbolo específico.
-
-    Args:
-        symbol (str): Símbolo del activo (e.g., 'BTCUSD', 'ETHUSD')
-        filename (str): Nombre del archivo de datos
-
-    Returns:
-        Path: Ruta completa al archivo de datos
-    """
+    """Genera ruta para archivo de datos de un símbolo."""
     return DATA_DIR / symbol / filename
 
 
-# ====================================================================
-# INFORMACIÓN DEL PROYECTO
-# ====================================================================
-
 def print_paths():
-    """
-    Imprime todas las rutas configuradas (útil para debugging).
-    """
+    """Imprime las rutas configuradas."""
     print("=" * 70)
-    print("CONFIGURACIÓN DE RUTAS DEL PROYECTO")
+    print("RUTAS DEL PROYECTO")
     print("=" * 70)
-    print(f"PROJECT_ROOT:       {PROJECT_ROOT}")
-    print(f"CONFIG_DIR:         {CONFIG_DIR}")
-    print()
-    print("Modelos:")
-    print(f"  MODELS_DIR:       {MODELS_DIR}")
-    print(f"  STRATEGIES_DIR:   {STRATEGIES_DIR}")
-    print(f"  FILTERS_DIR:      {FILTERS_DIR}")
-    print()
-    print("Datos:")
-    print(f"  DATA_DIR:         {DATA_DIR}")
-    print(f"  BITCOIN_CSV:      {BITCOIN_CSV}")
-    print(f"  BITCOIN_PARQUET:  {BITCOIN_PARQUET}")
-    print()
-    print("Salidas:")
-    print(f"  OUTPUTS_DIR:      {OUTPUTS_DIR}")
-    print(f"  BACKTEST_RESULTS: {BACKTEST_RESULTS}")
-    print(f"  BACKTEST_REPORTS: {BACKTEST_REPORTS}")
-    print(f"  BACKTEST_FIGURES: {BACKTEST_FIGURES}")
-    print()
-    print("Código de backtest:")
-    print(f"  BACKTEST_CODE_DIR:{BACKTEST_CODE_DIR}")
-    print(f"  MCPT_DIR:         {MCPT_DIR}")
-    print()
-    print("Visualización:")
-    print(f"  VISUALIZATION_DIR:{VISUALIZATION_DIR}")
-    print(f"  VIS_NON_INTERACTIVE: {VIS_NON_INTERACTIVE}")
-    print(f"  VIS_INTERACTIVE:  {VIS_INTERACTIVE}")
-    print()
-    print("Scripts:")
-    print(f"  SCRIPTS_DIR:      {SCRIPTS_DIR}")
+    print(f"PROJECT_ROOT: {PROJECT_ROOT}")
+    print(f"DATA_DIR:     {DATA_DIR}")
+    print(f"RAW_DATA_DIR: {RAW_DATA_DIR}")
+    print(f"LOGS_DIR:     {LOGS_DIR}")
     print("=" * 70)
 
 
 if __name__ == "__main__":
-    # Si se ejecuta directamente, muestra las rutas configuradas
     print_paths()
-
-    # Crear directorios si no existen
-    print("\nCreando directorios necesarios...")
     ensure_directories()
-    print("Directorios creados correctamente.")
+    print("Directorios creados.")

@@ -1,0 +1,104 @@
+{
+  "ticker": "IOTA",
+  "consolidation_date": "2026-01-25T13:51:34.407306",
+  "total_years": 9,
+  "primary_source": "binance",
+  "secondary_source": "kraken",
+  "cutoff_date": "2017-07-14",
+  "sources_by_year": {
+    "2018": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 5123,
+      "date_range": {
+        "start": "2018-05-31 09:00:00",
+        "end": "2018-12-31 23:00:00"
+      }
+    },
+    "2019": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 8732,
+      "date_range": {
+        "start": "2019-01-01 00:00:00",
+        "end": "2019-12-31 23:00:00"
+      }
+    },
+    "2020": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 8766,
+      "date_range": {
+        "start": "2020-01-01 00:00:00",
+        "end": "2020-12-31 23:00:00"
+      }
+    },
+    "2021": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 8747,
+      "date_range": {
+        "start": "2021-01-01 00:00:00",
+        "end": "2021-12-31 23:00:00"
+      }
+    },
+    "2022": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 8760,
+      "date_range": {
+        "start": "2022-01-01 00:00:00",
+        "end": "2022-12-31 23:00:00"
+      }
+    },
+    "2023": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 8759,
+      "date_range": {
+        "start": "2023-01-01 00:00:00",
+        "end": "2023-12-31 23:00:00"
+      }
+    },
+    "2024": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 8784,
+      "date_range": {
+        "start": "2024-01-01 00:00:00",
+        "end": "2024-12-31 23:00:00"
+      }
+    },
+    "2025": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 8760,
+      "date_range": {
+        "start": "2025-01-01 00:00:00",
+        "end": "2025-12-31 23:00:00"
+      }
+    },
+    "2026": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 581,
+      "date_range": {
+        "start": "2026-01-01 00:00:00",
+        "end": "2026-01-25 04:00:00"
+      }
+    }
+  },
+  "volume_adjustment": {
+    "applied": false,
+    "reason": "No overlap data"
+  }
+}

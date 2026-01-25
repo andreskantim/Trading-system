@@ -1,0 +1,60 @@
+{
+  "ticker": "PEPE",
+  "consolidation_date": "2026-01-25T13:51:24.384528",
+  "total_years": 4,
+  "primary_source": "binance",
+  "secondary_source": "kraken",
+  "cutoff_date": "2017-07-14",
+  "sources_by_year": {
+    "2023": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 5766,
+      "date_range": {
+        "start": "2023-05-05 18:00:00",
+        "end": "2023-12-31 23:00:00"
+      }
+    },
+    "2024": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 8784,
+      "date_range": {
+        "start": "2024-01-01 00:00:00",
+        "end": "2024-12-31 23:00:00"
+      }
+    },
+    "2025": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 8760,
+      "date_range": {
+        "start": "2025-01-01 00:00:00",
+        "end": "2025-12-31 23:00:00"
+      }
+    },
+    "2026": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 581,
+      "date_range": {
+        "start": "2026-01-01 00:00:00",
+        "end": "2026-01-25 04:00:00"
+      }
+    }
+  },
+  "volume_adjustment": {
+    "adjustment_factor": 40.961247293871914,
+    "correlation": 0.9999761424540351,
+    "std_ratio": 89.32200893266032,
+    "overlap_candles": 721,
+    "overlap_start": "2025-12-26 04:00:00",
+    "overlap_end": "2026-01-25 04:00:00",
+    "valid": true,
+    "reason": null
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "ticker": "BONK",
+  "consolidation_date": "2026-01-25T13:51:30.723515",
+  "total_years": 4,
+  "primary_source": "binance",
+  "secondary_source": "kraken",
+  "cutoff_date": "2017-07-14",
+  "sources_by_year": {
+    "2023": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 400,
+      "date_range": {
+        "start": "2023-12-15 08:00:00",
+        "end": "2023-12-31 23:00:00"
+      }
+    },
+    "2024": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 8784,
+      "date_range": {
+        "start": "2024-01-01 00:00:00",
+        "end": "2024-12-31 23:00:00"
+      }
+    },
+    "2025": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 8760,
+      "date_range": {
+        "start": "2025-01-01 00:00:00",
+        "end": "2025-12-31 23:00:00"
+      }
+    },
+    "2026": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 581,
+      "date_range": {
+        "start": "2026-01-01 00:00:00",
+        "end": "2026-01-25 04:00:00"
+      }
+    }
+  },
+  "volume_adjustment": {
+    "adjustment_factor": 24.909747063813526,
+    "correlation": 0.9999626854738791,
+    "std_ratio": 81.00976946634681,
+    "overlap_candles": 721,
+    "overlap_start": "2025-12-26 04:00:00",
+    "overlap_end": "2026-01-25 04:00:00",
+    "valid": true,
+    "reason": null
+  }
+}

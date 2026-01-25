@@ -55,13 +55,13 @@ def extract_trades_from_signals(signals: pd.Series, ohlc: pd.DataFrame) -> List[
     
     # Señales por año
     signals_per_year = signal_changes / time_span if time_span > 0 else 0
-    
+
     # Si hay más de 100 señales/año, NO renderizar sombreados
     if signals_per_year > 100:
         print(f"⚠️  SOMBREADOS DESACTIVADOS: {signal_changes} señales en {time_span:.1f} años = {signals_per_year:.0f} señales/año")
         print(f"    (Se mostrarán solo las flechas de señales)")
         return []
-
+    
     trades = []
     current_position = 0
     entry_idx = None

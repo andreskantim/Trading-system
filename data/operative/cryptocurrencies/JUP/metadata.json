@@ -1,0 +1,50 @@
+{
+  "ticker": "JUP",
+  "consolidation_date": "2026-01-25T13:51:31.146799",
+  "total_years": 3,
+  "primary_source": "binance",
+  "secondary_source": "kraken",
+  "cutoff_date": "2017-07-14",
+  "sources_by_year": {
+    "2024": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 8048,
+      "date_range": {
+        "start": "2024-01-31 16:00:00",
+        "end": "2024-12-31 23:00:00"
+      }
+    },
+    "2025": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 8760,
+      "date_range": {
+        "start": "2025-01-01 00:00:00",
+        "end": "2025-12-31 23:00:00"
+      }
+    },
+    "2026": {
+      "source": "binance",
+      "volume_adjusted": false,
+      "adjustment_factor": null,
+      "candles": 581,
+      "date_range": {
+        "start": "2026-01-01 00:00:00",
+        "end": "2026-01-25 04:00:00"
+      }
+    }
+  },
+  "volume_adjustment": {
+    "adjustment_factor": 33.04273587489185,
+    "correlation": 0.9990984346557178,
+    "std_ratio": 2711.604569335908,
+    "overlap_candles": 721,
+    "overlap_start": "2025-12-26 04:00:00",
+    "overlap_end": "2026-01-25 04:00:00",
+    "valid": true,
+    "reason": null
+  }
+}

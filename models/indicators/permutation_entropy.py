@@ -48,7 +48,7 @@ def ordinal_patterns(arr: np.array, d: int) -> np.array:
     return ordinals
 
 
-def calculate_permutation_entropy(close: pd.Series, n: int, mult: int = 28) -> pd.Series:
+def calculate_permutation_entropy(close: pd.Series, n: int, mult: int = 14) -> pd.Series:
     """
     Calcula la Permutation Entropy de una serie de precios.
 
@@ -93,7 +93,7 @@ def calculate_permutation_entropy(close: pd.Series, n: int, mult: int = 28) -> p
     return pd.Series(ent, index=close.index)
 
 
-def visualization(ohlc: pd.DataFrame, n: int = 3, mult: int = 28):
+def visualization(ohlc: pd.DataFrame, n: int = 3, mult: int = 14):
     """
     Datos para visualización del indicador Permutation Entropy.
 
@@ -124,7 +124,7 @@ def visualization(ohlc: pd.DataFrame, n: int = 3, mult: int = 28):
     }
 
 
-def visualization3(ohlc: pd.DataFrame, mult: int = 28):
+def visualization3(ohlc: pd.DataFrame, mult: int = 14):
     """
     Permutation Entropy con 3 velas anteriores.
 
@@ -144,7 +144,7 @@ def visualization3(ohlc: pd.DataFrame, mult: int = 28):
     }
 
 
-def visualization4(ohlc: pd.DataFrame, mult: int = 28):
+def visualization4(ohlc: pd.DataFrame, mult: int = 14):
     """
     Permutation Entropy con 4 velas anteriores.
 

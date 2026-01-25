@@ -1,0 +1,66 @@
+2026-01-25 05:01:57,947 - INFO - ================================================================================
+2026-01-25 05:01:57,948 - INFO - Data Consolidator Initialized
+2026-01-25 05:01:57,948 - INFO - ================================================================================
+2026-01-25 05:01:57,948 - INFO - Primary source: binance
+2026-01-25 05:01:57,948 - INFO - Secondary source: kraken
+2026-01-25 05:01:57,948 - INFO - Cutoff date: 2017-07-14
+2026-01-25 05:01:57,948 - INFO - Min overlap candles: 720
+2026-01-25 05:01:57,948 - INFO - Min correlation: 0.95
+2026-01-25 05:01:57,948 - INFO - Output: /home/aherreros/Trading-system/data/operative/cryptocurrencies
+2026-01-25 05:01:57,948 - INFO - Consolidando ticker especifico: BTC
+2026-01-25 05:01:57,949 - INFO - 
+================================================================================
+2026-01-25 05:01:57,949 - INFO - CONSOLIDANDO: BTC
+2026-01-25 05:01:57,949 - INFO - ================================================================================
+2026-01-25 05:01:57,949 - INFO - Primary (binance): 10 anios - [2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+2026-01-25 05:01:57,950 - INFO - Secondary (kraken): 2 anios - [2025, 2026]
+2026-01-25 05:01:57,950 - INFO - 
+Calculando ajuste de volumen para BTC...
+2026-01-25 05:01:58,228 - INFO -   Overlap: 2025-12-26 03:00:00 a 2026-01-25 03:00:00
+2026-01-25 05:01:58,228 - INFO -   Velas en overlap: 721
+2026-01-25 05:01:58,230 - INFO -   Correlacion de precios: 0.9999
+2026-01-25 05:01:58,239 - INFO -   Factor de ajuste: 10.8703
+2026-01-25 05:01:58,239 - INFO -   Std del ratio: 10.2376
+2026-01-25 05:01:58,241 - INFO - 
+  Procesando anio 2017...
+2026-01-25 05:01:58,247 - INFO -     Fuente: binance (primary, antes de cutoff)
+2026-01-25 05:01:58,271 - INFO -     Guardado: BTC_2017.parquet (3,278 velas)
+2026-01-25 05:01:58,272 - INFO - 
+  Procesando anio 2018...
+2026-01-25 05:01:58,278 - INFO -     Fuente: binance (primary)
+2026-01-25 05:01:58,308 - INFO -     Guardado: BTC_2018.parquet (8,698 velas)
+2026-01-25 05:01:58,308 - INFO - 
+  Procesando anio 2019...
+2026-01-25 05:01:58,316 - INFO -     Fuente: binance (primary)
+2026-01-25 05:01:58,347 - INFO -     Guardado: BTC_2019.parquet (8,732 velas)
+2026-01-25 05:01:58,348 - INFO - 
+  Procesando anio 2020...
+2026-01-25 05:01:58,358 - INFO -     Fuente: binance (primary)
+2026-01-25 05:01:58,389 - INFO -     Guardado: BTC_2020.parquet (8,766 velas)
+2026-01-25 05:01:58,389 - INFO - 
+  Procesando anio 2021...
+2026-01-25 05:01:58,396 - INFO -     Fuente: binance (primary)
+2026-01-25 05:01:58,424 - INFO -     Guardado: BTC_2021.parquet (8,747 velas)
+2026-01-25 05:01:58,425 - INFO - 
+  Procesando anio 2022...
+2026-01-25 05:01:58,433 - INFO -     Fuente: binance (primary)
+2026-01-25 05:01:58,470 - INFO -     Guardado: BTC_2022.parquet (8,760 velas)
+2026-01-25 05:01:58,470 - INFO - 
+  Procesando anio 2023...
+2026-01-25 05:01:58,479 - INFO -     Fuente: binance (primary)
+2026-01-25 05:01:58,509 - INFO -     Guardado: BTC_2023.parquet (8,759 velas)
+2026-01-25 05:01:58,510 - INFO - 
+  Procesando anio 2024...
+2026-01-25 05:01:58,518 - INFO -     Fuente: binance (primary)
+2026-01-25 05:01:58,548 - INFO -     Guardado: BTC_2024.parquet (8,784 velas)
+2026-01-25 05:01:58,549 - INFO - 
+  Procesando anio 2025...
+2026-01-25 05:01:58,557 - INFO -     Fuente: binance (primary)
+2026-01-25 05:01:58,585 - INFO -     Guardado: BTC_2025.parquet (8,760 velas)
+2026-01-25 05:01:58,586 - INFO - 
+  Procesando anio 2026...
+2026-01-25 05:01:58,592 - INFO -     Fuente: binance (primary)
+2026-01-25 05:01:58,611 - INFO -     Guardado: BTC_2026.parquet (580 velas)
+2026-01-25 05:01:58,613 - INFO - 
+Consolidacion completa para BTC
+2026-01-25 05:01:58,613 - INFO -   Metadata: /home/aherreros/Trading-system/data/operative/cryptocurrencies/BTC/metadata.json

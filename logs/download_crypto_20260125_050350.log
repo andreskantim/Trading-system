@@ -1,0 +1,2671 @@
+2026-01-25 05:03:50,026 - INFO - ================================================================================
+2026-01-25 05:03:50,027 - INFO - Crypto Downloader Initialized
+2026-01-25 05:03:50,027 - INFO - ================================================================================
+2026-01-25 05:03:50,027 - INFO - Total tickers configurados: 100
+2026-01-25 05:03:50,027 - INFO - Exchanges: ['kraken', 'binance']
+2026-01-25 05:03:50,027 - INFO - Data dir kraken: /home/aherreros/Trading-system/data/raw/kraken
+2026-01-25 05:03:50,027 - INFO - Data dir binance: /home/aherreros/Trading-system/data/raw/binance
+2026-01-25 05:03:50,028 - INFO - Tickers disponibles en kraken: 98
+2026-01-25 05:03:50,028 - INFO - Tickers disponibles en binance: 99
+2026-01-25 05:03:50,028 - INFO - 
+################################################################################
+2026-01-25 05:03:50,028 - INFO - INICIO DESCARGA MASIVA: 100 tickers
+2026-01-25 05:03:50,028 - INFO - ################################################################################
+
+2026-01-25 05:03:50,028 - INFO - 
+[1/100] Procesando BTC...
+2026-01-25 05:03:50,028 - INFO - 
+================================================================================
+2026-01-25 05:03:50,028 - INFO - DESCARGANDO: BTC
+2026-01-25 05:03:50,029 - INFO - ================================================================================
+2026-01-25 05:03:50,029 - INFO - Descargando BTC desde Kraken...
+2026-01-25 05:03:50,029 - INFO -   Simbolo Kraken: XXBTZUSD
+2026-01-25 05:03:50,029 - INFO -   Rango: 2013-10-01 a 2026-01-25
+2026-01-25 05:03:51,350 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:03:51,467 - INFO -     Guardado: BTC_2025.parquet (140 velas)
+2026-01-25 05:03:51,476 - INFO -     Guardado: BTC_2026.parquet (581 velas)
+2026-01-25 05:03:51,476 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:03:51,477 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:03:51,477 - INFO - Descargando BTC desde Binance...
+2026-01-25 05:03:51,477 - INFO -   Simbolo Binance: BTCUSDT
+2026-01-25 05:03:51,477 - INFO -   Rango: 2017-07-14 a 2026-01-25
+2026-01-25 05:04:38,167 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:05:03,502 - INFO -   Total: 73,865 velas descargadas de Binance
+2026-01-25 05:05:03,544 - INFO -     Guardado: BTC_2017.parquet (3,278 velas)
+2026-01-25 05:05:03,582 - INFO -     Guardado: BTC_2018.parquet (8,698 velas)
+2026-01-25 05:05:03,608 - INFO -     Guardado: BTC_2019.parquet (8,732 velas)
+2026-01-25 05:05:03,632 - INFO -     Guardado: BTC_2020.parquet (8,766 velas)
+2026-01-25 05:05:03,657 - INFO -     Guardado: BTC_2021.parquet (8,747 velas)
+2026-01-25 05:05:03,684 - INFO -     Guardado: BTC_2022.parquet (8,760 velas)
+2026-01-25 05:05:03,710 - INFO -     Guardado: BTC_2023.parquet (8,759 velas)
+2026-01-25 05:05:03,735 - INFO -     Guardado: BTC_2024.parquet (8,784 velas)
+2026-01-25 05:05:03,758 - INFO -     Guardado: BTC_2025.parquet (8,760 velas)
+2026-01-25 05:05:03,773 - INFO -     Guardado: BTC_2026.parquet (581 velas)
+2026-01-25 05:05:03,773 - INFO -   Total guardado: 10 años, 73,865 velas
+2026-01-25 05:05:03,774 - INFO -   BINANCE: 73,865 velas descargadas
+2026-01-25 05:05:03,775 - INFO - 
+[2/100] Procesando ETH...
+2026-01-25 05:05:03,775 - INFO - 
+================================================================================
+2026-01-25 05:05:03,775 - INFO - DESCARGANDO: ETH
+2026-01-25 05:05:03,775 - INFO - ================================================================================
+2026-01-25 05:05:03,776 - INFO - Descargando ETH desde Kraken...
+2026-01-25 05:05:03,776 - INFO -   Simbolo Kraken: XETHZUSD
+2026-01-25 05:05:03,776 - INFO -   Rango: 2015-08-01 a 2026-01-25
+2026-01-25 05:05:04,964 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:05:04,971 - INFO -     Guardado: ETH_2025.parquet (140 velas)
+2026-01-25 05:05:04,988 - INFO -     Guardado: ETH_2026.parquet (581 velas)
+2026-01-25 05:05:04,988 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:05:04,988 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:05:04,989 - INFO - Descargando ETH desde Binance...
+2026-01-25 05:05:04,989 - INFO -   Simbolo Binance: ETHUSDT
+2026-01-25 05:05:04,989 - INFO -   Rango: 2017-08-01 a 2026-01-25
+2026-01-25 05:05:49,620 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:06:13,176 - INFO -   Total: 73,865 velas descargadas de Binance
+2026-01-25 05:06:13,213 - INFO -     Guardado: ETH_2017.parquet (3,278 velas)
+2026-01-25 05:06:13,229 - INFO -     Guardado: ETH_2018.parquet (8,698 velas)
+2026-01-25 05:06:13,254 - INFO -     Guardado: ETH_2019.parquet (8,732 velas)
+2026-01-25 05:06:13,278 - INFO -     Guardado: ETH_2020.parquet (8,766 velas)
+2026-01-25 05:06:13,304 - INFO -     Guardado: ETH_2021.parquet (8,747 velas)
+2026-01-25 05:06:13,325 - INFO -     Guardado: ETH_2022.parquet (8,760 velas)
+2026-01-25 05:06:13,343 - INFO -     Guardado: ETH_2023.parquet (8,759 velas)
+2026-01-25 05:06:13,365 - INFO -     Guardado: ETH_2024.parquet (8,784 velas)
+2026-01-25 05:06:13,394 - INFO -     Guardado: ETH_2025.parquet (8,760 velas)
+2026-01-25 05:06:13,406 - INFO -     Guardado: ETH_2026.parquet (581 velas)
+2026-01-25 05:06:13,406 - INFO -   Total guardado: 10 años, 73,865 velas
+2026-01-25 05:06:13,406 - INFO -   BINANCE: 73,865 velas descargadas
+2026-01-25 05:06:13,407 - INFO - 
+[3/100] Procesando BNB...
+2026-01-25 05:06:13,407 - INFO - 
+================================================================================
+2026-01-25 05:06:13,408 - INFO - DESCARGANDO: BNB
+2026-01-25 05:06:13,408 - INFO - ================================================================================
+2026-01-25 05:06:13,408 - INFO - Descargando BNB desde Kraken...
+2026-01-25 05:06:13,408 - INFO -   Simbolo Kraken: BNBUSD
+2026-01-25 05:06:13,408 - INFO -   Rango: 2021-01-01 a 2026-01-25
+2026-01-25 05:06:14,609 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:06:14,617 - INFO -     Guardado: BNB_2025.parquet (140 velas)
+2026-01-25 05:06:14,628 - INFO -     Guardado: BNB_2026.parquet (581 velas)
+2026-01-25 05:06:14,628 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:06:14,628 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:06:14,628 - INFO - Descargando BNB desde Binance...
+2026-01-25 05:06:14,629 - INFO -   Simbolo Binance: BNBUSDT
+2026-01-25 05:06:14,629 - INFO -   Rango: 2017-07-14 a 2026-01-25
+2026-01-25 05:07:00,468 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:07:20,802 - INFO -   Total: 71,928 velas descargadas de Binance
+2026-01-25 05:07:20,831 - INFO -     Guardado: BNB_2017.parquet (1,341 velas)
+2026-01-25 05:07:20,862 - INFO -     Guardado: BNB_2018.parquet (8,698 velas)
+2026-01-25 05:07:20,890 - INFO -     Guardado: BNB_2019.parquet (8,732 velas)
+2026-01-25 05:07:20,916 - INFO -     Guardado: BNB_2020.parquet (8,766 velas)
+2026-01-25 05:07:20,940 - INFO -     Guardado: BNB_2021.parquet (8,747 velas)
+2026-01-25 05:07:20,957 - INFO -     Guardado: BNB_2022.parquet (8,760 velas)
+2026-01-25 05:07:20,983 - INFO -     Guardado: BNB_2023.parquet (8,759 velas)
+2026-01-25 05:07:21,004 - INFO -     Guardado: BNB_2024.parquet (8,784 velas)
+2026-01-25 05:07:21,028 - INFO -     Guardado: BNB_2025.parquet (8,760 velas)
+2026-01-25 05:07:21,041 - INFO -     Guardado: BNB_2026.parquet (581 velas)
+2026-01-25 05:07:21,042 - INFO -   Total guardado: 10 años, 71,928 velas
+2026-01-25 05:07:21,042 - INFO -   BINANCE: 71,928 velas descargadas
+2026-01-25 05:07:21,043 - INFO - 
+[4/100] Procesando XRP...
+2026-01-25 05:07:21,043 - INFO - 
+================================================================================
+2026-01-25 05:07:21,043 - INFO - DESCARGANDO: XRP
+2026-01-25 05:07:21,043 - INFO - ================================================================================
+2026-01-25 05:07:21,043 - INFO - Descargando XRP desde Kraken...
+2026-01-25 05:07:21,044 - INFO -   Simbolo Kraken: XXRPZUSD
+2026-01-25 05:07:21,044 - INFO -   Rango: 2013-10-01 a 2026-01-25
+2026-01-25 05:07:22,282 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:07:22,289 - INFO -     Guardado: XRP_2025.parquet (140 velas)
+2026-01-25 05:07:22,300 - INFO -     Guardado: XRP_2026.parquet (581 velas)
+2026-01-25 05:07:22,301 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:07:22,301 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:07:22,301 - INFO - Descargando XRP desde Binance...
+2026-01-25 05:07:22,301 - INFO -   Simbolo Binance: XRPUSDT
+2026-01-25 05:07:22,301 - INFO -   Rango: 2017-07-14 a 2026-01-25
+2026-01-25 05:08:07,087 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:08:25,788 - INFO -   Total: 67,661 velas descargadas de Binance
+2026-01-25 05:08:25,826 - INFO -     Guardado: XRP_2018.parquet (5,772 velas)
+2026-01-25 05:08:25,851 - INFO -     Guardado: XRP_2019.parquet (8,732 velas)
+2026-01-25 05:08:25,872 - INFO -     Guardado: XRP_2020.parquet (8,766 velas)
+2026-01-25 05:08:25,893 - INFO -     Guardado: XRP_2021.parquet (8,747 velas)
+2026-01-25 05:08:25,916 - INFO -     Guardado: XRP_2022.parquet (8,760 velas)
+2026-01-25 05:08:25,935 - INFO -     Guardado: XRP_2023.parquet (8,759 velas)
+2026-01-25 05:08:25,958 - INFO -     Guardado: XRP_2024.parquet (8,784 velas)
+2026-01-25 05:08:25,980 - INFO -     Guardado: XRP_2025.parquet (8,760 velas)
+2026-01-25 05:08:25,999 - INFO -     Guardado: XRP_2026.parquet (581 velas)
+2026-01-25 05:08:25,999 - INFO -   Total guardado: 9 años, 67,661 velas
+2026-01-25 05:08:26,000 - INFO -   BINANCE: 67,661 velas descargadas
+2026-01-25 05:08:26,000 - INFO - 
+[5/100] Procesando SOL...
+2026-01-25 05:08:26,001 - INFO - 
+================================================================================
+2026-01-25 05:08:26,001 - INFO - DESCARGANDO: SOL
+2026-01-25 05:08:26,001 - INFO - ================================================================================
+2026-01-25 05:08:26,001 - INFO - Descargando SOL desde Kraken...
+2026-01-25 05:08:26,001 - INFO -   Simbolo Kraken: SOLUSD
+2026-01-25 05:08:26,001 - INFO -   Rango: 2021-06-01 a 2026-01-25
+2026-01-25 05:08:27,204 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:08:27,212 - INFO -     Guardado: SOL_2025.parquet (140 velas)
+2026-01-25 05:08:27,224 - INFO -     Guardado: SOL_2026.parquet (581 velas)
+2026-01-25 05:08:27,224 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:08:27,225 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:08:27,225 - INFO - Descargando SOL desde Binance...
+2026-01-25 05:08:27,225 - INFO -   Simbolo Binance: SOLUSDT
+2026-01-25 05:08:27,225 - INFO -   Rango: 2020-08-11 a 2026-01-25
+2026-01-25 05:09:12,116 - INFO -   Total: 47,811 velas descargadas de Binance
+2026-01-25 05:09:12,143 - INFO -     Guardado: SOL_2020.parquet (3,420 velas)
+2026-01-25 05:09:12,166 - INFO -     Guardado: SOL_2021.parquet (8,747 velas)
+2026-01-25 05:09:12,190 - INFO -     Guardado: SOL_2022.parquet (8,760 velas)
+2026-01-25 05:09:12,214 - INFO -     Guardado: SOL_2023.parquet (8,759 velas)
+2026-01-25 05:09:12,235 - INFO -     Guardado: SOL_2024.parquet (8,784 velas)
+2026-01-25 05:09:12,255 - INFO -     Guardado: SOL_2025.parquet (8,760 velas)
+2026-01-25 05:09:12,265 - INFO -     Guardado: SOL_2026.parquet (581 velas)
+2026-01-25 05:09:12,265 - INFO -   Total guardado: 7 años, 47,811 velas
+2026-01-25 05:09:12,265 - INFO -   BINANCE: 47,811 velas descargadas
+2026-01-25 05:09:12,266 - INFO - 
+[6/100] Procesando DOGE...
+2026-01-25 05:09:12,266 - INFO - 
+================================================================================
+2026-01-25 05:09:12,266 - INFO - DESCARGANDO: DOGE
+2026-01-25 05:09:12,266 - INFO - ================================================================================
+2026-01-25 05:09:12,266 - INFO - Descargando DOGE desde Kraken...
+2026-01-25 05:09:12,266 - INFO -   Simbolo Kraken: XDGUSD
+2026-01-25 05:09:12,266 - INFO -   Rango: 2014-02-01 a 2026-01-25
+2026-01-25 05:09:13,470 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:09:13,477 - INFO -     Guardado: DOGE_2025.parquet (140 velas)
+2026-01-25 05:09:13,495 - INFO -     Guardado: DOGE_2026.parquet (581 velas)
+2026-01-25 05:09:13,495 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:09:13,496 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:09:13,496 - INFO - Descargando DOGE desde Binance...
+2026-01-25 05:09:13,496 - INFO -   Simbolo Binance: DOGEUSDT
+2026-01-25 05:09:13,496 - INFO -   Rango: 2019-07-05 a 2026-01-25
+2026-01-25 05:10:00,090 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:10:08,705 - INFO -   Total: 57,453 velas descargadas de Binance
+2026-01-25 05:10:08,773 - INFO -     Guardado: DOGE_2019.parquet (4,296 velas)
+2026-01-25 05:10:08,808 - INFO -     Guardado: DOGE_2020.parquet (8,766 velas)
+2026-01-25 05:10:08,833 - INFO -     Guardado: DOGE_2021.parquet (8,747 velas)
+2026-01-25 05:10:08,873 - INFO -     Guardado: DOGE_2022.parquet (8,760 velas)
+2026-01-25 05:10:08,899 - INFO -     Guardado: DOGE_2023.parquet (8,759 velas)
+2026-01-25 05:10:08,928 - INFO -     Guardado: DOGE_2024.parquet (8,784 velas)
+2026-01-25 05:10:08,953 - INFO -     Guardado: DOGE_2025.parquet (8,760 velas)
+2026-01-25 05:10:08,969 - INFO -     Guardado: DOGE_2026.parquet (581 velas)
+2026-01-25 05:10:08,969 - INFO -   Total guardado: 8 años, 57,453 velas
+2026-01-25 05:10:08,969 - INFO -   BINANCE: 57,453 velas descargadas
+2026-01-25 05:10:08,971 - INFO - 
+[7/100] Procesando ADA...
+2026-01-25 05:10:08,971 - INFO - 
+================================================================================
+2026-01-25 05:10:08,971 - INFO - DESCARGANDO: ADA
+2026-01-25 05:10:08,971 - INFO - ================================================================================
+2026-01-25 05:10:08,971 - INFO - Descargando ADA desde Kraken...
+2026-01-25 05:10:08,972 - INFO -   Simbolo Kraken: ADAUSD
+2026-01-25 05:10:08,972 - INFO -   Rango: 2017-10-01 a 2026-01-25
+2026-01-25 05:10:10,237 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:10:10,243 - INFO -     Guardado: ADA_2025.parquet (140 velas)
+2026-01-25 05:10:10,256 - INFO -     Guardado: ADA_2026.parquet (581 velas)
+2026-01-25 05:10:10,256 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:10:10,256 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:10:10,256 - INFO - Descargando ADA desde Binance...
+2026-01-25 05:10:10,256 - INFO -   Simbolo Binance: ADAUSDT
+2026-01-25 05:10:10,256 - INFO -   Rango: 2017-10-01 a 2026-01-25
+2026-01-25 05:10:55,028 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:11:13,973 - INFO -   Total: 68,073 velas descargadas de Binance
+2026-01-25 05:11:14,001 - INFO -     Guardado: ADA_2018.parquet (6,184 velas)
+2026-01-25 05:11:14,025 - INFO -     Guardado: ADA_2019.parquet (8,732 velas)
+2026-01-25 05:11:14,045 - INFO -     Guardado: ADA_2020.parquet (8,766 velas)
+2026-01-25 05:11:14,063 - INFO -     Guardado: ADA_2021.parquet (8,747 velas)
+2026-01-25 05:11:14,079 - INFO -     Guardado: ADA_2022.parquet (8,760 velas)
+2026-01-25 05:11:14,097 - INFO -     Guardado: ADA_2023.parquet (8,759 velas)
+2026-01-25 05:11:14,114 - INFO -     Guardado: ADA_2024.parquet (8,784 velas)
+2026-01-25 05:11:14,130 - INFO -     Guardado: ADA_2025.parquet (8,760 velas)
+2026-01-25 05:11:14,141 - INFO -     Guardado: ADA_2026.parquet (581 velas)
+2026-01-25 05:11:14,141 - INFO -   Total guardado: 9 años, 68,073 velas
+2026-01-25 05:11:14,141 - INFO -   BINANCE: 68,073 velas descargadas
+2026-01-25 05:11:14,142 - INFO - 
+[8/100] Procesando TRX...
+2026-01-25 05:11:14,143 - INFO - 
+================================================================================
+2026-01-25 05:11:14,143 - INFO - DESCARGANDO: TRX
+2026-01-25 05:11:14,143 - INFO - ================================================================================
+2026-01-25 05:11:14,143 - INFO - Descargando TRX desde Kraken...
+2026-01-25 05:11:14,143 - INFO -   Simbolo Kraken: TRXUSD
+2026-01-25 05:11:14,143 - INFO -   Rango: 2019-01-01 a 2026-01-25
+2026-01-25 05:11:15,345 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:11:15,353 - INFO -     Guardado: TRX_2025.parquet (140 velas)
+2026-01-25 05:11:15,363 - INFO -     Guardado: TRX_2026.parquet (581 velas)
+2026-01-25 05:11:15,364 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:11:15,364 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:11:15,364 - INFO - Descargando TRX desde Binance...
+2026-01-25 05:11:15,364 - INFO -   Simbolo Binance: TRXUSDT
+2026-01-25 05:11:15,364 - INFO -   Rango: 2017-10-01 a 2026-01-25
+2026-01-25 05:12:03,302 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:12:20,352 - INFO -   Total: 66,746 velas descargadas de Binance
+2026-01-25 05:12:20,382 - INFO -     Guardado: TRX_2018.parquet (4,857 velas)
+2026-01-25 05:12:20,406 - INFO -     Guardado: TRX_2019.parquet (8,732 velas)
+2026-01-25 05:12:20,428 - INFO -     Guardado: TRX_2020.parquet (8,766 velas)
+2026-01-25 05:12:20,449 - INFO -     Guardado: TRX_2021.parquet (8,747 velas)
+2026-01-25 05:12:20,472 - INFO -     Guardado: TRX_2022.parquet (8,760 velas)
+2026-01-25 05:12:20,497 - INFO -     Guardado: TRX_2023.parquet (8,759 velas)
+2026-01-25 05:12:20,516 - INFO -     Guardado: TRX_2024.parquet (8,784 velas)
+2026-01-25 05:12:20,541 - INFO -     Guardado: TRX_2025.parquet (8,760 velas)
+2026-01-25 05:12:20,553 - INFO -     Guardado: TRX_2026.parquet (581 velas)
+2026-01-25 05:12:20,553 - INFO -   Total guardado: 9 años, 66,746 velas
+2026-01-25 05:12:20,553 - INFO -   BINANCE: 66,746 velas descargadas
+2026-01-25 05:12:20,554 - INFO - 
+[9/100] Procesando AVAX...
+2026-01-25 05:12:20,555 - INFO - 
+================================================================================
+2026-01-25 05:12:20,555 - INFO - DESCARGANDO: AVAX
+2026-01-25 05:12:20,555 - INFO - ================================================================================
+2026-01-25 05:12:20,555 - INFO - Descargando AVAX desde Kraken...
+2026-01-25 05:12:20,555 - INFO -   Simbolo Kraken: AVAXUSD
+2026-01-25 05:12:20,556 - INFO -   Rango: 2020-09-22 a 2026-01-25
+2026-01-25 05:12:21,749 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:12:21,757 - INFO -     Guardado: AVAX_2025.parquet (140 velas)
+2026-01-25 05:12:21,767 - INFO -     Guardado: AVAX_2026.parquet (581 velas)
+2026-01-25 05:12:21,767 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:12:21,767 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:12:21,768 - INFO - Descargando AVAX desde Binance...
+2026-01-25 05:12:21,768 - INFO -   Simbolo Binance: AVAXUSDT
+2026-01-25 05:12:21,768 - INFO -   Rango: 2020-09-22 a 2026-01-25
+2026-01-25 05:13:01,306 - INFO -   Total: 46,803 velas descargadas de Binance
+2026-01-25 05:13:01,337 - INFO -     Guardado: AVAX_2020.parquet (2,412 velas)
+2026-01-25 05:13:01,364 - INFO -     Guardado: AVAX_2021.parquet (8,747 velas)
+2026-01-25 05:13:01,387 - INFO -     Guardado: AVAX_2022.parquet (8,760 velas)
+2026-01-25 05:13:01,414 - INFO -     Guardado: AVAX_2023.parquet (8,759 velas)
+2026-01-25 05:13:01,433 - INFO -     Guardado: AVAX_2024.parquet (8,784 velas)
+2026-01-25 05:13:01,449 - INFO -     Guardado: AVAX_2025.parquet (8,760 velas)
+2026-01-25 05:13:01,463 - INFO -     Guardado: AVAX_2026.parquet (581 velas)
+2026-01-25 05:13:01,463 - INFO -   Total guardado: 7 años, 46,803 velas
+2026-01-25 05:13:01,464 - INFO -   BINANCE: 46,803 velas descargadas
+2026-01-25 05:13:01,464 - INFO - 
+[10/100] Procesando LINK...
+2026-01-25 05:13:01,464 - INFO - 
+================================================================================
+2026-01-25 05:13:01,464 - INFO - DESCARGANDO: LINK
+2026-01-25 05:13:01,464 - INFO - ================================================================================
+2026-01-25 05:13:01,464 - INFO - Descargando LINK desde Kraken...
+2026-01-25 05:13:01,465 - INFO -   Simbolo Kraken: LINKUSD
+2026-01-25 05:13:01,465 - INFO -   Rango: 2019-03-01 a 2026-01-25
+2026-01-25 05:13:02,714 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:13:02,719 - INFO -     Guardado: LINK_2025.parquet (140 velas)
+2026-01-25 05:13:02,731 - INFO -     Guardado: LINK_2026.parquet (581 velas)
+2026-01-25 05:13:02,731 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:13:02,731 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:13:02,731 - INFO - Descargando LINK desde Binance...
+2026-01-25 05:13:02,731 - INFO -   Simbolo Binance: LINKUSDT
+2026-01-25 05:13:02,731 - INFO -   Rango: 2019-01-16 a 2026-01-25
+2026-01-25 05:13:43,586 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:13:54,483 - INFO -   Total: 61,519 velas descargadas de Binance
+2026-01-25 05:13:54,521 - INFO -     Guardado: LINK_2019.parquet (8,362 velas)
+2026-01-25 05:13:54,542 - INFO -     Guardado: LINK_2020.parquet (8,766 velas)
+2026-01-25 05:13:54,561 - INFO -     Guardado: LINK_2021.parquet (8,747 velas)
+2026-01-25 05:13:54,588 - INFO -     Guardado: LINK_2022.parquet (8,760 velas)
+2026-01-25 05:13:54,605 - INFO -     Guardado: LINK_2023.parquet (8,759 velas)
+2026-01-25 05:13:54,654 - INFO -     Guardado: LINK_2024.parquet (8,784 velas)
+2026-01-25 05:13:54,676 - INFO -     Guardado: LINK_2025.parquet (8,760 velas)
+2026-01-25 05:13:54,690 - INFO -     Guardado: LINK_2026.parquet (581 velas)
+2026-01-25 05:13:54,691 - INFO -   Total guardado: 8 años, 61,519 velas
+2026-01-25 05:13:54,691 - INFO -   BINANCE: 61,519 velas descargadas
+2026-01-25 05:13:54,693 - INFO - 
+[11/100] Procesando TON...
+2026-01-25 05:13:54,693 - INFO - 
+================================================================================
+2026-01-25 05:13:54,693 - INFO - DESCARGANDO: TON
+2026-01-25 05:13:54,693 - INFO - ================================================================================
+2026-01-25 05:13:54,695 - INFO - Descargando TON desde Kraken...
+2026-01-25 05:13:54,695 - INFO -   Simbolo Kraken: TONUSD
+2026-01-25 05:13:54,695 - INFO -   Rango: 2023-01-01 a 2026-01-25
+2026-01-25 05:13:55,900 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:13:55,910 - INFO -     Guardado: TON_2025.parquet (140 velas)
+2026-01-25 05:13:55,921 - INFO -     Guardado: TON_2026.parquet (581 velas)
+2026-01-25 05:13:55,921 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:13:55,922 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:13:55,922 - INFO - Descargando TON desde Binance...
+2026-01-25 05:13:55,922 - INFO -   Simbolo Binance: TONUSDT
+2026-01-25 05:13:55,922 - INFO -   Rango: 2023-11-01 a 2026-01-25
+2026-01-25 05:14:10,903 - INFO -   Total: 12,835 velas descargadas de Binance
+2026-01-25 05:14:10,933 - INFO -     Guardado: TON_2024.parquet (3,494 velas)
+2026-01-25 05:14:10,973 - INFO -     Guardado: TON_2025.parquet (8,760 velas)
+2026-01-25 05:14:10,993 - INFO -     Guardado: TON_2026.parquet (581 velas)
+2026-01-25 05:14:10,993 - INFO -   Total guardado: 3 años, 12,835 velas
+2026-01-25 05:14:10,994 - INFO -   BINANCE: 12,835 velas descargadas
+2026-01-25 05:14:10,994 - INFO - 
+[12/100] Procesando SHIB...
+2026-01-25 05:14:10,994 - INFO - 
+================================================================================
+2026-01-25 05:14:10,994 - INFO - DESCARGANDO: SHIB
+2026-01-25 05:14:10,994 - INFO - ================================================================================
+2026-01-25 05:14:10,994 - INFO - Descargando SHIB desde Kraken...
+2026-01-25 05:14:10,995 - INFO -   Simbolo Kraken: SHIBUSD
+2026-01-25 05:14:10,995 - INFO -   Rango: 2021-11-01 a 2026-01-25
+2026-01-25 05:14:12,219 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:14:12,223 - INFO -     Guardado: SHIB_2025.parquet (140 velas)
+2026-01-25 05:14:12,232 - INFO -     Guardado: SHIB_2026.parquet (581 velas)
+2026-01-25 05:14:12,233 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:14:12,233 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:14:12,234 - INFO - Descargando SHIB desde Binance...
+2026-01-25 05:14:12,234 - INFO -   Simbolo Binance: SHIBUSDT
+2026-01-25 05:14:12,235 - INFO -   Rango: 2021-05-10 a 2026-01-25
+2026-01-25 05:14:50,040 - INFO -   Total: 41,291 velas descargadas de Binance
+2026-01-25 05:14:50,060 - INFO -     Guardado: SHIB_2021.parquet (5,647 velas)
+2026-01-25 05:14:50,077 - INFO -     Guardado: SHIB_2022.parquet (8,760 velas)
+2026-01-25 05:14:50,095 - INFO -     Guardado: SHIB_2023.parquet (8,759 velas)
+2026-01-25 05:14:50,115 - INFO -     Guardado: SHIB_2024.parquet (8,784 velas)
+2026-01-25 05:14:50,132 - INFO -     Guardado: SHIB_2025.parquet (8,760 velas)
+2026-01-25 05:14:50,142 - INFO -     Guardado: SHIB_2026.parquet (581 velas)
+2026-01-25 05:14:50,142 - INFO -   Total guardado: 6 años, 41,291 velas
+2026-01-25 05:14:50,142 - INFO -   BINANCE: 41,291 velas descargadas
+2026-01-25 05:14:50,142 - INFO - 
+[13/100] Procesando XLM...
+2026-01-25 05:14:50,143 - INFO - 
+================================================================================
+2026-01-25 05:14:50,143 - INFO - DESCARGANDO: XLM
+2026-01-25 05:14:50,143 - INFO - ================================================================================
+2026-01-25 05:14:50,143 - INFO - Descargando XLM desde Kraken...
+2026-01-25 05:14:50,143 - INFO -   Simbolo Kraken: XXLMZUSD
+2026-01-25 05:14:50,143 - INFO -   Rango: 2014-08-01 a 2026-01-25
+2026-01-25 05:14:51,460 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:14:51,464 - INFO -     Guardado: XLM_2025.parquet (140 velas)
+2026-01-25 05:14:51,473 - INFO -     Guardado: XLM_2026.parquet (581 velas)
+2026-01-25 05:14:51,473 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:14:51,473 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:14:51,473 - INFO - Descargando XLM desde Binance...
+2026-01-25 05:14:51,473 - INFO -   Simbolo Binance: XLMUSDT
+2026-01-25 05:14:51,473 - INFO -   Rango: 2017-10-01 a 2026-01-25
+2026-01-25 05:15:38,530 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:15:56,490 - INFO -   Total: 67,012 velas descargadas de Binance
+2026-01-25 05:15:56,537 - INFO -     Guardado: XLM_2018.parquet (5,123 velas)
+2026-01-25 05:15:56,555 - INFO -     Guardado: XLM_2019.parquet (8,732 velas)
+2026-01-25 05:15:56,579 - INFO -     Guardado: XLM_2020.parquet (8,766 velas)
+2026-01-25 05:15:56,601 - INFO -     Guardado: XLM_2021.parquet (8,747 velas)
+2026-01-25 05:15:56,623 - INFO -     Guardado: XLM_2022.parquet (8,760 velas)
+2026-01-25 05:15:56,640 - INFO -     Guardado: XLM_2023.parquet (8,759 velas)
+2026-01-25 05:15:56,659 - INFO -     Guardado: XLM_2024.parquet (8,784 velas)
+2026-01-25 05:15:56,677 - INFO -     Guardado: XLM_2025.parquet (8,760 velas)
+2026-01-25 05:15:56,686 - INFO -     Guardado: XLM_2026.parquet (581 velas)
+2026-01-25 05:15:56,687 - INFO -   Total guardado: 9 años, 67,012 velas
+2026-01-25 05:15:56,687 - INFO -   BINANCE: 67,012 velas descargadas
+2026-01-25 05:15:56,687 - INFO - 
+[14/100] Procesando DOT...
+2026-01-25 05:15:56,688 - INFO - 
+================================================================================
+2026-01-25 05:15:56,688 - INFO - DESCARGANDO: DOT
+2026-01-25 05:15:56,688 - INFO - ================================================================================
+2026-01-25 05:15:56,688 - INFO - Descargando DOT desde Kraken...
+2026-01-25 05:15:56,688 - INFO -   Simbolo Kraken: DOTUSD
+2026-01-25 05:15:56,688 - INFO -   Rango: 2020-08-19 a 2026-01-25
+2026-01-25 05:15:57,899 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:15:57,904 - INFO -     Guardado: DOT_2025.parquet (140 velas)
+2026-01-25 05:15:57,913 - INFO -     Guardado: DOT_2026.parquet (581 velas)
+2026-01-25 05:15:57,913 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:15:57,913 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:15:57,913 - INFO - Descargando DOT desde Binance...
+2026-01-25 05:15:57,913 - INFO -   Simbolo Binance: DOTUSDT
+2026-01-25 05:15:57,914 - INFO -   Rango: 2020-08-19 a 2026-01-25
+2026-01-25 05:16:39,563 - INFO -   Total: 47,626 velas descargadas de Binance
+2026-01-25 05:16:39,602 - INFO -     Guardado: DOT_2020.parquet (3,235 velas)
+2026-01-25 05:16:39,621 - INFO -     Guardado: DOT_2021.parquet (8,747 velas)
+2026-01-25 05:16:39,637 - INFO -     Guardado: DOT_2022.parquet (8,760 velas)
+2026-01-25 05:16:39,652 - INFO -     Guardado: DOT_2023.parquet (8,759 velas)
+2026-01-25 05:16:39,668 - INFO -     Guardado: DOT_2024.parquet (8,784 velas)
+2026-01-25 05:16:39,683 - INFO -     Guardado: DOT_2025.parquet (8,760 velas)
+2026-01-25 05:16:39,695 - INFO -     Guardado: DOT_2026.parquet (581 velas)
+2026-01-25 05:16:39,695 - INFO -   Total guardado: 7 años, 47,626 velas
+2026-01-25 05:16:39,695 - INFO -   BINANCE: 47,626 velas descargadas
+2026-01-25 05:16:39,695 - INFO - 
+[15/100] Procesando BCH...
+2026-01-25 05:16:39,695 - INFO - 
+================================================================================
+2026-01-25 05:16:39,695 - INFO - DESCARGANDO: BCH
+2026-01-25 05:16:39,695 - INFO - ================================================================================
+2026-01-25 05:16:39,696 - INFO - Descargando BCH desde Kraken...
+2026-01-25 05:16:39,696 - INFO -   Simbolo Kraken: BCHUSD
+2026-01-25 05:16:39,696 - INFO -   Rango: 2017-08-01 a 2026-01-25
+2026-01-25 05:16:40,903 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:16:40,911 - INFO -     Guardado: BCH_2025.parquet (140 velas)
+2026-01-25 05:16:40,921 - INFO -     Guardado: BCH_2026.parquet (581 velas)
+2026-01-25 05:16:40,921 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:16:40,921 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:16:40,921 - INFO - Descargando BCH desde Binance...
+2026-01-25 05:16:40,922 - INFO -   Simbolo Binance: BCHUSDT
+2026-01-25 05:16:40,922 - INFO -   Rango: 2017-08-01 a 2026-01-25
+2026-01-25 05:17:26,059 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:17:30,255 - INFO -   Total: 53,963 velas descargadas de Binance
+2026-01-25 05:17:30,274 - INFO -     Guardado: BCH_2019.parquet (806 velas)
+2026-01-25 05:17:30,290 - INFO -     Guardado: BCH_2020.parquet (8,766 velas)
+2026-01-25 05:17:30,306 - INFO -     Guardado: BCH_2021.parquet (8,747 velas)
+2026-01-25 05:17:30,319 - INFO -     Guardado: BCH_2022.parquet (8,760 velas)
+2026-01-25 05:17:30,333 - INFO -     Guardado: BCH_2023.parquet (8,759 velas)
+2026-01-25 05:17:30,353 - INFO -     Guardado: BCH_2024.parquet (8,784 velas)
+2026-01-25 05:17:30,371 - INFO -     Guardado: BCH_2025.parquet (8,760 velas)
+2026-01-25 05:17:30,379 - INFO -     Guardado: BCH_2026.parquet (581 velas)
+2026-01-25 05:17:30,380 - INFO -   Total guardado: 8 años, 53,963 velas
+2026-01-25 05:17:30,380 - INFO -   BINANCE: 53,963 velas descargadas
+2026-01-25 05:17:30,382 - INFO - 
+[16/100] Procesando HBAR...
+2026-01-25 05:17:30,382 - INFO - 
+================================================================================
+2026-01-25 05:17:30,382 - INFO - DESCARGANDO: HBAR
+2026-01-25 05:17:30,382 - INFO - ================================================================================
+2026-01-25 05:17:30,383 - INFO - Descargando HBAR desde Kraken...
+2026-01-25 05:17:30,383 - INFO -   Simbolo Kraken: HBARUSD
+2026-01-25 05:17:30,383 - INFO -   Rango: 2020-11-01 a 2026-01-25
+2026-01-25 05:17:31,610 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:17:31,617 - INFO -     Guardado: HBAR_2025.parquet (140 velas)
+2026-01-25 05:17:31,628 - INFO -     Guardado: HBAR_2026.parquet (581 velas)
+2026-01-25 05:17:31,628 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:17:31,629 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:17:31,629 - INFO - Descargando HBAR desde Binance...
+2026-01-25 05:17:31,629 - INFO -   Simbolo Binance: HBARUSDT
+2026-01-25 05:17:31,629 - INFO -   Rango: 2019-09-17 a 2026-01-25
+2026-01-25 05:18:17,406 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:18:23,126 - INFO -   Total: 55,405 velas descargadas de Binance
+2026-01-25 05:18:23,149 - INFO -     Guardado: HBAR_2019.parquet (2,248 velas)
+2026-01-25 05:18:23,163 - INFO -     Guardado: HBAR_2020.parquet (8,766 velas)
+2026-01-25 05:18:23,180 - INFO -     Guardado: HBAR_2021.parquet (8,747 velas)
+2026-01-25 05:18:23,195 - INFO -     Guardado: HBAR_2022.parquet (8,760 velas)
+2026-01-25 05:18:23,212 - INFO -     Guardado: HBAR_2023.parquet (8,759 velas)
+2026-01-25 05:18:23,230 - INFO -     Guardado: HBAR_2024.parquet (8,784 velas)
+2026-01-25 05:18:23,246 - INFO -     Guardado: HBAR_2025.parquet (8,760 velas)
+2026-01-25 05:18:23,256 - INFO -     Guardado: HBAR_2026.parquet (581 velas)
+2026-01-25 05:18:23,257 - INFO -   Total guardado: 8 años, 55,405 velas
+2026-01-25 05:18:23,257 - INFO -   BINANCE: 55,405 velas descargadas
+2026-01-25 05:18:23,258 - INFO - 
+[17/100] Procesando UNI...
+2026-01-25 05:18:23,258 - INFO - 
+================================================================================
+2026-01-25 05:18:23,258 - INFO - DESCARGANDO: UNI
+2026-01-25 05:18:23,258 - INFO - ================================================================================
+2026-01-25 05:18:23,258 - INFO - Descargando UNI desde Kraken...
+2026-01-25 05:18:23,258 - INFO -   Simbolo Kraken: UNIUSD
+2026-01-25 05:18:23,258 - INFO -   Rango: 2020-09-17 a 2026-01-25
+2026-01-25 05:18:24,456 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:18:24,466 - INFO -     Guardado: UNI_2025.parquet (140 velas)
+2026-01-25 05:18:24,482 - INFO -     Guardado: UNI_2026.parquet (581 velas)
+2026-01-25 05:18:24,482 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:18:24,483 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:18:24,483 - INFO - Descargando UNI desde Binance...
+2026-01-25 05:18:24,483 - INFO -   Simbolo Binance: UNIUSDT
+2026-01-25 05:18:24,483 - INFO -   Rango: 2020-09-17 a 2026-01-25
+2026-01-25 05:19:08,156 - INFO -   Total: 46,926 velas descargadas de Binance
+2026-01-25 05:19:08,181 - INFO -     Guardado: UNI_2020.parquet (2,535 velas)
+2026-01-25 05:19:08,199 - INFO -     Guardado: UNI_2021.parquet (8,747 velas)
+2026-01-25 05:19:08,219 - INFO -     Guardado: UNI_2022.parquet (8,760 velas)
+2026-01-25 05:19:08,236 - INFO -     Guardado: UNI_2023.parquet (8,759 velas)
+2026-01-25 05:19:08,256 - INFO -     Guardado: UNI_2024.parquet (8,784 velas)
+2026-01-25 05:19:08,273 - INFO -     Guardado: UNI_2025.parquet (8,760 velas)
+2026-01-25 05:19:08,286 - INFO -     Guardado: UNI_2026.parquet (581 velas)
+2026-01-25 05:19:08,287 - INFO -   Total guardado: 7 años, 46,926 velas
+2026-01-25 05:19:08,287 - INFO -   BINANCE: 46,926 velas descargadas
+2026-01-25 05:19:08,287 - INFO - 
+[18/100] Procesando LTC...
+2026-01-25 05:19:08,287 - INFO - 
+================================================================================
+2026-01-25 05:19:08,288 - INFO - DESCARGANDO: LTC
+2026-01-25 05:19:08,288 - INFO - ================================================================================
+2026-01-25 05:19:08,288 - INFO - Descargando LTC desde Kraken...
+2026-01-25 05:19:08,288 - INFO -   Simbolo Kraken: XLTCZUSD
+2026-01-25 05:19:08,288 - INFO -   Rango: 2013-10-01 a 2026-01-25
+2026-01-25 05:19:09,476 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:19:09,482 - INFO -     Guardado: LTC_2025.parquet (140 velas)
+2026-01-25 05:19:09,492 - INFO -     Guardado: LTC_2026.parquet (581 velas)
+2026-01-25 05:19:09,492 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:19:09,492 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:19:09,492 - INFO - Descargando LTC desde Binance...
+2026-01-25 05:19:09,492 - INFO -   Simbolo Binance: LTCUSDT
+2026-01-25 05:19:09,493 - INFO -   Rango: 2017-07-14 a 2026-01-25
+2026-01-25 05:19:54,919 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:20:14,580 - INFO -   Total: 71,040 velas descargadas de Binance
+2026-01-25 05:20:14,603 - INFO -     Guardado: LTC_2017.parquet (453 velas)
+2026-01-25 05:20:14,618 - INFO -     Guardado: LTC_2018.parquet (8,698 velas)
+2026-01-25 05:20:14,635 - INFO -     Guardado: LTC_2019.parquet (8,732 velas)
+2026-01-25 05:20:14,652 - INFO -     Guardado: LTC_2020.parquet (8,766 velas)
+2026-01-25 05:20:14,672 - INFO -     Guardado: LTC_2021.parquet (8,747 velas)
+2026-01-25 05:20:14,687 - INFO -     Guardado: LTC_2022.parquet (8,760 velas)
+2026-01-25 05:20:14,703 - INFO -     Guardado: LTC_2023.parquet (8,759 velas)
+2026-01-25 05:20:14,721 - INFO -     Guardado: LTC_2024.parquet (8,784 velas)
+2026-01-25 05:20:14,743 - INFO -     Guardado: LTC_2025.parquet (8,760 velas)
+2026-01-25 05:20:14,751 - INFO -     Guardado: LTC_2026.parquet (581 velas)
+2026-01-25 05:20:14,751 - INFO -   Total guardado: 10 años, 71,040 velas
+2026-01-25 05:20:14,752 - INFO -   BINANCE: 71,040 velas descargadas
+2026-01-25 05:20:14,752 - INFO - 
+[19/100] Procesando PEPE...
+2026-01-25 05:20:14,753 - INFO - 
+================================================================================
+2026-01-25 05:20:14,753 - INFO - DESCARGANDO: PEPE
+2026-01-25 05:20:14,753 - INFO - ================================================================================
+2026-01-25 05:20:14,753 - INFO - Descargando PEPE desde Kraken...
+2026-01-25 05:20:14,753 - INFO -   Simbolo Kraken: PEPEUSD
+2026-01-25 05:20:14,753 - INFO -   Rango: 2023-05-05 a 2026-01-25
+2026-01-25 05:20:15,954 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:20:15,961 - INFO -     Guardado: PEPE_2025.parquet (140 velas)
+2026-01-25 05:20:15,971 - INFO -     Guardado: PEPE_2026.parquet (581 velas)
+2026-01-25 05:20:15,971 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:20:15,971 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:20:15,972 - INFO - Descargando PEPE desde Binance...
+2026-01-25 05:20:15,972 - INFO -   Simbolo Binance: PEPEUSDT
+2026-01-25 05:20:15,972 - INFO -   Rango: 2023-05-05 a 2026-01-25
+2026-01-25 05:20:43,660 - INFO -   Total: 23,891 velas descargadas de Binance
+2026-01-25 05:20:43,683 - INFO -     Guardado: PEPE_2023.parquet (5,766 velas)
+2026-01-25 05:20:43,699 - INFO -     Guardado: PEPE_2024.parquet (8,784 velas)
+2026-01-25 05:20:43,714 - INFO -     Guardado: PEPE_2025.parquet (8,760 velas)
+2026-01-25 05:20:43,723 - INFO -     Guardado: PEPE_2026.parquet (581 velas)
+2026-01-25 05:20:43,724 - INFO -   Total guardado: 4 años, 23,891 velas
+2026-01-25 05:20:43,724 - INFO -   BINANCE: 23,891 velas descargadas
+2026-01-25 05:20:43,724 - INFO - 
+[20/100] Procesando NEAR...
+2026-01-25 05:20:43,725 - INFO - 
+================================================================================
+2026-01-25 05:20:43,725 - INFO - DESCARGANDO: NEAR
+2026-01-25 05:20:43,725 - INFO - ================================================================================
+2026-01-25 05:20:43,725 - INFO - Descargando NEAR desde Kraken...
+2026-01-25 05:20:43,725 - INFO -   Simbolo Kraken: NEARUSD
+2026-01-25 05:20:43,726 - INFO -   Rango: 2020-10-14 a 2026-01-25
+2026-01-25 05:20:44,985 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:20:44,990 - INFO -     Guardado: NEAR_2025.parquet (140 velas)
+2026-01-25 05:20:45,001 - INFO -     Guardado: NEAR_2026.parquet (581 velas)
+2026-01-25 05:20:45,001 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:20:45,001 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:20:45,001 - INFO - Descargando NEAR desde Binance...
+2026-01-25 05:20:45,001 - INFO -   Simbolo Binance: NEARUSDT
+2026-01-25 05:20:45,001 - INFO -   Rango: 2020-10-14 a 2026-01-25
+2026-01-25 05:21:28,193 - INFO -   Total: 46,276 velas descargadas de Binance
+2026-01-25 05:21:28,220 - INFO -     Guardado: NEAR_2020.parquet (1,885 velas)
+2026-01-25 05:21:28,248 - INFO -     Guardado: NEAR_2021.parquet (8,747 velas)
+2026-01-25 05:21:28,268 - INFO -     Guardado: NEAR_2022.parquet (8,760 velas)
+2026-01-25 05:21:28,290 - INFO -     Guardado: NEAR_2023.parquet (8,759 velas)
+2026-01-25 05:21:28,310 - INFO -     Guardado: NEAR_2024.parquet (8,784 velas)
+2026-01-25 05:21:28,330 - INFO -     Guardado: NEAR_2025.parquet (8,760 velas)
+2026-01-25 05:21:28,345 - INFO -     Guardado: NEAR_2026.parquet (581 velas)
+2026-01-25 05:21:28,346 - INFO -   Total guardado: 7 años, 46,276 velas
+2026-01-25 05:21:28,346 - INFO -   BINANCE: 46,276 velas descargadas
+2026-01-25 05:21:28,346 - INFO - 
+[21/100] Procesando LEO...
+2026-01-25 05:21:28,346 - INFO - 
+================================================================================
+2026-01-25 05:21:28,346 - INFO - DESCARGANDO: LEO
+2026-01-25 05:21:28,346 - INFO - ================================================================================
+2026-01-25 05:21:28,347 - INFO -   KRAKEN: No disponible para LEO
+2026-01-25 05:21:28,347 - INFO - Descargando LEO desde Binance...
+2026-01-25 05:21:28,347 - INFO -   Simbolo Binance: LEOUSDT
+2026-01-25 05:21:28,348 - INFO -   Rango: 2019-05-20 a 2026-01-25
+2026-01-25 05:21:28,597 - WARNING - Request failed (attempt 1/3): 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=LEOUSDT&interval=1h&startTime=1558303200000&limit=1000
+2026-01-25 05:21:28,598 - INFO - Waiting 0.5s before retry...
+2026-01-25 05:21:29,353 - WARNING - Request failed (attempt 2/3): 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=LEOUSDT&interval=1h&startTime=1558303200000&limit=1000
+2026-01-25 05:21:29,353 - INFO - Waiting 1.0s before retry...
+2026-01-25 05:21:30,604 - WARNING - Request failed (attempt 3/3): 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=LEOUSDT&interval=1h&startTime=1558303200000&limit=1000
+2026-01-25 05:21:30,604 - ERROR - Error en request Binance: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=LEOUSDT&interval=1h&startTime=1558303200000&limit=1000
+2026-01-25 05:21:30,604 - WARNING - No se obtuvieron datos de Binance para LEO
+2026-01-25 05:21:30,608 - WARNING -   BINANCE: Sin datos
+2026-01-25 05:21:30,608 - INFO - 
+[22/100] Procesando APT...
+2026-01-25 05:21:30,608 - INFO - 
+================================================================================
+2026-01-25 05:21:30,608 - INFO - DESCARGANDO: APT
+2026-01-25 05:21:30,608 - INFO - ================================================================================
+2026-01-25 05:21:30,608 - INFO - Descargando APT desde Kraken...
+2026-01-25 05:21:30,608 - INFO -   Simbolo Kraken: APTUSD
+2026-01-25 05:21:30,609 - INFO -   Rango: 2022-10-19 a 2026-01-25
+2026-01-25 05:21:31,805 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:21:31,812 - INFO -     Guardado: APT_2025.parquet (140 velas)
+2026-01-25 05:21:31,825 - INFO -     Guardado: APT_2026.parquet (581 velas)
+2026-01-25 05:21:31,826 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:21:31,826 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:21:31,826 - INFO - Descargando APT desde Binance...
+2026-01-25 05:21:31,826 - INFO -   Simbolo Binance: APTUSDT
+2026-01-25 05:21:31,826 - INFO -   Rango: 2022-10-19 a 2026-01-25
+2026-01-25 05:21:58,784 - INFO -   Total: 28,659 velas descargadas de Binance
+2026-01-25 05:21:58,799 - INFO -     Guardado: APT_2022.parquet (1,775 velas)
+2026-01-25 05:21:58,821 - INFO -     Guardado: APT_2023.parquet (8,759 velas)
+2026-01-25 05:21:58,839 - INFO -     Guardado: APT_2024.parquet (8,784 velas)
+2026-01-25 05:21:58,856 - INFO -     Guardado: APT_2025.parquet (8,760 velas)
+2026-01-25 05:21:58,868 - INFO -     Guardado: APT_2026.parquet (581 velas)
+2026-01-25 05:21:58,869 - INFO -   Total guardado: 5 años, 28,659 velas
+2026-01-25 05:21:58,869 - INFO -   BINANCE: 28,659 velas descargadas
+2026-01-25 05:21:58,869 - INFO - 
+[23/100] Procesando ICP...
+2026-01-25 05:21:58,869 - INFO - 
+================================================================================
+2026-01-25 05:21:58,869 - INFO - DESCARGANDO: ICP
+2026-01-25 05:21:58,870 - INFO - ================================================================================
+2026-01-25 05:21:58,870 - INFO - Descargando ICP desde Kraken...
+2026-01-25 05:21:58,870 - INFO -   Simbolo Kraken: ICPUSD
+2026-01-25 05:21:58,870 - INFO -   Rango: 2021-05-10 a 2026-01-25
+2026-01-25 05:22:00,139 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:22:00,146 - INFO -     Guardado: ICP_2025.parquet (140 velas)
+2026-01-25 05:22:00,156 - INFO -     Guardado: ICP_2026.parquet (581 velas)
+2026-01-25 05:22:00,156 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:22:00,157 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:22:00,157 - INFO - Descargando ICP desde Binance...
+2026-01-25 05:22:00,157 - INFO -   Simbolo Binance: ICPUSDT
+2026-01-25 05:22:00,157 - INFO -   Rango: 2021-05-10 a 2026-01-25
+2026-01-25 05:22:40,559 - INFO -   Total: 41,277 velas descargadas de Binance
+2026-01-25 05:22:40,581 - INFO -     Guardado: ICP_2021.parquet (5,633 velas)
+2026-01-25 05:22:40,596 - INFO -     Guardado: ICP_2022.parquet (8,760 velas)
+2026-01-25 05:22:40,611 - INFO -     Guardado: ICP_2023.parquet (8,759 velas)
+2026-01-25 05:22:40,628 - INFO -     Guardado: ICP_2024.parquet (8,784 velas)
+2026-01-25 05:22:40,646 - INFO -     Guardado: ICP_2025.parquet (8,760 velas)
+2026-01-25 05:22:40,657 - INFO -     Guardado: ICP_2026.parquet (581 velas)
+2026-01-25 05:22:40,657 - INFO -   Total guardado: 6 años, 41,277 velas
+2026-01-25 05:22:40,658 - INFO -   BINANCE: 41,277 velas descargadas
+2026-01-25 05:22:40,658 - INFO - 
+[24/100] Procesando ETC...
+2026-01-25 05:22:40,658 - INFO - 
+================================================================================
+2026-01-25 05:22:40,658 - INFO - DESCARGANDO: ETC
+2026-01-25 05:22:40,658 - INFO - ================================================================================
+2026-01-25 05:22:40,658 - INFO - Descargando ETC desde Kraken...
+2026-01-25 05:22:40,658 - INFO -   Simbolo Kraken: XETCZUSD
+2026-01-25 05:22:40,658 - INFO -   Rango: 2016-07-24 a 2026-01-25
+2026-01-25 05:22:41,875 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:22:41,889 - INFO -     Guardado: ETC_2025.parquet (140 velas)
+2026-01-25 05:22:41,897 - INFO -     Guardado: ETC_2026.parquet (581 velas)
+2026-01-25 05:22:41,897 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:22:41,898 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:22:41,898 - INFO - Descargando ETC desde Binance...
+2026-01-25 05:22:41,898 - INFO -   Simbolo Binance: ETCUSDT
+2026-01-25 05:22:41,898 - INFO -   Rango: 2018-06-01 a 2026-01-25
+2026-01-25 05:23:28,310 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:23:43,239 - INFO -   Total: 66,731 velas descargadas de Binance
+2026-01-25 05:23:43,263 - INFO -     Guardado: ETC_2018.parquet (4,842 velas)
+2026-01-25 05:23:43,279 - INFO -     Guardado: ETC_2019.parquet (8,732 velas)
+2026-01-25 05:23:43,296 - INFO -     Guardado: ETC_2020.parquet (8,766 velas)
+2026-01-25 05:23:43,314 - INFO -     Guardado: ETC_2021.parquet (8,747 velas)
+2026-01-25 05:23:43,331 - INFO -     Guardado: ETC_2022.parquet (8,760 velas)
+2026-01-25 05:23:43,348 - INFO -     Guardado: ETC_2023.parquet (8,759 velas)
+2026-01-25 05:23:43,363 - INFO -     Guardado: ETC_2024.parquet (8,784 velas)
+2026-01-25 05:23:43,379 - INFO -     Guardado: ETC_2025.parquet (8,760 velas)
+2026-01-25 05:23:43,391 - INFO -     Guardado: ETC_2026.parquet (581 velas)
+2026-01-25 05:23:43,392 - INFO -   Total guardado: 9 años, 66,731 velas
+2026-01-25 05:23:43,392 - INFO -   BINANCE: 66,731 velas descargadas
+2026-01-25 05:23:43,393 - INFO - 
+[25/100] Procesando RENDER...
+2026-01-25 05:23:43,393 - INFO - 
+================================================================================
+2026-01-25 05:23:43,393 - INFO - DESCARGANDO: RENDER
+2026-01-25 05:23:43,393 - INFO - ================================================================================
+2026-01-25 05:23:43,394 - INFO - Descargando RENDER desde Kraken...
+2026-01-25 05:23:43,394 - INFO -   Simbolo Kraken: RENDERUSD
+2026-01-25 05:23:43,394 - INFO -   Rango: 2023-11-01 a 2026-01-25
+2026-01-25 05:23:44,597 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:23:44,603 - INFO -     Guardado: RENDER_2025.parquet (140 velas)
+2026-01-25 05:23:44,611 - INFO -     Guardado: RENDER_2026.parquet (581 velas)
+2026-01-25 05:23:44,611 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:23:44,611 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:23:44,611 - INFO - Descargando RENDER desde Binance...
+2026-01-25 05:23:44,611 - INFO -   Simbolo Binance: RENDERUSDT
+2026-01-25 05:23:44,611 - INFO -   Rango: 2023-11-27 a 2026-01-25
+2026-01-25 05:23:57,521 - INFO -   Total: 13,149 velas descargadas de Binance
+2026-01-25 05:23:57,538 - INFO -     Guardado: RENDER_2024.parquet (3,808 velas)
+2026-01-25 05:23:57,558 - INFO -     Guardado: RENDER_2025.parquet (8,760 velas)
+2026-01-25 05:23:57,566 - INFO -     Guardado: RENDER_2026.parquet (581 velas)
+2026-01-25 05:23:57,567 - INFO -   Total guardado: 3 años, 13,149 velas
+2026-01-25 05:23:57,567 - INFO -   BINANCE: 13,149 velas descargadas
+2026-01-25 05:23:57,567 - INFO - 
+[26/100] Procesando FET...
+2026-01-25 05:23:57,567 - INFO - 
+================================================================================
+2026-01-25 05:23:57,567 - INFO - DESCARGANDO: FET
+2026-01-25 05:23:57,567 - INFO - ================================================================================
+2026-01-25 05:23:57,567 - INFO - Descargando FET desde Kraken...
+2026-01-25 05:23:57,567 - INFO -   Simbolo Kraken: FETUSD
+2026-01-25 05:23:57,568 - INFO -   Rango: 2019-03-01 a 2026-01-25
+2026-01-25 05:23:58,765 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:23:58,775 - INFO -     Guardado: FET_2025.parquet (140 velas)
+2026-01-25 05:23:58,789 - INFO -     Guardado: FET_2026.parquet (581 velas)
+2026-01-25 05:23:58,789 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:23:58,790 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:23:58,790 - INFO - Descargando FET desde Binance...
+2026-01-25 05:23:58,790 - INFO -   Simbolo Binance: FETUSDT
+2026-01-25 05:23:58,790 - INFO -   Rango: 2019-02-28 a 2026-01-25
+2026-01-25 05:24:45,487 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:24:56,213 - INFO -   Total: 60,487 velas descargadas de Binance
+2026-01-25 05:24:56,251 - INFO -     Guardado: FET_2019.parquet (7,330 velas)
+2026-01-25 05:24:56,276 - INFO -     Guardado: FET_2020.parquet (8,766 velas)
+2026-01-25 05:24:56,297 - INFO -     Guardado: FET_2021.parquet (8,747 velas)
+2026-01-25 05:24:56,321 - INFO -     Guardado: FET_2022.parquet (8,760 velas)
+2026-01-25 05:24:56,341 - INFO -     Guardado: FET_2023.parquet (8,759 velas)
+2026-01-25 05:24:56,359 - INFO -     Guardado: FET_2024.parquet (8,784 velas)
+2026-01-25 05:24:56,377 - INFO -     Guardado: FET_2025.parquet (8,760 velas)
+2026-01-25 05:24:56,390 - INFO -     Guardado: FET_2026.parquet (581 velas)
+2026-01-25 05:24:56,391 - INFO -   Total guardado: 8 años, 60,487 velas
+2026-01-25 05:24:56,391 - INFO -   BINANCE: 60,487 velas descargadas
+2026-01-25 05:24:56,392 - INFO - 
+[27/100] Procesando ATOM...
+2026-01-25 05:24:56,392 - INFO - 
+================================================================================
+2026-01-25 05:24:56,392 - INFO - DESCARGANDO: ATOM
+2026-01-25 05:24:56,393 - INFO - ================================================================================
+2026-01-25 05:24:56,393 - INFO - Descargando ATOM desde Kraken...
+2026-01-25 05:24:56,393 - INFO -   Simbolo Kraken: ATOMUSD
+2026-01-25 05:24:56,393 - INFO -   Rango: 2019-04-22 a 2026-01-25
+2026-01-25 05:24:57,595 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:24:57,602 - INFO -     Guardado: ATOM_2025.parquet (140 velas)
+2026-01-25 05:24:57,611 - INFO -     Guardado: ATOM_2026.parquet (581 velas)
+2026-01-25 05:24:57,611 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:24:57,611 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:24:57,612 - INFO - Descargando ATOM desde Binance...
+2026-01-25 05:24:57,612 - INFO -   Simbolo Binance: ATOMUSDT
+2026-01-25 05:24:57,612 - INFO -   Rango: 2019-04-22 a 2026-01-25
+2026-01-25 05:25:46,070 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:25:56,302 - INFO -   Total: 59,059 velas descargadas de Binance
+2026-01-25 05:25:56,325 - INFO -     Guardado: ATOM_2019.parquet (5,902 velas)
+2026-01-25 05:25:56,341 - INFO -     Guardado: ATOM_2020.parquet (8,766 velas)
+2026-01-25 05:25:56,356 - INFO -     Guardado: ATOM_2021.parquet (8,747 velas)
+2026-01-25 05:25:56,373 - INFO -     Guardado: ATOM_2022.parquet (8,760 velas)
+2026-01-25 05:25:56,393 - INFO -     Guardado: ATOM_2023.parquet (8,759 velas)
+2026-01-25 05:25:56,412 - INFO -     Guardado: ATOM_2024.parquet (8,784 velas)
+2026-01-25 05:25:56,429 - INFO -     Guardado: ATOM_2025.parquet (8,760 velas)
+2026-01-25 05:25:56,440 - INFO -     Guardado: ATOM_2026.parquet (581 velas)
+2026-01-25 05:25:56,441 - INFO -   Total guardado: 8 años, 59,059 velas
+2026-01-25 05:25:56,441 - INFO -   BINANCE: 59,059 velas descargadas
+2026-01-25 05:25:56,442 - INFO - 
+[28/100] Procesando CRO...
+2026-01-25 05:25:56,442 - INFO - 
+================================================================================
+2026-01-25 05:25:56,442 - INFO - DESCARGANDO: CRO
+2026-01-25 05:25:56,442 - INFO - ================================================================================
+2026-01-25 05:25:56,443 - INFO - Descargando CRO desde Kraken...
+2026-01-25 05:25:56,443 - INFO -   Simbolo Kraken: CROUSD
+2026-01-25 05:25:56,443 - INFO -   Rango: 2021-11-08 a 2026-01-25
+2026-01-25 05:25:57,697 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:25:57,703 - INFO -     Guardado: CRO_2025.parquet (140 velas)
+2026-01-25 05:25:57,714 - INFO -     Guardado: CRO_2026.parquet (581 velas)
+2026-01-25 05:25:57,714 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:25:57,714 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:25:57,715 - INFO - Descargando CRO desde Binance...
+2026-01-25 05:25:57,715 - INFO -   Simbolo Binance: CROUSDT
+2026-01-25 05:25:57,715 - INFO -   Rango: 2021-11-08 a 2026-01-25
+2026-01-25 05:25:57,965 - WARNING - Request failed (attempt 1/3): 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=CROUSDT&interval=1h&startTime=1636326000000&limit=1000
+2026-01-25 05:25:57,965 - INFO - Waiting 0.5s before retry...
+2026-01-25 05:25:58,717 - WARNING - Request failed (attempt 2/3): 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=CROUSDT&interval=1h&startTime=1636326000000&limit=1000
+2026-01-25 05:25:58,718 - INFO - Waiting 1.0s before retry...
+2026-01-25 05:25:59,968 - WARNING - Request failed (attempt 3/3): 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=CROUSDT&interval=1h&startTime=1636326000000&limit=1000
+2026-01-25 05:25:59,969 - ERROR - Error en request Binance: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=CROUSDT&interval=1h&startTime=1636326000000&limit=1000
+2026-01-25 05:25:59,969 - WARNING - No se obtuvieron datos de Binance para CRO
+2026-01-25 05:25:59,970 - WARNING -   BINANCE: Sin datos
+2026-01-25 05:25:59,970 - INFO - 
+[29/100] Procesando AAVE...
+2026-01-25 05:25:59,970 - INFO - 
+================================================================================
+2026-01-25 05:25:59,970 - INFO - DESCARGANDO: AAVE
+2026-01-25 05:25:59,970 - INFO - ================================================================================
+2026-01-25 05:25:59,970 - INFO - Descargando AAVE desde Kraken...
+2026-01-25 05:25:59,970 - INFO -   Simbolo Kraken: AAVEUSD
+2026-01-25 05:25:59,970 - INFO -   Rango: 2020-10-03 a 2026-01-25
+2026-01-25 05:26:01,166 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:26:01,173 - INFO -     Guardado: AAVE_2025.parquet (140 velas)
+2026-01-25 05:26:01,181 - INFO -     Guardado: AAVE_2026.parquet (581 velas)
+2026-01-25 05:26:01,181 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:26:01,182 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:26:01,182 - INFO - Descargando AAVE desde Binance...
+2026-01-25 05:26:01,182 - INFO -   Simbolo Binance: AAVEUSDT
+2026-01-25 05:26:01,182 - INFO -   Rango: 2020-10-15 a 2026-01-25
+2026-01-25 05:26:42,713 - INFO -   Total: 46,254 velas descargadas de Binance
+2026-01-25 05:26:42,742 - INFO -     Guardado: AAVE_2020.parquet (1,863 velas)
+2026-01-25 05:26:42,767 - INFO -     Guardado: AAVE_2021.parquet (8,747 velas)
+2026-01-25 05:26:42,785 - INFO -     Guardado: AAVE_2022.parquet (8,760 velas)
+2026-01-25 05:26:42,804 - INFO -     Guardado: AAVE_2023.parquet (8,759 velas)
+2026-01-25 05:26:42,820 - INFO -     Guardado: AAVE_2024.parquet (8,784 velas)
+2026-01-25 05:26:42,838 - INFO -     Guardado: AAVE_2025.parquet (8,760 velas)
+2026-01-25 05:26:42,849 - INFO -     Guardado: AAVE_2026.parquet (581 velas)
+2026-01-25 05:26:42,849 - INFO -   Total guardado: 7 años, 46,254 velas
+2026-01-25 05:26:42,849 - INFO -   BINANCE: 46,254 velas descargadas
+2026-01-25 05:26:42,849 - INFO - 
+[30/100] Procesando FIL...
+2026-01-25 05:26:42,850 - INFO - 
+================================================================================
+2026-01-25 05:26:42,850 - INFO - DESCARGANDO: FIL
+2026-01-25 05:26:42,850 - INFO - ================================================================================
+2026-01-25 05:26:42,850 - INFO - Descargando FIL desde Kraken...
+2026-01-25 05:26:42,850 - INFO -   Simbolo Kraken: FILUSD
+2026-01-25 05:26:42,850 - INFO -   Rango: 2020-10-15 a 2026-01-25
+2026-01-25 05:26:44,053 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:26:44,061 - INFO -     Guardado: FIL_2025.parquet (140 velas)
+2026-01-25 05:26:44,071 - INFO -     Guardado: FIL_2026.parquet (581 velas)
+2026-01-25 05:26:44,071 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:26:44,071 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:26:44,072 - INFO - Descargando FIL desde Binance...
+2026-01-25 05:26:44,072 - INFO -   Simbolo Binance: FILUSDT
+2026-01-25 05:26:44,072 - INFO -   Rango: 2020-10-15 a 2026-01-25
+2026-01-25 05:27:31,405 - INFO -   Total: 46,240 velas descargadas de Binance
+2026-01-25 05:27:31,425 - INFO -     Guardado: FIL_2020.parquet (1,849 velas)
+2026-01-25 05:27:31,445 - INFO -     Guardado: FIL_2021.parquet (8,747 velas)
+2026-01-25 05:27:31,460 - INFO -     Guardado: FIL_2022.parquet (8,760 velas)
+2026-01-25 05:27:31,476 - INFO -     Guardado: FIL_2023.parquet (8,759 velas)
+2026-01-25 05:27:31,492 - INFO -     Guardado: FIL_2024.parquet (8,784 velas)
+2026-01-25 05:27:31,509 - INFO -     Guardado: FIL_2025.parquet (8,760 velas)
+2026-01-25 05:27:31,519 - INFO -     Guardado: FIL_2026.parquet (581 velas)
+2026-01-25 05:27:31,519 - INFO -   Total guardado: 7 años, 46,240 velas
+2026-01-25 05:27:31,520 - INFO -   BINANCE: 46,240 velas descargadas
+2026-01-25 05:27:31,520 - INFO - 
+[31/100] Procesando IMX...
+2026-01-25 05:27:31,521 - INFO - 
+================================================================================
+2026-01-25 05:27:31,521 - INFO - DESCARGANDO: IMX
+2026-01-25 05:27:31,521 - INFO - ================================================================================
+2026-01-25 05:27:31,521 - INFO - Descargando IMX desde Kraken...
+2026-01-25 05:27:31,521 - INFO -   Simbolo Kraken: IMXUSD
+2026-01-25 05:27:31,521 - INFO -   Rango: 2022-01-01 a 2026-01-25
+2026-01-25 05:27:32,721 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:27:32,728 - INFO -     Guardado: IMX_2025.parquet (140 velas)
+2026-01-25 05:27:32,738 - INFO -     Guardado: IMX_2026.parquet (581 velas)
+2026-01-25 05:27:32,738 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:27:32,738 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:27:32,739 - INFO - Descargando IMX desde Binance...
+2026-01-25 05:27:32,739 - INFO -   Simbolo Binance: IMXUSDT
+2026-01-25 05:27:32,739 - INFO -   Rango: 2021-11-11 a 2026-01-25
+2026-01-25 05:28:08,202 - INFO -   Total: 35,418 velas descargadas de Binance
+2026-01-25 05:28:08,223 - INFO -     Guardado: IMX_2022.parquet (8,534 velas)
+2026-01-25 05:28:08,242 - INFO -     Guardado: IMX_2023.parquet (8,759 velas)
+2026-01-25 05:28:08,263 - INFO -     Guardado: IMX_2024.parquet (8,784 velas)
+2026-01-25 05:28:08,282 - INFO -     Guardado: IMX_2025.parquet (8,760 velas)
+2026-01-25 05:28:08,295 - INFO -     Guardado: IMX_2026.parquet (581 velas)
+2026-01-25 05:28:08,295 - INFO -   Total guardado: 5 años, 35,418 velas
+2026-01-25 05:28:08,296 - INFO -   BINANCE: 35,418 velas descargadas
+2026-01-25 05:28:08,296 - INFO - 
+[32/100] Procesando XMR...
+2026-01-25 05:28:08,296 - INFO - 
+================================================================================
+2026-01-25 05:28:08,296 - INFO - DESCARGANDO: XMR
+2026-01-25 05:28:08,296 - INFO - ================================================================================
+2026-01-25 05:28:08,296 - INFO - Descargando XMR desde Kraken...
+2026-01-25 05:28:08,297 - INFO -   Simbolo Kraken: XXMRZUSD
+2026-01-25 05:28:08,297 - INFO -   Rango: 2014-05-21 a 2026-01-25
+2026-01-25 05:28:09,493 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:28:09,507 - INFO -     Guardado: XMR_2025.parquet (140 velas)
+2026-01-25 05:28:09,521 - INFO -     Guardado: XMR_2026.parquet (581 velas)
+2026-01-25 05:28:09,521 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:28:09,521 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:28:09,521 - INFO -   BINANCE: No disponible para XMR
+2026-01-25 05:28:09,522 - INFO - 
+[33/100] Procesando STX...
+2026-01-25 05:28:09,522 - INFO - 
+================================================================================
+2026-01-25 05:28:09,522 - INFO - DESCARGANDO: STX
+2026-01-25 05:28:09,522 - INFO - ================================================================================
+2026-01-25 05:28:09,522 - INFO - Descargando STX desde Kraken...
+2026-01-25 05:28:09,522 - INFO -   Simbolo Kraken: STXUSD
+2026-01-25 05:28:09,523 - INFO -   Rango: 2021-01-01 a 2026-01-25
+2026-01-25 05:28:10,750 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:28:10,756 - INFO -     Guardado: STX_2025.parquet (140 velas)
+2026-01-25 05:28:10,762 - INFO -     Guardado: STX_2026.parquet (581 velas)
+2026-01-25 05:28:10,762 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:28:10,762 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:28:10,762 - INFO - Descargando STX desde Binance...
+2026-01-25 05:28:10,762 - INFO -   Simbolo Binance: STXUSDT
+2026-01-25 05:28:10,762 - INFO -   Rango: 2019-10-25 a 2026-01-25
+2026-01-25 05:28:56,695 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:29:01,426 - INFO -   Total: 54,781 velas descargadas de Binance
+2026-01-25 05:29:01,445 - INFO -     Guardado: STX_2019.parquet (1,624 velas)
+2026-01-25 05:29:01,463 - INFO -     Guardado: STX_2020.parquet (8,766 velas)
+2026-01-25 05:29:01,482 - INFO -     Guardado: STX_2021.parquet (8,747 velas)
+2026-01-25 05:29:01,501 - INFO -     Guardado: STX_2022.parquet (8,760 velas)
+2026-01-25 05:29:01,521 - INFO -     Guardado: STX_2023.parquet (8,759 velas)
+2026-01-25 05:29:01,538 - INFO -     Guardado: STX_2024.parquet (8,784 velas)
+2026-01-25 05:29:01,552 - INFO -     Guardado: STX_2025.parquet (8,760 velas)
+2026-01-25 05:29:01,560 - INFO -     Guardado: STX_2026.parquet (581 velas)
+2026-01-25 05:29:01,561 - INFO -   Total guardado: 8 años, 54,781 velas
+2026-01-25 05:29:01,561 - INFO -   BINANCE: 54,781 velas descargadas
+2026-01-25 05:29:01,562 - INFO - 
+[34/100] Procesando ARB...
+2026-01-25 05:29:01,563 - INFO - 
+================================================================================
+2026-01-25 05:29:01,563 - INFO - DESCARGANDO: ARB
+2026-01-25 05:29:01,564 - INFO - ================================================================================
+2026-01-25 05:29:01,564 - INFO - Descargando ARB desde Kraken...
+2026-01-25 05:29:01,564 - INFO -   Simbolo Kraken: ARBUSD
+2026-01-25 05:29:01,564 - INFO -   Rango: 2023-03-23 a 2026-01-25
+2026-01-25 05:29:02,841 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:29:02,847 - INFO -     Guardado: ARB_2025.parquet (140 velas)
+2026-01-25 05:29:02,856 - INFO -     Guardado: ARB_2026.parquet (581 velas)
+2026-01-25 05:29:02,856 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:29:02,856 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:29:02,857 - INFO - Descargando ARB desde Binance...
+2026-01-25 05:29:02,857 - INFO -   Simbolo Binance: ARBUSDT
+2026-01-25 05:29:02,857 - INFO -   Rango: 2023-03-23 a 2026-01-25
+2026-01-25 05:29:24,370 - INFO -   Total: 24,925 velas descargadas de Binance
+2026-01-25 05:29:24,400 - INFO -     Guardado: ARB_2023.parquet (6,800 velas)
+2026-01-25 05:29:24,421 - INFO -     Guardado: ARB_2024.parquet (8,784 velas)
+2026-01-25 05:29:24,440 - INFO -     Guardado: ARB_2025.parquet (8,760 velas)
+2026-01-25 05:29:24,451 - INFO -     Guardado: ARB_2026.parquet (581 velas)
+2026-01-25 05:29:24,452 - INFO -   Total guardado: 4 años, 24,925 velas
+2026-01-25 05:29:24,452 - INFO -   BINANCE: 24,925 velas descargadas
+2026-01-25 05:29:24,452 - INFO - 
+[35/100] Procesando OP...
+2026-01-25 05:29:24,452 - INFO - 
+================================================================================
+2026-01-25 05:29:24,452 - INFO - DESCARGANDO: OP
+2026-01-25 05:29:24,452 - INFO - ================================================================================
+2026-01-25 05:29:24,452 - INFO - Descargando OP desde Kraken...
+2026-01-25 05:29:24,452 - INFO -   Simbolo Kraken: OPUSD
+2026-01-25 05:29:24,453 - INFO -   Rango: 2022-06-01 a 2026-01-25
+2026-01-25 05:29:25,699 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:29:25,703 - INFO -     Guardado: OP_2025.parquet (140 velas)
+2026-01-25 05:29:25,709 - INFO -     Guardado: OP_2026.parquet (581 velas)
+2026-01-25 05:29:25,710 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:29:25,710 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:29:25,710 - INFO - Descargando OP desde Binance...
+2026-01-25 05:29:25,710 - INFO -   Simbolo Binance: OPUSDT
+2026-01-25 05:29:25,710 - INFO -   Rango: 2022-06-01 a 2026-01-25
+2026-01-25 05:29:58,648 - INFO -   Total: 32,012 velas descargadas de Binance
+2026-01-25 05:29:58,682 - INFO -     Guardado: OP_2022.parquet (5,128 velas)
+2026-01-25 05:29:58,698 - INFO -     Guardado: OP_2023.parquet (8,759 velas)
+2026-01-25 05:29:58,713 - INFO -     Guardado: OP_2024.parquet (8,784 velas)
+2026-01-25 05:29:58,732 - INFO -     Guardado: OP_2025.parquet (8,760 velas)
+2026-01-25 05:29:58,742 - INFO -     Guardado: OP_2026.parquet (581 velas)
+2026-01-25 05:29:58,742 - INFO -   Total guardado: 5 años, 32,012 velas
+2026-01-25 05:29:58,742 - INFO -   BINANCE: 32,012 velas descargadas
+2026-01-25 05:29:58,742 - INFO - 
+[36/100] Procesando VET...
+2026-01-25 05:29:58,742 - INFO - 
+================================================================================
+2026-01-25 05:29:58,743 - INFO - DESCARGANDO: VET
+2026-01-25 05:29:58,743 - INFO - ================================================================================
+2026-01-25 05:29:58,743 - INFO - Descargando VET desde Kraken...
+2026-01-25 05:29:58,743 - INFO -   Simbolo Kraken: VETUSD
+2026-01-25 05:29:58,743 - INFO -   Rango: 2021-04-01 a 2026-01-25
+2026-01-25 05:29:59,937 - INFO -   Total: 543 velas descargadas de Kraken
+2026-01-25 05:29:59,946 - INFO -     Guardado: VET_2026.parquet (543 velas)
+2026-01-25 05:29:59,947 - INFO -   Total guardado: 1 años, 543 velas
+2026-01-25 05:29:59,947 - INFO -   KRAKEN: 543 velas descargadas
+2026-01-25 05:29:59,947 - INFO - Descargando VET desde Binance...
+2026-01-25 05:29:59,947 - INFO -   Simbolo Binance: VETUSDT
+2026-01-25 05:29:59,947 - INFO -   Rango: 2018-07-23 a 2026-01-25
+2026-01-25 05:30:44,047 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:30:58,700 - INFO -   Total: 65,715 velas descargadas de Binance
+2026-01-25 05:30:58,728 - INFO -     Guardado: VET_2018.parquet (3,826 velas)
+2026-01-25 05:30:58,745 - INFO -     Guardado: VET_2019.parquet (8,732 velas)
+2026-01-25 05:30:58,762 - INFO -     Guardado: VET_2020.parquet (8,766 velas)
+2026-01-25 05:30:58,780 - INFO -     Guardado: VET_2021.parquet (8,747 velas)
+2026-01-25 05:30:58,797 - INFO -     Guardado: VET_2022.parquet (8,760 velas)
+2026-01-25 05:30:58,811 - INFO -     Guardado: VET_2023.parquet (8,759 velas)
+2026-01-25 05:30:58,830 - INFO -     Guardado: VET_2024.parquet (8,784 velas)
+2026-01-25 05:30:58,848 - INFO -     Guardado: VET_2025.parquet (8,760 velas)
+2026-01-25 05:30:58,859 - INFO -     Guardado: VET_2026.parquet (581 velas)
+2026-01-25 05:30:58,859 - INFO -   Total guardado: 9 años, 65,715 velas
+2026-01-25 05:30:58,859 - INFO -   BINANCE: 65,715 velas descargadas
+2026-01-25 05:30:58,860 - INFO - 
+[37/100] Procesando MKR...
+2026-01-25 05:30:58,860 - INFO - 
+================================================================================
+2026-01-25 05:30:58,860 - INFO - DESCARGANDO: MKR
+2026-01-25 05:30:58,860 - INFO - ================================================================================
+2026-01-25 05:30:58,861 - INFO - Descargando MKR desde Kraken...
+2026-01-25 05:30:58,862 - INFO -   Simbolo Kraken: MKRUSD
+2026-01-25 05:30:58,862 - INFO -   Rango: 2017-09-15 a 2026-01-25
+2026-01-25 05:30:58,952 - ERROR - Kraken API error: ['EQuery:Invalid asset pair']
+2026-01-25 05:30:58,952 - WARNING - No se obtuvieron datos de Kraken para MKR
+2026-01-25 05:30:58,953 - WARNING -   KRAKEN: Sin datos
+2026-01-25 05:30:58,953 - INFO - Descargando MKR desde Binance...
+2026-01-25 05:30:58,953 - INFO -   Simbolo Binance: MKRUSDT
+2026-01-25 05:30:58,953 - INFO -   Rango: 2020-06-08 a 2026-01-25
+2026-01-25 05:31:41,074 - INFO -   Total: 45,089 velas descargadas de Binance
+2026-01-25 05:31:41,102 - INFO -     Guardado: MKR_2020.parquet (3,868 velas)
+2026-01-25 05:31:41,121 - INFO -     Guardado: MKR_2021.parquet (8,747 velas)
+2026-01-25 05:31:41,138 - INFO -     Guardado: MKR_2022.parquet (8,760 velas)
+2026-01-25 05:31:41,153 - INFO -     Guardado: MKR_2023.parquet (8,759 velas)
+2026-01-25 05:31:41,169 - INFO -     Guardado: MKR_2024.parquet (8,784 velas)
+2026-01-25 05:31:41,188 - INFO -     Guardado: MKR_2025.parquet (6,171 velas)
+2026-01-25 05:31:41,189 - INFO -   Total guardado: 6 años, 45,089 velas
+2026-01-25 05:31:41,189 - INFO -   BINANCE: 45,089 velas descargadas
+2026-01-25 05:31:41,189 - INFO - 
+[38/100] Procesando THETA...
+2026-01-25 05:31:41,189 - INFO - 
+================================================================================
+2026-01-25 05:31:41,189 - INFO - DESCARGANDO: THETA
+2026-01-25 05:31:41,189 - INFO - ================================================================================
+2026-01-25 05:31:41,190 - INFO - Descargando THETA desde Kraken...
+2026-01-25 05:31:41,190 - INFO -   Simbolo Kraken: THETAUSD
+2026-01-25 05:31:41,190 - INFO -   Rango: 2021-03-25 a 2026-01-25
+2026-01-25 05:31:41,267 - ERROR - Kraken API error: ['EQuery:Unknown asset pair']
+2026-01-25 05:31:41,267 - WARNING - No se obtuvieron datos de Kraken para THETA
+2026-01-25 05:31:41,268 - WARNING -   KRAKEN: Sin datos
+2026-01-25 05:31:41,268 - INFO - Descargando THETA desde Binance...
+2026-01-25 05:31:41,268 - INFO -   Simbolo Binance: THETAUSDT
+2026-01-25 05:31:41,268 - INFO -   Rango: 2019-03-13 a 2026-01-25
+2026-01-25 05:32:30,161 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:32:39,850 - INFO -   Total: 59,515 velas descargadas de Binance
+2026-01-25 05:32:39,876 - INFO -     Guardado: THETA_2019.parquet (6,358 velas)
+2026-01-25 05:32:39,889 - INFO -     Guardado: THETA_2020.parquet (8,766 velas)
+2026-01-25 05:32:39,904 - INFO -     Guardado: THETA_2021.parquet (8,747 velas)
+2026-01-25 05:32:39,916 - INFO -     Guardado: THETA_2022.parquet (8,760 velas)
+2026-01-25 05:32:39,930 - INFO -     Guardado: THETA_2023.parquet (8,759 velas)
+2026-01-25 05:32:39,946 - INFO -     Guardado: THETA_2024.parquet (8,784 velas)
+2026-01-25 05:32:39,964 - INFO -     Guardado: THETA_2025.parquet (8,760 velas)
+2026-01-25 05:32:39,975 - INFO -     Guardado: THETA_2026.parquet (581 velas)
+2026-01-25 05:32:39,975 - INFO -   Total guardado: 8 años, 59,515 velas
+2026-01-25 05:32:39,975 - INFO -   BINANCE: 59,515 velas descargadas
+2026-01-25 05:32:39,976 - INFO - 
+[39/100] Procesando GRT...
+2026-01-25 05:32:39,977 - INFO - 
+================================================================================
+2026-01-25 05:32:39,977 - INFO - DESCARGANDO: GRT
+2026-01-25 05:32:39,977 - INFO - ================================================================================
+2026-01-25 05:32:39,977 - INFO - Descargando GRT desde Kraken...
+2026-01-25 05:32:39,978 - INFO -   Simbolo Kraken: GRTUSD
+2026-01-25 05:32:39,978 - INFO -   Rango: 2020-12-18 a 2026-01-25
+2026-01-25 05:32:41,259 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:32:41,265 - INFO -     Guardado: GRT_2025.parquet (140 velas)
+2026-01-25 05:32:41,275 - INFO -     Guardado: GRT_2026.parquet (581 velas)
+2026-01-25 05:32:41,276 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:32:41,276 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:32:41,276 - INFO - Descargando GRT desde Binance...
+2026-01-25 05:32:41,276 - INFO -   Simbolo Binance: GRTUSDT
+2026-01-25 05:32:41,276 - INFO -   Rango: 2020-12-18 a 2026-01-25
+2026-01-25 05:33:21,629 - INFO -   Total: 44,723 velas descargadas de Binance
+2026-01-25 05:33:21,645 - INFO -     Guardado: GRT_2020.parquet (332 velas)
+2026-01-25 05:33:21,661 - INFO -     Guardado: GRT_2021.parquet (8,747 velas)
+2026-01-25 05:33:21,679 - INFO -     Guardado: GRT_2022.parquet (8,760 velas)
+2026-01-25 05:33:21,697 - INFO -     Guardado: GRT_2023.parquet (8,759 velas)
+2026-01-25 05:33:21,714 - INFO -     Guardado: GRT_2024.parquet (8,784 velas)
+2026-01-25 05:33:21,732 - INFO -     Guardado: GRT_2025.parquet (8,760 velas)
+2026-01-25 05:33:21,743 - INFO -     Guardado: GRT_2026.parquet (581 velas)
+2026-01-25 05:33:21,744 - INFO -   Total guardado: 7 años, 44,723 velas
+2026-01-25 05:33:21,744 - INFO -   BINANCE: 44,723 velas descargadas
+2026-01-25 05:33:21,744 - INFO - 
+[40/100] Procesando INJ...
+2026-01-25 05:33:21,744 - INFO - 
+================================================================================
+2026-01-25 05:33:21,744 - INFO - DESCARGANDO: INJ
+2026-01-25 05:33:21,744 - INFO - ================================================================================
+2026-01-25 05:33:21,744 - INFO - Descargando INJ desde Kraken...
+2026-01-25 05:33:21,745 - INFO -   Simbolo Kraken: INJUSD
+2026-01-25 05:33:21,745 - INFO -   Rango: 2020-10-21 a 2026-01-25
+2026-01-25 05:33:23,002 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:33:23,017 - INFO -     Guardado: INJ_2025.parquet (140 velas)
+2026-01-25 05:33:23,032 - INFO -     Guardado: INJ_2026.parquet (581 velas)
+2026-01-25 05:33:23,033 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:33:23,033 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:33:23,033 - INFO - Descargando INJ desde Binance...
+2026-01-25 05:33:23,034 - INFO -   Simbolo Binance: INJUSDT
+2026-01-25 05:33:23,034 - INFO -   Rango: 2020-10-21 a 2026-01-25
+2026-01-25 05:34:04,053 - INFO -   Total: 46,109 velas descargadas de Binance
+2026-01-25 05:34:04,076 - INFO -     Guardado: INJ_2020.parquet (1,718 velas)
+2026-01-25 05:34:04,090 - INFO -     Guardado: INJ_2021.parquet (8,747 velas)
+2026-01-25 05:34:04,103 - INFO -     Guardado: INJ_2022.parquet (8,760 velas)
+2026-01-25 05:34:04,118 - INFO -     Guardado: INJ_2023.parquet (8,759 velas)
+2026-01-25 05:34:04,132 - INFO -     Guardado: INJ_2024.parquet (8,784 velas)
+2026-01-25 05:34:04,144 - INFO -     Guardado: INJ_2025.parquet (8,760 velas)
+2026-01-25 05:34:04,150 - INFO -     Guardado: INJ_2026.parquet (581 velas)
+2026-01-25 05:34:04,150 - INFO -   Total guardado: 7 años, 46,109 velas
+2026-01-25 05:34:04,151 - INFO -   BINANCE: 46,109 velas descargadas
+2026-01-25 05:34:04,151 - INFO - 
+[41/100] Procesando FTM...
+2026-01-25 05:34:04,151 - INFO - 
+================================================================================
+2026-01-25 05:34:04,151 - INFO - DESCARGANDO: FTM
+2026-01-25 05:34:04,151 - INFO - ================================================================================
+2026-01-25 05:34:04,151 - INFO - Descargando FTM desde Kraken...
+2026-01-25 05:34:04,151 - INFO -   Simbolo Kraken: FTMUSD
+2026-01-25 05:34:04,152 - INFO -   Rango: 2021-04-06 a 2026-01-25
+2026-01-25 05:34:04,261 - ERROR - Kraken API error: ['EQuery:Invalid asset pair']
+2026-01-25 05:34:04,261 - WARNING - No se obtuvieron datos de Kraken para FTM
+2026-01-25 05:34:04,262 - WARNING -   KRAKEN: Sin datos
+2026-01-25 05:34:04,262 - INFO - Descargando FTM desde Binance...
+2026-01-25 05:34:04,262 - INFO -   Simbolo Binance: FTMUSDT
+2026-01-25 05:34:04,263 - INFO -   Rango: 2019-06-11 a 2026-01-25
+2026-01-25 05:34:50,113 - INFO -   Total: 48,987 velas descargadas de Binance
+2026-01-25 05:34:50,136 - INFO -     Guardado: FTM_2019.parquet (4,880 velas)
+2026-01-25 05:34:50,149 - INFO -     Guardado: FTM_2020.parquet (8,766 velas)
+2026-01-25 05:34:50,163 - INFO -     Guardado: FTM_2021.parquet (8,747 velas)
+2026-01-25 05:34:50,178 - INFO -     Guardado: FTM_2022.parquet (8,760 velas)
+2026-01-25 05:34:50,191 - INFO -     Guardado: FTM_2023.parquet (8,759 velas)
+2026-01-25 05:34:50,207 - INFO -     Guardado: FTM_2024.parquet (8,784 velas)
+2026-01-25 05:34:50,211 - INFO -     Guardado: FTM_2025.parquet (291 velas)
+2026-01-25 05:34:50,212 - INFO -   Total guardado: 7 años, 48,987 velas
+2026-01-25 05:34:50,212 - INFO -   BINANCE: 48,987 velas descargadas
+2026-01-25 05:34:50,213 - INFO - 
+[42/100] Procesando ALGO...
+2026-01-25 05:34:50,213 - INFO - 
+================================================================================
+2026-01-25 05:34:50,213 - INFO - DESCARGANDO: ALGO
+2026-01-25 05:34:50,213 - INFO - ================================================================================
+2026-01-25 05:34:50,214 - INFO - Descargando ALGO desde Kraken...
+2026-01-25 05:34:50,214 - INFO -   Simbolo Kraken: ALGOUSD
+2026-01-25 05:34:50,214 - INFO -   Rango: 2019-06-21 a 2026-01-25
+2026-01-25 05:34:51,416 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:34:51,422 - INFO -     Guardado: ALGO_2025.parquet (140 velas)
+2026-01-25 05:34:51,430 - INFO -     Guardado: ALGO_2026.parquet (581 velas)
+2026-01-25 05:34:51,431 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:34:51,433 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:34:51,433 - INFO - Descargando ALGO desde Binance...
+2026-01-25 05:34:51,434 - INFO -   Simbolo Binance: ALGOUSDT
+2026-01-25 05:34:51,434 - INFO -   Rango: 2019-06-22 a 2026-01-25
+2026-01-25 05:35:34,910 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:35:42,640 - INFO -   Total: 57,777 velas descargadas de Binance
+2026-01-25 05:35:42,661 - INFO -     Guardado: ALGO_2019.parquet (4,620 velas)
+2026-01-25 05:35:42,674 - INFO -     Guardado: ALGO_2020.parquet (8,766 velas)
+2026-01-25 05:35:42,688 - INFO -     Guardado: ALGO_2021.parquet (8,747 velas)
+2026-01-25 05:35:42,702 - INFO -     Guardado: ALGO_2022.parquet (8,760 velas)
+2026-01-25 05:35:42,714 - INFO -     Guardado: ALGO_2023.parquet (8,759 velas)
+2026-01-25 05:35:42,727 - INFO -     Guardado: ALGO_2024.parquet (8,784 velas)
+2026-01-25 05:35:42,741 - INFO -     Guardado: ALGO_2025.parquet (8,760 velas)
+2026-01-25 05:35:42,754 - INFO -     Guardado: ALGO_2026.parquet (581 velas)
+2026-01-25 05:35:42,755 - INFO -   Total guardado: 8 años, 57,777 velas
+2026-01-25 05:35:42,755 - INFO -   BINANCE: 57,777 velas descargadas
+2026-01-25 05:35:42,756 - INFO - 
+[43/100] Procesando MATIC...
+2026-01-25 05:35:42,756 - INFO - 
+================================================================================
+2026-01-25 05:35:42,756 - INFO - DESCARGANDO: MATIC
+2026-01-25 05:35:42,756 - INFO - ================================================================================
+2026-01-25 05:35:42,756 - INFO - Descargando MATIC desde Kraken...
+2026-01-25 05:35:42,756 - INFO -   Simbolo Kraken: MATICUSD
+2026-01-25 05:35:42,756 - INFO -   Rango: 2021-02-24 a 2026-01-25
+2026-01-25 05:35:42,829 - ERROR - Kraken API error: ['EQuery:Invalid asset pair']
+2026-01-25 05:35:42,829 - WARNING - No se obtuvieron datos de Kraken para MATIC
+2026-01-25 05:35:42,830 - WARNING -   KRAKEN: Sin datos
+2026-01-25 05:35:42,830 - INFO - Descargando MATIC desde Binance...
+2026-01-25 05:35:42,830 - INFO -   Simbolo Binance: MATICUSDT
+2026-01-25 05:35:42,831 - INFO -   Rango: 2019-04-26 a 2026-01-25
+2026-01-25 05:36:28,221 - INFO -   Total: 47,070 velas descargadas de Binance
+2026-01-25 05:36:28,243 - INFO -     Guardado: MATIC_2019.parquet (5,963 velas)
+2026-01-25 05:36:28,258 - INFO -     Guardado: MATIC_2020.parquet (8,766 velas)
+2026-01-25 05:36:28,274 - INFO -     Guardado: MATIC_2021.parquet (8,747 velas)
+2026-01-25 05:36:28,291 - INFO -     Guardado: MATIC_2022.parquet (8,760 velas)
+2026-01-25 05:36:28,308 - INFO -     Guardado: MATIC_2023.parquet (8,759 velas)
+2026-01-25 05:36:28,322 - INFO -     Guardado: MATIC_2024.parquet (6,075 velas)
+2026-01-25 05:36:28,323 - INFO -   Total guardado: 6 años, 47,070 velas
+2026-01-25 05:36:28,323 - INFO -   BINANCE: 47,070 velas descargadas
+2026-01-25 05:36:28,323 - INFO - 
+[44/100] Procesando SEI...
+2026-01-25 05:36:28,323 - INFO - 
+================================================================================
+2026-01-25 05:36:28,323 - INFO - DESCARGANDO: SEI
+2026-01-25 05:36:28,323 - INFO - ================================================================================
+2026-01-25 05:36:28,323 - INFO - Descargando SEI desde Kraken...
+2026-01-25 05:36:28,323 - INFO -   Simbolo Kraken: SEIUSD
+2026-01-25 05:36:28,323 - INFO -   Rango: 2023-08-15 a 2026-01-25
+2026-01-25 05:36:29,530 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:36:29,536 - INFO -     Guardado: SEI_2025.parquet (140 velas)
+2026-01-25 05:36:29,543 - INFO -     Guardado: SEI_2026.parquet (581 velas)
+2026-01-25 05:36:29,543 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:36:29,544 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:36:29,544 - INFO - Descargando SEI desde Binance...
+2026-01-25 05:36:29,544 - INFO -   Simbolo Binance: SEIUSDT
+2026-01-25 05:36:29,544 - INFO -   Rango: 2023-08-15 a 2026-01-25
+2026-01-25 05:36:50,233 - INFO -   Total: 21,449 velas descargadas de Binance
+2026-01-25 05:36:50,248 - INFO -     Guardado: SEI_2023.parquet (3,324 velas)
+2026-01-25 05:36:50,266 - INFO -     Guardado: SEI_2024.parquet (8,784 velas)
+2026-01-25 05:36:50,283 - INFO -     Guardado: SEI_2025.parquet (8,760 velas)
+2026-01-25 05:36:50,293 - INFO -     Guardado: SEI_2026.parquet (581 velas)
+2026-01-25 05:36:50,293 - INFO -   Total guardado: 4 años, 21,449 velas
+2026-01-25 05:36:50,293 - INFO -   BINANCE: 21,449 velas descargadas
+2026-01-25 05:36:50,293 - INFO - 
+[45/100] Procesando WIF...
+2026-01-25 05:36:50,293 - INFO - 
+================================================================================
+2026-01-25 05:36:50,294 - INFO - DESCARGANDO: WIF
+2026-01-25 05:36:50,294 - INFO - ================================================================================
+2026-01-25 05:36:50,294 - INFO - Descargando WIF desde Kraken...
+2026-01-25 05:36:50,294 - INFO -   Simbolo Kraken: WIFUSD
+2026-01-25 05:36:50,294 - INFO -   Rango: 2024-03-05 a 2026-01-25
+2026-01-25 05:36:51,495 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:36:51,502 - INFO -     Guardado: WIF_2025.parquet (140 velas)
+2026-01-25 05:36:51,512 - INFO -     Guardado: WIF_2026.parquet (581 velas)
+2026-01-25 05:36:51,513 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:36:51,513 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:36:51,513 - INFO - Descargando WIF desde Binance...
+2026-01-25 05:36:51,513 - INFO -   Simbolo Binance: WIFUSDT
+2026-01-25 05:36:51,514 - INFO -   Rango: 2024-03-05 a 2026-01-25
+2026-01-25 05:37:06,997 - INFO -   Total: 16,575 velas descargadas de Binance
+2026-01-25 05:37:07,022 - INFO -     Guardado: WIF_2024.parquet (7,234 velas)
+2026-01-25 05:37:07,036 - INFO -     Guardado: WIF_2025.parquet (8,760 velas)
+2026-01-25 05:37:07,045 - INFO -     Guardado: WIF_2026.parquet (581 velas)
+2026-01-25 05:37:07,045 - INFO -   Total guardado: 3 años, 16,575 velas
+2026-01-25 05:37:07,045 - INFO -   BINANCE: 16,575 velas descargadas
+2026-01-25 05:37:07,045 - INFO - 
+[46/100] Procesando RUNE...
+2026-01-25 05:37:07,045 - INFO - 
+================================================================================
+2026-01-25 05:37:07,045 - INFO - DESCARGANDO: RUNE
+2026-01-25 05:37:07,046 - INFO - ================================================================================
+2026-01-25 05:37:07,046 - INFO - Descargando RUNE desde Kraken...
+2026-01-25 05:37:07,046 - INFO -   Simbolo Kraken: RUNEUSD
+2026-01-25 05:37:07,046 - INFO -   Rango: 2021-04-13 a 2026-01-25
+2026-01-25 05:37:08,292 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:37:08,298 - INFO -     Guardado: RUNE_2025.parquet (140 velas)
+2026-01-25 05:37:08,308 - INFO -     Guardado: RUNE_2026.parquet (581 velas)
+2026-01-25 05:37:08,308 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:37:08,308 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:37:08,309 - INFO - Descargando RUNE desde Binance...
+2026-01-25 05:37:08,309 - INFO -   Simbolo Binance: RUNEUSDT
+2026-01-25 05:37:08,309 - INFO -   Rango: 2019-07-23 a 2026-01-25
+2026-01-25 05:37:51,665 - INFO -   Total: 47,235 velas descargadas de Binance
+2026-01-25 05:37:51,695 - INFO -     Guardado: RUNE_2020.parquet (2,844 velas)
+2026-01-25 05:37:51,721 - INFO -     Guardado: RUNE_2021.parquet (8,747 velas)
+2026-01-25 05:37:51,744 - INFO -     Guardado: RUNE_2022.parquet (8,760 velas)
+2026-01-25 05:37:51,766 - INFO -     Guardado: RUNE_2023.parquet (8,759 velas)
+2026-01-25 05:37:51,791 - INFO -     Guardado: RUNE_2024.parquet (8,784 velas)
+2026-01-25 05:37:51,811 - INFO -     Guardado: RUNE_2025.parquet (8,760 velas)
+2026-01-25 05:37:51,824 - INFO -     Guardado: RUNE_2026.parquet (581 velas)
+2026-01-25 05:37:51,824 - INFO -   Total guardado: 7 años, 47,235 velas
+2026-01-25 05:37:51,824 - INFO -   BINANCE: 47,235 velas descargadas
+2026-01-25 05:37:51,824 - INFO - 
+[47/100] Procesando BONK...
+2026-01-25 05:37:51,825 - INFO - 
+================================================================================
+2026-01-25 05:37:51,825 - INFO - DESCARGANDO: BONK
+2026-01-25 05:37:51,825 - INFO - ================================================================================
+2026-01-25 05:37:51,825 - INFO - Descargando BONK desde Kraken...
+2026-01-25 05:37:51,825 - INFO -   Simbolo Kraken: BONKUSD
+2026-01-25 05:37:51,825 - INFO -   Rango: 2023-12-14 a 2026-01-25
+2026-01-25 05:37:53,052 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:37:53,067 - INFO -     Guardado: BONK_2025.parquet (140 velas)
+2026-01-25 05:37:53,079 - INFO -     Guardado: BONK_2026.parquet (581 velas)
+2026-01-25 05:37:53,080 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:37:53,080 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:37:53,080 - INFO - Descargando BONK desde Binance...
+2026-01-25 05:37:53,081 - INFO -   Simbolo Binance: BONKUSDT
+2026-01-25 05:37:53,081 - INFO -   Rango: 2023-12-14 a 2026-01-25
+2026-01-25 05:38:12,052 - INFO -   Total: 18,525 velas descargadas de Binance
+2026-01-25 05:38:12,063 - INFO -     Guardado: BONK_2023.parquet (400 velas)
+2026-01-25 05:38:12,081 - INFO -     Guardado: BONK_2024.parquet (8,784 velas)
+2026-01-25 05:38:12,097 - INFO -     Guardado: BONK_2025.parquet (8,760 velas)
+2026-01-25 05:38:12,108 - INFO -     Guardado: BONK_2026.parquet (581 velas)
+2026-01-25 05:38:12,108 - INFO -   Total guardado: 4 años, 18,525 velas
+2026-01-25 05:38:12,109 - INFO -   BINANCE: 18,525 velas descargadas
+2026-01-25 05:38:12,109 - INFO - 
+[48/100] Procesando FLOKI...
+2026-01-25 05:38:12,109 - INFO - 
+================================================================================
+2026-01-25 05:38:12,109 - INFO - DESCARGANDO: FLOKI
+2026-01-25 05:38:12,109 - INFO - ================================================================================
+2026-01-25 05:38:12,109 - INFO - Descargando FLOKI desde Kraken...
+2026-01-25 05:38:12,109 - INFO -   Simbolo Kraken: FLOKIUSD
+2026-01-25 05:38:12,109 - INFO -   Rango: 2023-01-01 a 2026-01-25
+2026-01-25 05:38:13,354 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:38:13,361 - INFO -     Guardado: FLOKI_2025.parquet (140 velas)
+2026-01-25 05:38:13,370 - INFO -     Guardado: FLOKI_2026.parquet (581 velas)
+2026-01-25 05:38:13,370 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:38:13,370 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:38:13,370 - INFO - Descargando FLOKI desde Binance...
+2026-01-25 05:38:13,371 - INFO -   Simbolo Binance: FLOKIUSDT
+2026-01-25 05:38:13,371 - INFO -   Rango: 2021-11-01 a 2026-01-25
+2026-01-25 05:38:34,723 - INFO -   Total: 23,891 velas descargadas de Binance
+2026-01-25 05:38:34,738 - INFO -     Guardado: FLOKI_2023.parquet (5,766 velas)
+2026-01-25 05:38:34,758 - INFO -     Guardado: FLOKI_2024.parquet (8,784 velas)
+2026-01-25 05:38:34,771 - INFO -     Guardado: FLOKI_2025.parquet (8,760 velas)
+2026-01-25 05:38:34,782 - INFO -     Guardado: FLOKI_2026.parquet (581 velas)
+2026-01-25 05:38:34,782 - INFO -   Total guardado: 4 años, 23,891 velas
+2026-01-25 05:38:34,783 - INFO -   BINANCE: 23,891 velas descargadas
+2026-01-25 05:38:34,783 - INFO - 
+[49/100] Procesando TIA...
+2026-01-25 05:38:34,783 - INFO - 
+================================================================================
+2026-01-25 05:38:34,783 - INFO - DESCARGANDO: TIA
+2026-01-25 05:38:34,783 - INFO - ================================================================================
+2026-01-25 05:38:34,784 - INFO - Descargando TIA desde Kraken...
+2026-01-25 05:38:34,784 - INFO -   Simbolo Kraken: TIAUSD
+2026-01-25 05:38:34,784 - INFO -   Rango: 2023-10-31 a 2026-01-25
+2026-01-25 05:38:36,128 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:38:36,134 - INFO -     Guardado: TIA_2025.parquet (140 velas)
+2026-01-25 05:38:36,139 - INFO -     Guardado: TIA_2026.parquet (581 velas)
+2026-01-25 05:38:36,140 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:38:36,140 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:38:36,140 - INFO - Descargando TIA desde Binance...
+2026-01-25 05:38:36,140 - INFO -   Simbolo Binance: TIAUSDT
+2026-01-25 05:38:36,140 - INFO -   Rango: 2023-10-31 a 2026-01-25
+2026-01-25 05:38:54,360 - INFO -   Total: 19,597 velas descargadas de Binance
+2026-01-25 05:38:54,373 - INFO -     Guardado: TIA_2023.parquet (1,472 velas)
+2026-01-25 05:38:54,390 - INFO -     Guardado: TIA_2024.parquet (8,784 velas)
+2026-01-25 05:38:54,414 - INFO -     Guardado: TIA_2025.parquet (8,760 velas)
+2026-01-25 05:38:54,428 - INFO -     Guardado: TIA_2026.parquet (581 velas)
+2026-01-25 05:38:54,429 - INFO -   Total guardado: 4 años, 19,597 velas
+2026-01-25 05:38:54,429 - INFO -   BINANCE: 19,597 velas descargadas
+2026-01-25 05:38:54,430 - INFO - 
+[50/100] Procesando JUP...
+2026-01-25 05:38:54,430 - INFO - 
+================================================================================
+2026-01-25 05:38:54,430 - INFO - DESCARGANDO: JUP
+2026-01-25 05:38:54,430 - INFO - ================================================================================
+2026-01-25 05:38:54,430 - INFO - Descargando JUP desde Kraken...
+2026-01-25 05:38:54,431 - INFO -   Simbolo Kraken: JUPUSD
+2026-01-25 05:38:54,431 - INFO -   Rango: 2024-01-31 a 2026-01-25
+2026-01-25 05:38:55,644 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:38:55,650 - INFO -     Guardado: JUP_2025.parquet (140 velas)
+2026-01-25 05:38:55,659 - INFO -     Guardado: JUP_2026.parquet (581 velas)
+2026-01-25 05:38:55,659 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:38:55,659 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:38:55,659 - INFO - Descargando JUP desde Binance...
+2026-01-25 05:38:55,660 - INFO -   Simbolo Binance: JUPUSDT
+2026-01-25 05:38:55,660 - INFO -   Rango: 2024-01-31 a 2026-01-25
+2026-01-25 05:39:12,782 - INFO -   Total: 17,389 velas descargadas de Binance
+2026-01-25 05:39:12,798 - INFO -     Guardado: JUP_2024.parquet (8,048 velas)
+2026-01-25 05:39:12,812 - INFO -     Guardado: JUP_2025.parquet (8,760 velas)
+2026-01-25 05:39:12,818 - INFO -     Guardado: JUP_2026.parquet (581 velas)
+2026-01-25 05:39:12,818 - INFO -   Total guardado: 3 años, 17,389 velas
+2026-01-25 05:39:12,819 - INFO -   BINANCE: 17,389 velas descargadas
+2026-01-25 05:39:12,819 - INFO - 
+[51/100] Procesando LDO...
+2026-01-25 05:39:12,819 - INFO - 
+================================================================================
+2026-01-25 05:39:12,819 - INFO - DESCARGANDO: LDO
+2026-01-25 05:39:12,819 - INFO - ================================================================================
+2026-01-25 05:39:12,819 - INFO - Descargando LDO desde Kraken...
+2026-01-25 05:39:12,819 - INFO -   Simbolo Kraken: LDOUSD
+2026-01-25 05:39:12,819 - INFO -   Rango: 2022-03-10 a 2026-01-25
+2026-01-25 05:39:14,017 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:39:14,021 - INFO -     Guardado: LDO_2025.parquet (140 velas)
+2026-01-25 05:39:14,029 - INFO -     Guardado: LDO_2026.parquet (581 velas)
+2026-01-25 05:39:14,029 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:39:14,030 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:39:14,030 - INFO - Descargando LDO desde Binance...
+2026-01-25 05:39:14,030 - INFO -   Simbolo Binance: LDOUSDT
+2026-01-25 05:39:14,031 - INFO -   Rango: 2022-03-10 a 2026-01-25
+2026-01-25 05:39:45,461 - INFO -   Total: 32,561 velas descargadas de Binance
+2026-01-25 05:39:45,480 - INFO -     Guardado: LDO_2022.parquet (5,677 velas)
+2026-01-25 05:39:45,498 - INFO -     Guardado: LDO_2023.parquet (8,759 velas)
+2026-01-25 05:39:45,513 - INFO -     Guardado: LDO_2024.parquet (8,784 velas)
+2026-01-25 05:39:45,528 - INFO -     Guardado: LDO_2025.parquet (8,760 velas)
+2026-01-25 05:39:45,535 - INFO -     Guardado: LDO_2026.parquet (581 velas)
+2026-01-25 05:39:45,535 - INFO -   Total guardado: 5 años, 32,561 velas
+2026-01-25 05:39:45,535 - INFO -   BINANCE: 32,561 velas descargadas
+2026-01-25 05:39:45,535 - INFO - 
+[52/100] Procesando SAND...
+2026-01-25 05:39:45,536 - INFO - 
+================================================================================
+2026-01-25 05:39:45,536 - INFO - DESCARGANDO: SAND
+2026-01-25 05:39:45,536 - INFO - ================================================================================
+2026-01-25 05:39:45,536 - INFO - Descargando SAND desde Kraken...
+2026-01-25 05:39:45,536 - INFO -   Simbolo Kraken: SANDUSD
+2026-01-25 05:39:45,536 - INFO -   Rango: 2021-04-29 a 2026-01-25
+2026-01-25 05:39:46,742 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:39:46,747 - INFO -     Guardado: SAND_2025.parquet (140 velas)
+2026-01-25 05:39:46,758 - INFO -     Guardado: SAND_2026.parquet (581 velas)
+2026-01-25 05:39:46,758 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:39:46,759 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:39:46,759 - INFO - Descargando SAND desde Binance...
+2026-01-25 05:39:46,759 - INFO -   Simbolo Binance: SANDUSDT
+2026-01-25 05:39:46,759 - INFO -   Rango: 2020-08-14 a 2026-01-25
+2026-01-25 05:40:33,376 - INFO -   Total: 47,732 velas descargadas de Binance
+2026-01-25 05:40:33,397 - INFO -     Guardado: SAND_2020.parquet (3,341 velas)
+2026-01-25 05:40:33,417 - INFO -     Guardado: SAND_2021.parquet (8,747 velas)
+2026-01-25 05:40:33,432 - INFO -     Guardado: SAND_2022.parquet (8,760 velas)
+2026-01-25 05:40:33,447 - INFO -     Guardado: SAND_2023.parquet (8,759 velas)
+2026-01-25 05:40:33,462 - INFO -     Guardado: SAND_2024.parquet (8,784 velas)
+2026-01-25 05:40:33,479 - INFO -     Guardado: SAND_2025.parquet (8,760 velas)
+2026-01-25 05:40:33,489 - INFO -     Guardado: SAND_2026.parquet (581 velas)
+2026-01-25 05:40:33,489 - INFO -   Total guardado: 7 años, 47,732 velas
+2026-01-25 05:40:33,489 - INFO -   BINANCE: 47,732 velas descargadas
+2026-01-25 05:40:33,490 - INFO - 
+[53/100] Procesando MANA...
+2026-01-25 05:40:33,490 - INFO - 
+================================================================================
+2026-01-25 05:40:33,490 - INFO - DESCARGANDO: MANA
+2026-01-25 05:40:33,490 - INFO - ================================================================================
+2026-01-25 05:40:33,490 - INFO - Descargando MANA desde Kraken...
+2026-01-25 05:40:33,490 - INFO -   Simbolo Kraken: MANAUSD
+2026-01-25 05:40:33,490 - INFO -   Rango: 2017-10-28 a 2026-01-25
+2026-01-25 05:40:34,686 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:40:34,692 - INFO -     Guardado: MANA_2025.parquet (140 velas)
+2026-01-25 05:40:34,699 - INFO -     Guardado: MANA_2026.parquet (581 velas)
+2026-01-25 05:40:34,699 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:40:34,699 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:40:34,700 - INFO - Descargando MANA desde Binance...
+2026-01-25 05:40:34,700 - INFO -   Simbolo Binance: MANAUSDT
+2026-01-25 05:40:34,700 - INFO -   Rango: 2020-08-06 a 2026-01-25
+2026-01-25 05:41:20,030 - INFO -   Total: 47,927 velas descargadas de Binance
+2026-01-25 05:41:20,051 - INFO -     Guardado: MANA_2020.parquet (3,536 velas)
+2026-01-25 05:41:20,069 - INFO -     Guardado: MANA_2021.parquet (8,747 velas)
+2026-01-25 05:41:20,086 - INFO -     Guardado: MANA_2022.parquet (8,760 velas)
+2026-01-25 05:41:20,100 - INFO -     Guardado: MANA_2023.parquet (8,759 velas)
+2026-01-25 05:41:20,114 - INFO -     Guardado: MANA_2024.parquet (8,784 velas)
+2026-01-25 05:41:20,131 - INFO -     Guardado: MANA_2025.parquet (8,760 velas)
+2026-01-25 05:41:20,141 - INFO -     Guardado: MANA_2026.parquet (581 velas)
+2026-01-25 05:41:20,141 - INFO -   Total guardado: 7 años, 47,927 velas
+2026-01-25 05:41:20,141 - INFO -   BINANCE: 47,927 velas descargadas
+2026-01-25 05:41:20,142 - INFO - 
+[54/100] Procesando GALA...
+2026-01-25 05:41:20,142 - INFO - 
+================================================================================
+2026-01-25 05:41:20,142 - INFO - DESCARGANDO: GALA
+2026-01-25 05:41:20,142 - INFO - ================================================================================
+2026-01-25 05:41:20,143 - INFO - Descargando GALA desde Kraken...
+2026-01-25 05:41:20,143 - INFO -   Simbolo Kraken: GALAUSD
+2026-01-25 05:41:20,143 - INFO -   Rango: 2021-09-15 a 2026-01-25
+2026-01-25 05:41:21,331 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:41:21,337 - INFO -     Guardado: GALA_2025.parquet (140 velas)
+2026-01-25 05:41:21,345 - INFO -     Guardado: GALA_2026.parquet (581 velas)
+2026-01-25 05:41:21,345 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:41:21,345 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:41:21,346 - INFO - Descargando GALA desde Binance...
+2026-01-25 05:41:21,346 - INFO -   Simbolo Binance: GALAUSDT
+2026-01-25 05:41:21,346 - INFO -   Rango: 2021-09-13 a 2026-01-25
+2026-01-25 05:41:57,452 - INFO -   Total: 38,276 velas descargadas de Binance
+2026-01-25 05:41:57,471 - INFO -     Guardado: GALA_2021.parquet (2,632 velas)
+2026-01-25 05:41:57,488 - INFO -     Guardado: GALA_2022.parquet (8,760 velas)
+2026-01-25 05:41:57,503 - INFO -     Guardado: GALA_2023.parquet (8,759 velas)
+2026-01-25 05:41:57,523 - INFO -     Guardado: GALA_2024.parquet (8,784 velas)
+2026-01-25 05:41:57,538 - INFO -     Guardado: GALA_2025.parquet (8,760 velas)
+2026-01-25 05:41:57,549 - INFO -     Guardado: GALA_2026.parquet (581 velas)
+2026-01-25 05:41:57,549 - INFO -   Total guardado: 6 años, 38,276 velas
+2026-01-25 05:41:57,550 - INFO -   BINANCE: 38,276 velas descargadas
+2026-01-25 05:41:57,550 - INFO - 
+[55/100] Procesando FLOW...
+2026-01-25 05:41:57,550 - INFO - 
+================================================================================
+2026-01-25 05:41:57,550 - INFO - DESCARGANDO: FLOW
+2026-01-25 05:41:57,550 - INFO - ================================================================================
+2026-01-25 05:41:57,550 - INFO - Descargando FLOW desde Kraken...
+2026-01-25 05:41:57,550 - INFO -   Simbolo Kraken: FLOWUSD
+2026-01-25 05:41:57,550 - INFO -   Rango: 2021-01-27 a 2026-01-25
+2026-01-25 05:41:58,742 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:41:58,750 - INFO -     Guardado: FLOW_2025.parquet (140 velas)
+2026-01-25 05:41:58,760 - INFO -     Guardado: FLOW_2026.parquet (581 velas)
+2026-01-25 05:41:58,760 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:41:58,760 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:41:58,761 - INFO - Descargando FLOW desde Binance...
+2026-01-25 05:41:58,761 - INFO -   Simbolo Binance: FLOWUSDT
+2026-01-25 05:41:58,761 - INFO -   Rango: 2021-01-27 a 2026-01-25
+2026-01-25 05:42:34,052 - INFO -   Total: 39,345 velas descargadas de Binance
+2026-01-25 05:42:34,068 - INFO -     Guardado: FLOW_2021.parquet (3,701 velas)
+2026-01-25 05:42:34,084 - INFO -     Guardado: FLOW_2022.parquet (8,760 velas)
+2026-01-25 05:42:34,099 - INFO -     Guardado: FLOW_2023.parquet (8,759 velas)
+2026-01-25 05:42:34,113 - INFO -     Guardado: FLOW_2024.parquet (8,784 velas)
+2026-01-25 05:42:34,127 - INFO -     Guardado: FLOW_2025.parquet (8,760 velas)
+2026-01-25 05:42:34,135 - INFO -     Guardado: FLOW_2026.parquet (581 velas)
+2026-01-25 05:42:34,135 - INFO -   Total guardado: 6 años, 39,345 velas
+2026-01-25 05:42:34,135 - INFO -   BINANCE: 39,345 velas descargadas
+2026-01-25 05:42:34,135 - INFO - 
+[56/100] Procesando AXS...
+2026-01-25 05:42:34,135 - INFO - 
+================================================================================
+2026-01-25 05:42:34,135 - INFO - DESCARGANDO: AXS
+2026-01-25 05:42:34,136 - INFO - ================================================================================
+2026-01-25 05:42:34,136 - INFO - Descargando AXS desde Kraken...
+2026-01-25 05:42:34,136 - INFO -   Simbolo Kraken: AXSUSD
+2026-01-25 05:42:34,136 - INFO -   Rango: 2021-08-09 a 2026-01-25
+2026-01-25 05:42:35,336 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:42:35,340 - INFO -     Guardado: AXS_2025.parquet (140 velas)
+2026-01-25 05:42:35,348 - INFO -     Guardado: AXS_2026.parquet (581 velas)
+2026-01-25 05:42:35,348 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:42:35,348 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:42:35,348 - INFO - Descargando AXS desde Binance...
+2026-01-25 05:42:35,349 - INFO -   Simbolo Binance: AXSUSDT
+2026-01-25 05:42:35,349 - INFO -   Rango: 2020-11-05 a 2026-01-25
+2026-01-25 05:43:15,542 - INFO -   Total: 45,754 velas descargadas de Binance
+2026-01-25 05:43:15,560 - INFO -     Guardado: AXS_2020.parquet (1,363 velas)
+2026-01-25 05:43:15,573 - INFO -     Guardado: AXS_2021.parquet (8,747 velas)
+2026-01-25 05:43:15,586 - INFO -     Guardado: AXS_2022.parquet (8,760 velas)
+2026-01-25 05:43:15,600 - INFO -     Guardado: AXS_2023.parquet (8,759 velas)
+2026-01-25 05:43:15,614 - INFO -     Guardado: AXS_2024.parquet (8,784 velas)
+2026-01-25 05:43:15,630 - INFO -     Guardado: AXS_2025.parquet (8,760 velas)
+2026-01-25 05:43:15,641 - INFO -     Guardado: AXS_2026.parquet (581 velas)
+2026-01-25 05:43:15,641 - INFO -   Total guardado: 7 años, 45,754 velas
+2026-01-25 05:43:15,641 - INFO -   BINANCE: 45,754 velas descargadas
+2026-01-25 05:43:15,642 - INFO - 
+[57/100] Procesando EGLD...
+2026-01-25 05:43:15,642 - INFO - 
+================================================================================
+2026-01-25 05:43:15,642 - INFO - DESCARGANDO: EGLD
+2026-01-25 05:43:15,642 - INFO - ================================================================================
+2026-01-25 05:43:15,642 - INFO - Descargando EGLD desde Kraken...
+2026-01-25 05:43:15,642 - INFO -   Simbolo Kraken: EGLDUSD
+2026-01-25 05:43:15,642 - INFO -   Rango: 2020-09-03 a 2026-01-25
+2026-01-25 05:43:16,848 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:43:16,854 - INFO -     Guardado: EGLD_2025.parquet (140 velas)
+2026-01-25 05:43:16,861 - INFO -     Guardado: EGLD_2026.parquet (581 velas)
+2026-01-25 05:43:16,861 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:43:16,862 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:43:16,862 - INFO - Descargando EGLD desde Binance...
+2026-01-25 05:43:16,862 - INFO -   Simbolo Binance: EGLDUSDT
+2026-01-25 05:43:16,862 - INFO -   Rango: 2020-09-03 a 2026-01-25
+2026-01-25 05:44:00,138 - INFO -   Total: 47,262 velas descargadas de Binance
+2026-01-25 05:44:00,156 - INFO -     Guardado: EGLD_2020.parquet (2,871 velas)
+2026-01-25 05:44:00,171 - INFO -     Guardado: EGLD_2021.parquet (8,747 velas)
+2026-01-25 05:44:00,186 - INFO -     Guardado: EGLD_2022.parquet (8,760 velas)
+2026-01-25 05:44:00,200 - INFO -     Guardado: EGLD_2023.parquet (8,759 velas)
+2026-01-25 05:44:00,214 - INFO -     Guardado: EGLD_2024.parquet (8,784 velas)
+2026-01-25 05:44:00,229 - INFO -     Guardado: EGLD_2025.parquet (8,760 velas)
+2026-01-25 05:44:00,239 - INFO -     Guardado: EGLD_2026.parquet (581 velas)
+2026-01-25 05:44:00,239 - INFO -   Total guardado: 7 años, 47,262 velas
+2026-01-25 05:44:00,240 - INFO -   BINANCE: 47,262 velas descargadas
+2026-01-25 05:44:00,240 - INFO - 
+[58/100] Procesando EOS...
+2026-01-25 05:44:00,241 - INFO - 
+================================================================================
+2026-01-25 05:44:00,241 - INFO - DESCARGANDO: EOS
+2026-01-25 05:44:00,241 - INFO - ================================================================================
+2026-01-25 05:44:00,241 - INFO - Descargando EOS desde Kraken...
+2026-01-25 05:44:00,241 - INFO -   Simbolo Kraken: EOSUSD
+2026-01-25 05:44:00,241 - INFO -   Rango: 2017-07-01 a 2026-01-25
+2026-01-25 05:44:00,307 - ERROR - Kraken API error: ['EQuery:Invalid asset pair']
+2026-01-25 05:44:00,308 - WARNING - No se obtuvieron datos de Kraken para EOS
+2026-01-25 05:44:00,308 - WARNING -   KRAKEN: Sin datos
+2026-01-25 05:44:00,308 - INFO - Descargando EOS desde Binance...
+2026-01-25 05:44:00,308 - INFO -   Simbolo Binance: EOSUSDT
+2026-01-25 05:44:00,309 - INFO -   Rango: 2018-05-03 a 2026-01-25
+2026-01-25 05:44:45,689 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:44:56,295 - INFO -   Total: 61,230 velas descargadas de Binance
+2026-01-25 05:44:56,314 - INFO -     Guardado: EOS_2018.parquet (5,199 velas)
+2026-01-25 05:44:56,327 - INFO -     Guardado: EOS_2019.parquet (8,732 velas)
+2026-01-25 05:44:56,343 - INFO -     Guardado: EOS_2020.parquet (8,766 velas)
+2026-01-25 05:44:56,361 - INFO -     Guardado: EOS_2021.parquet (8,747 velas)
+2026-01-25 05:44:56,375 - INFO -     Guardado: EOS_2022.parquet (8,760 velas)
+2026-01-25 05:44:56,392 - INFO -     Guardado: EOS_2023.parquet (8,759 velas)
+2026-01-25 05:44:56,409 - INFO -     Guardado: EOS_2024.parquet (8,784 velas)
+2026-01-25 05:44:56,422 - INFO -     Guardado: EOS_2025.parquet (3,483 velas)
+2026-01-25 05:44:56,423 - INFO -   Total guardado: 8 años, 61,230 velas
+2026-01-25 05:44:56,423 - INFO -   BINANCE: 61,230 velas descargadas
+2026-01-25 05:44:56,424 - INFO - 
+[59/100] Procesando SNX...
+2026-01-25 05:44:56,424 - INFO - 
+================================================================================
+2026-01-25 05:44:56,424 - INFO - DESCARGANDO: SNX
+2026-01-25 05:44:56,424 - INFO - ================================================================================
+2026-01-25 05:44:56,424 - INFO - Descargando SNX desde Kraken...
+2026-01-25 05:44:56,424 - INFO -   Simbolo Kraken: SNXUSD
+2026-01-25 05:44:56,424 - INFO -   Rango: 2020-09-01 a 2026-01-25
+2026-01-25 05:44:57,626 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:44:57,631 - INFO -     Guardado: SNX_2025.parquet (140 velas)
+2026-01-25 05:44:57,638 - INFO -     Guardado: SNX_2026.parquet (581 velas)
+2026-01-25 05:44:57,639 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:44:57,639 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:44:57,639 - INFO - Descargando SNX desde Binance...
+2026-01-25 05:44:57,639 - INFO -   Simbolo Binance: SNXUSDT
+2026-01-25 05:44:57,639 - INFO -   Rango: 2020-02-11 a 2026-01-25
+2026-01-25 05:45:41,292 - INFO -   Total: 48,597 velas descargadas de Binance
+2026-01-25 05:45:41,314 - INFO -     Guardado: SNX_2020.parquet (4,206 velas)
+2026-01-25 05:45:41,330 - INFO -     Guardado: SNX_2021.parquet (8,747 velas)
+2026-01-25 05:45:41,345 - INFO -     Guardado: SNX_2022.parquet (8,760 velas)
+2026-01-25 05:45:41,359 - INFO -     Guardado: SNX_2023.parquet (8,759 velas)
+2026-01-25 05:45:41,374 - INFO -     Guardado: SNX_2024.parquet (8,784 velas)
+2026-01-25 05:45:41,392 - INFO -     Guardado: SNX_2025.parquet (8,760 velas)
+2026-01-25 05:45:41,402 - INFO -     Guardado: SNX_2026.parquet (581 velas)
+2026-01-25 05:45:41,402 - INFO -   Total guardado: 7 años, 48,597 velas
+2026-01-25 05:45:41,403 - INFO -   BINANCE: 48,597 velas descargadas
+2026-01-25 05:45:41,403 - INFO - 
+[60/100] Procesando XTZ...
+2026-01-25 05:45:41,404 - INFO - 
+================================================================================
+2026-01-25 05:45:41,404 - INFO - DESCARGANDO: XTZ
+2026-01-25 05:45:41,404 - INFO - ================================================================================
+2026-01-25 05:45:41,404 - INFO - Descargando XTZ desde Kraken...
+2026-01-25 05:45:41,405 - INFO -   Simbolo Kraken: XTZUSD
+2026-01-25 05:45:41,405 - INFO -   Rango: 2018-10-17 a 2026-01-25
+2026-01-25 05:45:42,621 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:45:42,628 - INFO -     Guardado: XTZ_2025.parquet (140 velas)
+2026-01-25 05:45:42,637 - INFO -     Guardado: XTZ_2026.parquet (581 velas)
+2026-01-25 05:45:42,638 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:45:42,638 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:45:42,638 - INFO - Descargando XTZ desde Binance...
+2026-01-25 05:45:42,638 - INFO -   Simbolo Binance: XTZUSDT
+2026-01-25 05:45:42,638 - INFO -   Rango: 2019-06-04 a 2026-01-25
+2026-01-25 05:46:24,296 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:46:29,796 - INFO -   Total: 55,518 velas descargadas de Binance
+2026-01-25 05:46:29,819 - INFO -     Guardado: XTZ_2019.parquet (2,361 velas)
+2026-01-25 05:46:29,833 - INFO -     Guardado: XTZ_2020.parquet (8,766 velas)
+2026-01-25 05:46:29,851 - INFO -     Guardado: XTZ_2021.parquet (8,747 velas)
+2026-01-25 05:46:29,872 - INFO -     Guardado: XTZ_2022.parquet (8,760 velas)
+2026-01-25 05:46:29,889 - INFO -     Guardado: XTZ_2023.parquet (8,759 velas)
+2026-01-25 05:46:29,905 - INFO -     Guardado: XTZ_2024.parquet (8,784 velas)
+2026-01-25 05:46:29,920 - INFO -     Guardado: XTZ_2025.parquet (8,760 velas)
+2026-01-25 05:46:29,932 - INFO -     Guardado: XTZ_2026.parquet (581 velas)
+2026-01-25 05:46:29,934 - INFO -   Total guardado: 8 años, 55,518 velas
+2026-01-25 05:46:29,934 - INFO -   BINANCE: 55,518 velas descargadas
+2026-01-25 05:46:29,935 - INFO - 
+[61/100] Procesando PYTH...
+2026-01-25 05:46:29,935 - INFO - 
+================================================================================
+2026-01-25 05:46:29,935 - INFO - DESCARGANDO: PYTH
+2026-01-25 05:46:29,935 - INFO - ================================================================================
+2026-01-25 05:46:29,936 - INFO - Descargando PYTH desde Kraken...
+2026-01-25 05:46:29,936 - INFO -   Simbolo Kraken: PYTHUSD
+2026-01-25 05:46:29,936 - INFO -   Rango: 2023-11-20 a 2026-01-25
+2026-01-25 05:46:31,137 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:46:31,141 - INFO -     Guardado: PYTH_2025.parquet (140 velas)
+2026-01-25 05:46:31,147 - INFO -     Guardado: PYTH_2026.parquet (581 velas)
+2026-01-25 05:46:31,148 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:46:31,148 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:46:31,148 - INFO - Descargando PYTH desde Binance...
+2026-01-25 05:46:31,148 - INFO -   Simbolo Binance: PYTHUSDT
+2026-01-25 05:46:31,149 - INFO -   Rango: 2023-11-20 a 2026-01-25
+2026-01-25 05:46:46,539 - INFO -   Total: 17,345 velas descargadas de Binance
+2026-01-25 05:46:46,558 - INFO -     Guardado: PYTH_2024.parquet (8,004 velas)
+2026-01-25 05:46:46,576 - INFO -     Guardado: PYTH_2025.parquet (8,760 velas)
+2026-01-25 05:46:46,584 - INFO -     Guardado: PYTH_2026.parquet (581 velas)
+2026-01-25 05:46:46,585 - INFO -   Total guardado: 3 años, 17,345 velas
+2026-01-25 05:46:46,586 - INFO -   BINANCE: 17,345 velas descargadas
+2026-01-25 05:46:46,586 - INFO - 
+[62/100] Procesando QNT...
+2026-01-25 05:46:46,586 - INFO - 
+================================================================================
+2026-01-25 05:46:46,586 - INFO - DESCARGANDO: QNT
+2026-01-25 05:46:46,586 - INFO - ================================================================================
+2026-01-25 05:46:46,586 - INFO - Descargando QNT desde Kraken...
+2026-01-25 05:46:46,586 - INFO -   Simbolo Kraken: QNTUSD
+2026-01-25 05:46:46,587 - INFO -   Rango: 2022-06-13 a 2026-01-25
+2026-01-25 05:46:47,777 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:46:47,791 - INFO -     Guardado: QNT_2025.parquet (140 velas)
+2026-01-25 05:46:47,801 - INFO -     Guardado: QNT_2026.parquet (581 velas)
+2026-01-25 05:46:47,801 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:46:47,801 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:46:47,802 - INFO - Descargando QNT desde Binance...
+2026-01-25 05:46:47,802 - INFO -   Simbolo Binance: QNTUSDT
+2026-01-25 05:46:47,802 - INFO -   Rango: 2019-08-21 a 2026-01-25
+2026-01-25 05:47:26,914 - INFO -   Total: 39,376 velas descargadas de Binance
+2026-01-25 05:47:26,932 - INFO -     Guardado: QNT_2021.parquet (3,732 velas)
+2026-01-25 05:47:26,943 - INFO -     Guardado: QNT_2022.parquet (8,760 velas)
+2026-01-25 05:47:26,958 - INFO -     Guardado: QNT_2023.parquet (8,759 velas)
+2026-01-25 05:47:26,974 - INFO -     Guardado: QNT_2024.parquet (8,784 velas)
+2026-01-25 05:47:26,989 - INFO -     Guardado: QNT_2025.parquet (8,760 velas)
+2026-01-25 05:47:26,997 - INFO -     Guardado: QNT_2026.parquet (581 velas)
+2026-01-25 05:47:26,997 - INFO -   Total guardado: 6 años, 39,376 velas
+2026-01-25 05:47:26,997 - INFO -   BINANCE: 39,376 velas descargadas
+2026-01-25 05:47:26,998 - INFO - 
+[63/100] Procesando IOTA...
+2026-01-25 05:47:26,999 - INFO - 
+================================================================================
+2026-01-25 05:47:26,999 - INFO - DESCARGANDO: IOTA
+2026-01-25 05:47:27,000 - INFO - ================================================================================
+2026-01-25 05:47:27,002 - INFO - Descargando IOTA desde Kraken...
+2026-01-25 05:47:27,003 - INFO -   Simbolo Kraken: IOTAUSD
+2026-01-25 05:47:27,003 - INFO -   Rango: 2017-12-19 a 2026-01-25
+2026-01-25 05:47:27,075 - ERROR - Kraken API error: ['EQuery:Unknown asset pair']
+2026-01-25 05:47:27,075 - WARNING - No se obtuvieron datos de Kraken para IOTA
+2026-01-25 05:47:27,076 - WARNING -   KRAKEN: Sin datos
+2026-01-25 05:47:27,076 - INFO - Descargando IOTA desde Binance...
+2026-01-25 05:47:27,076 - INFO -   Simbolo Binance: IOTAUSDT
+2026-01-25 05:47:27,076 - INFO -   Rango: 2017-06-13 a 2026-01-25
+2026-01-25 05:48:13,097 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:48:28,577 - INFO -   Total: 67,012 velas descargadas de Binance
+2026-01-25 05:48:28,602 - INFO -     Guardado: IOTA_2018.parquet (5,123 velas)
+2026-01-25 05:48:28,618 - INFO -     Guardado: IOTA_2019.parquet (8,732 velas)
+2026-01-25 05:48:28,632 - INFO -     Guardado: IOTA_2020.parquet (8,766 velas)
+2026-01-25 05:48:28,647 - INFO -     Guardado: IOTA_2021.parquet (8,747 velas)
+2026-01-25 05:48:28,662 - INFO -     Guardado: IOTA_2022.parquet (8,760 velas)
+2026-01-25 05:48:28,675 - INFO -     Guardado: IOTA_2023.parquet (8,759 velas)
+2026-01-25 05:48:28,689 - INFO -     Guardado: IOTA_2024.parquet (8,784 velas)
+2026-01-25 05:48:28,705 - INFO -     Guardado: IOTA_2025.parquet (8,760 velas)
+2026-01-25 05:48:28,713 - INFO -     Guardado: IOTA_2026.parquet (581 velas)
+2026-01-25 05:48:28,713 - INFO -   Total guardado: 9 años, 67,012 velas
+2026-01-25 05:48:28,713 - INFO -   BINANCE: 67,012 velas descargadas
+2026-01-25 05:48:28,714 - INFO - 
+[64/100] Procesando KCS...
+2026-01-25 05:48:28,714 - INFO - 
+================================================================================
+2026-01-25 05:48:28,714 - INFO - DESCARGANDO: KCS
+2026-01-25 05:48:28,715 - INFO - ================================================================================
+2026-01-25 05:48:28,715 - INFO -   KRAKEN: No disponible para KCS
+2026-01-25 05:48:28,715 - INFO - Descargando KCS desde Binance...
+2026-01-25 05:48:28,716 - INFO -   Simbolo Binance: KCSUSDT
+2026-01-25 05:48:28,716 - INFO -   Rango: 2021-03-10 a 2026-01-25
+2026-01-25 05:48:29,404 - WARNING - Request failed (attempt 1/3): 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=KCSUSDT&interval=1h&startTime=1615330800000&limit=1000
+2026-01-25 05:48:29,405 - INFO - Waiting 0.5s before retry...
+2026-01-25 05:48:30,156 - WARNING - Request failed (attempt 2/3): 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=KCSUSDT&interval=1h&startTime=1615330800000&limit=1000
+2026-01-25 05:48:30,157 - INFO - Waiting 1.0s before retry...
+2026-01-25 05:48:31,411 - WARNING - Request failed (attempt 3/3): 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=KCSUSDT&interval=1h&startTime=1615330800000&limit=1000
+2026-01-25 05:48:31,411 - ERROR - Error en request Binance: 400 Client Error: Bad Request for url: https://api.binance.com/api/v3/klines?symbol=KCSUSDT&interval=1h&startTime=1615330800000&limit=1000
+2026-01-25 05:48:31,411 - WARNING - No se obtuvieron datos de Binance para KCS
+2026-01-25 05:48:31,412 - WARNING -   BINANCE: Sin datos
+2026-01-25 05:48:31,412 - INFO - 
+[65/100] Procesando NEO...
+2026-01-25 05:48:31,412 - INFO - 
+================================================================================
+2026-01-25 05:48:31,412 - INFO - DESCARGANDO: NEO
+2026-01-25 05:48:31,412 - INFO - ================================================================================
+2026-01-25 05:48:31,412 - INFO - Descargando NEO desde Kraken...
+2026-01-25 05:48:31,413 - INFO -   Simbolo Kraken: NEOUSD
+2026-01-25 05:48:31,413 - INFO -   Rango: 2019-06-06 a 2026-01-25
+2026-01-25 05:48:31,479 - ERROR - Kraken API error: ['EQuery:Unknown asset pair']
+2026-01-25 05:48:31,479 - WARNING - No se obtuvieron datos de Kraken para NEO
+2026-01-25 05:48:31,480 - WARNING -   KRAKEN: Sin datos
+2026-01-25 05:48:31,480 - INFO - Descargando NEO desde Binance...
+2026-01-25 05:48:31,480 - INFO -   Simbolo Binance: NEOUSDT
+2026-01-25 05:48:31,480 - INFO -   Rango: 2017-07-14 a 2026-01-25
+2026-01-25 05:49:16,347 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:49:34,301 - INFO -   Total: 71,592 velas descargadas de Binance
+2026-01-25 05:49:34,321 - INFO -     Guardado: NEO_2017.parquet (1,005 velas)
+2026-01-25 05:49:34,336 - INFO -     Guardado: NEO_2018.parquet (8,698 velas)
+2026-01-25 05:49:34,349 - INFO -     Guardado: NEO_2019.parquet (8,732 velas)
+2026-01-25 05:49:34,364 - INFO -     Guardado: NEO_2020.parquet (8,766 velas)
+2026-01-25 05:49:34,381 - INFO -     Guardado: NEO_2021.parquet (8,747 velas)
+2026-01-25 05:49:34,397 - INFO -     Guardado: NEO_2022.parquet (8,760 velas)
+2026-01-25 05:49:34,412 - INFO -     Guardado: NEO_2023.parquet (8,759 velas)
+2026-01-25 05:49:34,425 - INFO -     Guardado: NEO_2024.parquet (8,784 velas)
+2026-01-25 05:49:34,441 - INFO -     Guardado: NEO_2025.parquet (8,760 velas)
+2026-01-25 05:49:34,447 - INFO -     Guardado: NEO_2026.parquet (581 velas)
+2026-01-25 05:49:34,448 - INFO -   Total guardado: 10 años, 71,592 velas
+2026-01-25 05:49:34,448 - INFO -   BINANCE: 71,592 velas descargadas
+2026-01-25 05:49:34,448 - INFO - 
+[66/100] Procesando KAVA...
+2026-01-25 05:49:34,449 - INFO - 
+================================================================================
+2026-01-25 05:49:34,449 - INFO - DESCARGANDO: KAVA
+2026-01-25 05:49:34,449 - INFO - ================================================================================
+2026-01-25 05:49:34,449 - INFO - Descargando KAVA desde Kraken...
+2026-01-25 05:49:34,449 - INFO -   Simbolo Kraken: KAVAUSD
+2026-01-25 05:49:34,449 - INFO -   Rango: 2020-10-08 a 2026-01-25
+2026-01-25 05:49:35,652 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:49:35,656 - INFO -     Guardado: KAVA_2025.parquet (140 velas)
+2026-01-25 05:49:35,663 - INFO -     Guardado: KAVA_2026.parquet (581 velas)
+2026-01-25 05:49:35,664 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:49:35,664 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:49:35,664 - INFO - Descargando KAVA desde Binance...
+2026-01-25 05:49:35,664 - INFO -   Simbolo Binance: KAVAUSDT
+2026-01-25 05:49:35,664 - INFO -   Rango: 2019-10-25 a 2026-01-25
+2026-01-25 05:50:22,721 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:50:27,871 - INFO -   Total: 54,783 velas descargadas de Binance
+2026-01-25 05:50:27,890 - INFO -     Guardado: KAVA_2019.parquet (1,626 velas)
+2026-01-25 05:50:27,909 - INFO -     Guardado: KAVA_2020.parquet (8,766 velas)
+2026-01-25 05:50:27,924 - INFO -     Guardado: KAVA_2021.parquet (8,747 velas)
+2026-01-25 05:50:27,939 - INFO -     Guardado: KAVA_2022.parquet (8,760 velas)
+2026-01-25 05:50:27,954 - INFO -     Guardado: KAVA_2023.parquet (8,759 velas)
+2026-01-25 05:50:27,970 - INFO -     Guardado: KAVA_2024.parquet (8,784 velas)
+2026-01-25 05:50:27,988 - INFO -     Guardado: KAVA_2025.parquet (8,760 velas)
+2026-01-25 05:50:27,995 - INFO -     Guardado: KAVA_2026.parquet (581 velas)
+2026-01-25 05:50:27,995 - INFO -   Total guardado: 8 años, 54,783 velas
+2026-01-25 05:50:27,996 - INFO -   BINANCE: 54,783 velas descargadas
+2026-01-25 05:50:27,997 - INFO - 
+[67/100] Procesando ONDO...
+2026-01-25 05:50:27,997 - INFO - 
+================================================================================
+2026-01-25 05:50:27,997 - INFO - DESCARGANDO: ONDO
+2026-01-25 05:50:27,997 - INFO - ================================================================================
+2026-01-25 05:50:27,997 - INFO - Descargando ONDO desde Kraken...
+2026-01-25 05:50:27,997 - INFO -   Simbolo Kraken: ONDOUSD
+2026-01-25 05:50:27,998 - INFO -   Rango: 2024-01-18 a 2026-01-25
+2026-01-25 05:50:29,207 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:50:29,212 - INFO -     Guardado: ONDO_2025.parquet (140 velas)
+2026-01-25 05:50:29,219 - INFO -     Guardado: ONDO_2026.parquet (581 velas)
+2026-01-25 05:50:29,220 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:50:29,221 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:50:29,221 - INFO - Descargando ONDO desde Binance...
+2026-01-25 05:50:29,221 - INFO -   Simbolo Binance: ONDOUSDT
+2026-01-25 05:50:29,221 - INFO -   Rango: 2024-01-18 a 2026-01-25
+2026-01-25 05:50:36,662 - INFO -   Total: 6,927 velas descargadas de Binance
+2026-01-25 05:50:36,674 - INFO -     Guardado: ONDO_2025.parquet (6,346 velas)
+2026-01-25 05:50:36,683 - INFO -     Guardado: ONDO_2026.parquet (581 velas)
+2026-01-25 05:50:36,683 - INFO -   Total guardado: 2 años, 6,927 velas
+2026-01-25 05:50:36,683 - INFO -   BINANCE: 6,927 velas descargadas
+2026-01-25 05:50:36,684 - INFO - 
+[68/100] Procesando STRK...
+2026-01-25 05:50:36,684 - INFO - 
+================================================================================
+2026-01-25 05:50:36,684 - INFO - DESCARGANDO: STRK
+2026-01-25 05:50:36,684 - INFO - ================================================================================
+2026-01-25 05:50:36,684 - INFO - Descargando STRK desde Kraken...
+2026-01-25 05:50:36,684 - INFO -   Simbolo Kraken: STRKUSD
+2026-01-25 05:50:36,684 - INFO -   Rango: 2024-02-20 a 2026-01-25
+2026-01-25 05:50:37,941 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:50:37,952 - INFO -     Guardado: STRK_2025.parquet (140 velas)
+2026-01-25 05:50:37,969 - INFO -     Guardado: STRK_2026.parquet (581 velas)
+2026-01-25 05:50:37,970 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:50:37,970 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:50:37,971 - INFO - Descargando STRK desde Binance...
+2026-01-25 05:50:37,971 - INFO -   Simbolo Binance: STRKUSDT
+2026-01-25 05:50:37,971 - INFO -   Rango: 2024-02-20 a 2026-01-25
+2026-01-25 05:50:54,960 - INFO -   Total: 16,912 velas descargadas de Binance
+2026-01-25 05:50:54,973 - INFO -     Guardado: STRK_2024.parquet (7,571 velas)
+2026-01-25 05:50:54,985 - INFO -     Guardado: STRK_2025.parquet (8,760 velas)
+2026-01-25 05:50:54,992 - INFO -     Guardado: STRK_2026.parquet (581 velas)
+2026-01-25 05:50:54,992 - INFO -   Total guardado: 3 años, 16,912 velas
+2026-01-25 05:50:54,992 - INFO -   BINANCE: 16,912 velas descargadas
+2026-01-25 05:50:54,992 - INFO - 
+[69/100] Procesando ZEC...
+2026-01-25 05:50:54,992 - INFO - 
+================================================================================
+2026-01-25 05:50:54,992 - INFO - DESCARGANDO: ZEC
+2026-01-25 05:50:54,992 - INFO - ================================================================================
+2026-01-25 05:50:54,994 - INFO - Descargando ZEC desde Kraken...
+2026-01-25 05:50:54,994 - INFO -   Simbolo Kraken: XZECZUSD
+2026-01-25 05:50:54,994 - INFO -   Rango: 2016-10-29 a 2026-01-25
+2026-01-25 05:50:56,243 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:50:56,248 - INFO -     Guardado: ZEC_2025.parquet (140 velas)
+2026-01-25 05:50:56,256 - INFO -     Guardado: ZEC_2026.parquet (581 velas)
+2026-01-25 05:50:56,256 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:50:56,256 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:50:56,256 - INFO - Descargando ZEC desde Binance...
+2026-01-25 05:50:56,256 - INFO -   Simbolo Binance: ZECUSDT
+2026-01-25 05:50:56,256 - INFO -   Rango: 2018-05-16 a 2026-01-25
+2026-01-25 05:51:41,977 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:51:53,491 - INFO -   Total: 59,995 velas descargadas de Binance
+2026-01-25 05:51:53,516 - INFO -     Guardado: ZEC_2019.parquet (6,838 velas)
+2026-01-25 05:51:53,533 - INFO -     Guardado: ZEC_2020.parquet (8,766 velas)
+2026-01-25 05:51:53,552 - INFO -     Guardado: ZEC_2021.parquet (8,747 velas)
+2026-01-25 05:51:53,571 - INFO -     Guardado: ZEC_2022.parquet (8,760 velas)
+2026-01-25 05:51:53,592 - INFO -     Guardado: ZEC_2023.parquet (8,759 velas)
+2026-01-25 05:51:53,610 - INFO -     Guardado: ZEC_2024.parquet (8,784 velas)
+2026-01-25 05:51:53,626 - INFO -     Guardado: ZEC_2025.parquet (8,760 velas)
+2026-01-25 05:51:53,636 - INFO -     Guardado: ZEC_2026.parquet (581 velas)
+2026-01-25 05:51:53,636 - INFO -   Total guardado: 8 años, 59,995 velas
+2026-01-25 05:51:53,637 - INFO -   BINANCE: 59,995 velas descargadas
+2026-01-25 05:51:53,638 - INFO - 
+[70/100] Procesando DASH...
+2026-01-25 05:51:53,639 - INFO - 
+================================================================================
+2026-01-25 05:51:53,639 - INFO - DESCARGANDO: DASH
+2026-01-25 05:51:53,639 - INFO - ================================================================================
+2026-01-25 05:51:53,639 - INFO - Descargando DASH desde Kraken...
+2026-01-25 05:51:53,639 - INFO -   Simbolo Kraken: DASHUSD
+2026-01-25 05:51:53,640 - INFO -   Rango: 2014-04-01 a 2026-01-25
+2026-01-25 05:51:54,846 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:51:54,850 - INFO -     Guardado: DASH_2025.parquet (140 velas)
+2026-01-25 05:51:54,859 - INFO -     Guardado: DASH_2026.parquet (581 velas)
+2026-01-25 05:51:54,859 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:51:54,860 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:51:54,860 - INFO - Descargando DASH desde Binance...
+2026-01-25 05:51:54,860 - INFO -   Simbolo Binance: DASHUSDT
+2026-01-25 05:51:54,860 - INFO -   Rango: 2018-03-21 a 2026-01-25
+2026-01-25 05:52:42,190 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:52:52,563 - INFO -   Total: 59,827 velas descargadas de Binance
+2026-01-25 05:52:52,588 - INFO -     Guardado: DASH_2019.parquet (6,670 velas)
+2026-01-25 05:52:52,607 - INFO -     Guardado: DASH_2020.parquet (8,766 velas)
+2026-01-25 05:52:52,625 - INFO -     Guardado: DASH_2021.parquet (8,747 velas)
+2026-01-25 05:52:52,644 - INFO -     Guardado: DASH_2022.parquet (8,760 velas)
+2026-01-25 05:52:52,662 - INFO -     Guardado: DASH_2023.parquet (8,759 velas)
+2026-01-25 05:52:52,678 - INFO -     Guardado: DASH_2024.parquet (8,784 velas)
+2026-01-25 05:52:52,695 - INFO -     Guardado: DASH_2025.parquet (8,760 velas)
+2026-01-25 05:52:52,702 - INFO -     Guardado: DASH_2026.parquet (581 velas)
+2026-01-25 05:52:52,702 - INFO -   Total guardado: 8 años, 59,827 velas
+2026-01-25 05:52:52,702 - INFO -   BINANCE: 59,827 velas descargadas
+2026-01-25 05:52:52,703 - INFO - 
+[71/100] Procesando ENS...
+2026-01-25 05:52:52,704 - INFO - 
+================================================================================
+2026-01-25 05:52:52,704 - INFO - DESCARGANDO: ENS
+2026-01-25 05:52:52,704 - INFO - ================================================================================
+2026-01-25 05:52:52,704 - INFO - Descargando ENS desde Kraken...
+2026-01-25 05:52:52,704 - INFO -   Simbolo Kraken: ENSUSD
+2026-01-25 05:52:52,704 - INFO -   Rango: 2021-11-09 a 2026-01-25
+2026-01-25 05:52:53,970 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:52:53,976 - INFO -     Guardado: ENS_2025.parquet (140 velas)
+2026-01-25 05:52:53,983 - INFO -     Guardado: ENS_2026.parquet (581 velas)
+2026-01-25 05:52:53,983 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:52:53,983 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:52:53,984 - INFO - Descargando ENS desde Binance...
+2026-01-25 05:52:53,984 - INFO -   Simbolo Binance: ENSUSDT
+2026-01-25 05:52:53,984 - INFO -   Rango: 2021-11-09 a 2026-01-25
+2026-01-25 05:53:29,373 - INFO -   Total: 36,885 velas descargadas de Binance
+2026-01-25 05:53:29,391 - INFO -     Guardado: ENS_2021.parquet (1,241 velas)
+2026-01-25 05:53:29,411 - INFO -     Guardado: ENS_2022.parquet (8,760 velas)
+2026-01-25 05:53:29,431 - INFO -     Guardado: ENS_2023.parquet (8,759 velas)
+2026-01-25 05:53:29,451 - INFO -     Guardado: ENS_2024.parquet (8,784 velas)
+2026-01-25 05:53:29,472 - INFO -     Guardado: ENS_2025.parquet (8,760 velas)
+2026-01-25 05:53:29,484 - INFO -     Guardado: ENS_2026.parquet (581 velas)
+2026-01-25 05:53:29,485 - INFO -   Total guardado: 6 años, 36,885 velas
+2026-01-25 05:53:29,485 - INFO -   BINANCE: 36,885 velas descargadas
+2026-01-25 05:53:29,486 - INFO - 
+[72/100] Procesando COMP...
+2026-01-25 05:53:29,486 - INFO - 
+================================================================================
+2026-01-25 05:53:29,487 - INFO - DESCARGANDO: COMP
+2026-01-25 05:53:29,488 - INFO - ================================================================================
+2026-01-25 05:53:29,489 - INFO - Descargando COMP desde Kraken...
+2026-01-25 05:53:29,490 - INFO -   Simbolo Kraken: COMPUSD
+2026-01-25 05:53:29,490 - INFO -   Rango: 2020-06-16 a 2026-01-25
+2026-01-25 05:53:30,677 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:53:30,681 - INFO -     Guardado: COMP_2025.parquet (140 velas)
+2026-01-25 05:53:30,690 - INFO -     Guardado: COMP_2026.parquet (581 velas)
+2026-01-25 05:53:30,690 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:53:30,690 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:53:30,691 - INFO - Descargando COMP desde Binance...
+2026-01-25 05:53:30,691 - INFO -   Simbolo Binance: COMPUSDT
+2026-01-25 05:53:30,691 - INFO -   Rango: 2020-06-25 a 2026-01-25
+2026-01-25 05:54:16,515 - INFO -   Total: 48,936 velas descargadas de Binance
+2026-01-25 05:54:16,534 - INFO -     Guardado: COMP_2020.parquet (4,545 velas)
+2026-01-25 05:54:16,551 - INFO -     Guardado: COMP_2021.parquet (8,747 velas)
+2026-01-25 05:54:16,563 - INFO -     Guardado: COMP_2022.parquet (8,760 velas)
+2026-01-25 05:54:16,576 - INFO -     Guardado: COMP_2023.parquet (8,759 velas)
+2026-01-25 05:54:16,591 - INFO -     Guardado: COMP_2024.parquet (8,784 velas)
+2026-01-25 05:54:16,604 - INFO -     Guardado: COMP_2025.parquet (8,760 velas)
+2026-01-25 05:54:16,614 - INFO -     Guardado: COMP_2026.parquet (581 velas)
+2026-01-25 05:54:16,615 - INFO -   Total guardado: 7 años, 48,936 velas
+2026-01-25 05:54:16,615 - INFO -   BINANCE: 48,936 velas descargadas
+2026-01-25 05:54:16,616 - INFO - 
+[73/100] Procesando CRV...
+2026-01-25 05:54:16,616 - INFO - 
+================================================================================
+2026-01-25 05:54:16,616 - INFO - DESCARGANDO: CRV
+2026-01-25 05:54:16,616 - INFO - ================================================================================
+2026-01-25 05:54:16,616 - INFO - Descargando CRV desde Kraken...
+2026-01-25 05:54:16,616 - INFO -   Simbolo Kraken: CRVUSD
+2026-01-25 05:54:16,616 - INFO -   Rango: 2020-08-14 a 2026-01-25
+2026-01-25 05:54:17,886 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:54:17,893 - INFO -     Guardado: CRV_2025.parquet (140 velas)
+2026-01-25 05:54:17,901 - INFO -     Guardado: CRV_2026.parquet (581 velas)
+2026-01-25 05:54:17,901 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:54:17,902 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:54:17,903 - INFO - Descargando CRV desde Binance...
+2026-01-25 05:54:17,903 - INFO -   Simbolo Binance: CRVUSDT
+2026-01-25 05:54:17,903 - INFO -   Rango: 2020-08-25 a 2026-01-25
+2026-01-25 05:55:01,551 - INFO -   Total: 47,483 velas descargadas de Binance
+2026-01-25 05:55:01,574 - INFO -     Guardado: CRV_2020.parquet (3,092 velas)
+2026-01-25 05:55:01,593 - INFO -     Guardado: CRV_2021.parquet (8,747 velas)
+2026-01-25 05:55:01,609 - INFO -     Guardado: CRV_2022.parquet (8,760 velas)
+2026-01-25 05:55:01,623 - INFO -     Guardado: CRV_2023.parquet (8,759 velas)
+2026-01-25 05:55:01,644 - INFO -     Guardado: CRV_2024.parquet (8,784 velas)
+2026-01-25 05:55:01,667 - INFO -     Guardado: CRV_2025.parquet (8,760 velas)
+2026-01-25 05:55:01,676 - INFO -     Guardado: CRV_2026.parquet (581 velas)
+2026-01-25 05:55:01,677 - INFO -   Total guardado: 7 años, 47,483 velas
+2026-01-25 05:55:01,677 - INFO -   BINANCE: 47,483 velas descargadas
+2026-01-25 05:55:01,678 - INFO - 
+[74/100] Procesando 1INCH...
+2026-01-25 05:55:01,678 - INFO - 
+================================================================================
+2026-01-25 05:55:01,678 - INFO - DESCARGANDO: 1INCH
+2026-01-25 05:55:01,678 - INFO - ================================================================================
+2026-01-25 05:55:01,678 - INFO - Descargando 1INCH desde Kraken...
+2026-01-25 05:55:01,678 - INFO -   Simbolo Kraken: 1INCHUSD
+2026-01-25 05:55:01,679 - INFO -   Rango: 2020-12-25 a 2026-01-25
+2026-01-25 05:55:02,892 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:55:02,898 - INFO -     Guardado: 1INCH_2025.parquet (140 velas)
+2026-01-25 05:55:02,903 - INFO -     Guardado: 1INCH_2026.parquet (581 velas)
+2026-01-25 05:55:02,903 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:55:02,904 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:55:02,904 - INFO - Descargando 1INCH desde Binance...
+2026-01-25 05:55:02,904 - INFO -   Simbolo Binance: 1INCHUSDT
+2026-01-25 05:55:02,904 - INFO -   Rango: 2020-12-25 a 2026-01-25
+2026-01-25 05:55:46,326 - INFO -   Total: 44,554 velas descargadas de Binance
+2026-01-25 05:55:46,341 - INFO -     Guardado: 1INCH_2020.parquet (163 velas)
+2026-01-25 05:55:46,363 - INFO -     Guardado: 1INCH_2021.parquet (8,747 velas)
+2026-01-25 05:55:46,375 - INFO -     Guardado: 1INCH_2022.parquet (8,760 velas)
+2026-01-25 05:55:46,389 - INFO -     Guardado: 1INCH_2023.parquet (8,759 velas)
+2026-01-25 05:55:46,405 - INFO -     Guardado: 1INCH_2024.parquet (8,784 velas)
+2026-01-25 05:55:46,422 - INFO -     Guardado: 1INCH_2025.parquet (8,760 velas)
+2026-01-25 05:55:46,432 - INFO -     Guardado: 1INCH_2026.parquet (581 velas)
+2026-01-25 05:55:46,432 - INFO -   Total guardado: 7 años, 44,554 velas
+2026-01-25 05:55:46,433 - INFO -   BINANCE: 44,554 velas descargadas
+2026-01-25 05:55:46,433 - INFO - 
+[75/100] Procesando CAKE...
+2026-01-25 05:55:46,433 - INFO - 
+================================================================================
+2026-01-25 05:55:46,433 - INFO - DESCARGANDO: CAKE
+2026-01-25 05:55:46,434 - INFO - ================================================================================
+2026-01-25 05:55:46,434 - INFO - Descargando CAKE desde Kraken...
+2026-01-25 05:55:46,434 - INFO -   Simbolo Kraken: CAKEUSD
+2026-01-25 05:55:46,434 - INFO -   Rango: 2021-04-21 a 2026-01-25
+2026-01-25 05:55:47,633 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:55:47,637 - INFO -     Guardado: CAKE_2025.parquet (140 velas)
+2026-01-25 05:55:47,644 - INFO -     Guardado: CAKE_2026.parquet (581 velas)
+2026-01-25 05:55:47,644 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:55:47,644 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:55:47,645 - INFO - Descargando CAKE desde Binance...
+2026-01-25 05:55:47,645 - INFO -   Simbolo Binance: CAKEUSDT
+2026-01-25 05:55:47,645 - INFO -   Rango: 2020-09-29 a 2026-01-25
+2026-01-25 05:56:27,527 - INFO -   Total: 43,210 velas descargadas de Binance
+2026-01-25 05:56:27,547 - INFO -     Guardado: CAKE_2021.parquet (7,566 velas)
+2026-01-25 05:56:27,563 - INFO -     Guardado: CAKE_2022.parquet (8,760 velas)
+2026-01-25 05:56:27,579 - INFO -     Guardado: CAKE_2023.parquet (8,759 velas)
+2026-01-25 05:56:27,592 - INFO -     Guardado: CAKE_2024.parquet (8,784 velas)
+2026-01-25 05:56:27,608 - INFO -     Guardado: CAKE_2025.parquet (8,760 velas)
+2026-01-25 05:56:27,618 - INFO -     Guardado: CAKE_2026.parquet (581 velas)
+2026-01-25 05:56:27,618 - INFO -   Total guardado: 6 años, 43,210 velas
+2026-01-25 05:56:27,619 - INFO -   BINANCE: 43,210 velas descargadas
+2026-01-25 05:56:27,619 - INFO - 
+[76/100] Procesando ZIL...
+2026-01-25 05:56:27,619 - INFO - 
+================================================================================
+2026-01-25 05:56:27,619 - INFO - DESCARGANDO: ZIL
+2026-01-25 05:56:27,619 - INFO - ================================================================================
+2026-01-25 05:56:27,619 - INFO - Descargando ZIL desde Kraken...
+2026-01-25 05:56:27,619 - INFO -   Simbolo Kraken: ZILUSD
+2026-01-25 05:56:27,619 - INFO -   Rango: 2020-08-24 a 2026-01-25
+2026-01-25 05:56:27,684 - ERROR - Kraken API error: ['EQuery:Unknown asset pair']
+2026-01-25 05:56:27,685 - WARNING - No se obtuvieron datos de Kraken para ZIL
+2026-01-25 05:56:27,685 - WARNING -   KRAKEN: Sin datos
+2026-01-25 05:56:27,687 - INFO - Descargando ZIL desde Binance...
+2026-01-25 05:56:27,687 - INFO -   Simbolo Binance: ZILUSDT
+2026-01-25 05:56:27,687 - INFO -   Rango: 2018-03-19 a 2026-01-25
+2026-01-25 05:57:12,203 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:57:22,483 - INFO -   Total: 60,702 velas descargadas de Binance
+2026-01-25 05:57:22,507 - INFO -     Guardado: ZIL_2019.parquet (7,545 velas)
+2026-01-25 05:57:22,523 - INFO -     Guardado: ZIL_2020.parquet (8,766 velas)
+2026-01-25 05:57:22,541 - INFO -     Guardado: ZIL_2021.parquet (8,747 velas)
+2026-01-25 05:57:22,558 - INFO -     Guardado: ZIL_2022.parquet (8,760 velas)
+2026-01-25 05:57:22,573 - INFO -     Guardado: ZIL_2023.parquet (8,759 velas)
+2026-01-25 05:57:22,589 - INFO -     Guardado: ZIL_2024.parquet (8,784 velas)
+2026-01-25 05:57:22,604 - INFO -     Guardado: ZIL_2025.parquet (8,760 velas)
+2026-01-25 05:57:22,616 - INFO -     Guardado: ZIL_2026.parquet (581 velas)
+2026-01-25 05:57:22,616 - INFO -   Total guardado: 8 años, 60,702 velas
+2026-01-25 05:57:22,616 - INFO -   BINANCE: 60,702 velas descargadas
+2026-01-25 05:57:22,617 - INFO - 
+[77/100] Procesando CHZ...
+2026-01-25 05:57:22,617 - INFO - 
+================================================================================
+2026-01-25 05:57:22,617 - INFO - DESCARGANDO: CHZ
+2026-01-25 05:57:22,617 - INFO - ================================================================================
+2026-01-25 05:57:22,617 - INFO - Descargando CHZ desde Kraken...
+2026-01-25 05:57:22,618 - INFO -   Simbolo Kraken: CHZUSD
+2026-01-25 05:57:22,618 - INFO -   Rango: 2021-02-04 a 2026-01-25
+2026-01-25 05:57:23,819 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:57:23,824 - INFO -     Guardado: CHZ_2025.parquet (140 velas)
+2026-01-25 05:57:23,832 - INFO -     Guardado: CHZ_2026.parquet (581 velas)
+2026-01-25 05:57:23,833 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:57:23,833 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:57:23,834 - INFO - Descargando CHZ desde Binance...
+2026-01-25 05:57:23,834 - INFO -   Simbolo Binance: CHZUSDT
+2026-01-25 05:57:23,834 - INFO -   Rango: 2019-07-01 a 2026-01-25
+2026-01-25 05:58:07,188 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:58:13,119 - INFO -   Total: 55,957 velas descargadas de Binance
+2026-01-25 05:58:13,142 - INFO -     Guardado: CHZ_2019.parquet (2,800 velas)
+2026-01-25 05:58:13,155 - INFO -     Guardado: CHZ_2020.parquet (8,766 velas)
+2026-01-25 05:58:13,166 - INFO -     Guardado: CHZ_2021.parquet (8,747 velas)
+2026-01-25 05:58:13,180 - INFO -     Guardado: CHZ_2022.parquet (8,760 velas)
+2026-01-25 05:58:13,194 - INFO -     Guardado: CHZ_2023.parquet (8,759 velas)
+2026-01-25 05:58:13,209 - INFO -     Guardado: CHZ_2024.parquet (8,784 velas)
+2026-01-25 05:58:13,223 - INFO -     Guardado: CHZ_2025.parquet (8,760 velas)
+2026-01-25 05:58:13,232 - INFO -     Guardado: CHZ_2026.parquet (581 velas)
+2026-01-25 05:58:13,233 - INFO -   Total guardado: 8 años, 55,957 velas
+2026-01-25 05:58:13,233 - INFO -   BINANCE: 55,957 velas descargadas
+2026-01-25 05:58:13,234 - INFO - 
+[78/100] Procesando WAVES...
+2026-01-25 05:58:13,234 - INFO - 
+================================================================================
+2026-01-25 05:58:13,234 - INFO - DESCARGANDO: WAVES
+2026-01-25 05:58:13,234 - INFO - ================================================================================
+2026-01-25 05:58:13,234 - INFO - Descargando WAVES desde Kraken...
+2026-01-25 05:58:13,234 - INFO -   Simbolo Kraken: WAVESUSD
+2026-01-25 05:58:13,234 - INFO -   Rango: 2017-08-01 a 2026-01-25
+2026-01-25 05:58:13,299 - ERROR - Kraken API error: ['EQuery:Invalid asset pair']
+2026-01-25 05:58:13,299 - WARNING - No se obtuvieron datos de Kraken para WAVES
+2026-01-25 05:58:13,300 - WARNING -   KRAKEN: Sin datos
+2026-01-25 05:58:13,300 - INFO - Descargando WAVES desde Binance...
+2026-01-25 05:58:13,300 - INFO -   Simbolo Binance: WAVESUSDT
+2026-01-25 05:58:13,300 - INFO -   Rango: 2018-07-16 a 2026-01-25
+2026-01-25 05:58:55,336 - INFO -   Total: 47,381 velas descargadas de Binance
+2026-01-25 05:58:55,364 - INFO -     Guardado: WAVES_2019.parquet (8,314 velas)
+2026-01-25 05:58:55,381 - INFO -     Guardado: WAVES_2020.parquet (8,766 velas)
+2026-01-25 05:58:55,397 - INFO -     Guardado: WAVES_2021.parquet (8,747 velas)
+2026-01-25 05:58:55,413 - INFO -     Guardado: WAVES_2022.parquet (8,760 velas)
+2026-01-25 05:58:55,431 - INFO -     Guardado: WAVES_2023.parquet (8,759 velas)
+2026-01-25 05:58:55,444 - INFO -     Guardado: WAVES_2024.parquet (4,035 velas)
+2026-01-25 05:58:55,445 - INFO -   Total guardado: 6 años, 47,381 velas
+2026-01-25 05:58:55,445 - INFO -   BINANCE: 47,381 velas descargadas
+2026-01-25 05:58:55,446 - INFO - 
+[79/100] Procesando BAT...
+2026-01-25 05:58:55,446 - INFO - 
+================================================================================
+2026-01-25 05:58:55,446 - INFO - DESCARGANDO: BAT
+2026-01-25 05:58:55,446 - INFO - ================================================================================
+2026-01-25 05:58:55,446 - INFO - Descargando BAT desde Kraken...
+2026-01-25 05:58:55,447 - INFO -   Simbolo Kraken: BATUSD
+2026-01-25 05:58:55,447 - INFO -   Rango: 2017-09-22 a 2026-01-25
+2026-01-25 05:58:56,654 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:58:56,660 - INFO -     Guardado: BAT_2025.parquet (140 velas)
+2026-01-25 05:58:56,668 - INFO -     Guardado: BAT_2026.parquet (581 velas)
+2026-01-25 05:58:56,668 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:58:56,668 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:58:56,669 - INFO - Descargando BAT desde Binance...
+2026-01-25 05:58:56,669 - INFO -   Simbolo Binance: BATUSDT
+2026-01-25 05:58:56,669 - INFO -   Rango: 2019-04-16 a 2026-01-25
+2026-01-25 05:59:40,438 - INFO -   50 requests, 50,000 velas...
+2026-01-25 05:59:51,335 - INFO -   Total: 59,377 velas descargadas de Binance
+2026-01-25 05:59:51,362 - INFO -     Guardado: BAT_2019.parquet (6,220 velas)
+2026-01-25 05:59:51,379 - INFO -     Guardado: BAT_2020.parquet (8,766 velas)
+2026-01-25 05:59:51,397 - INFO -     Guardado: BAT_2021.parquet (8,747 velas)
+2026-01-25 05:59:51,418 - INFO -     Guardado: BAT_2022.parquet (8,760 velas)
+2026-01-25 05:59:51,449 - INFO -     Guardado: BAT_2023.parquet (8,759 velas)
+2026-01-25 05:59:51,469 - INFO -     Guardado: BAT_2024.parquet (8,784 velas)
+2026-01-25 05:59:51,496 - INFO -     Guardado: BAT_2025.parquet (8,760 velas)
+2026-01-25 05:59:51,510 - INFO -     Guardado: BAT_2026.parquet (581 velas)
+2026-01-25 05:59:51,510 - INFO -   Total guardado: 8 años, 59,377 velas
+2026-01-25 05:59:51,511 - INFO -   BINANCE: 59,377 velas descargadas
+2026-01-25 05:59:51,512 - INFO - 
+[80/100] Procesando SUSHI...
+2026-01-25 05:59:51,512 - INFO - 
+================================================================================
+2026-01-25 05:59:51,512 - INFO - DESCARGANDO: SUSHI
+2026-01-25 05:59:51,512 - INFO - ================================================================================
+2026-01-25 05:59:51,512 - INFO - Descargando SUSHI desde Kraken...
+2026-01-25 05:59:51,512 - INFO -   Simbolo Kraken: SUSHIUSD
+2026-01-25 05:59:51,513 - INFO -   Rango: 2020-09-01 a 2026-01-25
+2026-01-25 05:59:52,712 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 05:59:52,717 - INFO -     Guardado: SUSHI_2025.parquet (140 velas)
+2026-01-25 05:59:52,729 - INFO -     Guardado: SUSHI_2026.parquet (581 velas)
+2026-01-25 05:59:52,730 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 05:59:52,730 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 05:59:52,730 - INFO - Descargando SUSHI desde Binance...
+2026-01-25 05:59:52,730 - INFO -   Simbolo Binance: SUSHIUSDT
+2026-01-25 05:59:52,730 - INFO -   Rango: 2020-09-01 a 2026-01-25
+2026-01-25 06:00:34,775 - INFO -   Total: 47,303 velas descargadas de Binance
+2026-01-25 06:00:34,793 - INFO -     Guardado: SUSHI_2020.parquet (2,911 velas)
+2026-01-25 06:00:34,807 - INFO -     Guardado: SUSHI_2021.parquet (8,747 velas)
+2026-01-25 06:00:34,821 - INFO -     Guardado: SUSHI_2022.parquet (8,760 velas)
+2026-01-25 06:00:34,836 - INFO -     Guardado: SUSHI_2023.parquet (8,759 velas)
+2026-01-25 06:00:34,850 - INFO -     Guardado: SUSHI_2024.parquet (8,784 velas)
+2026-01-25 06:00:34,867 - INFO -     Guardado: SUSHI_2025.parquet (8,760 velas)
+2026-01-25 06:00:34,875 - INFO -     Guardado: SUSHI_2026.parquet (582 velas)
+2026-01-25 06:00:34,875 - INFO -   Total guardado: 7 años, 47,303 velas
+2026-01-25 06:00:34,876 - INFO -   BINANCE: 47,303 velas descargadas
+2026-01-25 06:00:34,876 - INFO - 
+[81/100] Procesando CELO...
+2026-01-25 06:00:34,876 - INFO - 
+================================================================================
+2026-01-25 06:00:34,876 - INFO - DESCARGANDO: CELO
+2026-01-25 06:00:34,876 - INFO - ================================================================================
+2026-01-25 06:00:34,877 - INFO - Descargando CELO desde Kraken...
+2026-01-25 06:00:34,877 - INFO -   Simbolo Kraken: CELOUSD
+2026-01-25 06:00:34,877 - INFO -   Rango: 2021-04-08 a 2026-01-25
+2026-01-25 06:00:36,021 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 06:00:36,026 - INFO -     Guardado: CELO_2025.parquet (139 velas)
+2026-01-25 06:00:36,033 - INFO -     Guardado: CELO_2026.parquet (582 velas)
+2026-01-25 06:00:36,033 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 06:00:36,034 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 06:00:36,035 - INFO - Descargando CELO desde Binance...
+2026-01-25 06:00:36,035 - INFO -   Simbolo Binance: CELOUSDT
+2026-01-25 06:00:36,035 - INFO -   Rango: 2020-08-31 a 2026-01-25
+2026-01-25 06:01:16,846 - INFO -   Total: 44,288 velas descargadas de Binance
+2026-01-25 06:01:16,868 - INFO -     Guardado: CELO_2021.parquet (8,643 velas)
+2026-01-25 06:01:16,881 - INFO -     Guardado: CELO_2022.parquet (8,760 velas)
+2026-01-25 06:01:16,892 - INFO -     Guardado: CELO_2023.parquet (8,759 velas)
+2026-01-25 06:01:16,907 - INFO -     Guardado: CELO_2024.parquet (8,784 velas)
+2026-01-25 06:01:16,924 - INFO -     Guardado: CELO_2025.parquet (8,760 velas)
+2026-01-25 06:01:16,938 - INFO -     Guardado: CELO_2026.parquet (582 velas)
+2026-01-25 06:01:16,938 - INFO -   Total guardado: 6 años, 44,288 velas
+2026-01-25 06:01:16,938 - INFO -   BINANCE: 44,288 velas descargadas
+2026-01-25 06:01:16,938 - INFO - 
+[82/100] Procesando YFI...
+2026-01-25 06:01:16,938 - INFO - 
+================================================================================
+2026-01-25 06:01:16,938 - INFO - DESCARGANDO: YFI
+2026-01-25 06:01:16,939 - INFO - ================================================================================
+2026-01-25 06:01:16,939 - INFO - Descargando YFI desde Kraken...
+2026-01-25 06:01:16,939 - INFO -   Simbolo Kraken: YFIUSD
+2026-01-25 06:01:16,939 - INFO -   Rango: 2020-08-31 a 2026-01-25
+2026-01-25 06:01:18,143 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 06:01:18,147 - INFO -     Guardado: YFI_2025.parquet (139 velas)
+2026-01-25 06:01:18,154 - INFO -     Guardado: YFI_2026.parquet (582 velas)
+2026-01-25 06:01:18,155 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 06:01:18,155 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 06:01:18,155 - INFO - Descargando YFI desde Binance...
+2026-01-25 06:01:18,155 - INFO -   Simbolo Binance: YFIUSDT
+2026-01-25 06:01:18,155 - INFO -   Rango: 2020-07-26 a 2026-01-25
+2026-01-25 06:02:03,444 - INFO -   Total: 47,830 velas descargadas de Binance
+2026-01-25 06:02:03,462 - INFO -     Guardado: YFI_2020.parquet (3,438 velas)
+2026-01-25 06:02:03,482 - INFO -     Guardado: YFI_2021.parquet (8,747 velas)
+2026-01-25 06:02:03,496 - INFO -     Guardado: YFI_2022.parquet (8,760 velas)
+2026-01-25 06:02:03,510 - INFO -     Guardado: YFI_2023.parquet (8,759 velas)
+2026-01-25 06:02:03,525 - INFO -     Guardado: YFI_2024.parquet (8,784 velas)
+2026-01-25 06:02:03,541 - INFO -     Guardado: YFI_2025.parquet (8,760 velas)
+2026-01-25 06:02:03,548 - INFO -     Guardado: YFI_2026.parquet (582 velas)
+2026-01-25 06:02:03,548 - INFO -   Total guardado: 7 años, 47,830 velas
+2026-01-25 06:02:03,548 - INFO -   BINANCE: 47,830 velas descargadas
+2026-01-25 06:02:03,548 - INFO - 
+[83/100] Procesando ROSE...
+2026-01-25 06:02:03,549 - INFO - 
+================================================================================
+2026-01-25 06:02:03,549 - INFO - DESCARGANDO: ROSE
+2026-01-25 06:02:03,549 - INFO - ================================================================================
+2026-01-25 06:02:03,549 - INFO - Descargando ROSE desde Kraken...
+2026-01-25 06:02:03,550 - INFO -   Simbolo Kraken: ROSEUSD
+2026-01-25 06:02:03,551 - INFO -   Rango: 2020-11-19 a 2026-01-25
+2026-01-25 06:02:03,618 - ERROR - Kraken API error: ['EQuery:Unknown asset pair']
+2026-01-25 06:02:03,618 - WARNING - No se obtuvieron datos de Kraken para ROSE
+2026-01-25 06:02:03,619 - WARNING -   KRAKEN: Sin datos
+2026-01-25 06:02:03,619 - INFO - Descargando ROSE desde Binance...
+2026-01-25 06:02:03,619 - INFO -   Simbolo Binance: ROSEUSDT
+2026-01-25 06:02:03,619 - INFO -   Rango: 2020-11-19 a 2026-01-25
+2026-01-25 06:02:45,875 - INFO -   Total: 45,410 velas descargadas de Binance
+2026-01-25 06:02:45,887 - INFO -     Guardado: ROSE_2020.parquet (1,018 velas)
+2026-01-25 06:02:45,901 - INFO -     Guardado: ROSE_2021.parquet (8,747 velas)
+2026-01-25 06:02:45,916 - INFO -     Guardado: ROSE_2022.parquet (8,760 velas)
+2026-01-25 06:02:45,930 - INFO -     Guardado: ROSE_2023.parquet (8,759 velas)
+2026-01-25 06:02:45,947 - INFO -     Guardado: ROSE_2024.parquet (8,784 velas)
+2026-01-25 06:02:45,962 - INFO -     Guardado: ROSE_2025.parquet (8,760 velas)
+2026-01-25 06:02:45,973 - INFO -     Guardado: ROSE_2026.parquet (582 velas)
+2026-01-25 06:02:45,974 - INFO -   Total guardado: 7 años, 45,410 velas
+2026-01-25 06:02:45,974 - INFO -   BINANCE: 45,410 velas descargadas
+2026-01-25 06:02:45,974 - INFO - 
+[84/100] Procesando KSM...
+2026-01-25 06:02:45,974 - INFO - 
+================================================================================
+2026-01-25 06:02:45,974 - INFO - DESCARGANDO: KSM
+2026-01-25 06:02:45,974 - INFO - ================================================================================
+2026-01-25 06:02:45,974 - INFO - Descargando KSM desde Kraken...
+2026-01-25 06:02:45,974 - INFO -   Simbolo Kraken: KSMUSD
+2026-01-25 06:02:45,975 - INFO -   Rango: 2020-08-18 a 2026-01-25
+2026-01-25 06:02:47,172 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 06:02:47,176 - INFO -     Guardado: KSM_2025.parquet (139 velas)
+2026-01-25 06:02:47,182 - INFO -     Guardado: KSM_2026.parquet (582 velas)
+2026-01-25 06:02:47,183 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 06:02:47,183 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 06:02:47,183 - INFO - Descargando KSM desde Binance...
+2026-01-25 06:02:47,183 - INFO -   Simbolo Binance: KSMUSDT
+2026-01-25 06:02:47,183 - INFO -   Rango: 2020-08-31 a 2026-01-25
+2026-01-25 06:03:31,877 - INFO -   Total: 47,231 velas descargadas de Binance
+2026-01-25 06:03:31,898 - INFO -     Guardado: KSM_2020.parquet (2,839 velas)
+2026-01-25 06:03:31,915 - INFO -     Guardado: KSM_2021.parquet (8,747 velas)
+2026-01-25 06:03:31,933 - INFO -     Guardado: KSM_2022.parquet (8,760 velas)
+2026-01-25 06:03:31,947 - INFO -     Guardado: KSM_2023.parquet (8,759 velas)
+2026-01-25 06:03:31,962 - INFO -     Guardado: KSM_2024.parquet (8,784 velas)
+2026-01-25 06:03:31,979 - INFO -     Guardado: KSM_2025.parquet (8,760 velas)
+2026-01-25 06:03:31,988 - INFO -     Guardado: KSM_2026.parquet (582 velas)
+2026-01-25 06:03:31,989 - INFO -   Total guardado: 7 años, 47,231 velas
+2026-01-25 06:03:31,989 - INFO -   BINANCE: 47,231 velas descargadas
+2026-01-25 06:03:31,989 - INFO - 
+[85/100] Procesando ZRX...
+2026-01-25 06:03:31,989 - INFO - 
+================================================================================
+2026-01-25 06:03:31,989 - INFO - DESCARGANDO: ZRX
+2026-01-25 06:03:31,990 - INFO - ================================================================================
+2026-01-25 06:03:31,990 - INFO - Descargando ZRX desde Kraken...
+2026-01-25 06:03:31,991 - INFO -   Simbolo Kraken: ZRXUSD
+2026-01-25 06:03:31,991 - INFO -   Rango: 2017-08-16 a 2026-01-25
+2026-01-25 06:03:33,207 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 06:03:33,213 - INFO -     Guardado: ZRX_2025.parquet (139 velas)
+2026-01-25 06:03:33,224 - INFO -     Guardado: ZRX_2026.parquet (582 velas)
+2026-01-25 06:03:33,225 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 06:03:33,225 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 06:03:33,225 - INFO - Descargando ZRX desde Binance...
+2026-01-25 06:03:33,226 - INFO -   Simbolo Binance: ZRXUSDT
+2026-01-25 06:03:33,226 - INFO -   Rango: 2018-08-21 a 2026-01-25
+2026-01-25 06:04:16,812 - INFO -   50 requests, 50,000 velas...
+2026-01-25 06:04:28,656 - INFO -   Total: 60,494 velas descargadas de Binance
+2026-01-25 06:04:28,685 - INFO -     Guardado: ZRX_2019.parquet (7,336 velas)
+2026-01-25 06:04:28,701 - INFO -     Guardado: ZRX_2020.parquet (8,766 velas)
+2026-01-25 06:04:28,719 - INFO -     Guardado: ZRX_2021.parquet (8,747 velas)
+2026-01-25 06:04:28,738 - INFO -     Guardado: ZRX_2022.parquet (8,760 velas)
+2026-01-25 06:04:28,757 - INFO -     Guardado: ZRX_2023.parquet (8,759 velas)
+2026-01-25 06:04:28,774 - INFO -     Guardado: ZRX_2024.parquet (8,784 velas)
+2026-01-25 06:04:28,792 - INFO -     Guardado: ZRX_2025.parquet (8,760 velas)
+2026-01-25 06:04:28,802 - INFO -     Guardado: ZRX_2026.parquet (582 velas)
+2026-01-25 06:04:28,802 - INFO -   Total guardado: 8 años, 60,494 velas
+2026-01-25 06:04:28,802 - INFO -   BINANCE: 60,494 velas descargadas
+2026-01-25 06:04:28,803 - INFO - 
+[86/100] Procesando ICX...
+2026-01-25 06:04:28,804 - INFO - 
+================================================================================
+2026-01-25 06:04:28,804 - INFO - DESCARGANDO: ICX
+2026-01-25 06:04:28,804 - INFO - ================================================================================
+2026-01-25 06:04:28,804 - INFO - Descargando ICX desde Kraken...
+2026-01-25 06:04:28,804 - INFO -   Simbolo Kraken: ICXUSD
+2026-01-25 06:04:28,804 - INFO -   Rango: 2018-04-17 a 2026-01-25
+2026-01-25 06:04:30,068 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 06:04:30,073 - INFO -     Guardado: ICX_2025.parquet (139 velas)
+2026-01-25 06:04:30,084 - INFO -     Guardado: ICX_2026.parquet (582 velas)
+2026-01-25 06:04:30,085 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 06:04:30,085 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 06:04:30,086 - INFO - Descargando ICX desde Binance...
+2026-01-25 06:04:30,086 - INFO -   Simbolo Binance: ICXUSDT
+2026-01-25 06:04:30,086 - INFO -   Rango: 2017-10-27 a 2026-01-25
+2026-01-25 06:05:15,777 - INFO -   50 requests, 50,000 velas...
+2026-01-25 06:05:31,409 - INFO -   Total: 66,702 velas descargadas de Binance
+2026-01-25 06:05:31,442 - INFO -     Guardado: ICX_2018.parquet (4,812 velas)
+2026-01-25 06:05:31,458 - INFO -     Guardado: ICX_2019.parquet (8,732 velas)
+2026-01-25 06:05:31,472 - INFO -     Guardado: ICX_2020.parquet (8,766 velas)
+2026-01-25 06:05:31,490 - INFO -     Guardado: ICX_2021.parquet (8,747 velas)
+2026-01-25 06:05:31,507 - INFO -     Guardado: ICX_2022.parquet (8,760 velas)
+2026-01-25 06:05:31,523 - INFO -     Guardado: ICX_2023.parquet (8,759 velas)
+2026-01-25 06:05:31,541 - INFO -     Guardado: ICX_2024.parquet (8,784 velas)
+2026-01-25 06:05:31,553 - INFO -     Guardado: ICX_2025.parquet (8,760 velas)
+2026-01-25 06:05:31,563 - INFO -     Guardado: ICX_2026.parquet (582 velas)
+2026-01-25 06:05:31,564 - INFO -   Total guardado: 9 años, 66,702 velas
+2026-01-25 06:05:31,564 - INFO -   BINANCE: 66,702 velas descargadas
+2026-01-25 06:05:31,564 - INFO - 
+[87/100] Procesando MINA...
+2026-01-25 06:05:31,565 - INFO - 
+================================================================================
+2026-01-25 06:05:31,565 - INFO - DESCARGANDO: MINA
+2026-01-25 06:05:31,565 - INFO - ================================================================================
+2026-01-25 06:05:31,565 - INFO - Descargando MINA desde Kraken...
+2026-01-25 06:05:31,565 - INFO -   Simbolo Kraken: MINAUSD
+2026-01-25 06:05:31,565 - INFO -   Rango: 2021-06-01 a 2026-01-25
+2026-01-25 06:05:32,760 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 06:05:32,765 - INFO -     Guardado: MINA_2025.parquet (139 velas)
+2026-01-25 06:05:32,771 - INFO -     Guardado: MINA_2026.parquet (582 velas)
+2026-01-25 06:05:32,771 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 06:05:32,771 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 06:05:32,772 - INFO - Descargando MINA desde Binance...
+2026-01-25 06:05:32,772 - INFO -   Simbolo Binance: MINAUSDT
+2026-01-25 06:05:32,773 - INFO -   Rango: 2021-06-01 a 2026-01-25
+2026-01-25 06:06:09,433 - INFO -   Total: 39,089 velas descargadas de Binance
+2026-01-25 06:06:09,456 - INFO -     Guardado: MINA_2021.parquet (3,444 velas)
+2026-01-25 06:06:09,472 - INFO -     Guardado: MINA_2022.parquet (8,760 velas)
+2026-01-25 06:06:09,489 - INFO -     Guardado: MINA_2023.parquet (8,759 velas)
+2026-01-25 06:06:09,506 - INFO -     Guardado: MINA_2024.parquet (8,784 velas)
+2026-01-25 06:06:09,522 - INFO -     Guardado: MINA_2025.parquet (8,760 velas)
+2026-01-25 06:06:09,532 - INFO -     Guardado: MINA_2026.parquet (582 velas)
+2026-01-25 06:06:09,532 - INFO -   Total guardado: 6 años, 39,089 velas
+2026-01-25 06:06:09,532 - INFO -   BINANCE: 39,089 velas descargadas
+2026-01-25 06:06:09,533 - INFO - 
+[88/100] Procesando ONE...
+2026-01-25 06:06:09,533 - INFO - 
+================================================================================
+2026-01-25 06:06:09,533 - INFO - DESCARGANDO: ONE
+2026-01-25 06:06:09,533 - INFO - ================================================================================
+2026-01-25 06:06:09,533 - INFO - Descargando ONE desde Kraken...
+2026-01-25 06:06:09,533 - INFO -   Simbolo Kraken: ONEUSD
+2026-01-25 06:06:09,533 - INFO -   Rango: 2020-12-03 a 2026-01-25
+2026-01-25 06:06:09,601 - ERROR - Kraken API error: ['EQuery:Unknown asset pair']
+2026-01-25 06:06:09,602 - WARNING - No se obtuvieron datos de Kraken para ONE
+2026-01-25 06:06:09,603 - WARNING -   KRAKEN: Sin datos
+2026-01-25 06:06:09,603 - INFO - Descargando ONE desde Binance...
+2026-01-25 06:06:09,603 - INFO -   Simbolo Binance: ONEUSDT
+2026-01-25 06:06:09,603 - INFO -   Rango: 2019-05-31 a 2026-01-25
+2026-01-25 06:06:55,680 - INFO -   50 requests, 50,000 velas...
+2026-01-25 06:07:05,353 - INFO -   Total: 58,278 velas descargadas de Binance
+2026-01-25 06:07:05,380 - INFO -     Guardado: ONE_2019.parquet (5,120 velas)
+2026-01-25 06:07:05,396 - INFO -     Guardado: ONE_2020.parquet (8,766 velas)
+2026-01-25 06:07:05,418 - INFO -     Guardado: ONE_2021.parquet (8,747 velas)
+2026-01-25 06:07:05,436 - INFO -     Guardado: ONE_2022.parquet (8,760 velas)
+2026-01-25 06:07:05,456 - INFO -     Guardado: ONE_2023.parquet (8,759 velas)
+2026-01-25 06:07:05,474 - INFO -     Guardado: ONE_2024.parquet (8,784 velas)
+2026-01-25 06:07:05,492 - INFO -     Guardado: ONE_2025.parquet (8,760 velas)
+2026-01-25 06:07:05,504 - INFO -     Guardado: ONE_2026.parquet (582 velas)
+2026-01-25 06:07:05,505 - INFO -   Total guardado: 8 años, 58,278 velas
+2026-01-25 06:07:05,505 - INFO -   BINANCE: 58,278 velas descargadas
+2026-01-25 06:07:05,506 - INFO - 
+[89/100] Procesando ENJ...
+2026-01-25 06:07:05,506 - INFO - 
+================================================================================
+2026-01-25 06:07:05,506 - INFO - DESCARGANDO: ENJ
+2026-01-25 06:07:05,506 - INFO - ================================================================================
+2026-01-25 06:07:05,506 - INFO - Descargando ENJ desde Kraken...
+2026-01-25 06:07:05,507 - INFO -   Simbolo Kraken: ENJUSD
+2026-01-25 06:07:05,507 - INFO -   Rango: 2021-01-21 a 2026-01-25
+2026-01-25 06:07:06,714 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 06:07:06,721 - INFO -     Guardado: ENJ_2025.parquet (139 velas)
+2026-01-25 06:07:06,730 - INFO -     Guardado: ENJ_2026.parquet (582 velas)
+2026-01-25 06:07:06,731 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 06:07:06,731 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 06:07:06,731 - INFO - Descargando ENJ desde Binance...
+2026-01-25 06:07:06,731 - INFO -   Simbolo Binance: ENJUSDT
+2026-01-25 06:07:06,731 - INFO -   Rango: 2019-04-18 a 2026-01-25
+2026-01-25 06:07:49,621 - INFO -   50 requests, 50,000 velas...
+2026-01-25 06:07:59,410 - INFO -   Total: 59,324 velas descargadas de Binance
+2026-01-25 06:07:59,440 - INFO -     Guardado: ENJ_2019.parquet (6,166 velas)
+2026-01-25 06:07:59,456 - INFO -     Guardado: ENJ_2020.parquet (8,766 velas)
+2026-01-25 06:07:59,474 - INFO -     Guardado: ENJ_2021.parquet (8,747 velas)
+2026-01-25 06:07:59,492 - INFO -     Guardado: ENJ_2022.parquet (8,760 velas)
+2026-01-25 06:07:59,510 - INFO -     Guardado: ENJ_2023.parquet (8,759 velas)
+2026-01-25 06:07:59,528 - INFO -     Guardado: ENJ_2024.parquet (8,784 velas)
+2026-01-25 06:07:59,545 - INFO -     Guardado: ENJ_2025.parquet (8,760 velas)
+2026-01-25 06:07:59,555 - INFO -     Guardado: ENJ_2026.parquet (582 velas)
+2026-01-25 06:07:59,556 - INFO -   Total guardado: 8 años, 59,324 velas
+2026-01-25 06:07:59,556 - INFO -   BINANCE: 59,324 velas descargadas
+2026-01-25 06:07:59,557 - INFO - 
+[90/100] Procesando ANKR...
+2026-01-25 06:07:59,557 - INFO - 
+================================================================================
+2026-01-25 06:07:59,557 - INFO - DESCARGANDO: ANKR
+2026-01-25 06:07:59,557 - INFO - ================================================================================
+2026-01-25 06:07:59,557 - INFO - Descargando ANKR desde Kraken...
+2026-01-25 06:07:59,557 - INFO -   Simbolo Kraken: ANKRUSD
+2026-01-25 06:07:59,557 - INFO -   Rango: 2021-03-18 a 2026-01-25
+2026-01-25 06:08:00,830 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 06:08:00,836 - INFO -     Guardado: ANKR_2025.parquet (139 velas)
+2026-01-25 06:08:00,845 - INFO -     Guardado: ANKR_2026.parquet (582 velas)
+2026-01-25 06:08:00,845 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 06:08:00,846 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 06:08:00,846 - INFO - Descargando ANKR desde Binance...
+2026-01-25 06:08:00,846 - INFO -   Simbolo Binance: ANKRUSDT
+2026-01-25 06:08:00,846 - INFO -   Rango: 2019-03-07 a 2026-01-25
+2026-01-25 06:08:43,635 - INFO -   50 requests, 50,000 velas...
+2026-01-25 06:08:53,320 - INFO -   Total: 57,020 velas descargadas de Binance
+2026-01-25 06:08:53,348 - INFO -     Guardado: ANKR_2019.parquet (3,862 velas)
+2026-01-25 06:08:53,365 - INFO -     Guardado: ANKR_2020.parquet (8,766 velas)
+2026-01-25 06:08:53,384 - INFO -     Guardado: ANKR_2021.parquet (8,747 velas)
+2026-01-25 06:08:53,405 - INFO -     Guardado: ANKR_2022.parquet (8,760 velas)
+2026-01-25 06:08:53,424 - INFO -     Guardado: ANKR_2023.parquet (8,759 velas)
+2026-01-25 06:08:53,442 - INFO -     Guardado: ANKR_2024.parquet (8,784 velas)
+2026-01-25 06:08:53,460 - INFO -     Guardado: ANKR_2025.parquet (8,760 velas)
+2026-01-25 06:08:53,469 - INFO -     Guardado: ANKR_2026.parquet (582 velas)
+2026-01-25 06:08:53,470 - INFO -   Total guardado: 8 años, 57,020 velas
+2026-01-25 06:08:53,470 - INFO -   BINANCE: 57,020 velas descargadas
+2026-01-25 06:08:53,472 - INFO - 
+[91/100] Procesando GLM...
+2026-01-25 06:08:53,472 - INFO - 
+================================================================================
+2026-01-25 06:08:53,472 - INFO - DESCARGANDO: GLM
+2026-01-25 06:08:53,472 - INFO - ================================================================================
+2026-01-25 06:08:53,472 - INFO - Descargando GLM desde Kraken...
+2026-01-25 06:08:53,472 - INFO -   Simbolo Kraken: GLMUSD
+2026-01-25 06:08:53,473 - INFO -   Rango: 2016-11-18 a 2026-01-25
+2026-01-25 06:08:53,546 - ERROR - Kraken API error: ['EQuery:Unknown asset pair']
+2026-01-25 06:08:53,546 - WARNING - No se obtuvieron datos de Kraken para GLM
+2026-01-25 06:08:53,547 - WARNING -   KRAKEN: Sin datos
+2026-01-25 06:08:53,547 - INFO - Descargando GLM desde Binance...
+2026-01-25 06:08:53,548 - INFO -   Simbolo Binance: GLMUSDT
+2026-01-25 06:08:53,548 - INFO -   Rango: 2020-11-19 a 2026-01-25
+2026-01-25 06:09:17,284 - INFO -   Total: 25,077 velas descargadas de Binance
+2026-01-25 06:09:17,307 - INFO -     Guardado: GLM_2023.parquet (6,951 velas)
+2026-01-25 06:09:17,323 - INFO -     Guardado: GLM_2024.parquet (8,784 velas)
+2026-01-25 06:09:17,341 - INFO -     Guardado: GLM_2025.parquet (8,760 velas)
+2026-01-25 06:09:17,351 - INFO -     Guardado: GLM_2026.parquet (582 velas)
+2026-01-25 06:09:17,351 - INFO -   Total guardado: 4 años, 25,077 velas
+2026-01-25 06:09:17,351 - INFO -   BINANCE: 25,077 velas descargadas
+2026-01-25 06:09:17,351 - INFO - 
+[92/100] Procesando LRC...
+2026-01-25 06:09:17,351 - INFO - 
+================================================================================
+2026-01-25 06:09:17,351 - INFO - DESCARGANDO: LRC
+2026-01-25 06:09:17,351 - INFO - ================================================================================
+2026-01-25 06:09:17,352 - INFO - Descargando LRC desde Kraken...
+2026-01-25 06:09:17,352 - INFO -   Simbolo Kraken: LRCUSD
+2026-01-25 06:09:17,352 - INFO -   Rango: 2020-08-31 a 2026-01-25
+2026-01-25 06:09:18,625 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 06:09:18,630 - INFO -     Guardado: LRC_2025.parquet (139 velas)
+2026-01-25 06:09:18,637 - INFO -     Guardado: LRC_2026.parquet (582 velas)
+2026-01-25 06:09:18,638 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 06:09:18,639 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 06:09:18,639 - INFO - Descargando LRC desde Binance...
+2026-01-25 06:09:18,639 - INFO -   Simbolo Binance: LRCUSDT
+2026-01-25 06:09:18,639 - INFO -   Rango: 2019-02-27 a 2026-01-25
+2026-01-25 06:10:03,492 - INFO -   50 requests, 49,247 velas...
+2026-01-25 06:10:04,328 - INFO -   Total: 49,247 velas descargadas de Binance
+2026-01-25 06:10:04,347 - INFO -     Guardado: LRC_2020.parquet (4,855 velas)
+2026-01-25 06:10:04,362 - INFO -     Guardado: LRC_2021.parquet (8,747 velas)
+2026-01-25 06:10:04,376 - INFO -     Guardado: LRC_2022.parquet (8,760 velas)
+2026-01-25 06:10:04,389 - INFO -     Guardado: LRC_2023.parquet (8,759 velas)
+2026-01-25 06:10:04,401 - INFO -     Guardado: LRC_2024.parquet (8,784 velas)
+2026-01-25 06:10:04,415 - INFO -     Guardado: LRC_2025.parquet (8,760 velas)
+2026-01-25 06:10:04,426 - INFO -     Guardado: LRC_2026.parquet (582 velas)
+2026-01-25 06:10:04,427 - INFO -   Total guardado: 7 años, 49,247 velas
+2026-01-25 06:10:04,427 - INFO -   BINANCE: 49,247 velas descargadas
+2026-01-25 06:10:04,428 - INFO - 
+[93/100] Procesando STORJ...
+2026-01-25 06:10:04,428 - INFO - 
+================================================================================
+2026-01-25 06:10:04,428 - INFO - DESCARGANDO: STORJ
+2026-01-25 06:10:04,428 - INFO - ================================================================================
+2026-01-25 06:10:04,428 - INFO - Descargando STORJ desde Kraken...
+2026-01-25 06:10:04,428 - INFO -   Simbolo Kraken: STORJUSD
+2026-01-25 06:10:04,428 - INFO -   Rango: 2017-08-31 a 2026-01-25
+2026-01-25 06:10:05,678 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 06:10:05,684 - INFO -     Guardado: STORJ_2025.parquet (139 velas)
+2026-01-25 06:10:05,692 - INFO -     Guardado: STORJ_2026.parquet (582 velas)
+2026-01-25 06:10:05,692 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 06:10:05,693 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 06:10:05,693 - INFO - Descargando STORJ desde Binance...
+2026-01-25 06:10:05,694 - INFO -   Simbolo Binance: STORJUSDT
+2026-01-25 06:10:05,694 - INFO -   Rango: 2019-05-24 a 2026-01-25
+2026-01-25 06:10:48,218 - INFO -   Total: 48,101 velas descargadas de Binance
+2026-01-25 06:10:48,239 - INFO -     Guardado: STORJ_2020.parquet (3,709 velas)
+2026-01-25 06:10:48,253 - INFO -     Guardado: STORJ_2021.parquet (8,747 velas)
+2026-01-25 06:10:48,265 - INFO -     Guardado: STORJ_2022.parquet (8,760 velas)
+2026-01-25 06:10:48,278 - INFO -     Guardado: STORJ_2023.parquet (8,759 velas)
+2026-01-25 06:10:48,290 - INFO -     Guardado: STORJ_2024.parquet (8,784 velas)
+2026-01-25 06:10:48,310 - INFO -     Guardado: STORJ_2025.parquet (8,760 velas)
+2026-01-25 06:10:48,319 - INFO -     Guardado: STORJ_2026.parquet (582 velas)
+2026-01-25 06:10:48,320 - INFO -   Total guardado: 7 años, 48,101 velas
+2026-01-25 06:10:48,320 - INFO -   BINANCE: 48,101 velas descargadas
+2026-01-25 06:10:48,320 - INFO - 
+[94/100] Procesando OMG...
+2026-01-25 06:10:48,320 - INFO - 
+================================================================================
+2026-01-25 06:10:48,320 - INFO - DESCARGANDO: OMG
+2026-01-25 06:10:48,320 - INFO - ================================================================================
+2026-01-25 06:10:48,320 - INFO - Descargando OMG desde Kraken...
+2026-01-25 06:10:48,321 - INFO -   Simbolo Kraken: OMGUSD
+2026-01-25 06:10:48,321 - INFO -   Rango: 2017-09-07 a 2026-01-25
+2026-01-25 06:10:49,530 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 06:10:49,535 - INFO -     Guardado: OMG_2025.parquet (139 velas)
+2026-01-25 06:10:49,541 - INFO -     Guardado: OMG_2026.parquet (582 velas)
+2026-01-25 06:10:49,541 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 06:10:49,541 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 06:10:49,541 - INFO - Descargando OMG desde Binance...
+2026-01-25 06:10:49,541 - INFO -   Simbolo Binance: OMGUSDT
+2026-01-25 06:10:49,541 - INFO -   Rango: 2018-05-04 a 2026-01-25
+2026-01-25 06:11:30,806 - INFO -   Total: 45,593 velas descargadas de Binance
+2026-01-25 06:11:30,828 - INFO -     Guardado: OMG_2019.parquet (6,526 velas)
+2026-01-25 06:11:30,843 - INFO -     Guardado: OMG_2020.parquet (8,766 velas)
+2026-01-25 06:11:30,856 - INFO -     Guardado: OMG_2021.parquet (8,747 velas)
+2026-01-25 06:11:30,872 - INFO -     Guardado: OMG_2022.parquet (8,760 velas)
+2026-01-25 06:11:30,885 - INFO -     Guardado: OMG_2023.parquet (8,759 velas)
+2026-01-25 06:11:30,896 - INFO -     Guardado: OMG_2024.parquet (4,035 velas)
+2026-01-25 06:11:30,897 - INFO -   Total guardado: 6 años, 45,593 velas
+2026-01-25 06:11:30,897 - INFO -   BINANCE: 45,593 velas descargadas
+2026-01-25 06:11:30,897 - INFO - 
+[95/100] Procesando SKL...
+2026-01-25 06:11:30,897 - INFO - 
+================================================================================
+2026-01-25 06:11:30,897 - INFO - DESCARGANDO: SKL
+2026-01-25 06:11:30,897 - INFO - ================================================================================
+2026-01-25 06:11:30,898 - INFO - Descargando SKL desde Kraken...
+2026-01-25 06:11:30,898 - INFO -   Simbolo Kraken: SKLUSD
+2026-01-25 06:11:30,898 - INFO -   Rango: 2020-12-01 a 2026-01-25
+2026-01-25 06:11:30,963 - ERROR - Kraken API error: ['EQuery:Unknown asset pair']
+2026-01-25 06:11:30,963 - WARNING - No se obtuvieron datos de Kraken para SKL
+2026-01-25 06:11:30,964 - WARNING -   KRAKEN: Sin datos
+2026-01-25 06:11:30,965 - INFO - Descargando SKL desde Binance...
+2026-01-25 06:11:30,965 - INFO -   Simbolo Binance: SKLUSDT
+2026-01-25 06:11:30,965 - INFO -   Rango: 2020-12-01 a 2026-01-25
+2026-01-25 06:12:16,469 - INFO -   Total: 45,130 velas descargadas de Binance
+2026-01-25 06:12:16,499 - INFO -     Guardado: SKL_2020.parquet (738 velas)
+2026-01-25 06:12:16,524 - INFO -     Guardado: SKL_2021.parquet (8,747 velas)
+2026-01-25 06:12:16,550 - INFO -     Guardado: SKL_2022.parquet (8,760 velas)
+2026-01-25 06:12:16,572 - INFO -     Guardado: SKL_2023.parquet (8,759 velas)
+2026-01-25 06:12:16,598 - INFO -     Guardado: SKL_2024.parquet (8,784 velas)
+2026-01-25 06:12:16,619 - INFO -     Guardado: SKL_2025.parquet (8,760 velas)
+2026-01-25 06:12:16,631 - INFO -     Guardado: SKL_2026.parquet (582 velas)
+2026-01-25 06:12:16,632 - INFO -   Total guardado: 7 años, 45,130 velas
+2026-01-25 06:12:16,633 - INFO -   BINANCE: 45,130 velas descargadas
+2026-01-25 06:12:16,633 - INFO - 
+[96/100] Procesando OCEAN...
+2026-01-25 06:12:16,633 - INFO - 
+================================================================================
+2026-01-25 06:12:16,633 - INFO - DESCARGANDO: OCEAN
+2026-01-25 06:12:16,633 - INFO - ================================================================================
+2026-01-25 06:12:16,634 - INFO - Descargando OCEAN desde Kraken...
+2026-01-25 06:12:16,634 - INFO -   Simbolo Kraken: OCEANUSD
+2026-01-25 06:12:16,634 - INFO -   Rango: 2020-12-02 a 2026-01-25
+2026-01-25 06:12:17,840 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 06:12:17,846 - INFO -     Guardado: OCEAN_2025.parquet (139 velas)
+2026-01-25 06:12:17,855 - INFO -     Guardado: OCEAN_2026.parquet (582 velas)
+2026-01-25 06:12:17,855 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 06:12:17,855 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 06:12:17,855 - INFO - Descargando OCEAN desde Binance...
+2026-01-25 06:12:17,855 - INFO -   Simbolo Binance: OCEANUSDT
+2026-01-25 06:12:17,855 - INFO -   Rango: 2020-04-28 a 2026-01-25
+2026-01-25 06:12:49,218 - INFO -   Total: 33,863 velas descargadas de Binance
+2026-01-25 06:12:49,236 - INFO -     Guardado: OCEAN_2020.parquet (3,226 velas)
+2026-01-25 06:12:49,252 - INFO -     Guardado: OCEAN_2021.parquet (8,747 velas)
+2026-01-25 06:12:49,267 - INFO -     Guardado: OCEAN_2022.parquet (8,760 velas)
+2026-01-25 06:12:49,281 - INFO -     Guardado: OCEAN_2023.parquet (8,759 velas)
+2026-01-25 06:12:49,297 - INFO -     Guardado: OCEAN_2024.parquet (4,371 velas)
+2026-01-25 06:12:49,298 - INFO -   Total guardado: 5 años, 33,863 velas
+2026-01-25 06:12:49,298 - INFO -   BINANCE: 33,863 velas descargadas
+2026-01-25 06:12:49,298 - INFO - 
+[97/100] Procesando SXP...
+2026-01-25 06:12:49,299 - INFO - 
+================================================================================
+2026-01-25 06:12:49,299 - INFO - DESCARGANDO: SXP
+2026-01-25 06:12:49,299 - INFO - ================================================================================
+2026-01-25 06:12:49,299 - INFO - Descargando SXP desde Kraken...
+2026-01-25 06:12:49,299 - INFO -   Simbolo Kraken: SXPUSD
+2026-01-25 06:12:49,299 - INFO -   Rango: 2020-11-19 a 2026-01-25
+2026-01-25 06:12:49,374 - ERROR - Kraken API error: ['EQuery:Invalid asset pair']
+2026-01-25 06:12:49,374 - WARNING - No se obtuvieron datos de Kraken para SXP
+2026-01-25 06:12:49,375 - WARNING -   KRAKEN: Sin datos
+2026-01-25 06:12:49,375 - INFO - Descargando SXP desde Binance...
+2026-01-25 06:12:49,375 - INFO -   Simbolo Binance: SXPUSDT
+2026-01-25 06:12:49,375 - INFO -   Rango: 2020-07-28 a 2026-01-25
+2026-01-25 06:13:33,001 - INFO -   Total: 48,156 velas descargadas de Binance
+2026-01-25 06:13:33,025 - INFO -     Guardado: SXP_2020.parquet (3,764 velas)
+2026-01-25 06:13:33,039 - INFO -     Guardado: SXP_2021.parquet (8,747 velas)
+2026-01-25 06:13:33,052 - INFO -     Guardado: SXP_2022.parquet (8,760 velas)
+2026-01-25 06:13:33,064 - INFO -     Guardado: SXP_2023.parquet (8,759 velas)
+2026-01-25 06:13:33,077 - INFO -     Guardado: SXP_2024.parquet (8,784 velas)
+2026-01-25 06:13:33,091 - INFO -     Guardado: SXP_2025.parquet (8,760 velas)
+2026-01-25 06:13:33,098 - INFO -     Guardado: SXP_2026.parquet (582 velas)
+2026-01-25 06:13:33,098 - INFO -   Total guardado: 7 años, 48,156 velas
+2026-01-25 06:13:33,098 - INFO -   BINANCE: 48,156 velas descargadas
+2026-01-25 06:13:33,099 - INFO - 
+[98/100] Procesando REN...
+2026-01-25 06:13:33,099 - INFO - 
+================================================================================
+2026-01-25 06:13:33,099 - INFO - DESCARGANDO: REN
+2026-01-25 06:13:33,099 - INFO - ================================================================================
+2026-01-25 06:13:33,099 - INFO - Descargando REN desde Kraken...
+2026-01-25 06:13:33,099 - INFO -   Simbolo Kraken: RENUSD
+2026-01-25 06:13:33,099 - INFO -   Rango: 2020-10-08 a 2026-01-25
+2026-01-25 06:13:34,557 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 06:13:34,563 - INFO -     Guardado: REN_2025.parquet (139 velas)
+2026-01-25 06:13:34,570 - INFO -     Guardado: REN_2026.parquet (582 velas)
+2026-01-25 06:13:34,571 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 06:13:34,571 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 06:13:34,573 - INFO - Descargando REN desde Binance...
+2026-01-25 06:13:34,573 - INFO -   Simbolo Binance: RENUSDT
+2026-01-25 06:13:34,574 - INFO -   Rango: 2020-02-20 a 2026-01-25
+2026-01-25 06:14:12,421 - INFO -   Total: 42,098 velas descargadas de Binance
+2026-01-25 06:14:12,440 - INFO -     Guardado: REN_2020.parquet (7,573 velas)
+2026-01-25 06:14:12,456 - INFO -     Guardado: REN_2021.parquet (8,747 velas)
+2026-01-25 06:14:12,469 - INFO -     Guardado: REN_2022.parquet (8,760 velas)
+2026-01-25 06:14:12,485 - INFO -     Guardado: REN_2023.parquet (8,759 velas)
+2026-01-25 06:14:12,500 - INFO -     Guardado: REN_2024.parquet (8,259 velas)
+2026-01-25 06:14:12,501 - INFO -   Total guardado: 5 años, 42,098 velas
+2026-01-25 06:14:12,501 - INFO -   BINANCE: 42,098 velas descargadas
+2026-01-25 06:14:12,501 - INFO - 
+[99/100] Procesando MASK...
+2026-01-25 06:14:12,501 - INFO - 
+================================================================================
+2026-01-25 06:14:12,501 - INFO - DESCARGANDO: MASK
+2026-01-25 06:14:12,502 - INFO - ================================================================================
+2026-01-25 06:14:12,503 - INFO - Descargando MASK desde Kraken...
+2026-01-25 06:14:12,503 - INFO -   Simbolo Kraken: MASKUSD
+2026-01-25 06:14:12,503 - INFO -   Rango: 2021-03-31 a 2026-01-25
+2026-01-25 06:14:13,709 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 06:14:13,716 - INFO -     Guardado: MASK_2025.parquet (139 velas)
+2026-01-25 06:14:13,724 - INFO -     Guardado: MASK_2026.parquet (582 velas)
+2026-01-25 06:14:13,725 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 06:14:13,725 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 06:14:13,725 - INFO - Descargando MASK desde Binance...
+2026-01-25 06:14:13,725 - INFO -   Simbolo Binance: MASKUSDT
+2026-01-25 06:14:13,725 - INFO -   Rango: 2021-02-24 a 2026-01-25
+2026-01-25 06:14:52,900 - INFO -   Total: 40,937 velas descargadas de Binance
+2026-01-25 06:14:52,920 - INFO -     Guardado: MASK_2021.parquet (5,292 velas)
+2026-01-25 06:14:52,938 - INFO -     Guardado: MASK_2022.parquet (8,760 velas)
+2026-01-25 06:14:52,953 - INFO -     Guardado: MASK_2023.parquet (8,759 velas)
+2026-01-25 06:14:52,971 - INFO -     Guardado: MASK_2024.parquet (8,784 velas)
+2026-01-25 06:14:52,989 - INFO -     Guardado: MASK_2025.parquet (8,760 velas)
+2026-01-25 06:14:53,004 - INFO -     Guardado: MASK_2026.parquet (582 velas)
+2026-01-25 06:14:53,004 - INFO -   Total guardado: 6 años, 40,937 velas
+2026-01-25 06:14:53,004 - INFO -   BINANCE: 40,937 velas descargadas
+2026-01-25 06:14:53,004 - INFO - 
+[100/100] Procesando DYDX...
+2026-01-25 06:14:53,004 - INFO - 
+================================================================================
+2026-01-25 06:14:53,004 - INFO - DESCARGANDO: DYDX
+2026-01-25 06:14:53,004 - INFO - ================================================================================
+2026-01-25 06:14:53,005 - INFO - Descargando DYDX desde Kraken...
+2026-01-25 06:14:53,005 - INFO -   Simbolo Kraken: DYDXUSD
+2026-01-25 06:14:53,005 - INFO -   Rango: 2021-09-08 a 2026-01-25
+2026-01-25 06:14:54,204 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 06:14:54,210 - INFO -     Guardado: DYDX_2025.parquet (139 velas)
+2026-01-25 06:14:54,219 - INFO -     Guardado: DYDX_2026.parquet (582 velas)
+2026-01-25 06:14:54,220 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 06:14:54,220 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 06:14:54,221 - INFO - Descargando DYDX desde Binance...
+2026-01-25 06:14:54,221 - INFO -   Simbolo Binance: DYDXUSDT
+2026-01-25 06:14:54,221 - INFO -   Rango: 2021-09-08 a 2026-01-25
+2026-01-25 06:15:28,710 - INFO -   Total: 38,377 velas descargadas de Binance
+2026-01-25 06:15:28,731 - INFO -     Guardado: DYDX_2021.parquet (2,732 velas)
+2026-01-25 06:15:28,747 - INFO -     Guardado: DYDX_2022.parquet (8,760 velas)
+2026-01-25 06:15:28,760 - INFO -     Guardado: DYDX_2023.parquet (8,759 velas)
+2026-01-25 06:15:28,774 - INFO -     Guardado: DYDX_2024.parquet (8,784 velas)
+2026-01-25 06:15:28,792 - INFO -     Guardado: DYDX_2025.parquet (8,760 velas)
+2026-01-25 06:15:28,804 - INFO -     Guardado: DYDX_2026.parquet (582 velas)
+2026-01-25 06:15:28,805 - INFO -   Total guardado: 6 años, 38,377 velas
+2026-01-25 06:15:28,805 - INFO -   BINANCE: 38,377 velas descargadas
+2026-01-25 06:15:28,806 - INFO - 
+################################################################################
+2026-01-25 06:15:28,806 - INFO - DESCARGA COMPLETADA
+2026-01-25 06:15:28,806 - INFO - ################################################################################
+2026-01-25 06:15:28,807 - INFO - Tiempo total: 1:11:38.776688
+2026-01-25 06:15:28,807 - INFO - Tickers procesados: 100
+2026-01-25 06:15:28,807 - INFO - Fallos: 0
+2026-01-25 06:15:28,807 - INFO - Log completo en: /home/aherreros/Trading-system/logs/download_crypto_20260125_050350.log

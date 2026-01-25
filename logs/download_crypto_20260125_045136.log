@@ -1,0 +1,39 @@
+2026-01-25 04:51:36,845 - INFO - ================================================================================
+2026-01-25 04:51:36,845 - INFO - Crypto Downloader Initialized
+2026-01-25 04:51:36,845 - INFO - ================================================================================
+2026-01-25 04:51:36,845 - INFO - Total tickers configurados: 100
+2026-01-25 04:51:36,845 - INFO - Exchanges: ['kraken', 'binance']
+2026-01-25 04:51:36,845 - INFO - Data dir kraken: /home/aherreros/Trading-system/data/raw/kraken
+2026-01-25 04:51:36,845 - INFO - Data dir binance: /home/aherreros/Trading-system/data/raw/binance
+2026-01-25 04:51:36,845 - INFO - Tickers disponibles en kraken: 98
+2026-01-25 04:51:36,846 - INFO - Tickers disponibles en binance: 99
+2026-01-25 04:51:36,846 - INFO - Descargando ticker especifico: BTC
+2026-01-25 04:51:36,846 - INFO - 
+================================================================================
+2026-01-25 04:51:36,846 - INFO - DESCARGANDO: BTC
+2026-01-25 04:51:36,846 - INFO - ================================================================================
+2026-01-25 04:51:36,846 - INFO - Descargando BTC desde Kraken...
+2026-01-25 04:51:36,846 - INFO -   Simbolo Kraken: XXBTZUSD
+2026-01-25 04:51:36,847 - INFO -   Rango: 2013-10-01 a 2026-01-25
+2026-01-25 04:51:38,312 - INFO -   Total: 721 velas descargadas de Kraken
+2026-01-25 04:51:38,341 - INFO -     Guardado: BTC_2025.parquet (141 velas)
+2026-01-25 04:51:38,353 - INFO -     Guardado: BTC_2026.parquet (580 velas)
+2026-01-25 04:51:38,354 - INFO -   Total guardado: 2 años, 721 velas
+2026-01-25 04:51:38,354 - INFO -   KRAKEN: 721 velas descargadas
+2026-01-25 04:51:38,354 - INFO - Descargando BTC desde Binance...
+2026-01-25 04:51:38,354 - INFO -   Simbolo Binance: BTCUSDT
+2026-01-25 04:51:38,354 - INFO -   Rango: 2017-07-14 a 2026-01-25
+2026-01-25 04:52:25,572 - INFO -   50 requests, 50,000 velas...
+2026-01-25 04:52:49,646 - INFO -   Total: 73,864 velas descargadas de Binance
+2026-01-25 04:52:49,681 - INFO -     Guardado: BTC_2017.parquet (3,278 velas)
+2026-01-25 04:52:49,699 - INFO -     Guardado: BTC_2018.parquet (8,698 velas)
+2026-01-25 04:52:49,714 - INFO -     Guardado: BTC_2019.parquet (8,732 velas)
+2026-01-25 04:52:49,732 - INFO -     Guardado: BTC_2020.parquet (8,766 velas)
+2026-01-25 04:52:49,753 - INFO -     Guardado: BTC_2021.parquet (8,747 velas)
+2026-01-25 04:52:49,771 - INFO -     Guardado: BTC_2022.parquet (8,760 velas)
+2026-01-25 04:52:49,788 - INFO -     Guardado: BTC_2023.parquet (8,759 velas)
+2026-01-25 04:52:49,805 - INFO -     Guardado: BTC_2024.parquet (8,784 velas)
+2026-01-25 04:52:49,830 - INFO -     Guardado: BTC_2025.parquet (8,760 velas)
+2026-01-25 04:52:49,840 - INFO -     Guardado: BTC_2026.parquet (580 velas)
+2026-01-25 04:52:49,840 - INFO -   Total guardado: 10 años, 73,864 velas
+2026-01-25 04:52:49,841 - INFO -   BINANCE: 73,864 velas descargadas

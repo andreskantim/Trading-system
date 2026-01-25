@@ -1,0 +1,511 @@
+{
+  "consolidation_date": "2026-01-25T13:51:43.581519",
+  "duration_seconds": 25.215222,
+  "total_tickers": 100,
+  "successful": 98,
+  "failed": 2,
+  "results": [
+    {
+      "ticker": "BTC",
+      "years": 10,
+      "status": "success"
+    },
+    {
+      "ticker": "ETH",
+      "years": 10,
+      "status": "success"
+    },
+    {
+      "ticker": "BNB",
+      "years": 10,
+      "status": "success"
+    },
+    {
+      "ticker": "XRP",
+      "years": 9,
+      "status": "success"
+    },
+    {
+      "ticker": "SOL",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "DOGE",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "ADA",
+      "years": 9,
+      "status": "success"
+    },
+    {
+      "ticker": "TRX",
+      "years": 9,
+      "status": "success"
+    },
+    {
+      "ticker": "AVAX",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "LINK",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "TON",
+      "years": 3,
+      "status": "success"
+    },
+    {
+      "ticker": "SHIB",
+      "years": 6,
+      "status": "success"
+    },
+    {
+      "ticker": "XLM",
+      "years": 9,
+      "status": "success"
+    },
+    {
+      "ticker": "DOT",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "BCH",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "HBAR",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "UNI",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "LTC",
+      "years": 10,
+      "status": "success"
+    },
+    {
+      "ticker": "PEPE",
+      "years": 4,
+      "status": "success"
+    },
+    {
+      "ticker": "NEAR",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "LEO",
+      "years": 0,
+      "status": "failed",
+      "error": "No data available"
+    },
+    {
+      "ticker": "APT",
+      "years": 5,
+      "status": "success"
+    },
+    {
+      "ticker": "ICP",
+      "years": 6,
+      "status": "success"
+    },
+    {
+      "ticker": "ETC",
+      "years": 9,
+      "status": "success"
+    },
+    {
+      "ticker": "RENDER",
+      "years": 3,
+      "status": "success"
+    },
+    {
+      "ticker": "FET",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "ATOM",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "CRO",
+      "years": 2,
+      "status": "success"
+    },
+    {
+      "ticker": "AAVE",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "FIL",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "IMX",
+      "years": 5,
+      "status": "success"
+    },
+    {
+      "ticker": "XMR",
+      "years": 2,
+      "status": "success"
+    },
+    {
+      "ticker": "STX",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "ARB",
+      "years": 4,
+      "status": "success"
+    },
+    {
+      "ticker": "OP",
+      "years": 5,
+      "status": "success"
+    },
+    {
+      "ticker": "VET",
+      "years": 9,
+      "status": "success"
+    },
+    {
+      "ticker": "MKR",
+      "years": 6,
+      "status": "success"
+    },
+    {
+      "ticker": "THETA",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "GRT",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "INJ",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "FTM",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "ALGO",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "MATIC",
+      "years": 6,
+      "status": "success"
+    },
+    {
+      "ticker": "SEI",
+      "years": 4,
+      "status": "success"
+    },
+    {
+      "ticker": "WIF",
+      "years": 3,
+      "status": "success"
+    },
+    {
+      "ticker": "RUNE",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "BONK",
+      "years": 4,
+      "status": "success"
+    },
+    {
+      "ticker": "FLOKI",
+      "years": 4,
+      "status": "success"
+    },
+    {
+      "ticker": "TIA",
+      "years": 4,
+      "status": "success"
+    },
+    {
+      "ticker": "JUP",
+      "years": 3,
+      "status": "success"
+    },
+    {
+      "ticker": "LDO",
+      "years": 5,
+      "status": "success"
+    },
+    {
+      "ticker": "SAND",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "MANA",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "GALA",
+      "years": 6,
+      "status": "success"
+    },
+    {
+      "ticker": "FLOW",
+      "years": 6,
+      "status": "success"
+    },
+    {
+      "ticker": "AXS",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "EGLD",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "EOS",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "SNX",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "XTZ",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "PYTH",
+      "years": 3,
+      "status": "success"
+    },
+    {
+      "ticker": "QNT",
+      "years": 6,
+      "status": "success"
+    },
+    {
+      "ticker": "IOTA",
+      "years": 9,
+      "status": "success"
+    },
+    {
+      "ticker": "KCS",
+      "years": 0,
+      "status": "failed",
+      "error": "No data available"
+    },
+    {
+      "ticker": "NEO",
+      "years": 10,
+      "status": "success"
+    },
+    {
+      "ticker": "KAVA",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "ONDO",
+      "years": 2,
+      "status": "success"
+    },
+    {
+      "ticker": "STRK",
+      "years": 3,
+      "status": "success"
+    },
+    {
+      "ticker": "ZEC",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "DASH",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "ENS",
+      "years": 6,
+      "status": "success"
+    },
+    {
+      "ticker": "COMP",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "CRV",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "1INCH",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "CAKE",
+      "years": 6,
+      "status": "success"
+    },
+    {
+      "ticker": "ZIL",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "CHZ",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "WAVES",
+      "years": 6,
+      "status": "success"
+    },
+    {
+      "ticker": "BAT",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "SUSHI",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "CELO",
+      "years": 6,
+      "status": "success"
+    },
+    {
+      "ticker": "YFI",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "ROSE",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "KSM",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "ZRX",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "ICX",
+      "years": 9,
+      "status": "success"
+    },
+    {
+      "ticker": "MINA",
+      "years": 6,
+      "status": "success"
+    },
+    {
+      "ticker": "ONE",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "ENJ",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "ANKR",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "GLM",
+      "years": 4,
+      "status": "success"
+    },
+    {
+      "ticker": "LRC",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "STORJ",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "OMG",
+      "years": 8,
+      "status": "success"
+    },
+    {
+      "ticker": "SKL",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "OCEAN",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "SXP",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "REN",
+      "years": 7,
+      "status": "success"
+    },
+    {
+      "ticker": "MASK",
+      "years": 6,
+      "status": "success"
+    },
+    {
+      "ticker": "DYDX",
+      "years": 6,
+      "status": "success"
+    }
+  ]
+}
