@@ -24,7 +24,7 @@ import socket
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-from config.paths import BACKTEST_FIGURES, ensure_directories
+from config.paths import ensure_directories
 
 
 def find_free_port(start_port=8000, max_attempts=10):

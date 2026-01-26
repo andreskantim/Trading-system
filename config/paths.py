@@ -139,6 +139,99 @@ def get_data_path(symbol: str, filename: str) -> Path:
     return DATA_DIR / symbol / filename
 
 
+# ====================================================================
+# NEW OUTPUT STRUCTURE FUNCTIONS
+# ====================================================================
+
+def get_strategy_output_dir(strategy: str) -> Path:
+    """Get base output directory for a strategy."""
+    return OUTPUTS_DIR / strategy
+
+
+def get_ticker_output_dir(strategy: str, ticker: str, subdir: str = None) -> Path:
+    """
+    Get output directory for a specific ticker under a strategy.
+
+    Args:
+        strategy: Strategy name (e.g., 'hawkes', 'donchian')
+        ticker: Ticker symbol (e.g., 'BTC', 'ETH')
+        subdir: Optional subdirectory ('figures', 'results', 'reports')
+
+    Returns:
+        Path to the ticker output directory
+
+    Structure:
+        outputs/{strategy}/ticker/{ticker}/[subdir]
+    """
+    base_path = OUTPUTS_DIR / strategy / "ticker" / ticker
+    if subdir:
+        return base_path / subdir
+    return base_path
+
+
+def get_batch_output_dir(strategy: str, batch_name: str, subdir: str = None) -> Path:
+    """
+    Get output directory for a batch run under a strategy.
+
+    Args:
+        strategy: Strategy name (e.g., 'hawkes', 'donchian')
+        batch_name: Batch identifier (e.g., 'crypto_10_insample', '2024_01_15')
+        subdir: Optional subdirectory ('figures', 'results', 'reports')
+
+    Returns:
+        Path to the batch output directory
+
+    Structure:
+        outputs/{strategy}/batch/{batch_name}/[subdir]
+    """
+    base_path = OUTPUTS_DIR / strategy / "batch" / batch_name
+    if subdir:
+        return base_path / subdir
+    return base_path
+
+
+def ensure_ticker_output_dirs(strategy: str, ticker: str) -> dict:
+    """
+    Create and return ticker output directories.
+
+    Args:
+        strategy: Strategy name
+        ticker: Ticker symbol
+
+    Returns:
+        Dict with paths to figures, results, reports directories
+    """
+    dirs = {
+        'figures': get_ticker_output_dir(strategy, ticker, 'figures'),
+        'results': get_ticker_output_dir(strategy, ticker, 'results'),
+        'reports': get_ticker_output_dir(strategy, ticker, 'reports'),
+    }
+    for dir_path in dirs.values():
+        dir_path.mkdir(parents=True, exist_ok=True)
+    return dirs
+
+
+def ensure_batch_output_dirs(strategy: str, batch_name: str) -> dict:
+    """
+    Create and return batch output directories.
+
+    Args:
+        strategy: Strategy name
+        batch_name: Batch identifier
+
+    Returns:
+        Dict with paths to figures, results, reports directories
+    """
+    dirs = {
+        'figures': get_batch_output_dir(strategy, batch_name, 'figures'),
+        'results': get_batch_output_dir(strategy, batch_name, 'results'),
+        'reports': get_batch_output_dir(strategy, batch_name, 'reports'),
+    }
+    for dir_path in dirs.values():
+        dir_path.mkdir(parents=True, exist_ok=True)
+    return dirs
+
+
 def print_paths():
     """Imprime las rutas configuradas."""
     print("=" * 70)

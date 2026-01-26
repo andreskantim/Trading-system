@@ -30,7 +30,7 @@ import socket
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-from config.paths import BACKTEST_FIGURES, ensure_directories
+from config.paths import ensure_directories
 
 
 def extract_trades_from_signals(signals: pd.Series, ohlc: pd.DataFrame) -> List[Dict]:

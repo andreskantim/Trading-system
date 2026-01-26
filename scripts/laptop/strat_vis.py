@@ -20,7 +20,7 @@ project_root = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(project_root))
 
 from visualization.interactive.lightweight_strategy import create_interactive_chart
-from config.paths import BACKTEST_FIGURES
+from config.paths import ensure_ticker_output_dirs
 from utils.data_loader import load_ticker_data, get_available_date_range
 
 
@@ -88,7 +88,7 @@ def main():
         print(f"  Hasta: {df.index.max()}")
     except FileNotFoundError as e:
         print(f"Error: {e}")
-        print("Ejecuta primero: python scripts/laptop/operative_data.py --ticker " + args.ticker)
+        print("Ejecuta primero: python utils/operative_data.py --ticker " + args.ticker)
         return
     except ValueError as e:
         print(f"Error: {e}")
@@ -110,9 +110,8 @@ def main():
     if hasattr(strat, 'visualization'):
         vis_data = strat.visualization(df, *best_params)
 
-        output_dir = BACKTEST_FIGURES / strat_name
-        output_dir.mkdir(parents=True, exist_ok=True)
-        output_path = output_dir / f'{args.ticker}_chart.html'
+        output_dirs = ensure_ticker_output_dirs(strat_name, args.ticker)
+        output_path = output_dirs['figures'] / f'{args.ticker}_chart.html'
 
         res = create_interactive_chart(
             ohlc_data=df,

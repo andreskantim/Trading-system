@@ -28,22 +28,22 @@ import argparse
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 # Importar configuración de rutas
-from config.paths import BITCOIN_PARQUET, BACKTEST_FIGURES, ensure_directories
+from config.paths import BITCOIN_PARQUET, ensure_directories, ensure_ticker_output_dirs
 
 
-def get_output_dir(strategy_name: str) -> Path:
+def get_output_dir(strategy_name: str, ticker: str = 'BTC') -> Path:
     """
     Crea y retorna el directorio de salida para una estrategia
 
     Args:
         strategy_name: Nombre de la estrategia
+        ticker: Ticker symbol
 
     Returns:
-        Path al directorio de salida
+        Path al directorio de figuras
     """
-    output_dir = BACKTEST_FIGURES / strategy_name
-    output_dir.mkdir(parents=True, exist_ok=True)
-    return output_dir
+    output_dirs = ensure_ticker_output_dirs(strategy_name, ticker)
+    return output_dirs['figures']
 
 
 def walkforward(ohlc: pd.DataFrame, strategy, train_lookback: int = 24 * 365 * 4, train_step: int = 24 * 60):

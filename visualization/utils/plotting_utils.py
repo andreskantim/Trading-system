@@ -11,7 +11,7 @@ import sys
 # Add project root to path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-from config.paths import BACKTEST_FIGURES, ensure_directories
+from config.paths import OUTPUTS_DIR, ensure_directories
 
 
 def set_plot_style(style: str = 'seaborn-v0_8-darkgrid') -> None:
@@ -54,7 +54,7 @@ def save_figure(
         Path to saved file
     """
     ensure_directories()
-    output_dir = output_dir or BACKTEST_FIGURES
+    output_dir = output_dir or OUTPUTS_DIR
 
     # Add extension if not present
     if not filename.endswith(f'.{format}'):

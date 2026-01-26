@@ -41,11 +41,9 @@ sys.path.insert(0, str(CESGA_PROJECT_ROOT))
 # Import project modules
 from config.paths import (
     BITCOIN_PARQUET,
-    BACKTEST_FIGURES,
-    get_plot_path, ensure_directories,
+    ensure_directories, ensure_ticker_output_dirs,
     TICKERS, get_ticker_data_paths
 )
-
 from backtest.mcpt.bar_permute import get_permutation
 
 
@@ -346,12 +344,15 @@ if __name__ == '__main__':
     print("Generating plots...")
     plt.style.use('dark_background')
 
-    # Output directory
+    # Output directory - new structure
     if args.output_dir:
-        output_dir = Path(args.output_dir) / strategy_name
+        output_dir = Path(args.output_dir)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        results_dir = output_dir
     else:
-        output_dir = BACKTEST_FIGURES / strategy_name
-    output_dir.mkdir(parents=True, exist_ok=True)
+        output_dirs = ensure_ticker_output_dirs(strategy_name, args.ticker)
+        output_dir = output_dirs['figures']
+        results_dir = output_dirs['results']
 
     # Histogram plot
     fig, ax = plt.subplots(figsize=(12, 7))
@@ -368,7 +369,7 @@ if __name__ == '__main__':
     ax.legend(fontsize=11, loc='upper right')
     plt.tight_layout()
 
-    output_file = output_dir / 'walkforward_mcpt.png'
+    output_file = output_dir / f'{args.ticker}_walkforward_mcpt.png'
     plt.savefig(output_file, dpi=150, bbox_inches='tight', facecolor='#0d1117')
     print(f"Plot saved: {output_file}")
     plt.close()
@@ -381,13 +382,13 @@ if __name__ == '__main__':
             label=f'Real Strategy (PF={real_wf_pf:.4f})', zorder=100)
     ax.set_xlabel("Time", fontsize=12)
     ax.set_ylabel("Cumulative Log Return", fontsize=12)
-    ax.set_title(f"Walk-Forward Cumulative Returns ({strategy_name}) | Real vs {len(perm_cum_rets)} Permutations",
+    ax.set_title(f"{args.ticker} Walk-Forward Cumulative Returns ({strategy_name})",
                  fontsize=14, fontweight='bold')
     ax.grid(True, alpha=0.3)
     ax.legend(fontsize=11, loc='upper left')
     plt.tight_layout()
 
-    output_file_cum = output_dir / 'walkforward_cumulative_mcpt.png'
+    output_file_cum = output_dir / f'{args.ticker}_walkforward_cumulative.png'
     plt.savefig(output_file_cum, dpi=150, bbox_inches='tight', facecolor='#0d1117')
     print(f"Cumulative returns plot saved: {output_file_cum}")
     plt.close()
@@ -398,15 +399,16 @@ if __name__ == '__main__':
         'profit_factor': permuted_pfs,
         'better_than_real': [1 if pf >= real_wf_pf else 0 for pf in permuted_pfs]
     })
-    results_csv = output_dir / f'walkforward_results_{slurm_config["job_id"]}.csv'
+    results_csv = results_dir / f'{args.ticker}_walkforward_results_{slurm_config["job_id"]}.csv'
     results_df.to_csv(results_csv, index=False)
     print(f"Results saved: {results_csv}")
 
     print("\n" + "="*70)
     print("WALK-FORWARD ANALYSIS COMPLETED")
     print("="*70)
-    print(f"\nOutput directory: {output_dir}")
-    print(f"  - walkforward_mcpt.png")
-    print(f"  - walkforward_cumulative_mcpt.png")
-    print(f"  - walkforward_results_{slurm_config['job_id']}.csv")
+    print(f"\nFigures: {output_dir}")
+    print(f"  - {args.ticker}_walkforward_mcpt.png")
+    print(f"  - {args.ticker}_walkforward_cumulative.png")
+    print(f"Results: {results_dir}")
+    print(f"  - {args.ticker}_walkforward_results_{slurm_config['job_id']}.csv")
     print("="*70 + "\n")

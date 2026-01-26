@@ -17,10 +17,6 @@ Usage:
 
 import pandas as pd
 import numpy as np
-import matplotlib
-matplotlib.use('Agg')
-import matplotlib.pyplot as plt
-import os
 import sys
 import json
 from pathlib import Path
@@ -34,9 +30,11 @@ import argparse
 project_root = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(project_root))
 
-from config.paths import BACKTEST_FIGURES, BACKTEST_RESULTS, ensure_directories
+from config.paths import ensure_directories, ensure_ticker_output_dirs
 from backtest.mcpt.bar_permute import get_permutation
 from utils.data_loader import load_ticker_data, get_available_date_range
+from utils.stats_calculator import calculate_all_stats
+from visualization.non_interactive.stats_and_plots_ticker import plot_ticker_results
 
 
 # Variables globales para el worker
@@ -148,6 +146,34 @@ def print_summary(results_dict: dict):
         print(f"  Significativo (p < 0.05)")
     else:
         print(f"  NO significativo (p >= 0.05)")
+
+    # Print key statistics if available
+    if 'stats' in results_dict:
+        stats = results_dict['stats']
+        print("\n" + "-" * 70)
+        print("ESTADÍSTICAS CLAVE (Walk-Forward)")
+        print("-" * 70)
+
+        if 'performance' in stats:
+            perf = stats['performance']
+            print(f"  Total Return:      {perf.get('total_return_pct', 0):.2f}%")
+            print(f"  CAGR:              {perf.get('cagr_pct', 0):.2f}%")
+
+        if 'risk' in stats:
+            risk = stats['risk']
+            print(f"  Max Drawdown:      {risk.get('max_drawdown_pct', 0):.2f}%")
+            print(f"  Max DD Duration:   {risk.get('max_drawdown_duration', 0):,} bars")
+
+        if 'risk_return' in stats:
+            rr = stats['risk_return']
+            print(f"  Sharpe Ratio:      {rr.get('sharpe_ratio', 0):.4f}")
+            print(f"  Sortino Ratio:     {rr.get('sortino_ratio', 0):.4f}")
+            print(f"  SQN:               {rr.get('sqn', 0):.4f}")
+
+        if 'trades' in stats:
+            trades = stats['trades']
+            print(f"  N Trades:          {trades.get('n_trades', 0)}")
+            print(f"  Win Rate:          {trades.get('win_rate_pct', 0):.2f}%")
 
     print("=" * 70)
 
@@ -331,6 +357,15 @@ if __name__ == '__main__':
     perm_cum_rets = [cum_rets for _, _, cum_rets in results]
     p_value = perm_better_count / n_permutations
 
+    # Calcular estadísticas completas
+    print("\nCalculando estadísticas completas...")
+    full_stats = calculate_all_stats(
+        returns=wf_rets.values,
+        signal=df_full['wf_signal'].values,
+        p_value_mcpt=p_value,
+        periods_per_year=8760  # Hourly data
+    )
+
     # Preparar resultados
     results_dict = {
         'ticker': args.ticker,
@@ -356,83 +391,32 @@ if __name__ == '__main__':
         'std_perm_pf': float(np.std(permuted_pfs)),
         'perm_better_count': int(perm_better_count),
         'execution_time_seconds': float(total_time),
-        'significant': p_value < 0.05
+        'significant': p_value < 0.05,
+        'stats': full_stats,
     }
 
-    # Guardar resultados
-    output_dir = BACKTEST_RESULTS / strategy_name
-    save_results(results_dict, args.ticker, strategy_name, output_dir)
+    # Guardar resultados usando nueva estructura de directorios
+    output_dirs = ensure_ticker_output_dirs(strategy_name, args.ticker)
+    save_results(results_dict, args.ticker, strategy_name, output_dirs['results'])
 
     # Imprimir resumen
     print_summary(results_dict)
 
     # Generar gráficos
     print("\nGenerando gráficos...")
-
-    fig_dir = BACKTEST_FIGURES / strategy_name
-    fig_dir.mkdir(parents=True, exist_ok=True)
-
-    # Gráfico 1: Histograma de PFs
-    plt.style.use('dark_background')
-    fig, ax = plt.subplots(figsize=(12, 7))
-
-    ax.hist(permuted_pfs, bins=50, color='steelblue', alpha=0.7, edgecolor='white', label='Permutations')
-    ax.axvline(real_wf_pf, color='red', linestyle='--', linewidth=2.5, label=f'Real PF: {real_wf_pf:.4f}')
-
-    mean_perm = np.mean(permuted_pfs)
-    ax.axvline(mean_perm, color='yellow', linestyle=':', linewidth=2, alpha=0.7, label=f'Mean: {mean_perm:.4f}')
-
-    ax.set_xlabel("Profit Factor", fontsize=12)
-    ax.set_ylabel("Frequency", fontsize=12)
-    ax.set_title(f"{args.ticker} Walk-Forward MCPT ({strategy_name}) | P-Value: {p_value:.4f}",
-                fontsize=14, fontweight='bold')
-    ax.grid(True, alpha=0.3)
-    ax.legend(fontsize=11, loc='upper right')
-
-    plt.tight_layout()
-    hist_file = fig_dir / f'{args.ticker}_walkforward_mcpt.png'
-    plt.savefig(hist_file, dpi=150, bbox_inches='tight', facecolor='#0d1117')
-    print(f"  Histograma: {hist_file}")
-    plt.close()
-
-    # Gráfico 2: Cumulative returns (OPTIMIZADO)
-    print("  Generando gráfico de cumulative returns...")
-    fig, ax = plt.subplots(figsize=(14, 8))
-
-    # Convertir a matriz
-    perm_matrix = np.array(perm_cum_rets).T
-
-    # Calcular percentiles (mucho más rápido)
-    p5 = np.percentile(perm_matrix, 5, axis=1)
-    p25 = np.percentile(perm_matrix, 25, axis=1)
-    p50 = np.percentile(perm_matrix, 50, axis=1)
-    p75 = np.percentile(perm_matrix, 75, axis=1)
-    p95 = np.percentile(perm_matrix, 95, axis=1)
-
-    # Plot percentiles como bandas
-    ax.fill_between(df_full.index, p5, p95, color='white', alpha=0.1, label='5-95 percentil')
-    ax.fill_between(df_full.index, p25, p75, color='white', alpha=0.2, label='25-75 percentil')
-    ax.plot(df_full.index, p50, color='yellow', linewidth=1.5, alpha=0.6, label='Mediana perms')
-
-    # Plot estrategia real
-    ax.plot(df_full.index, real_cum_rets, color='red', linewidth=2.5,
-            label=f'Real (PF={real_wf_pf:.4f})', zorder=100)
-
-    # Marcar división train/walk
-    ax.axvline(train_end, color='cyan', linestyle='--', linewidth=1.5, alpha=0.7, label='Train/Walk split')
-
-    ax.set_xlabel("Time", fontsize=12)
-    ax.set_ylabel("Cumulative Log Return", fontsize=12)
-    ax.set_title(f"{args.ticker} Walk-Forward Cumulative Returns ({strategy_name})",
-                fontsize=14, fontweight='bold')
-    ax.grid(True, alpha=0.3)
-    ax.legend(fontsize=11, loc='upper left')
-
-    plt.tight_layout()
-    cum_file = fig_dir / f'{args.ticker}_walkforward_cumulative.png'
-    plt.savefig(cum_file, dpi=150, bbox_inches='tight', facecolor='#0d1117')
-    print(f"  Cumulative: {cum_file}")
-    plt.close()
+    plot_ticker_results(
+        ticker=args.ticker,
+        strategy=strategy_name,
+        index=df_full.index,
+        real_cum_rets=real_cum_rets.values,
+        perm_cum_rets=perm_cum_rets,
+        perm_pfs=permuted_pfs,
+        real_pf=real_wf_pf,
+        p_value=p_value,
+        output_dir=output_dirs['figures'],
+        prefix='walkforward',
+        vlines=[(train_end, 'cyan', 'Train/Walk split')]
+    )
 
     print("\n" + "=" * 70)
     print("ANÁLISIS COMPLETADO")

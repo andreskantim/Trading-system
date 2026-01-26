@@ -14,9 +14,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from config.paths import (
-    BACKTEST_RESULTS,
-    BACKTEST_FIGURES,
-    BACKTEST_REPORTS,
+    OUTPUTS_DIR,
     ensure_directories
 )
 
@@ -37,9 +35,9 @@ class MCPTDashboard:
         Initialize the dashboard.
 
         Args:
-            results_dir: Directory containing MCPT results (default: BACKTEST_RESULTS)
+            results_dir: Directory containing MCPT results (default: OUTPUTS_DIR)
         """
-        self.results_dir = results_dir or BACKTEST_RESULTS
+        self.results_dir = results_dir or OUTPUTS_DIR
         self._results: Dict[str, pd.DataFrame] = {}
         self._check_dependencies()
 

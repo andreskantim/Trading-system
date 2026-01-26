@@ -16,10 +16,11 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 
 # Añadir path del proyecto
-project_root = Path(__file__).resolve().parent.parent
+project_root = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(project_root))
 
-from strategies import hawkes
+from models.strategies import hawkes
+from config.paths import ensure_ticker_output_dirs
 
 
 def create_interactive_plot(ohlc: pd.DataFrame, kappa: float, lookback: int, output_path: Path):
@@ -262,16 +263,16 @@ def create_interactive_plot(ohlc: pd.DataFrame, kappa: float, lookback: int, out
 
     # Guardar como HTML
     fig.write_html(str(output_path), include_plotlyjs='cdn')
-    print(f"✅ Gráfico interactivo HTML guardado en {output_path}")
+    print(f"  HTML: {output_path}")
 
     # También guardar una versión estática PNG
     try:
         import plotly.io as pio
         png_path = output_path.with_suffix('.png')
         pio.write_image(fig, str(png_path), width=1920, height=1200)
-        print(f"✅ Versión PNG guardada en {png_path}")
+        print(f"  PNG: {png_path}")
     except Exception as e:
-        print(f"⚠️  No se pudo guardar PNG (requiere kaleido): {e}")
+        print(f"  PNG export failed (requires kaleido): {e}")
 
 
 def main():
@@ -280,48 +281,47 @@ def main():
     print("GRÁFICO INTERACTIVO HAWKES STRATEGY")
     print("="*70)
 
+    ticker = 'BTC'
+    strategy = 'hawkes'
+
     # Leer mejores parámetros del análisis anterior
-    best_params_file = project_root / "output" / "hawkes_complete" / "best_parameters.txt"
+    output_dirs = ensure_ticker_output_dirs(strategy, ticker)
+    best_params_file = output_dirs['results'] / "best_parameters.txt"
 
     if best_params_file.exists():
-        print(f"\n📂 Leyendo mejores parámetros desde {best_params_file}...")
+        print(f"\nLeyendo mejores parámetros desde {best_params_file}...")
         with open(best_params_file, 'r') as f:
             lines = f.readlines()
             kappa = float(lines[6].split(':')[1].strip())
             lookback = int(float(lines[7].split(':')[1].split()[0].strip()))
-        print(f"✅ Parámetros cargados: kappa={kappa:.4f}, lookback={lookback}")
+        print(f"Parámetros cargados: kappa={kappa:.4f}, lookback={lookback}")
     else:
-        # Valores por defecto
         kappa = 0.125
         lookback = 120
-        print(f"⚠️  Usando parámetros por defecto: kappa={kappa}, lookback={lookback}")
+        print(f"Usando parámetros por defecto: kappa={kappa}, lookback={lookback}")
 
     # Cargar datos
-    data_path = project_root / "mcpt" / "data" / "BTCUSD3600.pq"
-    print(f"\n📂 Cargando datos desde {data_path}...")
+    data_path = project_root / "data" / "operative" / f"{ticker}.parquet"
+    if not data_path.exists():
+        data_path = project_root / "data" / "BTCUSD" / "BTCUSD3600.pq"
+    print(f"\nCargando datos desde {data_path}...")
     df = pd.read_parquet(data_path)
 
     # Período in-sample: 2018-2022
     insample_start = "2018-01-01"
     insample_end = "2022-12-31"
     df_insample = df.loc[insample_start:insample_end]
-    print(f"✅ Datos cargados: {len(df_insample)} barras desde {df_insample.index[0]} hasta {df_insample.index[-1]}")
+    print(f"Datos cargados: {len(df_insample)} barras")
 
-    # Crear directorio de salida
-    output_dir = project_root / "output" / "hawkes_complete"
-    output_dir.mkdir(parents=True, exist_ok=True)
-
-    # Generar gráfico interactivo
-    output_file = output_dir / "hawkes_interactive.html"
-    print(f"\n🎨 Generando gráfico interactivo...")
+    # Generar gráfico interactivo - save to figures/
+    output_file = output_dirs['figures'] / f"{ticker}_hawkes_interactive.html"
+    print(f"\nGenerando gráfico interactivo...")
     create_interactive_plot(df_insample, kappa, lookback, output_file)
 
     print("\n" + "="*70)
-    print("✅ GRÁFICO INTERACTIVO COMPLETADO")
+    print("GRÁFICO INTERACTIVO COMPLETADO")
     print("="*70)
-    print(f"\n📁 Archivo generado: {output_file}")
-    print(f"\n💡 Abre el archivo HTML en tu navegador para interactuar con el gráfico")
-    print("   Puedes hacer zoom, pan, hover para ver detalles, etc.")
+    print(f"\nArchivo generado: {output_file}")
     print()
 
 
