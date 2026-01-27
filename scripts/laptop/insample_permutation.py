@@ -29,7 +29,7 @@ from config.paths import ensure_directories, ensure_ticker_OUTPUTS_DIRs
 from backtest.mcpt.insample import init_insample_worker, process_permutation
 from utils.data_loader import load_ticker_data, get_available_date_range
 from utils.stats_calculator import calculate_all_stats
-from visualization.non_interactive.stats_and_plots_ticker import plot_ticker_results
+from visualization.non_interactive.ticker_plots import plot_ticker_results
 
 
 def save_results(results_dict: dict, ticker: str, strategy_name: str, output_dir: Path):

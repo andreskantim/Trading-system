@@ -21,116 +21,118 @@ from paths import DATA_DIR, RAW_DATA_DIR, OPERATIVE_DATA_DIR
 
 CRYPTO_TICKERS = [
     # Top 1-10
-    {'symbol': 'BTC', 'kraken': 'XXBTZUSD', 'binance': 'BTCUSDT', 'kraken_start': '2013-10-01', 'binance_start': '2017-07-14'},
-    {'symbol': 'ETH', 'kraken': 'XETHZUSD', 'binance': 'ETHUSDT', 'kraken_start': '2015-08-01', 'binance_start': '2017-08-01'},
-    {'symbol': 'BNB', 'kraken': 'BNBUSD', 'binance': 'BNBUSDT', 'kraken_start': '2021-01-01', 'binance_start': '2017-07-14'},
-    {'symbol': 'XRP', 'kraken': 'XXRPZUSD', 'binance': 'XRPUSDT', 'kraken_start': '2013-10-01', 'binance_start': '2017-07-14'},
-    {'symbol': 'SOL', 'kraken': 'SOLUSD', 'binance': 'SOLUSDT', 'kraken_start': '2021-06-01', 'binance_start': '2020-08-11'},
-    {'symbol': 'DOGE', 'kraken': 'XDGUSD', 'binance': 'DOGEUSDT', 'kraken_start': '2014-02-01', 'binance_start': '2019-07-05'},
-    {'symbol': 'ADA', 'kraken': 'ADAUSD', 'binance': 'ADAUSDT', 'kraken_start': '2017-10-01', 'binance_start': '2017-10-01'},
-    {'symbol': 'TRX', 'kraken': 'TRXUSD', 'binance': 'TRXUSDT', 'kraken_start': '2019-01-01', 'binance_start': '2017-10-01'},
-    {'symbol': 'AVAX', 'kraken': 'AVAXUSD', 'binance': 'AVAXUSDT', 'kraken_start': '2020-09-22', 'binance_start': '2020-09-22'},
-    {'symbol': 'LINK', 'kraken': 'LINKUSD', 'binance': 'LINKUSDT', 'kraken_start': '2019-03-01', 'binance_start': '2019-01-16'},
+    {'symbol': 'BTC', 'label': 'cryptocurrencies', 'kraken': 'XXBTZUSD', 'binance': 'BTCUSDT', 'kraken_start': '2013-10-01', 'binance_start': '2017-07-14'},
+    {'symbol': 'ETH', 'label': 'cryptocurrencies', 'kraken': 'XETHZUSD', 'binance': 'ETHUSDT', 'kraken_start': '2015-08-01', 'binance_start': '2017-08-01'},
+    {'symbol': 'BNB', 'label': 'cryptocurrencies', 'kraken': 'BNBUSD', 'binance': 'BNBUSDT', 'kraken_start': '2021-01-01', 'binance_start': '2017-07-14'},
+    {'symbol': 'XRP', 'label': 'cryptocurrencies', 'kraken': 'XXRPZUSD', 'binance': 'XRPUSDT', 'kraken_start': '2013-10-01', 'binance_start': '2017-07-14'},
+    {'symbol': 'SOL', 'label': 'cryptocurrencies', 'kraken': 'SOLUSD', 'binance': 'SOLUSDT', 'kraken_start': '2021-06-01', 'binance_start': '2020-08-11'},
+    {'symbol': 'DOGE', 'label': 'cryptocurrencies', 'kraken': 'XDGUSD', 'binance': 'DOGEUSDT', 'kraken_start': '2014-02-01', 'binance_start': '2019-07-05'},
+    {'symbol': 'ADA', 'label': 'cryptocurrencies', 'kraken': 'ADAUSD', 'binance': 'ADAUSDT', 'kraken_start': '2017-10-01', 'binance_start': '2017-10-01'},
+    {'symbol': 'TRX', 'label': 'cryptocurrencies', 'kraken': 'TRXUSD', 'binance': 'TRXUSDT', 'kraken_start': '2019-01-01', 'binance_start': '2017-10-01'},
+    {'symbol': 'AVAX', 'label': 'cryptocurrencies', 'kraken': 'AVAXUSD', 'binance': 'AVAXUSDT', 'kraken_start': '2020-09-22', 'binance_start': '2020-09-22'},
+    {'symbol': 'LINK', 'label': 'cryptocurrencies', 'kraken': 'LINKUSD', 'binance': 'LINKUSDT', 'kraken_start': '2019-03-01', 'binance_start': '2019-01-16'},
     # Top 11-20
-    {'symbol': 'TON', 'kraken': 'TONUSD', 'binance': 'TONUSDT', 'kraken_start': '2023-01-01', 'binance_start': '2023-11-01'},
-    {'symbol': 'SHIB', 'kraken': 'SHIBUSD', 'binance': 'SHIBUSDT', 'kraken_start': '2021-11-01', 'binance_start': '2021-05-10'},
-    {'symbol': 'XLM', 'kraken': 'XXLMZUSD', 'binance': 'XLMUSDT', 'kraken_start': '2014-08-01', 'binance_start': '2017-10-01'},
-    {'symbol': 'DOT', 'kraken': 'DOTUSD', 'binance': 'DOTUSDT', 'kraken_start': '2020-08-19', 'binance_start': '2020-08-19'},
-    {'symbol': 'BCH', 'kraken': 'BCHUSD', 'binance': 'BCHUSDT', 'kraken_start': '2017-08-01', 'binance_start': '2017-08-01'},
-    {'symbol': 'HBAR', 'kraken': 'HBARUSD', 'binance': 'HBARUSDT', 'kraken_start': '2020-11-01', 'binance_start': '2019-09-17'},
-    {'symbol': 'UNI', 'kraken': 'UNIUSD', 'binance': 'UNIUSDT', 'kraken_start': '2020-09-17', 'binance_start': '2020-09-17'},
-    {'symbol': 'LTC', 'kraken': 'XLTCZUSD', 'binance': 'LTCUSDT', 'kraken_start': '2013-10-01', 'binance_start': '2017-07-14'},
-    {'symbol': 'PEPE', 'kraken': 'PEPEUSD', 'binance': 'PEPEUSDT', 'kraken_start': '2023-05-05', 'binance_start': '2023-05-05'},
-    {'symbol': 'NEAR', 'kraken': 'NEARUSD', 'binance': 'NEARUSDT', 'kraken_start': '2020-10-14', 'binance_start': '2020-10-14'},
+    {'symbol': 'TON', 'label': 'cryptocurrencies', 'kraken': 'TONUSD', 'binance': 'TONUSDT', 'kraken_start': '2023-01-01', 'binance_start': '2023-11-01'},
+    {'symbol': 'SHIB', 'label': 'cryptocurrencies', 'kraken': 'SHIBUSD', 'binance': 'SHIBUSDT', 'kraken_start': '2021-11-01', 'binance_start': '2021-05-10'},
+    {'symbol': 'XLM', 'label': 'cryptocurrencies', 'kraken': 'XXLMZUSD', 'binance': 'XLMUSDT', 'kraken_start': '2014-08-01', 'binance_start': '2017-10-01'},
+    {'symbol': 'DOT', 'label': 'cryptocurrencies', 'kraken': 'DOTUSD', 'binance': 'DOTUSDT', 'kraken_start': '2020-08-19', 'binance_start': '2020-08-19'},
+    {'symbol': 'BCH', 'label': 'cryptocurrencies', 'kraken': 'BCHUSD', 'binance': 'BCHUSDT', 'kraken_start': '2017-08-01', 'binance_start': '2017-08-01'},
+    {'symbol': 'HBAR', 'label': 'cryptocurrencies', 'kraken': 'HBARUSD', 'binance': 'HBARUSDT', 'kraken_start': '2020-11-01', 'binance_start': '2019-09-17'},
+    {'symbol': 'UNI', 'label': 'cryptocurrencies', 'kraken': 'UNIUSD', 'binance': 'UNIUSDT', 'kraken_start': '2020-09-17', 'binance_start': '2020-09-17'},
+    {'symbol': 'LTC', 'label': 'cryptocurrencies', 'kraken': 'XLTCZUSD', 'binance': 'LTCUSDT', 'kraken_start': '2013-10-01', 'binance_start': '2017-07-14'},
+    {'symbol': 'PEPE', 'label': 'cryptocurrencies', 'kraken': 'PEPEUSD', 'binance': 'PEPEUSDT', 'kraken_start': '2023-05-05', 'binance_start': '2023-05-05'},
+    {'symbol': 'NEAR', 'label': 'cryptocurrencies', 'kraken': 'NEARUSD', 'binance': 'NEARUSDT', 'kraken_start': '2020-10-14', 'binance_start': '2020-10-14'},
     # Top 21-30
-    {'symbol': 'LEO', 'kraken': None, 'binance': 'LEOUSDT', 'kraken_start': None, 'binance_start': '2019-05-20'},
-    {'symbol': 'APT', 'kraken': 'APTUSD', 'binance': 'APTUSDT', 'kraken_start': '2022-10-19', 'binance_start': '2022-10-19'},
-    {'symbol': 'ICP', 'kraken': 'ICPUSD', 'binance': 'ICPUSDT', 'kraken_start': '2021-05-10', 'binance_start': '2021-05-10'},
-    {'symbol': 'ETC', 'kraken': 'XETCZUSD', 'binance': 'ETCUSDT', 'kraken_start': '2016-07-24', 'binance_start': '2018-06-01'},
-    {'symbol': 'RENDER', 'kraken': 'RENDERUSD', 'binance': 'RENDERUSDT', 'kraken_start': '2023-11-01', 'binance_start': '2023-11-27'},
-    {'symbol': 'FET', 'kraken': 'FETUSD', 'binance': 'FETUSDT', 'kraken_start': '2019-03-01', 'binance_start': '2019-02-28'},
-    {'symbol': 'ATOM', 'kraken': 'ATOMUSD', 'binance': 'ATOMUSDT', 'kraken_start': '2019-04-22', 'binance_start': '2019-04-22'},
-    {'symbol': 'CRO', 'kraken': 'CROUSD', 'binance': 'CROUSDT', 'kraken_start': '2021-11-08', 'binance_start': '2021-11-08'},
-    {'symbol': 'AAVE', 'kraken': 'AAVEUSD', 'binance': 'AAVEUSDT', 'kraken_start': '2020-10-03', 'binance_start': '2020-10-15'},
-    {'symbol': 'FIL', 'kraken': 'FILUSD', 'binance': 'FILUSDT', 'kraken_start': '2020-10-15', 'binance_start': '2020-10-15'},
+    {'symbol': 'LEO', 'label': 'cryptocurrencies', 'kraken': None, 'binance': 'LEOUSDT', 'kraken_start': None, 'binance_start': '2019-05-20'},
+    {'symbol': 'APT', 'label': 'cryptocurrencies', 'kraken': 'APTUSD', 'binance': 'APTUSDT', 'kraken_start': '2022-10-19', 'binance_start': '2022-10-19'},
+    {'symbol': 'ICP', 'label': 'cryptocurrencies', 'kraken': 'ICPUSD', 'binance': 'ICPUSDT', 'kraken_start': '2021-05-10', 'binance_start': '2021-05-10'},
+    {'symbol': 'ETC', 'label': 'cryptocurrencies', 'kraken': 'XETCZUSD', 'binance': 'ETCUSDT', 'kraken_start': '2016-07-24', 'binance_start': '2018-06-01'},
+    {'symbol': 'RENDER', 'label': 'cryptocurrencies', 'kraken': 'RENDERUSD', 'binance': 'RENDERUSDT', 'kraken_start': '2023-11-01', 'binance_start': '2023-11-27'},
+    {'symbol': 'FET', 'label': 'cryptocurrencies', 'kraken': 'FETUSD', 'binance': 'FETUSDT', 'kraken_start': '2019-03-01', 'binance_start': '2019-02-28'},
+    {'symbol': 'ATOM', 'label': 'cryptocurrencies', 'kraken': 'ATOMUSD', 'binance': 'ATOMUSDT', 'kraken_start': '2019-04-22', 'binance_start': '2019-04-22'},
+    {'symbol': 'CRO', 'label': 'cryptocurrencies', 'kraken': 'CROUSD', 'binance': 'CROUSDT', 'kraken_start': '2021-11-08', 'binance_start': '2021-11-08'},
+    {'symbol': 'AAVE', 'label': 'cryptocurrencies', 'kraken': 'AAVEUSD', 'binance': 'AAVEUSDT', 'kraken_start': '2020-10-03', 'binance_start': '2020-10-15'},
+    {'symbol': 'FIL', 'label': 'cryptocurrencies', 'kraken': 'FILUSD', 'binance': 'FILUSDT', 'kraken_start': '2020-10-15', 'binance_start': '2020-10-15'},
     # Top 31-40
-    {'symbol': 'IMX', 'kraken': 'IMXUSD', 'binance': 'IMXUSDT', 'kraken_start': '2022-01-01', 'binance_start': '2021-11-11'},
-    {'symbol': 'XMR', 'kraken': 'XXMRZUSD', 'binance': None, 'kraken_start': '2014-05-21', 'binance_start': None},
-    {'symbol': 'STX', 'kraken': 'STXUSD', 'binance': 'STXUSDT', 'kraken_start': '2021-01-01', 'binance_start': '2019-10-25'},
-    {'symbol': 'ARB', 'kraken': 'ARBUSD', 'binance': 'ARBUSDT', 'kraken_start': '2023-03-23', 'binance_start': '2023-03-23'},
-    {'symbol': 'OP', 'kraken': 'OPUSD', 'binance': 'OPUSDT', 'kraken_start': '2022-06-01', 'binance_start': '2022-06-01'},
-    {'symbol': 'VET', 'kraken': 'VETUSD', 'binance': 'VETUSDT', 'kraken_start': '2021-04-01', 'binance_start': '2018-07-23'},
-    {'symbol': 'MKR', 'kraken': 'MKRUSD', 'binance': 'MKRUSDT', 'kraken_start': '2017-09-15', 'binance_start': '2020-06-08'},
-    {'symbol': 'THETA', 'kraken': 'THETAUSD', 'binance': 'THETAUSDT', 'kraken_start': '2021-03-25', 'binance_start': '2019-03-13'},
-    {'symbol': 'GRT', 'kraken': 'GRTUSD', 'binance': 'GRTUSDT', 'kraken_start': '2020-12-18', 'binance_start': '2020-12-18'},
-    {'symbol': 'INJ', 'kraken': 'INJUSD', 'binance': 'INJUSDT', 'kraken_start': '2020-10-21', 'binance_start': '2020-10-21'},
+    {'symbol': 'IMX', 'label': 'cryptocurrencies', 'kraken': 'IMXUSD', 'binance': 'IMXUSDT', 'kraken_start': '2022-01-01', 'binance_start': '2021-11-11'},
+    {'symbol': 'XMR', 'label': 'cryptocurrencies', 'kraken': 'XXMRZUSD', 'binance': None, 'kraken_start': '2014-05-21', 'binance_start': None},
+    {'symbol': 'STX', 'label': 'cryptocurrencies', 'kraken': 'STXUSD', 'binance': 'STXUSDT', 'kraken_start': '2021-01-01', 'binance_start': '2019-10-25'},
+    {'symbol': 'ARB', 'label': 'cryptocurrencies', 'kraken': 'ARBUSD', 'binance': 'ARBUSDT', 'kraken_start': '2023-03-23', 'binance_start': '2023-03-23'},
+    {'symbol': 'OP', 'label': 'cryptocurrencies', 'kraken': 'OPUSD', 'binance': 'OPUSDT', 'kraken_start': '2022-06-01', 'binance_start': '2022-06-01'},
+    {'symbol': 'VET', 'label': 'cryptocurrencies', 'kraken': 'VETUSD', 'binance': 'VETUSDT', 'kraken_start': '2021-04-01', 'binance_start': '2018-07-23'},
+    {'symbol': 'MKR', 'label': 'cryptocurrencies', 'kraken': 'MKRUSD', 'binance': 'MKRUSDT', 'kraken_start': '2017-09-15', 'binance_start': '2020-06-08'},
+    {'symbol': 'THETA', 'label': 'cryptocurrencies', 'kraken': 'THETAUSD', 'binance': 'THETAUSDT', 'kraken_start': '2021-03-25', 'binance_start': '2019-03-13'},
+    {'symbol': 'GRT', 'label': 'cryptocurrencies', 'kraken': 'GRTUSD', 'binance': 'GRTUSDT', 'kraken_start': '2020-12-18', 'binance_start': '2020-12-18'},
+    {'symbol': 'INJ', 'label': 'cryptocurrencies', 'kraken': 'INJUSD', 'binance': 'INJUSDT', 'kraken_start': '2020-10-21', 'binance_start': '2020-10-21'},
     # Top 41-50
-    {'symbol': 'FTM', 'kraken': 'FTMUSD', 'binance': 'FTMUSDT', 'kraken_start': '2021-04-06', 'binance_start': '2019-06-11'},
-    {'symbol': 'ALGO', 'kraken': 'ALGOUSD', 'binance': 'ALGOUSDT', 'kraken_start': '2019-06-21', 'binance_start': '2019-06-22'},
-    {'symbol': 'MATIC', 'kraken': 'MATICUSD', 'binance': 'MATICUSDT', 'kraken_start': '2021-02-24', 'binance_start': '2019-04-26'},
-    {'symbol': 'SEI', 'kraken': 'SEIUSD', 'binance': 'SEIUSDT', 'kraken_start': '2023-08-15', 'binance_start': '2023-08-15'},
-    {'symbol': 'WIF', 'kraken': 'WIFUSD', 'binance': 'WIFUSDT', 'kraken_start': '2024-03-05', 'binance_start': '2024-03-05'},
-    {'symbol': 'RUNE', 'kraken': 'RUNEUSD', 'binance': 'RUNEUSDT', 'kraken_start': '2021-04-13', 'binance_start': '2019-07-23'},
-    {'symbol': 'BONK', 'kraken': 'BONKUSD', 'binance': 'BONKUSDT', 'kraken_start': '2023-12-14', 'binance_start': '2023-12-14'},
-    {'symbol': 'FLOKI', 'kraken': 'FLOKIUSD', 'binance': 'FLOKIUSDT', 'kraken_start': '2023-01-01', 'binance_start': '2021-11-01'},
-    {'symbol': 'TIA', 'kraken': 'TIAUSD', 'binance': 'TIAUSDT', 'kraken_start': '2023-10-31', 'binance_start': '2023-10-31'},
-    {'symbol': 'JUP', 'kraken': 'JUPUSD', 'binance': 'JUPUSDT', 'kraken_start': '2024-01-31', 'binance_start': '2024-01-31'},
+    {'symbol': 'FTM', 'label': 'cryptocurrencies', 'kraken': 'FTMUSD', 'binance': 'FTMUSDT', 'kraken_start': '2021-04-06', 'binance_start': '2019-06-11'},
+    {'symbol': 'ALGO', 'label': 'cryptocurrencies', 'kraken': 'ALGOUSD', 'binance': 'ALGOUSDT', 'kraken_start': '2019-06-21', 'binance_start': '2019-06-22'},
+    {'symbol': 'MATIC', 'label': 'cryptocurrencies', 'kraken': 'MATICUSD', 'binance': 'MATICUSDT', 'kraken_start': '2021-02-24', 'binance_start': '2019-04-26'},
+    {'symbol': 'SEI', 'label': 'cryptocurrencies', 'kraken': 'SEIUSD', 'binance': 'SEIUSDT', 'kraken_start': '2023-08-15', 'binance_start': '2023-08-15'},
+    {'symbol': 'WIF', 'label': 'cryptocurrencies', 'kraken': 'WIFUSD', 'binance': 'WIFUSDT', 'kraken_start': '2024-03-05', 'binance_start': '2024-03-05'},
+    {'symbol': 'RUNE', 'label': 'cryptocurrencies', 'kraken': 'RUNEUSD', 'binance': 'RUNEUSDT', 'kraken_start': '2021-04-13', 'binance_start': '2019-07-23'},
+    {'symbol': 'BONK', 'label': 'cryptocurrencies', 'kraken': 'BONKUSD', 'binance': 'BONKUSDT', 'kraken_start': '2023-12-14', 'binance_start': '2023-12-14'},
+    {'symbol': 'FLOKI', 'label': 'cryptocurrencies', 'kraken': 'FLOKIUSD', 'binance': 'FLOKIUSDT', 'kraken_start': '2023-01-01', 'binance_start': '2021-11-01'},
+    {'symbol': 'TIA', 'label': 'cryptocurrencies', 'kraken': 'TIAUSD', 'binance': 'TIAUSDT', 'kraken_start': '2023-10-31', 'binance_start': '2023-10-31'},
+    {'symbol': 'JUP', 'label': 'cryptocurrencies', 'kraken': 'JUPUSD', 'binance': 'JUPUSDT', 'kraken_start': '2024-01-31', 'binance_start': '2024-01-31'},
     # Top 51-60
-    {'symbol': 'LDO', 'kraken': 'LDOUSD', 'binance': 'LDOUSDT', 'kraken_start': '2022-03-10', 'binance_start': '2022-03-10'},
-    {'symbol': 'SAND', 'kraken': 'SANDUSD', 'binance': 'SANDUSDT', 'kraken_start': '2021-04-29', 'binance_start': '2020-08-14'},
-    {'symbol': 'MANA', 'kraken': 'MANAUSD', 'binance': 'MANAUSDT', 'kraken_start': '2017-10-28', 'binance_start': '2020-08-06'},
-    {'symbol': 'GALA', 'kraken': 'GALAUSD', 'binance': 'GALAUSDT', 'kraken_start': '2021-09-15', 'binance_start': '2021-09-13'},
-    {'symbol': 'FLOW', 'kraken': 'FLOWUSD', 'binance': 'FLOWUSDT', 'kraken_start': '2021-01-27', 'binance_start': '2021-01-27'},
-    {'symbol': 'AXS', 'kraken': 'AXSUSD', 'binance': 'AXSUSDT', 'kraken_start': '2021-08-09', 'binance_start': '2020-11-05'},
-    {'symbol': 'EGLD', 'kraken': 'EGLDUSD', 'binance': 'EGLDUSDT', 'kraken_start': '2020-09-03', 'binance_start': '2020-09-03'},
-    {'symbol': 'EOS', 'kraken': 'EOSUSD', 'binance': 'EOSUSDT', 'kraken_start': '2017-07-01', 'binance_start': '2018-05-03'},
-    {'symbol': 'SNX', 'kraken': 'SNXUSD', 'binance': 'SNXUSDT', 'kraken_start': '2020-09-01', 'binance_start': '2020-02-11'},
-    {'symbol': 'XTZ', 'kraken': 'XTZUSD', 'binance': 'XTZUSDT', 'kraken_start': '2018-10-17', 'binance_start': '2019-06-04'},
+    {'symbol': 'LDO', 'label': 'cryptocurrencies', 'kraken': 'LDOUSD', 'binance': 'LDOUSDT', 'kraken_start': '2022-03-10', 'binance_start': '2022-03-10'},
+    {'symbol': 'SAND', 'label': 'cryptocurrencies', 'kraken': 'SANDUSD', 'binance': 'SANDUSDT', 'kraken_start': '2021-04-29', 'binance_start': '2020-08-14'},
+    {'symbol': 'MANA', 'label': 'cryptocurrencies', 'kraken': 'MANAUSD', 'binance': 'MANAUSDT', 'kraken_start': '2017-10-28', 'binance_start': '2020-08-06'},
+    {'symbol': 'GALA', 'label': 'cryptocurrencies', 'kraken': 'GALAUSD', 'binance': 'GALAUSDT', 'kraken_start': '2021-09-15', 'binance_start': '2021-09-13'},
+    {'symbol': 'FLOW', 'label': 'cryptocurrencies', 'kraken': 'FLOWUSD', 'binance': 'FLOWUSDT', 'kraken_start': '2021-01-27', 'binance_start': '2021-01-27'},
+    {'symbol': 'AXS', 'label': 'cryptocurrencies', 'kraken': 'AXSUSD', 'binance': 'AXSUSDT', 'kraken_start': '2021-08-09', 'binance_start': '2020-11-05'},
+    {'symbol': 'EGLD', 'label': 'cryptocurrencies', 'kraken': 'EGLDUSD', 'binance': 'EGLDUSDT', 'kraken_start': '2020-09-03', 'binance_start': '2020-09-03'},
+    {'symbol': 'EOS', 'label': 'cryptocurrencies', 'kraken': 'EOSUSD', 'binance': 'EOSUSDT', 'kraken_start': '2017-07-01', 'binance_start': '2018-05-03'},
+    {'symbol': 'SNX', 'label': 'cryptocurrencies', 'kraken': 'SNXUSD', 'binance': 'SNXUSDT', 'kraken_start': '2020-09-01', 'binance_start': '2020-02-11'},
+    {'symbol': 'XTZ', 'label': 'cryptocurrencies', 'kraken': 'XTZUSD', 'binance': 'XTZUSDT', 'kraken_start': '2018-10-17', 'binance_start': '2019-06-04'},
     # Top 61-70
-    {'symbol': 'PYTH', 'kraken': 'PYTHUSD', 'binance': 'PYTHUSDT', 'kraken_start': '2023-11-20', 'binance_start': '2023-11-20'},
-    {'symbol': 'QNT', 'kraken': 'QNTUSD', 'binance': 'QNTUSDT', 'kraken_start': '2022-06-13', 'binance_start': '2019-08-21'},
-    {'symbol': 'IOTA', 'kraken': 'IOTAUSD', 'binance': 'IOTAUSDT', 'kraken_start': '2017-12-19', 'binance_start': '2017-06-13'},
-    {'symbol': 'KCS', 'kraken': None, 'binance': 'KCSUSDT', 'kraken_start': None, 'binance_start': '2021-03-10'},
-    {'symbol': 'NEO', 'kraken': 'NEOUSD', 'binance': 'NEOUSDT', 'kraken_start': '2019-06-06', 'binance_start': '2017-07-14'},
-    {'symbol': 'KAVA', 'kraken': 'KAVAUSD', 'binance': 'KAVAUSDT', 'kraken_start': '2020-10-08', 'binance_start': '2019-10-25'},
-    {'symbol': 'ONDO', 'kraken': 'ONDOUSD', 'binance': 'ONDOUSDT', 'kraken_start': '2024-01-18', 'binance_start': '2024-01-18'},
-    {'symbol': 'STRK', 'kraken': 'STRKUSD', 'binance': 'STRKUSDT', 'kraken_start': '2024-02-20', 'binance_start': '2024-02-20'},
-    {'symbol': 'ZEC', 'kraken': 'XZECZUSD', 'binance': 'ZECUSDT', 'kraken_start': '2016-10-29', 'binance_start': '2018-05-16'},
-    {'symbol': 'DASH', 'kraken': 'DASHUSD', 'binance': 'DASHUSDT', 'kraken_start': '2014-04-01', 'binance_start': '2018-03-21'},
+    {'symbol': 'PYTH', 'label': 'cryptocurrencies', 'kraken': 'PYTHUSD', 'binance': 'PYTHUSDT', 'kraken_start': '2023-11-20', 'binance_start': '2023-11-20'},
+    {'symbol': 'QNT', 'label': 'cryptocurrencies', 'kraken': 'QNTUSD', 'binance': 'QNTUSDT', 'kraken_start': '2022-06-13', 'binance_start': '2019-08-21'},
+    {'symbol': 'IOTA', 'label': 'cryptocurrencies', 'kraken': 'IOTAUSD', 'binance': 'IOTAUSDT', 'kraken_start': '2017-12-19', 'binance_start': '2017-06-13'},
+    {'symbol': 'KCS', 'label': 'cryptocurrencies', 'kraken': None, 'binance': 'KCSUSDT', 'kraken_start': None, 'binance_start': '2021-03-10'},
+    {'symbol': 'NEO', 'label': 'cryptocurrencies', 'kraken': 'NEOUSD', 'binance': 'NEOUSDT', 'kraken_start': '2019-06-06', 'binance_start': '2017-07-14'},
+    {'symbol': 'KAVA', 'label': 'cryptocurrencies', 'kraken': 'KAVAUSD', 'binance': 'KAVAUSDT', 'kraken_start': '2020-10-08', 'binance_start': '2019-10-25'},
+    {'symbol': 'ONDO', 'label': 'cryptocurrencies', 'kraken': 'ONDOUSD', 'binance': 'ONDOUSDT', 'kraken_start': '2024-01-18', 'binance_start': '2024-01-18'},
+    {'symbol': 'STRK', 'label': 'cryptocurrencies', 'kraken': 'STRKUSD', 'binance': 'STRKUSDT', 'kraken_start': '2024-02-20', 'binance_start': '2024-02-20'},
+    {'symbol': 'ZEC', 'label': 'cryptocurrencies', 'kraken': 'XZECZUSD', 'binance': 'ZECUSDT', 'kraken_start': '2016-10-29', 'binance_start': '2018-05-16'},
+    {'symbol': 'DASH', 'label': 'cryptocurrencies', 'kraken': 'DASHUSD', 'binance': 'DASHUSDT', 'kraken_start': '2014-04-01', 'binance_start': '2018-03-21'},
     # Top 71-80
-    {'symbol': 'ENS', 'kraken': 'ENSUSD', 'binance': 'ENSUSDT', 'kraken_start': '2021-11-09', 'binance_start': '2021-11-09'},
-    {'symbol': 'COMP', 'kraken': 'COMPUSD', 'binance': 'COMPUSDT', 'kraken_start': '2020-06-16', 'binance_start': '2020-06-25'},
-    {'symbol': 'CRV', 'kraken': 'CRVUSD', 'binance': 'CRVUSDT', 'kraken_start': '2020-08-14', 'binance_start': '2020-08-25'},
-    {'symbol': '1INCH', 'kraken': '1INCHUSD', 'binance': '1INCHUSDT', 'kraken_start': '2020-12-25', 'binance_start': '2020-12-25'},
-    {'symbol': 'CAKE', 'kraken': 'CAKEUSD', 'binance': 'CAKEUSDT', 'kraken_start': '2021-04-21', 'binance_start': '2020-09-29'},
-    {'symbol': 'ZIL', 'kraken': 'ZILUSD', 'binance': 'ZILUSDT', 'kraken_start': '2020-08-24', 'binance_start': '2018-03-19'},
-    {'symbol': 'CHZ', 'kraken': 'CHZUSD', 'binance': 'CHZUSDT', 'kraken_start': '2021-02-04', 'binance_start': '2019-07-01'},
-    {'symbol': 'WAVES', 'kraken': 'WAVESUSD', 'binance': 'WAVESUSDT', 'kraken_start': '2017-08-01', 'binance_start': '2018-07-16'},
-    {'symbol': 'BAT', 'kraken': 'BATUSD', 'binance': 'BATUSDT', 'kraken_start': '2017-09-22', 'binance_start': '2019-04-16'},
-    {'symbol': 'SUSHI', 'kraken': 'SUSHIUSD', 'binance': 'SUSHIUSDT', 'kraken_start': '2020-09-01', 'binance_start': '2020-09-01'},
+    {'symbol': 'ENS', 'label': 'cryptocurrencies', 'kraken': 'ENSUSD', 'binance': 'ENSUSDT', 'kraken_start': '2021-11-09', 'binance_start': '2021-11-09'},
+    {'symbol': 'COMP', 'label': 'cryptocurrencies', 'kraken': 'COMPUSD', 'binance': 'COMPUSDT', 'kraken_start': '2020-06-16', 'binance_start': '2020-06-25'},
+    {'symbol': 'CRV', 'label': 'cryptocurrencies', 'kraken': 'CRVUSD', 'binance': 'CRVUSDT', 'kraken_start': '2020-08-14', 'binance_start': '2020-08-25'},
+    {'symbol': '1INCH', 'label': 'cryptocurrencies', 'kraken': '1INCHUSD', 'binance': '1INCHUSDT', 'kraken_start': '2020-12-25', 'binance_start': '2020-12-25'},
+    {'symbol': 'CAKE', 'label': 'cryptocurrencies', 'kraken': 'CAKEUSD', 'binance': 'CAKEUSDT', 'kraken_start': '2021-04-21', 'binance_start': '2020-09-29'},
+    {'symbol': 'ZIL', 'label': 'cryptocurrencies', 'kraken': 'ZILUSD', 'binance': 'ZILUSDT', 'kraken_start': '2020-08-24', 'binance_start': '2018-03-19'},
+    {'symbol': 'CHZ', 'label': 'cryptocurrencies', 'kraken': 'CHZUSD', 'binance': 'CHZUSDT', 'kraken_start': '2021-02-04', 'binance_start': '2019-07-01'},
+    {'symbol': 'WAVES', 'label': 'cryptocurrencies', 'kraken': 'WAVESUSD', 'binance': 'WAVESUSDT', 'kraken_start': '2017-08-01', 'binance_start': '2018-07-16'},
+    {'symbol': 'BAT', 'label': 'cryptocurrencies', 'kraken': 'BATUSD', 'binance': 'BATUSDT', 'kraken_start': '2017-09-22', 'binance_start': '2019-04-16'},
+    {'symbol': 'SUSHI', 'label': 'cryptocurrencies', 'kraken': 'SUSHIUSD', 'binance': 'SUSHIUSDT', 'kraken_start': '2020-09-01', 'binance_start': '2020-09-01'},
     # Top 81-90
-    {'symbol': 'CELO', 'kraken': 'CELOUSD', 'binance': 'CELOUSDT', 'kraken_start': '2021-04-08', 'binance_start': '2020-08-31'},
-    {'symbol': 'YFI', 'kraken': 'YFIUSD', 'binance': 'YFIUSDT', 'kraken_start': '2020-08-31', 'binance_start': '2020-07-26'},
-    {'symbol': 'ROSE', 'kraken': 'ROSEUSD', 'binance': 'ROSEUSDT', 'kraken_start': '2020-11-19', 'binance_start': '2020-11-19'},
-    {'symbol': 'KSM', 'kraken': 'KSMUSD', 'binance': 'KSMUSDT', 'kraken_start': '2020-08-18', 'binance_start': '2020-08-31'},
-    {'symbol': 'ZRX', 'kraken': 'ZRXUSD', 'binance': 'ZRXUSDT', 'kraken_start': '2017-08-16', 'binance_start': '2018-08-21'},
-    {'symbol': 'ICX', 'kraken': 'ICXUSD', 'binance': 'ICXUSDT', 'kraken_start': '2018-04-17', 'binance_start': '2017-10-27'},
-    {'symbol': 'MINA', 'kraken': 'MINAUSD', 'binance': 'MINAUSDT', 'kraken_start': '2021-06-01', 'binance_start': '2021-06-01'},
-    {'symbol': 'ONE', 'kraken': 'ONEUSD', 'binance': 'ONEUSDT', 'kraken_start': '2020-12-03', 'binance_start': '2019-05-31'},
-    {'symbol': 'ENJ', 'kraken': 'ENJUSD', 'binance': 'ENJUSDT', 'kraken_start': '2021-01-21', 'binance_start': '2019-04-18'},
-    {'symbol': 'ANKR', 'kraken': 'ANKRUSD', 'binance': 'ANKRUSDT', 'kraken_start': '2021-03-18', 'binance_start': '2019-03-07'},
+    {'symbol': 'CELO', 'label': 'cryptocurrencies', 'kraken': 'CELOUSD', 'binance': 'CELOUSDT', 'kraken_start': '2021-04-08', 'binance_start': '2020-08-31'},
+    {'symbol': 'YFI', 'label': 'cryptocurrencies', 'kraken': 'YFIUSD', 'binance': 'YFIUSDT', 'kraken_start': '2020-08-31', 'binance_start': '2020-07-26'},
+    {'symbol': 'ROSE', 'label': 'cryptocurrencies', 'kraken': 'ROSEUSD', 'binance': 'ROSEUSDT', 'kraken_start': '2020-11-19', 'binance_start': '2020-11-19'},
+    {'symbol': 'KSM', 'label': 'cryptocurrencies', 'kraken': 'KSMUSD', 'binance': 'KSMUSDT', 'kraken_start': '2020-08-18', 'binance_start': '2020-08-31'},
+    {'symbol': 'ZRX', 'label': 'cryptocurrencies', 'kraken': 'ZRXUSD', 'binance': 'ZRXUSDT', 'kraken_start': '2017-08-16', 'binance_start': '2018-08-21'},
+    {'symbol': 'ICX', 'label': 'cryptocurrencies', 'kraken': 'ICXUSD', 'binance': 'ICXUSDT', 'kraken_start': '2018-04-17', 'binance_start': '2017-10-27'},
+    {'symbol': 'MINA', 'label': 'cryptocurrencies', 'kraken': 'MINAUSD', 'binance': 'MINAUSDT', 'kraken_start': '2021-06-01', 'binance_start': '2021-06-01'},
+    {'symbol': 'ONE', 'label': 'cryptocurrencies', 'kraken': 'ONEUSD', 'binance': 'ONEUSDT', 'kraken_start': '2020-12-03', 'binance_start': '2019-05-31'},
+    {'symbol': 'ENJ', 'label': 'cryptocurrencies', 'kraken': 'ENJUSD', 'binance': 'ENJUSDT', 'kraken_start': '2021-01-21', 'binance_start': '2019-04-18'},
+    {'symbol': 'ANKR', 'label': 'cryptocurrencies', 'kraken': 'ANKRUSD', 'binance': 'ANKRUSDT', 'kraken_start': '2021-03-18', 'binance_start': '2019-03-07'},
     # Top 91-100
-    {'symbol': 'GLM', 'kraken': 'GLMUSD', 'binance': 'GLMUSDT', 'kraken_start': '2016-11-18', 'binance_start': '2020-11-19'},
-    {'symbol': 'LRC', 'kraken': 'LRCUSD', 'binance': 'LRCUSDT', 'kraken_start': '2020-08-31', 'binance_start': '2019-02-27'},
-    {'symbol': 'STORJ', 'kraken': 'STORJUSD', 'binance': 'STORJUSDT', 'kraken_start': '2017-08-31', 'binance_start': '2019-05-24'},
-    {'symbol': 'OMG', 'kraken': 'OMGUSD', 'binance': 'OMGUSDT', 'kraken_start': '2017-09-07', 'binance_start': '2018-05-04'},
-    {'symbol': 'SKL', 'kraken': 'SKLUSD', 'binance': 'SKLUSDT', 'kraken_start': '2020-12-01', 'binance_start': '2020-12-01'},
-    {'symbol': 'OCEAN', 'kraken': 'OCEANUSD', 'binance': 'OCEANUSDT', 'kraken_start': '2020-12-02', 'binance_start': '2020-04-28'},
-    {'symbol': 'SXP', 'kraken': 'SXPUSD', 'binance': 'SXPUSDT', 'kraken_start': '2020-11-19', 'binance_start': '2020-07-28'},
-    {'symbol': 'REN', 'kraken': 'RENUSD', 'binance': 'RENUSDT', 'kraken_start': '2020-10-08', 'binance_start': '2020-02-20'},
-    {'symbol': 'MASK', 'kraken': 'MASKUSD', 'binance': 'MASKUSDT', 'kraken_start': '2021-03-31', 'binance_start': '2021-02-24'},
-    {'symbol': 'DYDX', 'kraken': 'DYDXUSD', 'binance': 'DYDXUSDT', 'kraken_start': '2021-09-08', 'binance_start': '2021-09-08'},
+    {'symbol': 'GLM', 'label': 'cryptocurrencies', 'kraken': 'GLMUSD', 'binance': 'GLMUSDT', 'kraken_start': '2016-11-18', 'binance_start': '2020-11-19'},
+    {'symbol': 'LRC', 'label': 'cryptocurrencies', 'kraken': 'LRCUSD', 'binance': 'LRCUSDT', 'kraken_start': '2020-08-31', 'binance_start': '2019-02-27'},
+    {'symbol': 'STORJ', 'label': 'cryptocurrencies', 'kraken': 'STORJUSD', 'binance': 'STORJUSDT', 'kraken_start': '2017-08-31', 'binance_start': '2019-05-24'},
+    {'symbol': 'OMG', 'label': 'cryptocurrencies', 'kraken': 'OMGUSD', 'binance': 'OMGUSDT', 'kraken_start': '2017-09-07', 'binance_start': '2018-05-04'},
+    {'symbol': 'SKL', 'label': 'cryptocurrencies', 'kraken': 'SKLUSD', 'binance': 'SKLUSDT', 'kraken_start': '2020-12-01', 'binance_start': '2020-12-01'},
+    {'symbol': 'OCEAN', 'label': 'cryptocurrencies', 'kraken': 'OCEANUSD', 'binance': 'OCEANUSDT', 'kraken_start': '2020-12-02', 'binance_start': '2020-04-28'},
+    {'symbol': 'SXP', 'label': 'cryptocurrencies', 'kraken': 'SXPUSD', 'binance': 'SXPUSDT', 'kraken_start': '2020-11-19', 'binance_start': '2020-07-28'},
+    {'symbol': 'REN', 'label': 'cryptocurrencies', 'kraken': 'RENUSD', 'binance': 'RENUSDT', 'kraken_start': '2020-10-08', 'binance_start': '2020-02-20'},
+    {'symbol': 'MASK', 'label': 'cryptocurrencies', 'kraken': 'MASKUSD', 'binance': 'MASKUSDT', 'kraken_start': '2021-03-31', 'binance_start': '2021-02-24'},
+    {'symbol': 'DYDX', 'label': 'cryptocurrencies', 'kraken': 'DYDXUSD', 'binance': 'DYDXUSDT', 'kraken_start': '2021-09-08', 'binance_start': '2021-09-08'},
 ]
+
+DEFAULT_LABEL = 'cryptocurrencies'
 
 # ====================================================================
 # CONFIGURACIÓN DE EXCHANGES
@@ -203,14 +205,28 @@ def get_start_date(symbol, exchange):
     return None
 
 
+def get_label(symbol):
+    """Obtiene el label de un ticker (default: cryptocurrencies)."""
+    ticker = get_ticker(symbol)
+    if ticker:
+        return ticker.get('label', DEFAULT_LABEL)
+    return DEFAULT_LABEL
+
+
 def get_raw_path(symbol, exchange):
-    """Retorna el path para datos raw de un ticker."""
-    return EXCHANGES[exchange]['data_dir'] / symbol
+    """Retorna el path para datos raw de un ticker: data/raw/{exchange}/{label}/{ticker}"""
+    label = get_label(symbol)
+    path = EXCHANGES[exchange]['data_dir'] / label / symbol
+    path.mkdir(parents=True, exist_ok=True)
+    return path
 
 
 def get_operative_path(symbol):
-    """Retorna el path para datos operativos de un ticker."""
-    return CONSOLIDATION['output_dir'] / symbol
+    """Retorna el path para datos operativos: data/operative/{label}/{ticker}"""
+    label = get_label(symbol)
+    path = OPERATIVE_DATA_DIR / label / symbol
+    path.mkdir(parents=True, exist_ok=True)
+    return path
 
 
 def ensure_exchange_dirs():

@@ -25,7 +25,7 @@ sys.path.insert(0, str(project_root))
 
 from config.tickers import get_ticker_group, TICKER_GROUPS
 from config.paths import ensure_batch_OUTPUTS_DIRs, get_ticker_OUTPUTS_DIR
-from visualization.non_interactive.stats_and_plots_batch import calculate_batch_statistics, plot_batch_results
+from visualization.non_interactive.batch_plots import calculate_batch_statistics, plot_batch_results
 
 
 def load_ticker_results(strategy: str, ticker: str) -> dict:
@@ -133,7 +133,7 @@ def main():
 
         # Generate plots
         print("\nGenerating visualizations...")
-        plot_batch_results(batch_type, args.strategy, ticker_results, batch_stats, batch_dirs['figures'])
+        plot_batch_results(batch_type, args.strategy, ticker_results, batch_stats, batch_dirs['figures'], prefix='insample')
 
     # Summary
     duration = datetime.now() - start_time

@@ -99,25 +99,27 @@ def get_available_date_range(ticker: str) -> tuple:
 
 def get_available_tickers() -> list:
     """
-    Lista tickers con datos disponibles en data/operative/
+    Lista tickers con datos disponibles en data/operative/{label}/
 
     Returns:
         Lista de símbolos de tickers con datos
     """
-    from config.tickers import CONSOLIDATION
+    from config.paths import OPERATIVE_DATA_DIR
 
-    operative_dir = CONSOLIDATION['output_dir']
-    if not operative_dir.exists():
+    if not OPERATIVE_DATA_DIR.exists():
         return []
 
     tickers = []
-    for ticker_dir in operative_dir.iterdir():
-        if ticker_dir.is_dir():
-            parquet_files = list(ticker_dir.glob("*.parquet"))
-            if parquet_files:
-                tickers.append(ticker_dir.name)
+    # Buscar en todas las carpetas de labels
+    for label_dir in OPERATIVE_DATA_DIR.iterdir():
+        if label_dir.is_dir():
+            for ticker_dir in label_dir.iterdir():
+                if ticker_dir.is_dir():
+                    parquet_files = list(ticker_dir.glob("*.parquet"))
+                    if parquet_files:
+                        tickers.append(ticker_dir.name)
 
-    return sorted(tickers)
+    return sorted(list(set(tickers)))
 
 
 def print_ticker_info(ticker: str):

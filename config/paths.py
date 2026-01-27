@@ -51,7 +51,7 @@ VIS_NON_INTERACTIVE = VISUALIZATION_DIR / "non_interactive"
 VIS_INTERACTIVE = VISUALIZATION_DIR / "interactive"
 VIS_UTILS = VISUALIZATION_DIR / "utils"
 DOCUMENTATION_DIR = PROJECT_ROOT / "documentation"
-SCREENING_DIR = PROJECT_ROOT / "screening"
+SCREENER_DIR = PROJECT_ROOT / "screener"
 
 # ====================================================================
 # PARÁMETROS GENERALES
@@ -76,10 +76,47 @@ def ensure_directories():
         OUTPUTS_DIR,
         BACKTEST_OUTPUTS_DIR, 
         LOGS_DIR,
-        SCREENING_DIR,
+        SCREENER_DIR,
     ]
     for dir_path in dirs_to_create:
         dir_path.mkdir(parents=True, exist_ok=True)
+
+
+# ====================================================================
+# LABEL-BASED PATH HELPERS
+# ====================================================================
+
+DEFAULT_LABEL = 'cryptocurrencies'
+
+
+def get_raw_data_path(exchange: str, label: str, ticker: str) -> Path:
+    """data/raw/{exchange}/{label}/{ticker}/"""
+    path = RAW_DATA_DIR / exchange / label / ticker
+    path.mkdir(parents=True, exist_ok=True)
+    return path
+
+
+def get_operative_data_path(label: str, ticker: str) -> Path:
+    """data/operative/{label}/{ticker}/"""
+    path = OPERATIVE_DATA_DIR / label / ticker
+    path.mkdir(parents=True, exist_ok=True)
+    return path
+
+
+def get_output_path(strategy: str, label: str, ticker: str, subdir: str = None) -> Path:
+    """outputs/backtest/{strategy}/{label}/{ticker}/[subdir]"""
+    base = BACKTEST_OUTPUTS_DIR / strategy / label / ticker
+    path = base / subdir if subdir else base
+    path.mkdir(parents=True, exist_ok=True)
+    return path
+
+
+def get_batch_output_path(strategy: str, batch: str, subdir: str = None) -> Path:
+    """outputs/backtest/{strategy}/{batch}/[subdir]"""
+    base = BACKTEST_OUTPUTS_DIR / strategy / batch
+    path = base / subdir if subdir else base
+    path.mkdir(parents=True, exist_ok=True)
+    return path
 
 
 # ====================================================================

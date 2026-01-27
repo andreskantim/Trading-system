@@ -36,7 +36,7 @@ from backtest.mcpt.walkforward import (
 )
 from utils.data_loader import load_ticker_data, get_available_date_range
 from utils.stats_calculator import calculate_all_stats
-from visualization.non_interactive.stats_and_plots_ticker import plot_ticker_results
+from visualization.non_interactive.ticker_plots import plot_ticker_results
 
 
 def save_results(results_dict: dict, ticker: str, strategy_name: str, output_dir: Path):
