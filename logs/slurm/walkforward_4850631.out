@@ -1,0 +1,760 @@
+slurmstepd: info: Setting TMPDIR to /scratch/4850631. Previous errors about TMPDIR can be discarded
+Python: /mnt/netapp2/Store_uni/home/ulc/cursos/curso396/miniconda3/envs/trading_env/bin/python
+Conda env: trading_env
+✓ Dependencias disponibles
+==============================================
+SLURM Job: 4850631
+Nodo: ilk-153
+CPUs: 64
+Memoria: 32768 MB
+==============================================
+Grupo: crypto_10
+Estrategia: bollinger_b2b
+Permutaciones: 200
+Workers: 64
+==============================================
+
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de BTC...
+  Rango disponible: 17/08/2017 - 25/01/2026
+  Auto-split 50/50:
+    Train: 17/08/2017 - 08/11/2021
+    Walk:  08/11/2021 - 25/01/2026
+  Datos cargados: 73,865 velas
+  Desde: 2017-08-17 04:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  36,933 velas (4.2 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 0.9959
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/BTC/results/BTC_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            BTC
+  Estrategia:        bollinger_b2b
+  Período total:     2017-08-17 04:00:00 - 2026-01-25 04:00:00
+  Velas totales:     73,865
+  Train window:      36,933 velas
+  Permutaciones:     200
+  Real PF:           0.9959
+  P-Value:           0.6500
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      -23.20%
+  CAGR:              -3.08%
+  Max Drawdown:      -68.50%
+  Max DD Duration:   12,905 bars
+  Sharpe Ratio:      -0.1210
+  Sortino Ratio:     -0.1559
+  SQN:               -0.3513
+  N Trades:          37291
+  Win Rate:          0.31%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/BTC/figures/BTC_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/BTC/figures/BTC_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 12.7s (0.2 min)
+  Velocidad:    15.70 tareas/s
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de ETH...
+  Rango disponible: 17/08/2017 - 25/01/2026
+  Auto-split 50/50:
+    Train: 17/08/2017 - 08/11/2021
+    Walk:  08/11/2021 - 25/01/2026
+  Datos cargados: 73,865 velas
+  Desde: 2017-08-17 04:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  36,933 velas (4.2 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 1.0126
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/ETH/results/ETH_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            ETH
+  Estrategia:        bollinger_b2b
+  Período total:     2017-08-17 04:00:00 - 2026-01-25 04:00:00
+  Velas totales:     73,865
+  Train window:      36,933 velas
+  Permutaciones:     200
+  Real PF:           1.0126
+  P-Value:           0.2250
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      190.88%
+  CAGR:              13.50%
+  Max Drawdown:      -66.07%
+  Max DD Duration:   20,615 bars
+  Sharpe Ratio:      0.3693
+  Sortino Ratio:     0.4822
+  SQN:               1.0724
+  N Trades:          37283
+  Win Rate:          0.33%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/ETH/figures/ETH_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/ETH/figures/ETH_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 13.1s (0.2 min)
+  Velocidad:    15.29 tareas/s
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de BNB...
+  Rango disponible: 06/11/2017 - 25/01/2026
+  Auto-split 50/50:
+    Train: 06/11/2017 - 18/12/2021
+    Walk:  18/12/2021 - 25/01/2026
+  Datos cargados: 71,928 velas
+  Desde: 2017-11-06 03:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  35,965 velas (4.1 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 0.9935
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/BNB/results/BNB_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            BNB
+  Estrategia:        bollinger_b2b
+  Período total:     2017-11-06 03:00:00 - 2026-01-25 04:00:00
+  Velas totales:     71,928
+  Train window:      35,965 velas
+  Permutaciones:     200
+  Real PF:           0.9935
+  P-Value:           0.6050
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      -38.08%
+  CAGR:              -5.67%
+  Max Drawdown:      -73.72%
+  Max DD Duration:   35,080 bars
+  Sharpe Ratio:      -0.1919
+  Sortino Ratio:     -0.2508
+  SQN:               -0.5499
+  N Trades:          36230
+  Win Rate:          0.28%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/BNB/figures/BNB_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/BNB/figures/BNB_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 12.3s (0.2 min)
+  Velocidad:    16.25 tareas/s
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de SOL...
+  Rango disponible: 11/08/2020 - 25/01/2026
+  Auto-split 50/50:
+    Train: 11/08/2020 - 05/05/2023
+    Walk:  05/05/2023 - 25/01/2026
+  Datos cargados: 47,811 velas
+  Desde: 2020-08-11 06:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  23,906 velas (2.7 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 0.9945
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/SOL/results/SOL_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            SOL
+  Estrategia:        bollinger_b2b
+  Período total:     2020-08-11 06:00:00 - 2026-01-25 04:00:00
+  Velas totales:     47,811
+  Train window:      23,906 velas
+  Permutaciones:     200
+  Real PF:           0.9945
+  P-Value:           0.6600
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      -34.44%
+  CAGR:              -7.44%
+  Max Drawdown:      -78.00%
+  Max DD Duration:   7,946 bars
+  Sharpe Ratio:      -0.1725
+  Sortino Ratio:     -0.2369
+  SQN:               -0.4031
+  N Trades:          24147
+  Win Rate:          0.35%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/SOL/figures/SOL_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/SOL/figures/SOL_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 7.9s (0.1 min)
+  Velocidad:    25.46 tareas/s
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de XRP...
+  Rango disponible: 04/05/2018 - 25/01/2026
+  Auto-split 50/50:
+    Train: 04/05/2018 - 17/03/2022
+    Walk:  17/03/2022 - 25/01/2026
+  Datos cargados: 67,661 velas
+  Desde: 2018-05-04 08:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  33,831 velas (3.9 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 0.9865
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/XRP/results/XRP_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            XRP
+  Estrategia:        bollinger_b2b
+  Período total:     2018-05-04 08:00:00 - 2026-01-25 04:00:00
+  Velas totales:     67,661
+  Train window:      33,831 velas
+  Permutaciones:     200
+  Real PF:           0.9865
+  P-Value:           0.7800
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      -70.58%
+  CAGR:              -14.65%
+  Max Drawdown:      -96.19%
+  Max DD Duration:   30,588 bars
+  Sharpe Ratio:      -0.3813
+  Sortino Ratio:     -0.5027
+  SQN:               -1.0597
+  N Trades:          34394
+  Win Rate:          0.54%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/XRP/figures/XRP_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/XRP/figures/XRP_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 12.0s (0.2 min)
+  Velocidad:    16.63 tareas/s
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de ADA...
+  Rango disponible: 17/04/2018 - 25/01/2026
+  Auto-split 50/50:
+    Train: 17/04/2018 - 08/03/2022
+    Walk:  09/03/2022 - 25/01/2026
+  Datos cargados: 68,073 velas
+  Desde: 2018-04-17 04:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  34,037 velas (3.9 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 1.0042
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/ADA/results/ADA_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            ADA
+  Estrategia:        bollinger_b2b
+  Período total:     2018-04-17 04:00:00 - 2026-01-25 04:00:00
+  Velas totales:     68,073
+  Train window:      34,037 velas
+  Permutaciones:     200
+  Real PF:           1.0042
+  P-Value:           0.4400
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      54.93%
+  CAGR:              5.80%
+  Max Drawdown:      -70.22%
+  Max DD Duration:   21,648 bars
+  Sharpe Ratio:      0.1254
+  Sortino Ratio:     0.1710
+  SQN:               0.3495
+  N Trades:          34730
+  Win Rate:          0.77%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/ADA/figures/ADA_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/ADA/figures/ADA_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 11.7s (0.2 min)
+  Velocidad:    17.03 tareas/s
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de DOGE...
+  Rango disponible: 05/07/2019 - 25/01/2026
+  Auto-split 50/50:
+    Train: 05/07/2019 - 16/10/2022
+    Walk:  16/10/2022 - 25/01/2026
+  Datos cargados: 57,453 velas
+  Desde: 2019-07-05 12:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  28,727 velas (3.3 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 1.0318
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/DOGE/results/DOGE_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            DOGE
+  Estrategia:        bollinger_b2b
+  Período total:     2019-07-05 12:00:00 - 2026-01-25 04:00:00
+  Velas totales:     57,453
+  Train window:      28,727 velas
+  Permutaciones:     200
+  Real PF:           1.0318
+  P-Value:           0.0550
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      1625.81%
+  CAGR:              54.39%
+  Max Drawdown:      -69.55%
+  Max DD Duration:   10,817 bars
+  Sharpe Ratio:      0.8990
+  Sortino Ratio:     1.2285
+  SQN:               2.3024
+  N Trades:          28962
+  Win Rate:          0.33%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/DOGE/figures/DOGE_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/DOGE/figures/DOGE_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 10.2s (0.2 min)
+  Velocidad:    19.53 tareas/s
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de TRX...
+  Rango disponible: 11/06/2018 - 25/01/2026
+  Auto-split 50/50:
+    Train: 11/06/2018 - 05/04/2022
+    Walk:  05/04/2022 - 25/01/2026
+  Datos cargados: 66,746 velas
+  Desde: 2018-06-11 11:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  33,374 velas (3.8 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 1.0095
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/TRX/results/TRX_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            TRX
+  Estrategia:        bollinger_b2b
+  Período total:     2018-06-11 11:00:00 - 2026-01-25 04:00:00
+  Velas totales:     66,746
+  Train window:      33,374 velas
+  Permutaciones:     200
+  Real PF:           1.0095
+  P-Value:           0.3350
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      63.24%
+  CAGR:              6.64%
+  Max Drawdown:      -77.85%
+  Max DD Duration:   21,662 bars
+  Sharpe Ratio:      0.2386
+  Sortino Ratio:     0.2965
+  SQN:               0.6586
+  N Trades:          34073
+  Win Rate:          0.77%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/TRX/figures/TRX_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/TRX/figures/TRX_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 11.3s (0.2 min)
+  Velocidad:    17.69 tareas/s
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de AVAX...
+  Rango disponible: 22/09/2020 - 25/01/2026
+  Auto-split 50/50:
+    Train: 22/09/2020 - 26/05/2023
+    Walk:  26/05/2023 - 25/01/2026
+  Datos cargados: 46,803 velas
+  Desde: 2020-09-22 06:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  23,402 velas (2.7 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 1.0230
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/AVAX/results/AVAX_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            AVAX
+  Estrategia:        bollinger_b2b
+  Período total:     2020-09-22 06:00:00 - 2026-01-25 04:00:00
+  Velas totales:     46,803
+  Train window:      23,402 velas
+  Permutaciones:     200
+  Real PF:           1.0230
+  P-Value:           0.1550
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      494.88%
+  CAGR:              39.62%
+  Max Drawdown:      -57.44%
+  Max DD Duration:   14,301 bars
+  Sharpe Ratio:      0.7106
+  Sortino Ratio:     0.9991
+  SQN:               1.6424
+  N Trades:          23611
+  Win Rate:          0.37%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/AVAX/figures/AVAX_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/AVAX/figures/AVAX_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 8.2s (0.1 min)
+  Velocidad:    24.27 tareas/s
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de DOT...
+  Rango disponible: 18/08/2020 - 25/01/2026
+  Auto-split 50/50:
+    Train: 18/08/2020 - 09/05/2023
+    Walk:  09/05/2023 - 25/01/2026
+  Datos cargados: 47,626 velas
+  Desde: 2020-08-18 23:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  23,814 velas (2.7 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 0.9846
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/DOT/results/DOT_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            DOT
+  Estrategia:        bollinger_b2b
+  Período total:     2020-08-18 23:00:00 - 2026-01-25 04:00:00
+  Velas totales:     47,626
+  Train window:      23,814 velas
+  Permutaciones:     200
+  Real PF:           0.9846
+  P-Value:           0.8100
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      -66.63%
+  CAGR:              -18.28%
+  Max Drawdown:      -87.51%
+  Max DD Duration:   23,792 bars
+  Sharpe Ratio:      -0.4737
+  Sortino Ratio:     -0.6405
+  SQN:               -1.1046
+  N Trades:          23999
+  Win Rate:          0.28%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/DOT/figures/DOT_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/DOT/figures/DOT_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 8.4s (0.1 min)
+  Velocidad:    23.70 tareas/s
+
+======================================================================
+BATCH WALK-FORWARD
+======================================================================
+Tickers: 10 | Strategy: bollinger_b2b | Perms: 200
+======================================================================
+
+
+[1/10] BTC
+
+[2/10] ETH
+
+[3/10] BNB
+
+[4/10] SOL
+
+[5/10] XRP
+
+[6/10] ADA
+
+[7/10] DOGE
+
+[8/10] TRX
+
+[9/10] AVAX
+
+[10/10] DOT
+
+======================================================================
+AGREGATING RESULTS
+======================================================================
+
+Generating visualizations...
+  Histograms: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/crypto_10/figures/crypto_10_walkforward_histograms.png
+  Summary: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/crypto_10/figures/crypto_10_walkforward_summary.png
+
+======================================================================
+BATCH COMPLETED in 0:04:48.285747
+======================================================================
+Successful: 10/10 | Failed: 0
+Significant: 0/10
+P-Value: mean=0.4715
+PF: mean=1.0036
+
+==============================================
+Job completado: Tue Jan 27 06:42:45 AM CET 2026
+==============================================
+
+*****************************************************************************
+*                                                                           *
+*                    JOB EFFICIENCY REPORT (seff 4850631)                   *
+*                                                                           *
+*****************************************************************************
+
+Job ID: 4850631
+Cluster: finisterrae3
+User/Group: curso396/ulc
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 64
+CPU Utilized: 01:41:42
+CPU Efficiency: 31.16% of 05:26:24 core-walltime
+Job Wall-clock time: 00:05:06
+Memory Utilized: 1.51 GB
+Memory Efficiency: 4.72% of 32.00 GB
+
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ ++   Memory Efficiency is too small. Please review the requested memory. ++
+ ++ It seems that you do not need that much memory so we recommend        ++
+ ++ requesting less memory in other similar jobs.                         ++
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+*****************************************************************************
+

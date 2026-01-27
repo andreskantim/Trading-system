@@ -1,0 +1,83 @@
+{
+  "ticker": "DOT",
+  "strategy": "bollinger_b2b",
+  "period": {
+    "start": "2020-08-18 23:00:00",
+    "end": "2026-01-25 04:00:00"
+  },
+  "n_candles": 47626,
+  "n_permutations": 1000,
+  "best_params": [
+    50,
+    1.5
+  ],
+  "real_pf": 1.017409199248149,
+  "p_value": 0.638,
+  "mean_perm_pf": 1.0217357409935035,
+  "std_perm_pf": 0.01127048798692315,
+  "perm_better_count": 638,
+  "execution_time_seconds": 6.758427619934082,
+  "significant": false,
+  "stats": {
+    "performance": {
+      "total_return_pct": 1868.9131257796116,
+      "cumulative_log_return": 2.9800667706921464,
+      "cagr_pct": 73.00201497745842,
+      "pnl": 2.9800667706921464
+    },
+    "risk": {
+      "max_drawdown_pct": -77.63580179436666,
+      "max_drawdown_duration": 22011,
+      "ulcer_index": 40.161065387212815
+    },
+    "volatility": {
+      "annualized_volatility_pct": 107.49914855371907,
+      "monthly_volatility_pct": 30.819048023541562,
+      "downside_volatility_pct": 76.81374675637421
+    },
+    "risk_return": {
+      "sharpe_ratio": 0.5099059596662547,
+      "sortino_ratio": 0.7136021717628395,
+      "calmar_ratio": 0.940313789388281,
+      "sqn": 1.1889404112395259
+    },
+    "trades": {
+      "n_trades": 719,
+      "win_rate_pct": 37.69123783031989,
+      "profit_factor": 1.172090859933471,
+      "expectancy": 0.0041447382068040975,
+      "avg_win_loss_ratio": 1.920325984540447
+    },
+    "distribution": {
+      "skewness": 1.5988971255042843,
+      "kurtosis": 48.234653958964586,
+      "p5": -0.016025836790827343,
+      "p25": -0.004780885600341955,
+      "p50": 0.0,
+      "p75": 0.004627495532047998,
+      "p95": 0.016415359809553103
+    },
+    "robustness": {
+      "t_test_pvalue": 0.23447886904945084,
+      "mcpt_pvalue": 0.638
+    },
+    "temporal": {
+      "rolling_sharpe_mean": 0.2886789104237293,
+      "rolling_sharpe_std": 2.747995076463487,
+      "rolling_sharpe_min": -8.549249748076118,
+      "rolling_dd_mean": -23.820217858057557,
+      "rolling_dd_worst": -62.60549777208837
+    },
+    "dependencies": {
+      "autocorr_lag1": -0.03523482868837744,
+      "autocorr_lag5": -0.015158727631673488,
+      "autocorr_lag24": -0.03760335479963733,
+      "hurst_exponent": 0.5855849965239172
+    },
+    "concentration": {
+      "gini_coefficient": 0.4851639070375658,
+      "top_5_trades_pct": 93.37758727228815,
+      "top_10_trades_pct": 143.54469932280264
+    }
+  }
+}

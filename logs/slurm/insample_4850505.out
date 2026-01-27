@@ -1,0 +1,703 @@
+slurmstepd: info: Setting TMPDIR to /scratch/4850505. Previous errors about TMPDIR can be discarded
+Python: /mnt/netapp2/Store_uni/home/ulc/cursos/curso396/miniconda3/envs/trading_env/bin/python
+Conda env: trading_env
+✓ Dependencias disponibles
+==============================================
+SLURM Job: 4850505
+Nodo: ilk-116
+CPUs: 64
+Memoria: 32768 MB
+==============================================
+Grupo: crypto_10
+Estrategia: bollinger_b2b
+Permutaciones: 1000
+Workers: 64
+==============================================
+
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de BTC...
+  Rango disponible: 17/08/2017 - 25/01/2026
+  Datos cargados: 73,865 velas
+  Desde: 2017-08-17 04:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [50, 1.5]
+  Best PF:         1.0313
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/BTC/results/BTC_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            BTC
+  Estrategia:        bollinger_b2b
+  Período:           2017-08-17 04:00:00 - 2026-01-25 04:00:00
+  Velas:             73,865
+  Permutaciones:     1000
+  Best Parameters:   [50, 1.5]
+  Real PF:           1.0313
+  P-Value:           0.0860
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      16692.85%
+  CAGR:              83.61%
+  Max Drawdown:      -63.79%
+  Max DD Duration:   24,948 bars
+  Sharpe Ratio:      0.8282
+  Sortino Ratio:     1.0293
+  SQN:               2.4050
+  N Trades:          1051
+  Win Rate:          33.97%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/BTC/figures/BTC_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/BTC/figures/BTC_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 10.6s
+  Velocidad:    94.6 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de ETH...
+  Rango disponible: 17/08/2017 - 25/01/2026
+  Datos cargados: 73,865 velas
+  Desde: 2017-08-17 04:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [50, 2.0]
+  Best PF:         1.0366
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/ETH/results/ETH_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            ETH
+  Estrategia:        bollinger_b2b
+  Período:           2017-08-17 04:00:00 - 2026-01-25 04:00:00
+  Velas:             73,865
+  Permutaciones:     1000
+  Best Parameters:   [50, 2.0]
+  Real PF:           1.0366
+  P-Value:           0.0380
+  Significativo (p < 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      233262.87%
+  CAGR:              150.86%
+  Max Drawdown:      -73.36%
+  Max DD Duration:   24,445 bars
+  Sharpe Ratio:      1.0099
+  Sortino Ratio:     1.2934
+  SQN:               2.9325
+  N Trades:          767
+  Win Rate:          38.59%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/ETH/figures/ETH_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/ETH/figures/ETH_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 11.1s
+  Velocidad:    90.1 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de BNB...
+  Rango disponible: 06/11/2017 - 25/01/2026
+  Datos cargados: 71,928 velas
+  Desde: 2017-11-06 03:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [50, 2.0]
+  Best PF:         1.0299
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/BNB/results/BNB_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            BNB
+  Estrategia:        bollinger_b2b
+  Período:           2017-11-06 03:00:00 - 2026-01-25 04:00:00
+  Velas:             71,928
+  Permutaciones:     1000
+  Best Parameters:   [50, 2.0]
+  Real PF:           1.0299
+  P-Value:           0.1780
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      66115.90%
+  CAGR:              120.58%
+  Max Drawdown:      -72.02%
+  Max DD Duration:   30,431 bars
+  Sharpe Ratio:      0.7886
+  Sortino Ratio:     0.9766
+  SQN:               2.2598
+  N Trades:          716
+  Win Rate:          41.06%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/BNB/figures/BNB_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/BNB/figures/BNB_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 11.6s
+  Velocidad:    86.3 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de SOL...
+  Rango disponible: 11/08/2020 - 25/01/2026
+  Datos cargados: 47,811 velas
+  Desde: 2020-08-11 06:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [50, 1.5]
+  Best PF:         1.0251
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/SOL/results/SOL_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            SOL
+  Estrategia:        bollinger_b2b
+  Período:           2020-08-11 06:00:00 - 2026-01-25 04:00:00
+  Velas:             47,811
+  Permutaciones:     1000
+  Best Parameters:   [50, 1.5]
+  Real PF:           1.0251
+  P-Value:           0.4280
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      14706.69%
+  CAGR:              149.85%
+  Max Drawdown:      -70.37%
+  Max DD Duration:   5,348 bars
+  Sharpe Ratio:      0.7372
+  Sortino Ratio:     0.9792
+  SQN:               1.7222
+  N Trades:          672
+  Win Rate:          38.54%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/SOL/figures/SOL_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/SOL/figures/SOL_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 6.0s
+  Velocidad:    166.6 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de XRP...
+  Rango disponible: 04/05/2018 - 25/01/2026
+  Datos cargados: 67,661 velas
+  Desde: 2018-05-04 08:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [50, 1.5]
+  Best PF:         1.0160
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/XRP/results/XRP_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            XRP
+  Estrategia:        bollinger_b2b
+  Período:           2018-05-04 08:00:00 - 2026-01-25 04:00:00
+  Velas:             67,661
+  Permutaciones:     1000
+  Best Parameters:   [50, 1.5]
+  Real PF:           1.0160
+  P-Value:           0.6060
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      2794.78%
+  CAGR:              54.61%
+  Max Drawdown:      -87.52%
+  Max DD Duration:   38,895 bars
+  Sharpe Ratio:      0.4275
+  Sortino Ratio:     0.5383
+  SQN:               1.1882
+  N Trades:          969
+  Win Rate:          33.23%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/XRP/figures/XRP_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/XRP/figures/XRP_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 10.1s
+  Velocidad:    99.0 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de ADA...
+  Rango disponible: 17/04/2018 - 25/01/2026
+  Datos cargados: 68,073 velas
+  Desde: 2018-04-17 04:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [50, 1.5]
+  Best PF:         1.0275
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/ADA/results/ADA_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            ADA
+  Estrategia:        bollinger_b2b
+  Período:           2018-04-17 04:00:00 - 2026-01-25 04:00:00
+  Velas:             68,073
+  Permutaciones:     1000
+  Best Parameters:   [50, 1.5]
+  Real PF:           1.0275
+  P-Value:           0.1420
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      75116.02%
+  CAGR:              134.50%
+  Max Drawdown:      -66.71%
+  Max DD Duration:   16,720 bars
+  Sharpe Ratio:      0.8120
+  Sortino Ratio:     1.1125
+  SQN:               2.2636
+  N Trades:          956
+  Win Rate:          36.61%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/ADA/figures/ADA_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/ADA/figures/ADA_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 9.9s
+  Velocidad:    101.5 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de DOGE...
+  Rango disponible: 05/07/2019 - 25/01/2026
+  Datos cargados: 57,453 velas
+  Desde: 2019-07-05 12:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [50, 1.5]
+  Best PF:         1.0379
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/DOGE/results/DOGE_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            DOGE
+  Estrategia:        bollinger_b2b
+  Período:           2019-07-05 12:00:00 - 2026-01-25 04:00:00
+  Velas:             57,453
+  Permutaciones:     1000
+  Best Parameters:   [50, 1.5]
+  Real PF:           1.0379
+  P-Value:           0.0970
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      210645.24%
+  CAGR:              221.20%
+  Max Drawdown:      -74.85%
+  Max DD Duration:   15,817 bars
+  Sharpe Ratio:      0.9320
+  Sortino Ratio:     1.1791
+  SQN:               2.3868
+  N Trades:          809
+  Win Rate:          36.22%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/DOGE/figures/DOGE_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/DOGE/figures/DOGE_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 7.1s
+  Velocidad:    141.5 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de TRX...
+  Rango disponible: 11/06/2018 - 25/01/2026
+  Datos cargados: 66,746 velas
+  Desde: 2018-06-11 11:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [50, 1.5]
+  Best PF:         1.0361
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/TRX/results/TRX_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            TRX
+  Estrategia:        bollinger_b2b
+  Período:           2018-06-11 11:00:00 - 2026-01-25 04:00:00
+  Velas:             66,746
+  Permutaciones:     1000
+  Best Parameters:   [50, 1.5]
+  Real PF:           1.0361
+  P-Value:           0.0650
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      48381.32%
+  CAGR:              125.15%
+  Max Drawdown:      -77.85%
+  Max DD Duration:   21,662 bars
+  Sharpe Ratio:      0.9311
+  Sortino Ratio:     1.1981
+  SQN:               2.5700
+  N Trades:          909
+  Win Rate:          38.06%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/TRX/figures/TRX_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/TRX/figures/TRX_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 10.1s
+  Velocidad:    99.4 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de AVAX...
+  Rango disponible: 22/09/2020 - 25/01/2026
+  Datos cargados: 46,803 velas
+  Desde: 2020-09-22 06:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [40, 3.0]
+  Best PF:         1.0396
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/AVAX/results/AVAX_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            AVAX
+  Estrategia:        bollinger_b2b
+  Período:           2020-09-22 06:00:00 - 2026-01-25 04:00:00
+  Velas:             46,803
+  Permutaciones:     1000
+  Best Parameters:   [40, 3.0]
+  Real PF:           1.0396
+  P-Value:           0.0690
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      191395.56%
+  CAGR:              311.45%
+  Max Drawdown:      -75.51%
+  Max DD Duration:   7,620 bars
+  Sharpe Ratio:      1.1553
+  Sortino Ratio:     1.5729
+  SQN:               2.6705
+  N Trades:          185
+  Win Rate:          46.49%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/AVAX/figures/AVAX_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/AVAX/figures/AVAX_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 6.7s
+  Velocidad:    149.7 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: bollinger_b2b
+
+Cargando datos de DOT...
+  Rango disponible: 18/08/2020 - 25/01/2026
+  Datos cargados: 47,626 velas
+  Desde: 2020-08-18 23:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [50, 1.5]
+  Best PF:         1.0174
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/DOT/results/DOT_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            DOT
+  Estrategia:        bollinger_b2b
+  Período:           2020-08-18 23:00:00 - 2026-01-25 04:00:00
+  Velas:             47,626
+  Permutaciones:     1000
+  Best Parameters:   [50, 1.5]
+  Real PF:           1.0174
+  P-Value:           0.6380
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      1868.91%
+  CAGR:              73.00%
+  Max Drawdown:      -77.64%
+  Max DD Duration:   22,011 bars
+  Sharpe Ratio:      0.5099
+  Sortino Ratio:     0.7136
+  SQN:               1.1889
+  N Trades:          719
+  Win Rate:          37.69%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/DOT/figures/DOT_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/DOT/figures/DOT_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 6.9s
+  Velocidad:    144.6 tareas/s
+
+======================================================================
+BATCH IN-SAMPLE
+======================================================================
+Tickers: 10 | Strategy: bollinger_b2b | Perms: 1000
+======================================================================
+
+
+[1/10] BTC
+
+[2/10] ETH
+
+[3/10] BNB
+
+[4/10] SOL
+
+[5/10] XRP
+
+[6/10] ADA
+
+[7/10] DOGE
+
+[8/10] TRX
+
+[9/10] AVAX
+
+[10/10] DOT
+
+======================================================================
+AGREGATING RESULTS
+======================================================================
+
+Generating visualizations...
+  Histograms: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/crypto_10/figures/crypto_10_histograms.png
+  Summary: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/bollinger_b2b/crypto_10/figures/crypto_10_summary.png
+
+======================================================================
+BATCH COMPLETED in 0:05:25.590602
+======================================================================
+Successful: 10/10 | Failed: 0
+Significant: 1/10
+P-Value: mean=0.2347
+PF: mean=1.0297
+
+==============================================
+Job completado: Tue Jan 27 06:29:25 AM CET 2026
+==============================================

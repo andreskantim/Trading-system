@@ -1,0 +1,148 @@
+/mnt/netapp1/Optcesga_FT2_RHEL7/2020/gentoo/22072020/usr/lib/python-exec/python3.7/python: can't open file 'screening/download/scheduler.py': [Errno 2] No such file or directory
+/mnt/netapp1/Optcesga_FT2_RHEL7/2020/gentoo/22072020/usr/lib/python-exec/python3.7/python: can't open file 'screening/download/scheduler.py': [Errno 2] No such file or directory
+2026-01-27 06:53:43,054 - INFO - ============================================================
+2026-01-27 06:53:43,054 - INFO - SCHEDULER INICIADO
+2026-01-27 06:53:43,055 - INFO - Tickers: ['BTC', 'ETH', 'BNB', 'SOL', 'XRP', 'ADA', 'DOGE', 'TRX', 'AVAX', 'DOT', 'MATIC', 'LINK', 'UNI', 'LTC', 'ATOM', 'XLM', 'ETC', 'FIL', 'HBAR', 'VET', 'ALGO', 'AAVE', 'GRT', 'SAND', 'MANA']
+2026-01-27 06:53:43,057 - INFO - Intervalo: 3600s (60 min)
+2026-01-27 06:53:43,058 - INFO - ============================================================
+2026-01-27 06:53:43,060 - INFO - Ejecutando pipeline inicial (recuperación de datos)...
+2026-01-27 06:53:43,060 - INFO - ============================================================
+2026-01-27 06:53:43,060 - INFO - PIPELINE INICIADO: 2026-01-27T06:53:43.060353
+2026-01-27 06:53:43,062 - INFO - Tickers: 25, Estrategias: ['hawkes', 'bollinger_b2b']
+2026-01-27 06:53:43,063 - INFO - [1/3] Descargando datos...
+
+============================================================
+Descargando 25 tickers desde Binance
+============================================================
+
+[1/25] Procesando BTC (BTCUSDT)
+
+[2/25] Procesando ETH (ETHUSDT)
+
+[3/25] Procesando BNB (BNBUSDT)
+
+[4/25] Procesando SOL (SOLUSDT)
+
+[5/25] Procesando XRP (XRPUSDT)
+
+[6/25] Procesando ADA (ADAUSDT)
+
+[7/25] Procesando DOGE (DOGEUSDT)
+
+[8/25] Procesando TRX (TRXUSDT)
+
+[9/25] Procesando AVAX (AVAXUSDT)
+
+[10/25] Procesando DOT (DOTUSDT)
+
+[11/25] Procesando MATIC (MATICUSDT)
+
+[12/25] Procesando LINK (LINKUSDT)
+
+[13/25] Procesando UNI (UNIUSDT)
+
+[14/25] Procesando LTC (LTCUSDT)
+
+[15/25] Procesando ATOM (ATOMUSDT)
+
+[16/25] Procesando XLM (XLMUSDT)
+
+[17/25] Procesando ETC (ETCUSDT)
+
+[18/25] Procesando FIL (FILUSDT)
+
+[19/25] Procesando HBAR (HBARUSDT)
+
+[20/25] Procesando VET (VETUSDT)
+
+[21/25] Procesando ALGO (ALGOUSDT)
+
+[22/25] Procesando AAVE (AAVEUSDT)
+
+[23/25] Procesando GRT (GRTUSDT)
+
+[24/25] Procesando SAND (SANDUSDT)
+
+[25/25] Procesando MANA (MANAUSDT)
+
+============================================================
+RESUMEN DE DESCARGA
+============================================================
+Total: 25
+Exitosos: 25
+Fallidos: 0
+2026-01-27 06:54:06,596 - INFO -   Descarga: 25/25 OK
+2026-01-27 06:54:06,599 - INFO - [2/3] Detectando señales...
+
+======================================================================
+DETECCIÓN DE SEÑALES
+======================================================================
+Tickers: 25
+Estrategias: hawkes, bollinger_b2b
+
+[1/25] BTC
+
+[2/25] ETH
+
+[3/25] BNB
+
+[4/25] SOL
+
+[5/25] XRP
+
+[6/25] ADA
+
+[7/25] DOGE
+
+[8/25] TRX
+
+[9/25] AVAX
+
+[10/25] DOT
+
+[11/25] MATIC
+
+[12/25] LINK
+
+[13/25] UNI
+
+[14/25] LTC
+
+[15/25] ATOM
+
+[16/25] XLM
+
+[17/25] ETC
+
+[18/25] FIL
+
+[19/25] HBAR
+
+[20/25] VET
+
+[21/25] ALGO
+
+[22/25] AAVE
+
+[23/25] GRT
+
+[24/25] SAND
+
+[25/25] MANA
+
+======================================================================
+RESUMEN DE SEÑALES
+======================================================================
+
+[hawkes]
+  Tickers procesados: 0/25
+  Nuevas señales: 0
+
+[bollinger_b2b]
+  Tickers procesados: 0/25
+  Nuevas señales: 0
+2026-01-27 06:54:07,719 - INFO -   Señales nuevas: 0
+2026-01-27 06:54:07,719 - INFO - [3/3] Broadcasting...
+2026-01-27 06:54:07,719 - INFO -   Sin señales nuevas para enviar
+2026-01-27 06:54:07,719 - INFO - PIPELINE COMPLETADO en 24s
+2026-01-27 06:54:07,719 - INFO - Próxima ejecución en 10 minutos...

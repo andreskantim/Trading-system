@@ -58,11 +58,11 @@ def save_batch_report(batch_dirs: dict, batch_name: str, strategy: str,
     }
 
     # Save to results
-    with open(batch_dirs['results'] / f'{batch_name}_insample_results.json', 'w') as f:
+    with open(batch_dirs['results'] / f'{batch_name}_results.json', 'w') as f:
         json.dump(report, f, indent=2)
 
     # Save to reports (human-readable)
-    with open(batch_dirs['reports'] / f'{batch_name}_insample_report.json', 'w') as f:
+    with open(batch_dirs['reports'] / f'{batch_name}_report.json', 'w') as f:
         json.dump(report, f, indent=2)
 
 
@@ -84,6 +84,7 @@ def main():
 
     tickers = get_ticker_group(args.group) if args.group else [t.upper() for t in args.tickers]
     batch_name = f"{args.group}" if args.group else f"custom_{len(tickers)}"
+    batch_type = f"{batch_name}_insample" 
 
     print(f"\n{'='*70}\nBATCH IN-SAMPLE\n{'='*70}")
     print(f"Tickers: {len(tickers)} | Strategy: {args.strategy} | Perms: {args.n_permutations}")
@@ -128,11 +129,11 @@ def main():
         batch_dirs = ensure_batch_OUTPUTS_DIRs(args.strategy, batch_name)
 
         # Save reports
-        save_batch_report(batch_dirs, batch_name, args.strategy, successful, failed, all_results, batch_stats)
+        save_batch_report(batch_dirs, batch_type, args.strategy, successful, failed, all_results, batch_stats)
 
         # Generate plots
         print("\nGenerating visualizations...")
-        plot_batch_results(batch_name, args.strategy, ticker_results, batch_stats, batch_dirs['figures'])
+        plot_batch_results(batch_type, args.strategy, ticker_results, batch_stats, batch_dirs['figures'])
 
     # Summary
     duration = datetime.now() - start_time

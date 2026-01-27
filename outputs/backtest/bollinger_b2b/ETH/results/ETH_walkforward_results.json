@@ -1,0 +1,88 @@
+{
+  "ticker": "ETH",
+  "strategy": "bollinger_b2b",
+  "period": {
+    "start": "2017-08-17 04:00:00",
+    "end": "2026-01-25 04:00:00"
+  },
+  "train_period": {
+    "start": "2017-08-17 04:00:00",
+    "end": "2021-11-08 07:00:00"
+  },
+  "walk_period": {
+    "start": "2021-11-08 08:00:00",
+    "end": "2026-01-25 04:00:00"
+  },
+  "n_candles": 73865,
+  "train_window": 36933,
+  "n_permutations": 200,
+  "real_pf": 1.0126407094737386,
+  "p_value": 0.225,
+  "mean_perm_pf": 1.000468183246096,
+  "std_perm_pf": 0.016674681476238486,
+  "perm_better_count": 45,
+  "execution_time_seconds": 13.07695484161377,
+  "significant": false,
+  "stats": {
+    "performance": {
+      "total_return_pct": 190.87822464170637,
+      "cumulative_log_return": 1.067734521577922,
+      "cagr_pct": 13.49943706940724,
+      "pnl": 1.067734521577922
+    },
+    "risk": {
+      "max_drawdown_pct": -66.06917069633369,
+      "max_drawdown_duration": 20615,
+      "ulcer_index": 25.041716961292302
+    },
+    "volatility": {
+      "annualized_volatility_pct": 68.57681966017431,
+      "monthly_volatility_pct": 19.66036314559761,
+      "downside_volatility_pct": 52.523554194718244
+    },
+    "risk_return": {
+      "sharpe_ratio": 0.3693167310878467,
+      "sortino_ratio": 0.48219446024928725,
+      "calmar_ratio": 0.2043227866663135,
+      "sqn": 1.0724233981480213
+    },
+    "trades": {
+      "n_trades": 37283,
+      "win_rate_pct": 0.33259126143282464,
+      "profit_factor": 1.128827932748292,
+      "expectancy": 2.8638642855401174e-05,
+      "avg_win_loss_ratio": 2.0573799419444683
+    },
+    "distribution": {
+      "skewness": -0.007916202609461548,
+      "kurtosis": 15.87680425721366,
+      "p5": -0.010442907062880202,
+      "p25": -0.002891849543687819,
+      "p50": 0.0,
+      "p75": 0.002833266504866039,
+      "p95": 0.010457245894384126
+    },
+    "robustness": {
+      "t_test_pvalue": 0.4482809201113459,
+      "mcpt_pvalue": 0.225
+    },
+    "temporal": {
+      "rolling_sharpe_mean": 0.21387656189815082,
+      "rolling_sharpe_std": 3.55219800826003,
+      "rolling_sharpe_min": -34.88698173874037,
+      "rolling_dd_mean": -9.695179941514581,
+      "rolling_dd_worst": -39.136341429512036
+    },
+    "dependencies": {
+      "autocorr_lag1": 0.011438587738084453,
+      "autocorr_lag5": 0.004388806343284176,
+      "autocorr_lag24": -0.01512843016318549,
+      "hurst_exponent": 0.5934231523088549
+    },
+    "concentration": {
+      "gini_coefficient": 0.9954929515173483,
+      "top_5_trades_pct": 213.6198669791041,
+      "top_10_trades_pct": 273.6753922556291
+    }
+  }
+}

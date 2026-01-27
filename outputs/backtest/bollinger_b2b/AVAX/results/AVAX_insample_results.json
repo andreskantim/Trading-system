@@ -1,0 +1,83 @@
+{
+  "ticker": "AVAX",
+  "strategy": "bollinger_b2b",
+  "period": {
+    "start": "2020-09-22 06:00:00",
+    "end": "2026-01-25 04:00:00"
+  },
+  "n_candles": 46803,
+  "n_permutations": 1000,
+  "best_params": [
+    40,
+    3.0
+  ],
+  "real_pf": 1.0395774208815938,
+  "p_value": 0.069,
+  "mean_perm_pf": 1.0221637832871353,
+  "std_perm_pf": 0.011134943622236698,
+  "perm_better_count": 69,
+  "execution_time_seconds": 6.649102449417114,
+  "significant": false,
+  "stats": {
+    "performance": {
+      "total_return_pct": 191395.56073141028,
+      "cumulative_log_return": 7.55744971978689,
+      "cagr_pct": 311.4465311718697,
+      "pnl": 7.55744971978689
+    },
+    "risk": {
+      "max_drawdown_pct": -75.51226464947305,
+      "max_drawdown_duration": 7620,
+      "ulcer_index": 28.58524121165873
+    },
+    "volatility": {
+      "annualized_volatility_pct": 122.43654651282962,
+      "monthly_volatility_pct": 35.10146691933898,
+      "downside_volatility_pct": 89.92943662870232
+    },
+    "risk_return": {
+      "sharpe_ratio": 1.155324249852817,
+      "sortino_ratio": 1.5729433715740335,
+      "calmar_ratio": 4.124449619112874,
+      "sqn": 2.6704760158742906
+    },
+    "trades": {
+      "n_trades": 185,
+      "win_rate_pct": 46.48648648648649,
+      "profit_factor": 1.9487000833797792,
+      "expectancy": 0.04085107956641562,
+      "avg_win_loss_ratio": 2.243271026216257
+    },
+    "distribution": {
+      "skewness": 0.8077415814733493,
+      "kurtosis": 24.577740736775098,
+      "p5": -0.018598493451161446,
+      "p25": -0.0052432615272178795,
+      "p50": 0.0,
+      "p75": 0.005414198390872649,
+      "p95": 0.019235155977042596
+    },
+    "robustness": {
+      "t_test_pvalue": 0.007578283145970579,
+      "mcpt_pvalue": 0.069
+    },
+    "temporal": {
+      "rolling_sharpe_mean": 0.9144835547252944,
+      "rolling_sharpe_std": 2.907698635240968,
+      "rolling_sharpe_min": -7.485244761987083,
+      "rolling_dd_mean": -26.17884829875279,
+      "rolling_dd_worst": -68.54354423635426
+    },
+    "dependencies": {
+      "autocorr_lag1": -0.02815204988685923,
+      "autocorr_lag5": -0.0047892305881790985,
+      "autocorr_lag24": -0.031957652327287894,
+      "hurst_exponent": 0.5898243867279005
+    },
+    "concentration": {
+      "gini_coefficient": 0.5632028837094935,
+      "top_5_trades_pct": 63.01550031987948,
+      "top_10_trades_pct": 95.7680551431031
+    }
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "ticker": "BNB",
+  "strategy": "bollinger_b2b",
+  "period": {
+    "start": "2017-11-06 03:00:00",
+    "end": "2026-01-25 04:00:00"
+  },
+  "train_period": {
+    "start": "2017-11-06 03:00:00",
+    "end": "2021-12-18 16:00:00"
+  },
+  "walk_period": {
+    "start": "2021-12-18 17:00:00",
+    "end": "2026-01-25 04:00:00"
+  },
+  "n_candles": 71928,
+  "train_window": 35965,
+  "n_permutations": 200,
+  "real_pf": 0.9935239003289086,
+  "p_value": 0.605,
+  "mean_perm_pf": 0.9983941361053762,
+  "std_perm_pf": 0.0164863700805169,
+  "perm_better_count": 121,
+  "execution_time_seconds": 12.306605577468872,
+  "significant": false,
+  "stats": {
+    "performance": {
+      "total_return_pct": -38.079362826624354,
+      "cumulative_log_return": -0.47931666649186955,
+      "cagr_pct": -5.670407787693543,
+      "pnl": -0.47931666649186955
+    },
+    "risk": {
+      "max_drawdown_pct": -73.72258211637327,
+      "max_drawdown_duration": 35080,
+      "ulcer_index": 35.79015959771552
+    },
+    "volatility": {
+      "annualized_volatility_pct": 60.83629711997801,
+      "monthly_volatility_pct": 17.441224304935954,
+      "downside_volatility_pct": 46.55257881946789
+    },
+    "risk_return": {
+      "sharpe_ratio": -0.19191990829613,
+      "sortino_ratio": -0.25080665476387365,
+      "calmar_ratio": -0.07691547996437018,
+      "sqn": -0.5499420986896605
+    },
+    "trades": {
+      "n_trades": 36230,
+      "win_rate_pct": 0.2815346398012697,
+      "profit_factor": 0.9239540190537621,
+      "expectancy": -1.3229827946228803e-05,
+      "avg_win_loss_ratio": 1.4765147559388552
+    },
+    "distribution": {
+      "skewness": 0.06228911032646997,
+      "kurtosis": 21.73518681118072,
+      "p5": -0.009035496727381442,
+      "p25": -0.0026854214647011876,
+      "p50": 0.0,
+      "p75": 0.0025850940721054982,
+      "p95": 0.009077634204896505
+    },
+    "robustness": {
+      "t_test_pvalue": 0.6973882534901052,
+      "mcpt_pvalue": 0.605
+    },
+    "temporal": {
+      "rolling_sharpe_mean": -0.248565283408421,
+      "rolling_sharpe_std": 4.2134151047202675,
+      "rolling_sharpe_min": -389.8204074098659,
+      "rolling_dd_mean": -8.822271740389983,
+      "rolling_dd_worst": -47.01519743262908
+    },
+    "dependencies": {
+      "autocorr_lag1": 0.003286583783017333,
+      "autocorr_lag5": -0.010339286947813591,
+      "autocorr_lag24": -0.03310268360600046,
+      "hurst_exponent": 0.58318073712725
+    },
+    "concentration": {
+      "gini_coefficient": 0.9964607961357347,
+      "top_5_trades_pct": 48.49212123462331,
+      "top_10_trades_pct": 256.4073730846838
+    }
+  }
+}

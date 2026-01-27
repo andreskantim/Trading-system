@@ -1,0 +1,83 @@
+{
+  "ticker": "BTC",
+  "strategy": "bollinger_b2b",
+  "period": {
+    "start": "2017-08-17 04:00:00",
+    "end": "2026-01-25 04:00:00"
+  },
+  "n_candles": 73865,
+  "n_permutations": 1000,
+  "best_params": [
+    50,
+    1.5
+  ],
+  "real_pf": 1.0312702381477226,
+  "p_value": 0.086,
+  "mean_perm_pf": 1.0188854282809052,
+  "std_perm_pf": 0.009429886579358077,
+  "perm_better_count": 86,
+  "execution_time_seconds": 9.44447636604309,
+  "significant": false,
+  "stats": {
+    "performance": {
+      "total_return_pct": 16692.846112822997,
+      "cumulative_log_return": 5.12353806209568,
+      "cagr_pct": 83.60648845570591,
+      "pnl": 5.12353806209568
+    },
+    "risk": {
+      "max_drawdown_pct": -63.78608414033236,
+      "max_drawdown_duration": 24948,
+      "ulcer_index": 34.186917020864875
+    },
+    "volatility": {
+      "annualized_volatility_pct": 73.36704409320384,
+      "monthly_volatility_pct": 21.033677807446363,
+      "downside_volatility_pct": 59.03428717054487
+    },
+    "risk_return": {
+      "sharpe_ratio": 0.8282095394722794,
+      "sortino_ratio": 1.0292880411232033,
+      "calmar_ratio": 1.3107324204409183,
+      "sqn": 2.4049581671624902
+    },
+    "trades": {
+      "n_trades": 1051,
+      "win_rate_pct": 33.96764985727878,
+      "profit_factor": 1.3041453881665857,
+      "expectancy": 0.004874917280776099,
+      "avg_win_loss_ratio": 2.535229410049326
+    },
+    "distribution": {
+      "skewness": 0.3378033843118324,
+      "kurtosis": 35.88922254074274,
+      "p5": -0.010004111925708603,
+      "p25": -0.0025278434926363502,
+      "p50": 0.0,
+      "p75": 0.002600617416709916,
+      "p95": 0.010586844957993112
+    },
+    "robustness": {
+      "t_test_pvalue": 0.01617820236037844,
+      "mcpt_pvalue": 0.086
+    },
+    "temporal": {
+      "rolling_sharpe_mean": 0.5581521414473295,
+      "rolling_sharpe_std": 3.1763471619448085,
+      "rolling_sharpe_min": -10.723626112556309,
+      "rolling_dd_mean": -17.145970146091905,
+      "rolling_dd_worst": -49.669432236137986
+    },
+    "dependencies": {
+      "autocorr_lag1": -0.03608696404534492,
+      "autocorr_lag5": -0.0044822962238346,
+      "autocorr_lag24": -0.02383920244195327,
+      "hurst_exponent": 0.5842946484653894
+    },
+    "concentration": {
+      "gini_coefficient": 0.5320054780959622,
+      "top_5_trades_pct": 34.18530020614053,
+      "top_10_trades_pct": 59.4340034624783
+    }
+  }
+}

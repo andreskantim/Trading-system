@@ -1,0 +1,36 @@
+2026-01-27 06:53:43,054 - INFO - ============================================================
+2026-01-27 06:53:43,054 - INFO - SCHEDULER INICIADO
+2026-01-27 06:53:43,055 - INFO - Tickers: ['BTC', 'ETH', 'BNB', 'SOL', 'XRP', 'ADA', 'DOGE', 'TRX', 'AVAX', 'DOT', 'MATIC', 'LINK', 'UNI', 'LTC', 'ATOM', 'XLM', 'ETC', 'FIL', 'HBAR', 'VET', 'ALGO', 'AAVE', 'GRT', 'SAND', 'MANA']
+2026-01-27 06:53:43,057 - INFO - Intervalo: 3600s (60 min)
+2026-01-27 06:53:43,058 - INFO - ============================================================
+2026-01-27 06:53:43,060 - INFO - Ejecutando pipeline inicial (recuperación de datos)...
+2026-01-27 06:53:43,060 - INFO - ============================================================
+2026-01-27 06:53:43,060 - INFO - PIPELINE INICIADO: 2026-01-27T06:53:43.060353
+2026-01-27 06:53:43,062 - INFO - Tickers: 25, Estrategias: ['hawkes', 'bollinger_b2b']
+2026-01-27 06:53:43,063 - INFO - [1/3] Descargando datos...
+2026-01-27 06:53:54,233 - INFO - ============================================================
+2026-01-27 06:53:54,233 - INFO - SCHEDULER INICIADO
+2026-01-27 06:53:54,233 - INFO - Tickers: ['BTC', 'ETH', 'BNB', 'SOL', 'XRP', 'ADA', 'DOGE', 'TRX', 'AVAX', 'DOT', 'MATIC', 'LINK', 'UNI', 'LTC', 'ATOM', 'XLM', 'ETC', 'FIL', 'HBAR', 'VET', 'ALGO', 'AAVE', 'GRT', 'SAND', 'MANA']
+2026-01-27 06:53:54,233 - INFO - Intervalo: 3600s (60 min)
+2026-01-27 06:53:54,233 - INFO - ============================================================
+2026-01-27 06:53:54,235 - INFO - Ejecutando pipeline inicial (recuperación de datos)...
+2026-01-27 06:53:54,238 - INFO - ============================================================
+2026-01-27 06:53:54,239 - INFO - PIPELINE INICIADO: 2026-01-27T06:53:54.238759
+2026-01-27 06:53:54,240 - INFO - Tickers: 25, Estrategias: ['hawkes', 'bollinger_b2b']
+2026-01-27 06:53:54,242 - INFO - [1/3] Descargando datos...
+2026-01-27 06:54:06,596 - INFO -   Descarga: 25/25 OK
+2026-01-27 06:54:06,599 - INFO - [2/3] Detectando señales...
+2026-01-27 06:54:07,719 - INFO -   Señales nuevas: 0
+2026-01-27 06:54:07,719 - INFO - [3/3] Broadcasting...
+2026-01-27 06:54:07,719 - INFO -   Sin señales nuevas para enviar
+2026-01-27 06:54:07,719 - INFO - PIPELINE COMPLETADO en 24s
+2026-01-27 06:54:07,719 - INFO - Próxima ejecución en 10 minutos...
+2026-01-27 06:54:16,991 - INFO -   Descarga: 25/25 OK
+2026-01-27 06:54:16,991 - INFO - [2/3] Detectando señales...
+2026-01-27 06:54:17,908 - INFO -   Señales nuevas: 0
+2026-01-27 06:54:17,908 - INFO - [3/3] Broadcasting...
+2026-01-27 06:54:17,908 - INFO -   Sin señales nuevas para enviar
+2026-01-27 06:54:17,910 - INFO - PIPELINE COMPLETADO en 23s
+2026-01-27 06:54:17,911 - INFO - Próxima ejecución en 10 minutos...
+2026-01-27 06:56:12,899 - INFO - Señal de parada recibida. Finalizando...
+2026-01-27 06:56:12,919 - INFO - Scheduler detenido.

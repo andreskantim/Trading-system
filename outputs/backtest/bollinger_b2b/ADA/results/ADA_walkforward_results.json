@@ -1,0 +1,88 @@
+{
+  "ticker": "ADA",
+  "strategy": "bollinger_b2b",
+  "period": {
+    "start": "2018-04-17 04:00:00",
+    "end": "2026-01-25 04:00:00"
+  },
+  "train_period": {
+    "start": "2018-04-17 04:00:00",
+    "end": "2022-03-08 23:00:00"
+  },
+  "walk_period": {
+    "start": "2022-03-09 00:00:00",
+    "end": "2026-01-25 04:00:00"
+  },
+  "n_candles": 68073,
+  "train_window": 34037,
+  "n_permutations": 200,
+  "real_pf": 1.0042084138959322,
+  "p_value": 0.44,
+  "mean_perm_pf": 1.0002591113263382,
+  "std_perm_pf": 0.018056728496699134,
+  "perm_better_count": 88,
+  "execution_time_seconds": 11.74204707145691,
+  "significant": false,
+  "stats": {
+    "performance": {
+      "total_return_pct": 54.931956286710395,
+      "cumulative_log_return": 0.4378158428474437,
+      "cagr_pct": 5.795785592699176,
+      "pnl": 0.4378158428474437
+    },
+    "risk": {
+      "max_drawdown_pct": -70.22132409131295,
+      "max_drawdown_duration": 21648,
+      "ulcer_index": 32.012873143745495
+    },
+    "volatility": {
+      "annualized_volatility_pct": 89.87016639139983,
+      "monthly_volatility_pct": 25.764975919936262,
+      "downside_volatility_pct": 65.90783704340335
+    },
+    "risk_return": {
+      "sharpe_ratio": 0.12538751009785087,
+      "sortino_ratio": 0.1709750600444723,
+      "calmar_ratio": 0.08253597703686949,
+      "sqn": 0.3495341960462458
+    },
+    "trades": {
+      "n_trades": 34730,
+      "win_rate_pct": 0.7659084365102217,
+      "profit_factor": 1.0370898364081138,
+      "expectancy": 1.2606272468973364e-05,
+      "avg_win_loss_ratio": 1.6531056038986494
+    },
+    "distribution": {
+      "skewness": 0.9471669213203179,
+      "kurtosis": 47.948419612476215,
+      "p5": -0.013134276273497203,
+      "p25": -0.004169485968858633,
+      "p50": -0.00013298756585855553,
+      "p75": 0.004000005333346046,
+      "p95": 0.01387491280671932
+    },
+    "robustness": {
+      "t_test_pvalue": 0.8047944633888051,
+      "mcpt_pvalue": 0.44
+    },
+    "temporal": {
+      "rolling_sharpe_mean": -0.04839910575015587,
+      "rolling_sharpe_std": 3.3546874604063324,
+      "rolling_sharpe_min": -186.84402002950685,
+      "rolling_dd_mean": -11.730131591561227,
+      "rolling_dd_worst": -58.68084484894681
+    },
+    "dependencies": {
+      "autocorr_lag1": 0.01783578343826505,
+      "autocorr_lag5": 0.0042684591641956905,
+      "autocorr_lag24": -0.015276225401470856,
+      "hurst_exponent": 0.5871196352174015
+    },
+    "concentration": {
+      "gini_coefficient": 0.991204106912013,
+      "top_5_trades_pct": 215.67521097406345,
+      "top_10_trades_pct": 376.76257767296806
+    }
+  }
+}
