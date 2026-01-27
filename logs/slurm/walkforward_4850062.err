@@ -1,0 +1,104 @@
+cesga/2020 unloaded
+        Preparing the environment for use of the CESGA 2020 software stack.
+        Please rebuild modules cache: module --ignore-cache avail
+     
+cesga/2020 loaded
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) cesga/2020
+cesga/2020 unloaded
+        Preparing the environment for use of the CESGA 2020 software stack.
+        Please rebuild modules cache: module --ignore-cache avail
+     
+cesga/2020 loaded
+Procesando:   0%|                                       | 0/200 [00:00<?, ?it/s]Procesando:   0%|▏                            | 1/200 [00:40<2:12:59, 40.10s/it]Procesando:   4%|█                              | 7/200 [00:40<13:32,  4.21s/it]Procesando:   8%|██▌                           | 17/200 [00:40<04:07,  1.35s/it]Procesando:  13%|███▉                          | 26/200 [00:40<02:06,  1.38it/s]Procesando:  19%|█████▋                        | 38/200 [00:40<01:02,  2.57it/s]Procesando:  26%|███████▋                      | 51/200 [00:40<00:34,  4.36it/s]Procesando:  30%|█████████▏                    | 61/200 [00:40<00:22,  6.11it/s]Procesando:  30%|█████████▏                    | 61/200 [00:59<00:22,  6.11it/s]Procesando:  32%|█████████▊                    | 65/200 [01:20<03:44,  1.66s/it]Procesando:  34%|██████████▏                   | 68/200 [01:20<03:09,  1.44s/it]Procesando:  37%|███████████                   | 74/200 [01:21<02:09,  1.03s/it]Procesando:  44%|█████████████▏                | 88/200 [01:21<00:59,  1.88it/s]Procesando:  48%|██████████████▌               | 97/200 [01:21<00:38,  2.70it/s]Procesando:  52%|███████████████▏             | 105/200 [01:21<00:25,  3.71it/s]Procesando:  56%|████████████████▍            | 113/200 [01:21<00:17,  5.03it/s]Procesando:  60%|█████████████████▍           | 120/200 [01:21<00:12,  6.61it/s]Procesando:  64%|██████████████████▍          | 127/200 [01:22<00:09,  8.10it/s]Procesando:  64%|██████████████████▍          | 127/200 [01:39<00:09,  8.10it/s]Procesando:  64%|██████████████████▋          | 129/200 [02:01<02:29,  2.10s/it]Procesando:  66%|██████████████████▉          | 131/200 [02:01<02:07,  1.85s/it]Procesando:  68%|███████████████████▌         | 135/200 [02:01<01:28,  1.37s/it]Procesando:  72%|█████████████████████        | 145/200 [02:02<00:39,  1.41it/s]Procesando:  76%|█████████████████████▉       | 151/200 [02:02<00:24,  1.97it/s]Procesando:  81%|███████████████████████▍     | 162/200 [02:02<00:11,  3.43it/s]Procesando:  86%|████████████████████████▊    | 171/200 [02:02<00:05,  5.04it/s]Procesando:  89%|█████████████████████████▊   | 178/200 [02:02<00:03,  6.46it/s]Procesando:  92%|██████████████████████████▋  | 184/200 [02:02<00:01,  8.14it/s]Procesando:  94%|███████████████████████████▍ | 189/200 [02:03<00:01,  9.28it/s]Procesando:  94%|███████████████████████████▍ | 189/200 [02:19<00:01,  9.28it/s]Procesando:  96%|███████████████████████████▉ | 193/200 [02:39<00:13,  1.98s/it]Procesando:  98%|████████████████████████████▎| 195/200 [02:39<00:08,  1.73s/it]Procesando: 100%|████████████████████████████▊| 199/200 [02:39<00:01,  1.27s/it]Procesando: 100%|█████████████████████████████| 200/200 [02:39<00:00,  1.25it/s]
+/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/utils/stats_calculator.py:206: RuntimeWarning: Mean of empty slice
+  mean_return = np.nanmean(returns)
+/mnt/netapp2/Store_uni/home/ulc/cursos/curso396/miniconda3/envs/trading_env/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:2019: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+Procesando:   0%|                                       | 0/200 [00:00<?, ?it/s]Procesando:   0%|▏                            | 1/200 [00:40<2:13:26, 40.23s/it]Procesando:   4%|█                              | 7/200 [00:40<13:34,  4.22s/it]Procesando:  10%|███                           | 20/200 [00:40<03:22,  1.13s/it]Procesando:  15%|████▌                         | 30/200 [00:40<01:46,  1.59it/s]Procesando:  21%|██████▎                       | 42/200 [00:40<00:56,  2.78it/s]Procesando:  26%|███████▊                      | 52/200 [00:40<00:35,  4.15it/s]Procesando:  31%|█████████▎                    | 62/200 [00:41<00:23,  5.76it/s]Procesando:  31%|█████████▎                    | 62/200 [00:59<00:23,  5.76it/s]Procesando:  32%|█████████▊                    | 65/200 [01:20<03:59,  1.77s/it]Procesando:  34%|██████████                    | 67/200 [01:20<03:32,  1.60s/it]Procesando:  36%|██████████▉                   | 73/200 [01:21<02:21,  1.11s/it]Procesando:  39%|███████████▋                  | 78/200 [01:21<01:39,  1.22it/s]Procesando:  43%|████████████▉                 | 86/200 [01:21<00:58,  1.96it/s]Procesando:  48%|██████████████▌               | 97/200 [01:21<00:30,  3.38it/s]Procesando:  53%|███████████████▎             | 106/200 [01:21<00:18,  4.95it/s]Procesando:  57%|████████████████▌            | 114/200 [01:21<00:12,  6.64it/s]Procesando:  60%|█████████████████▌           | 121/200 [01:21<00:09,  8.49it/s]Procesando:  64%|██████████████████▍          | 127/200 [01:22<00:07,  9.24it/s]Procesando:  64%|██████████████████▍          | 127/200 [01:39<00:07,  9.24it/s]Procesando:  64%|██████████████████▋          | 129/200 [02:01<02:33,  2.17s/it]Procesando:  66%|███████████████████▏         | 132/200 [02:01<02:00,  1.77s/it]Procesando:  68%|███████████████████▋         | 136/200 [02:01<01:24,  1.32s/it]Procesando:  70%|████████████████████▎        | 140/200 [02:01<00:58,  1.03it/s]Procesando:  72%|█████████████████████        | 145/200 [02:01<00:36,  1.51it/s]Procesando:  74%|█████████████████████▌       | 149/200 [02:02<00:25,  2.03it/s]Procesando:  80%|███████████████████████▎     | 161/200 [02:02<00:09,  4.28it/s]Procesando:  83%|████████████████████████     | 166/200 [02:02<00:06,  5.48it/s]Procesando:  87%|█████████████████████████▏   | 174/200 [02:02<00:03,  8.17it/s]Procesando:  90%|██████████████████████████   | 180/200 [02:02<00:01, 10.22it/s]Procesando:  92%|██████████████████████████▊  | 185/200 [02:03<00:01, 11.21it/s]Procesando:  94%|███████████████████████████▍ | 189/200 [02:03<00:01, 10.48it/s]Procesando:  96%|███████████████████████████▊ | 192/200 [02:05<00:01,  4.87it/s]Procesando:  96%|███████████████████████████▊ | 192/200 [02:19<00:01,  4.87it/s]Procesando:  96%|███████████████████████████▉ | 193/200 [02:39<00:21,  3.00s/it]Procesando:  98%|████████████████████████████▎| 195/200 [02:39<00:12,  2.43s/it]Procesando:  99%|████████████████████████████▋| 198/200 [02:39<00:03,  1.74s/it]Procesando: 100%|█████████████████████████████| 200/200 [02:39<00:00,  1.25it/s]
+/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/utils/stats_calculator.py:206: RuntimeWarning: Mean of empty slice
+  mean_return = np.nanmean(returns)
+/mnt/netapp2/Store_uni/home/ulc/cursos/curso396/miniconda3/envs/trading_env/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:2019: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+Procesando:   0%|                                       | 0/200 [00:00<?, ?it/s]Procesando:   0%|▏                            | 1/200 [00:36<1:59:58, 36.17s/it]Procesando:   5%|█▌                            | 10/200 [00:36<08:18,  2.62s/it]Procesando:  11%|███▎                          | 22/200 [00:36<02:49,  1.05it/s]Procesando:  18%|█████▍                        | 36/200 [00:36<01:16,  2.15it/s]Procesando:  26%|███████▊                      | 52/200 [00:36<00:37,  3.91it/s]Procesando:  26%|███████▊                      | 52/200 [00:49<00:37,  3.91it/s]Procesando:  32%|█████████▊                    | 65/200 [01:12<02:32,  1.13s/it]Procesando:  33%|█████████▉                    | 66/200 [01:12<02:26,  1.09s/it]Procesando:  38%|███████████▎                  | 75/200 [01:12<01:33,  1.34it/s]Procesando:  44%|█████████████                 | 87/200 [01:13<00:52,  2.14it/s]Procesando:  50%|██████████████▌              | 100/200 [01:13<00:29,  3.36it/s]Procesando:  55%|███████████████▉             | 110/200 [01:13<00:19,  4.66it/s]Procesando:  60%|█████████████████▍           | 120/200 [01:13<00:12,  6.42it/s]Procesando:  60%|█████████████████▍           | 120/200 [01:29<00:12,  6.42it/s]Procesando:  64%|██████████████████▋          | 129/200 [01:49<01:25,  1.20s/it]Procesando:  66%|██████████████████▉          | 131/200 [01:49<01:16,  1.11s/it]Procesando:  69%|████████████████████         | 138/200 [01:49<00:49,  1.25it/s]Procesando:  72%|████████████████████▉        | 144/200 [01:49<00:33,  1.67it/s]Procesando:  80%|███████████████████████      | 159/200 [01:49<00:12,  3.17it/s]Procesando:  86%|████████████████████████▊    | 171/200 [01:49<00:05,  4.84it/s]Procesando:  90%|██████████████████████████▏  | 181/200 [01:50<00:02,  6.57it/s]Procesando:  94%|███████████████████████████▍ | 189/200 [01:50<00:01,  7.69it/s]Procesando:  94%|███████████████████████████▍ | 189/200 [02:09<00:01,  7.69it/s]Procesando:  96%|███████████████████████████▉ | 193/200 [02:23<00:09,  1.36s/it]Procesando:  97%|████████████████████████████▏| 194/200 [02:23<00:07,  1.30s/it]Procesando: 100%|████████████████████████████▊| 199/200 [02:23<00:00,  1.05it/s]Procesando: 100%|█████████████████████████████| 200/200 [02:23<00:00,  1.39it/s]
+/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/utils/stats_calculator.py:206: RuntimeWarning: Mean of empty slice
+  mean_return = np.nanmean(returns)
+/mnt/netapp2/Store_uni/home/ulc/cursos/curso396/miniconda3/envs/trading_env/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:2019: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+Procesando:   0%|                                       | 0/200 [00:00<?, ?it/s]Procesando:   0%|▏                            | 1/200 [00:26<1:27:23, 26.35s/it]Procesando:   4%|█▏                             | 8/200 [00:26<07:43,  2.41s/it]Procesando:  11%|███▎                          | 22/200 [00:26<02:00,  1.48it/s]Procesando:  22%|██████▍                       | 43/200 [00:26<00:42,  3.73it/s]Procesando:  29%|████████▋                     | 58/200 [00:26<00:24,  5.91it/s]Procesando:  29%|████████▋                     | 58/200 [00:39<00:24,  5.91it/s]Procesando:  32%|█████████▊                    | 65/200 [00:52<02:00,  1.12it/s]Procesando:  34%|██████████▏                   | 68/200 [00:53<01:45,  1.25it/s]Procesando:  39%|███████████▋                  | 78/200 [00:53<01:04,  1.90it/s]Procesando:  45%|█████████████▌                | 90/200 [00:53<00:36,  2.99it/s]Procesando:  52%|███████████████▏             | 105/200 [00:53<00:19,  4.90it/s]Procesando:  58%|████████████████▊            | 116/200 [00:53<00:12,  6.77it/s]Procesando:  63%|██████████████████▎          | 126/200 [00:53<00:08,  8.68it/s]Procesando:  63%|██████████████████▎          | 126/200 [01:09<00:08,  8.68it/s]Procesando:  64%|██████████████████▋          | 129/200 [01:19<01:11,  1.01s/it]Procesando:  66%|██████████████████▉          | 131/200 [01:19<01:03,  1.08it/s]Procesando:  68%|███████████████████▊         | 137/200 [01:19<00:42,  1.48it/s]Procesando:  74%|█████████████████████▌       | 149/200 [01:19<00:19,  2.65it/s]Procesando:  80%|███████████████████████      | 159/200 [01:20<00:10,  4.01it/s]Procesando:  84%|████████████████████████▏    | 167/200 [01:20<00:06,  5.46it/s]Procesando:  88%|█████████████████████████▍   | 175/200 [01:20<00:03,  7.34it/s]Procesando:  91%|██████████████████████████▍  | 182/200 [01:20<00:01,  9.32it/s]Procesando:  94%|███████████████████████████▍ | 189/200 [01:20<00:00, 12.22it/s]Procesando:  94%|███████████████████████████▍ | 189/200 [01:39<00:00, 12.22it/s]Procesando:  96%|███████████████████████████▉ | 193/200 [01:44<00:08,  1.15s/it]Procesando:  98%|████████████████████████████▍| 196/200 [01:44<00:03,  1.03it/s]Procesando: 100%|█████████████████████████████| 200/200 [01:44<00:00,  1.91it/s]
+/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/utils/stats_calculator.py:206: RuntimeWarning: Mean of empty slice
+  mean_return = np.nanmean(returns)
+/mnt/netapp2/Store_uni/home/ulc/cursos/curso396/miniconda3/envs/trading_env/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:2019: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+Procesando:   0%|                                       | 0/200 [00:00<?, ?it/s]Procesando:   0%|▏                            | 1/200 [00:36<2:01:11, 36.54s/it]Procesando:   4%|█                              | 7/200 [00:36<12:20,  3.84s/it]Procesando:   7%|██                            | 14/200 [00:36<04:47,  1.55s/it]Procesando:  10%|███                           | 20/200 [00:36<02:42,  1.11it/s]Procesando:  14%|████▎                         | 29/200 [00:36<01:21,  2.09it/s]Procesando:  21%|██████▎                       | 42/200 [00:37<00:38,  4.07it/s]Procesando:  26%|███████▋                      | 51/200 [00:37<00:25,  5.88it/s]Procesando:  30%|█████████                     | 60/200 [00:37<00:16,  8.25it/s]Procesando:  30%|█████████                     | 60/200 [00:49<00:16,  8.25it/s]Procesando:  32%|█████████▊                    | 65/200 [01:13<03:29,  1.56s/it]Procesando:  36%|██████████▊                   | 72/200 [01:13<02:22,  1.11s/it]Procesando:  40%|███████████▊                  | 79/200 [01:13<01:35,  1.26it/s]Procesando:  43%|████████████▉                 | 86/200 [01:13<01:04,  1.77it/s]Procesando:  46%|█████████████▉                | 93/200 [01:14<00:43,  2.46it/s]Procesando:  52%|███████████████▏             | 105/200 [01:14<00:22,  4.15it/s]Procesando:  56%|████████████████▏            | 112/200 [01:14<00:16,  5.36it/s]Procesando:  59%|█████████████████            | 118/200 [01:14<00:12,  6.77it/s]Procesando:  62%|█████████████████▊           | 123/200 [01:14<00:09,  8.35it/s]Procesando:  64%|██████████████████▌          | 128/200 [01:15<00:09,  7.70it/s]Procesando:  64%|██████████████████▌          | 128/200 [01:29<00:09,  7.70it/s]Procesando:  64%|██████████████████▋          | 129/200 [01:50<02:48,  2.37s/it]Procesando:  66%|███████████████████▎         | 133/200 [01:50<01:56,  1.74s/it]Procesando:  68%|███████████████████▊         | 137/200 [01:50<01:19,  1.27s/it]Procesando:  70%|████████████████████▎        | 140/200 [01:50<00:59,  1.01it/s]Procesando:  73%|█████████████████████▏       | 146/200 [01:50<00:32,  1.65it/s]Procesando:  76%|██████████████████████       | 152/200 [01:50<00:18,  2.53it/s]Procesando:  79%|██████████████████████▉      | 158/200 [01:51<00:11,  3.74it/s]Procesando:  82%|███████████████████████▋     | 163/200 [01:51<00:07,  5.00it/s]Procesando:  86%|████████████████████████▊    | 171/200 [01:51<00:03,  7.94it/s]Procesando:  88%|█████████████████████████▌   | 176/200 [01:51<00:02,  9.46it/s]Procesando:  90%|██████████████████████████   | 180/200 [01:51<00:01, 11.23it/s]Procesando:  92%|██████████████████████████▊  | 185/200 [01:51<00:01, 14.41it/s]Procesando:  94%|███████████████████████████▍ | 189/200 [01:52<00:00, 14.51it/s]Procesando:  94%|███████████████████████████▍ | 189/200 [02:09<00:00, 14.51it/s]Procesando:  96%|███████████████████████████▉ | 193/200 [02:24<00:15,  2.16s/it]Procesando:  97%|████████████████████████████▏| 194/200 [02:24<00:11,  1.99s/it]Procesando:  98%|████████████████████████████▌| 197/200 [02:24<00:04,  1.47s/it]Procesando: 100%|█████████████████████████████| 200/200 [02:24<00:00,  1.08s/it]Procesando: 100%|█████████████████████████████| 200/200 [02:24<00:00,  1.38it/s]
+/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/utils/stats_calculator.py:206: RuntimeWarning: Mean of empty slice
+  mean_return = np.nanmean(returns)
+/mnt/netapp2/Store_uni/home/ulc/cursos/curso396/miniconda3/envs/trading_env/lib/python3.12/site-packages/numpy/lib/_nanfunctions_impl.py:2019: RuntimeWarning: Degrees of freedom <= 0 for slice.
+  var = nanvar(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+Traceback (most recent call last):
+  File "/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/config/__init__.py", line 10, in <module>
+    from config.paths import (
+ImportError: cannot import name 'OUTPUT_DIR' from 'config.paths' (/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/config/paths.py). Did you mean: 'OUTPUTS_DIR'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ulc/cursos/curso396/Trading-system/scripts/laptop/walkforward_permutation.py", line 33, in <module>
+    from config.paths import ensure_directories, ensure_ticker_output_dirs
+  File "/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/config/__init__.py", line 43, in <module>
+    from config.path import (
+ModuleNotFoundError: No module named 'config.path'
+Traceback (most recent call last):
+  File "/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/config/__init__.py", line 10, in <module>
+    from config.paths import (
+ImportError: cannot import name 'OUTPUT_DIR' from 'config.paths' (/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/config/paths.py). Did you mean: 'OUTPUTS_DIR'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ulc/cursos/curso396/Trading-system/scripts/laptop/walkforward_permutation.py", line 33, in <module>
+    from config.paths import ensure_directories, ensure_ticker_output_dirs
+  File "/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/config/__init__.py", line 43, in <module>
+    from config.path import (
+ModuleNotFoundError: No module named 'config.path'
+Traceback (most recent call last):
+  File "/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/config/__init__.py", line 10, in <module>
+    from config.paths import (
+ImportError: cannot import name 'OUTPUT_DIR' from 'config.paths' (/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/config/paths.py). Did you mean: 'OUTPUTS_DIR'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ulc/cursos/curso396/Trading-system/scripts/laptop/walkforward_permutation.py", line 33, in <module>
+    from config.paths import ensure_directories, ensure_ticker_output_dirs
+  File "/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/config/__init__.py", line 43, in <module>
+    from config.path import (
+ModuleNotFoundError: No module named 'config.path'
+Traceback (most recent call last):
+  File "/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/config/__init__.py", line 10, in <module>
+    from config.paths import (
+ImportError: cannot import name 'OUTPUT_DIR' from 'config.paths' (/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/config/paths.py). Did you mean: 'OUTPUTS_DIR'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ulc/cursos/curso396/Trading-system/scripts/laptop/walkforward_permutation.py", line 33, in <module>
+    from config.paths import ensure_directories, ensure_ticker_output_dirs
+  File "/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/config/__init__.py", line 43, in <module>
+    from config.path import (
+ModuleNotFoundError: No module named 'config.path'
+Traceback (most recent call last):
+  File "/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/config/__init__.py", line 10, in <module>
+    from config.paths import (
+ImportError: cannot import name 'OUTPUT_DIR' from 'config.paths' (/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/config/paths.py). Did you mean: 'OUTPUTS_DIR'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ulc/cursos/curso396/Trading-system/scripts/laptop/walkforward_permutation.py", line 33, in <module>
+    from config.paths import ensure_directories, ensure_ticker_output_dirs
+  File "/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/config/__init__.py", line 43, in <module>
+    from config.path import (
+ModuleNotFoundError: No module named 'config.path'

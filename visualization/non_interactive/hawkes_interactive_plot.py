@@ -20,7 +20,7 @@ project_root = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(project_root))
 
 from models.strategies import hawkes
-from config.paths import ensure_ticker_output_dirs
+from config.paths import ensure_ticker_OUTPUTS_DIRs
 
 
 def create_interactive_plot(ohlc: pd.DataFrame, kappa: float, lookback: int, output_path: Path):
@@ -285,7 +285,7 @@ def main():
     strategy = 'hawkes'
 
     # Leer mejores parámetros del análisis anterior
-    output_dirs = ensure_ticker_output_dirs(strategy, ticker)
+    output_dirs = ensure_ticker_OUTPUTS_DIRs(strategy, ticker)
     best_params_file = output_dirs['results'] / "best_parameters.txt"
 
     if best_params_file.exists():

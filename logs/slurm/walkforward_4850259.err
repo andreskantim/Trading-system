@@ -1,0 +1,27 @@
+cesga/2020 unloaded
+        Preparing the environment for use of the CESGA 2020 software stack.
+        Please rebuild modules cache: module --ignore-cache avail
+     
+cesga/2020 loaded
+The following modules were not unloaded:
+  (Use "module --force purge" to unload all):
+
+  1) cesga/2020
+cesga/2020 unloaded
+        Preparing the environment for use of the CESGA 2020 software stack.
+        Please rebuild modules cache: module --ignore-cache avail
+     
+cesga/2020 loaded
+Traceback (most recent call last):
+  File "/home/ulc/cursos/curso396/Trading-system/config/__init__.py", line 10, in <module>
+    from config.paths import (
+ImportError: cannot import name 'OUTPUT_DIR' from 'config.paths' (/home/ulc/cursos/curso396/Trading-system/config/paths.py). Did you mean: 'OUTPUTS_DIR'?
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/scripts/cesga/batch_walkforward.py", line 26, in <module>
+    from config.tickers import get_ticker_group, TICKER_GROUPS
+  File "/home/ulc/cursos/curso396/Trading-system/config/__init__.py", line 43, in <module>
+    from config.path import (
+ModuleNotFoundError: No module named 'config.path'

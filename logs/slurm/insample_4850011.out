@@ -1,0 +1,104 @@
+slurmstepd: info: Setting TMPDIR to /scratch/4850011. Previous errors about TMPDIR can be discarded
+Python: /mnt/netapp2/Store_uni/home/ulc/cursos/curso396/miniconda3/envs/trading_env/bin/python
+Conda env: trading_env
+✓ Dependencias disponibles
+==============================================
+SLURM Job: 4850011
+Nodo: ilk-115
+CPUs: 64
+Memoria: 32768 MB
+==============================================
+Grupo: crypto_10
+Estrategia: hawkes
+Permutaciones: 1000
+Workers: 64
+==============================================
+
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de BTC...
+  Rango disponible: 17/08/2017 - 25/01/2026
+  Datos cargados: 73,865 velas
+  Desde: 2017-08-17 04:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [0.125, 120]
+  Best PF:         1.0613
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/hawkes/ticker/BTC/results/BTC_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            BTC
+  Estrategia:        hawkes
+  Período:           2017-08-17 04:00:00 - 2026-01-25 04:00:00
+  Velas:             73,865
+  Permutaciones:     1000
+  Best Parameters:   [0.125, 120]
+  Real PF:           1.0613
+  P-Value:           0.0030
+  Significativo (p < 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      18591.89%
+  CAGR:              85.95%
+  Max Drawdown:      -63.08%
+  Max DD Duration:   13,758 bars
+  Sharpe Ratio:      1.1051
+  Sortino Ratio:     0.9617
+  SQN:               3.2090
+  N Trades:          368
+  Win Rate:          53.80%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/hawkes/ticker/BTC/figures/BTC_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/backtest/hawkes/ticker/BTC/figures/BTC_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 92.7s
+  Velocidad:    10.8 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de ETH...
+  Rango disponible: 17/08/2017 - 25/01/2026
+  Datos cargados: 73,865 velas
+  Desde: 2017-08-17 04:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [0.125, 96]
+  Best PF:         1.0312
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...

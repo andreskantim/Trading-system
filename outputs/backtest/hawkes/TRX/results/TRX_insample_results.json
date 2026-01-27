@@ -1,0 +1,83 @@
+{
+  "ticker": "TRX",
+  "strategy": "hawkes",
+  "period": {
+    "start": "2018-06-11 11:00:00",
+    "end": "2026-01-25 04:00:00"
+  },
+  "n_candles": 66746,
+  "n_permutations": 1000,
+  "best_params": [
+    0.125,
+    96
+  ],
+  "real_pf": 1.0293798051317746,
+  "p_value": 0.145,
+  "mean_perm_pf": 1.0111185797957698,
+  "std_perm_pf": 0.01773798047937419,
+  "perm_better_count": 145,
+  "execution_time_seconds": 82.77097272872925,
+  "significant": false,
+  "stats": {
+    "performance": {
+      "total_return_pct": 1674.016943527496,
+      "cumulative_log_return": 2.8758315278659974,
+      "cagr_pct": 45.853880339693,
+      "pnl": 2.8758315278659974
+    },
+    "risk": {
+      "max_drawdown_pct": -60.40210668166761,
+      "max_drawdown_duration": 12314,
+      "ulcer_index": 31.458390740797146
+    },
+    "volatility": {
+      "annualized_volatility_pct": 70.06145810432373,
+      "monthly_volatility_pct": 20.085995758724522,
+      "downside_volatility_pct": 76.30502151506658
+    },
+    "risk_return": {
+      "sharpe_ratio": 0.5387281111035239,
+      "sortino_ratio": 0.49464735395230003,
+      "calmar_ratio": 0.7591437262503613,
+      "sqn": 1.487065872304928
+    },
+    "trades": {
+      "n_trades": 372,
+      "win_rate_pct": 46.774193548387096,
+      "profit_factor": 1.364800311968177,
+      "expectancy": 0.007730729913618273,
+      "avg_win_loss_ratio": 1.5216739110449782
+    },
+    "distribution": {
+      "skewness": 2.465397866711341,
+      "kurtosis": 101.61860939321417,
+      "p5": -0.008496950305554883,
+      "p25": 0.0,
+      "p50": 0.0,
+      "p75": 8.407953929356893e-05,
+      "p95": 0.008545107622684962
+    },
+    "robustness": {
+      "t_test_pvalue": 0.1370080217254778,
+      "mcpt_pvalue": 0.145
+    },
+    "temporal": {
+      "rolling_sharpe_mean": 0.21039255521696298,
+      "rolling_sharpe_std": 2.9372210059013506,
+      "rolling_sharpe_min": -10.13618871309381,
+      "rolling_dd_mean": -16.261699040262837,
+      "rolling_dd_worst": -42.001971282632475
+    },
+    "dependencies": {
+      "autocorr_lag1": -0.01811820953745049,
+      "autocorr_lag5": -0.00909799831220445,
+      "autocorr_lag24": -0.028695515184340718,
+      "hurst_exponent": 0.6016034601786614
+    },
+    "concentration": {
+      "gini_coefficient": 0.5789297562858406,
+      "top_5_trades_pct": 81.10797471518745,
+      "top_10_trades_pct": 67.58423131185687
+    }
+  }
+}

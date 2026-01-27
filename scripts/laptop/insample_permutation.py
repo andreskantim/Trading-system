@@ -25,48 +25,11 @@ import argparse
 project_root = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(project_root))
 
-from config.paths import ensure_directories, ensure_ticker_output_dirs
-from backtest.mcpt.bar_permute import get_permutation
+from config.paths import ensure_directories, ensure_ticker_OUTPUTS_DIRs
+from backtest.mcpt.insample import init_insample_worker, process_permutation
 from utils.data_loader import load_ticker_data, get_available_date_range
 from utils.stats_calculator import calculate_all_stats
 from visualization.non_interactive.stats_and_plots_ticker import plot_ticker_results
-
-
-# Variables globales para el worker
-_strategy_module = None
-_train_df = None
-_best_real_pf = None
-
-
-def _init_worker(strategy_name, train_data, train_index, train_columns, best_real_pf):
-    """Inicializa el worker con el módulo de estrategia y datos"""
-    global _strategy_module, _train_df, _best_real_pf
-    _strategy_module = importlib.import_module(f'models.strategies.{strategy_name}')
-    _train_df = pd.DataFrame(train_data, index=train_index, columns=train_columns)
-    _best_real_pf = best_real_pf
-
-
-def process_permutation(perm_i):
-    """Procesa una permutación individual"""
-    strategy = _strategy_module
-    train_df = _train_df
-    best_real_pf = _best_real_pf
-
-    # Ejecutar permutación
-    train_perm = get_permutation(train_df, seed=perm_i)
-    result = strategy.optimize(train_perm)
-
-    # Desempaquetar: último valor es pf, resto son parámetros
-    *best_params, best_perm_pf = result
-
-    # Calcular cumulative returns
-    sig = strategy.signal(train_perm, *best_params)
-    r = np.log(train_perm['close']).diff().shift(-1)
-    perm_rets = sig * r
-    cum_rets = perm_rets.cumsum().values
-
-    is_better = 1 if best_perm_pf >= best_real_pf else 0
-    return best_perm_pf, is_better, cum_rets
 
 
 def save_results(results_dict: dict, ticker: str, strategy_name: str, output_dir: Path):
@@ -257,7 +220,7 @@ if __name__ == '__main__':
     chunksize = max(1, n_permutations // (n_workers * 10))
 
     with Pool(processes=n_workers,
-              initializer=_init_worker,
+              initializer=init_insample_worker,
               initargs=(strategy_name, train_data, train_index, train_columns, best_real_pf)) as pool:
         for result in tqdm(pool.imap_unordered(process_permutation, args_list, chunksize=chunksize),
                           total=len(args_list),
@@ -304,7 +267,7 @@ if __name__ == '__main__':
     }
 
     # Guardar resultados usando nueva estructura de directorios
-    output_dirs = ensure_ticker_output_dirs(strategy_name, args.ticker)
+    output_dirs = ensure_ticker_OUTPUTS_DIRs(strategy_name, args.ticker)
     save_results(results_dict, args.ticker, strategy_name, output_dirs['results'])
 
     # Imprimir resumen

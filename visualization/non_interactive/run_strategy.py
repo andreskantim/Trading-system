@@ -28,7 +28,8 @@ import argparse
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 # Importar configuración de rutas
-from config.paths import BITCOIN_PARQUET, ensure_directories, ensure_ticker_output_dirs
+from config.paths import ensure_directories, ensure_ticker_OUTPUTS_DIRs
+from utils.data_loader import load_ticker_data
 
 
 def get_output_dir(strategy_name: str, ticker: str = 'BTC') -> Path:
@@ -42,7 +43,7 @@ def get_output_dir(strategy_name: str, ticker: str = 'BTC') -> Path:
     Returns:
         Path al directorio de figuras
     """
-    output_dirs = ensure_ticker_output_dirs(strategy_name, ticker)
+    output_dirs = ensure_ticker_OUTPUTS_DIRs(strategy_name, ticker)
     return output_dirs['figures']
 
 
@@ -223,9 +224,7 @@ def run_strategy(strategy_name: str, filters: Optional[list] = None):
 
     # Cargar datos
     print("\nCargando datos...")
-    df = pd.read_parquet(BITCOIN_PARQUET)
-    df.index = df.index.astype('datetime64[s]')
-    df = df[(df.index.year >= 2018) & (df.index.year < 2023)]
+    df = load_ticker_data('BTC', start_date='01/01/2018', end_date='31/12/2022')
     print(f"✓ Datos cargados: {len(df)} filas (2018-2022)")
 
     # Optimización in-sample

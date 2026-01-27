@@ -14,7 +14,7 @@ import sys
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
 from config.paths import (
-    OUTPUTS_DIR,
+    BACKTEST_OUTPUTS_DIR,
     ensure_directories
 )
 
@@ -212,7 +212,7 @@ class MCPTDashboard:
             Path to saved report
         """
         ensure_directories()
-        output_path = BACKTEST_REPORTS / filename
+        output_path = BACKTEST_OUTPUTS_DIR / filename
 
         if not self._has_plotly:
             # Fallback to simple HTML
@@ -261,7 +261,7 @@ def get_available_results() -> List[Path]:
         List of paths to result files
     """
     ensure_directories()
-    return list(BACKTEST_RESULTS.glob("*.csv"))
+    return list(BACKTEST_OUTPUTS_DIR.glob("*.csv"))
 
 
 if __name__ == "__main__":
@@ -277,5 +277,5 @@ if __name__ == "__main__":
         for r in results:
             print(f"  - {r.name}")
     else:
-        print("No result files found in:", BACKTEST_RESULTS)
+        print("No result files found in:", BACKTEST_OUTPUTS_DIR)
         print("\nRun backtest scripts to generate results first.")

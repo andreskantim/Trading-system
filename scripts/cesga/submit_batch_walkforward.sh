@@ -20,7 +20,7 @@
 
 # Configuración por defecto (puede sobrescribirse con --export)
 GROUP=${GROUP:-crypto_10}
-STRATEGY=${STRATEGY:-hawkes}
+STRATEGY=${STRATEGY:-bollinger_b2b}
 PERMS=${PERMS:-200}
 WORKERS=${WORKERS:-64}
 

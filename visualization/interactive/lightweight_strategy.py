@@ -30,7 +30,7 @@ import socket
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent.parent))
 
-from config.paths import ensure_directories
+from config.paths import ensure_directories, BACKTEST_OUTPUTS_DIR
 
 
 def extract_trades_from_signals(signals: pd.Series, ohlc: pd.DataFrame) -> List[Dict]:
@@ -374,7 +374,7 @@ def create_interactive_chart(
     # ==========================================
     if output_path is None:
         ensure_directories()
-        output_dir = BACKTEST_FIGURES / strategy_name
+        output_dir = BACKTEST_OUTPUTS_DIR / strategy_name / 'interactive'
         output_dir.mkdir(parents=True, exist_ok=True)
         output_path = output_dir / 'interactive_chart.html'
     

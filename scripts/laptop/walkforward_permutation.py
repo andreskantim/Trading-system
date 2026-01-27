@@ -30,90 +30,13 @@ import argparse
 project_root = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(project_root))
 
-from config.paths import ensure_directories, ensure_ticker_output_dirs
-from backtest.mcpt.bar_permute import get_permutation
+from config.paths import ensure_directories, ensure_ticker_OUTPUTS_DIRs
+from backtest.mcpt.walkforward import (
+    walkforward_strategy, init_walkforward_worker, process_walkforward_permutation
+)
 from utils.data_loader import load_ticker_data, get_available_date_range
 from utils.stats_calculator import calculate_all_stats
 from visualization.non_interactive.stats_and_plots_ticker import plot_ticker_results
-
-
-# Variables globales para el worker
-_strategy_module = None
-_df = None
-_train_window = None
-_real_wf_pf = None
-
-
-def _init_worker(strategy_name, df_data, df_index, df_columns, train_window, real_wf_pf):
-    """Inicializa el worker con el módulo de estrategia y datos"""
-    global _strategy_module, _df, _train_window, _real_wf_pf
-    _strategy_module = importlib.import_module(f'models.strategies.{strategy_name}')
-    _df = pd.DataFrame(df_data, index=df_index, columns=df_columns)
-    _train_window = train_window
-    _real_wf_pf = real_wf_pf
-
-
-def walkforward_strategy(ohlc: pd.DataFrame, strategy, train_lookback: int, train_step: int = None):
-    """
-    Implementa walk-forward optimization genérica
-
-    Args:
-        ohlc: DataFrame con datos OHLC
-        strategy: Módulo de estrategia
-        train_lookback: Ventana de entrenamiento en barras
-        train_step: Paso entre re-optimizaciones (default: train_lookback // 12)
-
-    Returns:
-        Array con señales walk-forward
-    """
-    if train_step is None:
-        train_step = max(train_lookback // 12, 24 * 30)  # Mínimo 30 días
-
-    n = len(ohlc)
-    wf_signal = np.full(n, np.nan)
-    tmp_signal = None
-
-    next_train = train_lookback
-    for i in range(next_train, n):
-        if i == next_train:
-            result = strategy.optimize(ohlc.iloc[i - train_lookback:i])
-            best_params = result[:-1]  # Último valor es PF
-            tmp_signal = strategy.signal(ohlc, *best_params)
-            next_train += train_step
-
-        wf_signal[i] = tmp_signal.iloc[i]
-
-    return wf_signal
-
-
-def process_walkforward_permutation(perm_i):
-    """Procesa una permutación individual de walk-forward"""
-    strategy = _strategy_module
-    df_perm = _df.copy()
-    train_window = _train_window
-    real_wf_pf = _real_wf_pf
-
-    # Permutar desde el inicio del período de walk-forward
-    wf_perm = get_permutation(df_perm, start_index=train_window, seed=perm_i)
-
-    # Calcular returns y señales
-    wf_perm['r'] = np.log(wf_perm['close']).diff().shift(-1)
-    wf_perm_sig = walkforward_strategy(wf_perm, strategy, train_lookback=train_window)
-    perm_rets = wf_perm['r'] * wf_perm_sig
-
-    # Calcular profit factor
-    pos = perm_rets[perm_rets > 0].sum()
-    neg = perm_rets[perm_rets < 0].abs().sum()
-    if neg == 0:
-        perm_pf = np.inf if pos > 0 else 0.0
-    else:
-        perm_pf = pos / neg
-
-    # Cumulative returns
-    cum_rets = perm_rets.cumsum().values
-
-    is_better = 1 if perm_pf >= real_wf_pf else 0
-    return perm_pf, is_better, cum_rets
 
 
 def save_results(results_dict: dict, ticker: str, strategy_name: str, output_dir: Path):
@@ -341,7 +264,7 @@ if __name__ == '__main__':
     chunksize = max(1, n_permutations // (n_workers * 10))
 
     with Pool(processes=n_workers,
-              initializer=_init_worker,
+              initializer=init_walkforward_worker,
               initargs=(strategy_name, df_data, df_index, df_columns, train_window, real_wf_pf)) as pool:
         for result in tqdm(pool.imap_unordered(process_walkforward_permutation, args_list, chunksize=chunksize),
                           total=len(args_list),
@@ -396,7 +319,7 @@ if __name__ == '__main__':
     }
 
     # Guardar resultados usando nueva estructura de directorios
-    output_dirs = ensure_ticker_output_dirs(strategy_name, args.ticker)
+    output_dirs = ensure_ticker_OUTPUTS_DIRs(strategy_name, args.ticker)
     save_results(results_dict, args.ticker, strategy_name, output_dirs['results'])
 
     # Imprimir resumen

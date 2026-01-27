@@ -20,7 +20,7 @@ project_root = Path(__file__).resolve().parent.parent.parent
 sys.path.insert(0, str(project_root))
 
 from visualization.interactive.lightweight_strategy import create_interactive_chart
-from config.paths import ensure_ticker_output_dirs
+from config.paths import ensure_ticker_OUTPUTS_DIRs
 from utils.data_loader import load_ticker_data, get_available_date_range
 
 
@@ -110,7 +110,7 @@ def main():
     if hasattr(strat, 'visualization'):
         vis_data = strat.visualization(df, *best_params)
 
-        output_dirs = ensure_ticker_output_dirs(strat_name, args.ticker)
+        output_dirs = ensure_ticker_OUTPUTS_DIRs(strat_name, args.ticker)
         output_path = output_dirs['figures'] / f'{args.ticker}_chart.html'
 
         res = create_interactive_chart(
