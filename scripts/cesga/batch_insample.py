@@ -26,6 +26,7 @@ sys.path.insert(0, str(project_root))
 from config.tickers import get_ticker_group, TICKER_GROUPS
 from config.paths import ensure_batch_OUTPUTS_DIRs, get_ticker_OUTPUTS_DIR
 from visualization.non_interactive.batch_plots import calculate_batch_statistics, plot_batch_results
+from visualization.non_interactive.report import generate_mcpt_batch_report
 
 
 def load_ticker_results(strategy: str, ticker: str) -> dict:
@@ -37,9 +38,9 @@ def load_ticker_results(strategy: str, ticker: str) -> dict:
     return None
 
 
-def save_batch_report(batch_dirs: dict, batch_name: str, strategy: str,
-                      successful: list, failed: list, all_results: list, batch_stats: dict):
-    """Save comprehensive batch report."""
+def save_batch_json(batch_dirs: dict, batch_name: str, strategy: str,
+                    successful: list, failed: list, all_results: list, batch_stats: dict):
+    """Save batch results as JSON."""
     report = {
         'batch_name': batch_name,
         'strategy': strategy,
@@ -57,12 +58,8 @@ def save_batch_report(batch_dirs: dict, batch_name: str, strategy: str,
         'batch_statistics': batch_stats,
     }
 
-    # Save to results
+    # Save JSON results
     with open(batch_dirs['results'] / f'{batch_name}_results.json', 'w') as f:
-        json.dump(report, f, indent=2)
-
-    # Save to reports (human-readable)
-    with open(batch_dirs['reports'] / f'{batch_name}_report.json', 'w') as f:
         json.dump(report, f, indent=2)
 
 
@@ -128,8 +125,15 @@ def main():
 
         batch_dirs = ensure_batch_OUTPUTS_DIRs(args.strategy, batch_name)
 
-        # Save reports
-        save_batch_report(batch_dirs, batch_type, args.strategy, successful, failed, all_results, batch_stats)
+        # Save JSON results
+        save_batch_json(batch_dirs, batch_type, args.strategy, successful, failed, all_results, batch_stats)
+
+        # Generate markdown report
+        print("\nGenerating markdown report...")
+        report_path = generate_mcpt_batch_report(
+            batch_type, args.strategy, ticker_results, batch_stats, batch_dirs['reports'], 'insample'
+        )
+        print(f"  Report: {report_path}")
 
         # Generate plots
         print("\nGenerating visualizations...")

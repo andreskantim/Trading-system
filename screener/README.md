@@ -133,7 +133,7 @@ crontab -e
 ### Descargar datos desde Python
 
 ```python
-from screening.download.binance_downloader import BinanceDownloader
+from screener.actualize_data.binance_downloader import BinanceDownloader
 
 downloader = BinanceDownloader()
 
@@ -147,7 +147,7 @@ results = downloader.download_all_tickers(['BTC', 'ETH', 'BNB'])
 ### Detectar señales desde Python
 
 ```python
-from screening.generate_signal.signal_detector import SignalDetector
+from screener.generate_signal.signal_detector import SignalDetector
 
 detector = SignalDetector()
 

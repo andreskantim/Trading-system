@@ -37,6 +37,7 @@ from backtest.mcpt.walkforward import (
 from utils.data_loader import load_ticker_data, get_available_date_range
 from utils.stats_calculator import calculate_all_stats
 from visualization.non_interactive.ticker_plots import plot_ticker_results
+from visualization.non_interactive.report import generate_mcpt_ticker_report
 
 
 def save_results(results_dict: dict, ticker: str, strategy_name: str, output_dir: Path):
@@ -340,6 +341,11 @@ if __name__ == '__main__':
         prefix='walkforward',
         vlines=[(train_end, 'cyan', 'Train/Walk split')]
     )
+
+    # Generar markdown report
+    print("\nGenerando report...")
+    report_path = generate_mcpt_ticker_report(results_dict, output_dirs['reports'], 'walkforward')
+    print(f"  Report: {report_path}")
 
     print("\n" + "=" * 70)
     print("ANÁLISIS COMPLETADO")

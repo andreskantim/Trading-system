@@ -26,7 +26,7 @@ from config.paths import (
     VIS_INTERACTIVE,
     VIS_UTILS,
     DOCUMENTATION_DIR,
-    SCREENING_DIR,
+    SCREENER_DIR,
     # Functions
     ensure_directories,
     get_ticker_OUTPUTS_DIR,

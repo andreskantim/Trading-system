@@ -30,6 +30,7 @@ from backtest.mcpt.insample import init_insample_worker, process_permutation
 from utils.data_loader import load_ticker_data, get_available_date_range
 from utils.stats_calculator import calculate_all_stats
 from visualization.non_interactive.ticker_plots import plot_ticker_results
+from visualization.non_interactive.report import generate_mcpt_ticker_report
 
 
 def save_results(results_dict: dict, ticker: str, strategy_name: str, output_dir: Path):
@@ -287,6 +288,11 @@ if __name__ == '__main__':
         output_dir=output_dirs['figures'],
         prefix='insample'
     )
+
+    # Generar markdown report
+    print("\nGenerando report...")
+    report_path = generate_mcpt_ticker_report(results_dict, output_dirs['reports'], 'insample')
+    print(f"  Report: {report_path}")
 
     print("\n" + "=" * 70)
     print("ANÁLISIS COMPLETADO")

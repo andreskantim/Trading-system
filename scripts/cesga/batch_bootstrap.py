@@ -26,7 +26,7 @@ sys.path.insert(0, str(project_root))
 from config.tickers import get_ticker_group, TICKER_GROUPS
 from config.paths import ensure_batch_OUTPUTS_DIRs, get_ticker_OUTPUTS_DIR
 from visualization.non_interactive.batch_plots import calculate_batch_statistics, plot_batch_results
-from backtest.report import generate_batch_report
+from visualization.non_interactive.report import generate_bootstrap_batch_report
 
 
 def load_ticker_results(strategy: str, ticker: str, bootstrap_type: str) -> dict:
@@ -127,7 +127,11 @@ def main():
             json.dump(report, f, indent=2)
 
         # Generate markdown report
-        generate_batch_report(batch_type, args.strategy, ticker_results, batch_stats, batch_dirs['reports'])
+        print("\nGenerating markdown report...")
+        report_path = generate_bootstrap_batch_report(
+            batch_type, args.strategy, ticker_results, batch_stats, batch_dirs['reports'], args.bootstrap_type
+        )
+        print(f"  Report: {report_path}")
 
         # Generate plots
         print("\nGenerating visualizations...")

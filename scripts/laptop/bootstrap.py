@@ -29,7 +29,7 @@ from backtest.bootstrap import circular_block_bootstrap, stationary_bootstrap, t
 from backtest.bootstrap.circular_block_bootstrap import calculate_profit_factor
 from utils.data_loader import load_ticker_data, get_available_date_range
 from utils.stats_calculator import calculate_all_stats
-from backtest.report import generate_ticker_report
+from visualization.non_interactive.report import generate_bootstrap_ticker_report
 from visualization.non_interactive.bootstrap_plots import plot_bootstrap_results
 
 
@@ -178,7 +178,9 @@ def main():
     print(f"  Results saved: {results_file}")
 
     # Generate markdown report
-    generate_ticker_report(results_dict, output_dirs['reports'])
+    print("\nGenerating report...")
+    report_path = generate_bootstrap_ticker_report(results_dict, output_dirs['reports'], args.bootstrap_type)
+    print(f"  Report: {report_path}")
 
     # Generate plots
     print("\nGenerating plots...")
