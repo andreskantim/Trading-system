@@ -1,0 +1,722 @@
+slurmstepd: info: Setting TMPDIR to /scratch/4837746. Previous errors about TMPDIR can be discarded
+Python: /mnt/netapp2/Store_uni/home/ulc/cursos/curso396/miniconda3/envs/trading_env/bin/python
+Conda env: trading_env
+✓ Dependencias disponibles
+==============================================
+SLURM Job: 4837746
+Nodo: ilk-179
+CPUs: 64
+Memoria: 32768 MB
+==============================================
+Grupo: crypto_10
+Estrategia: hawkes
+Permutaciones: 1000
+Workers: 64
+==============================================
+
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de BTC...
+  Rango disponible: 17/08/2017 - 25/01/2026
+  Datos cargados: 73,865 velas
+  Desde: 2017-08-17 04:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [0.125, 120]
+  Best PF:         1.0613
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/BTC/results/BTC_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            BTC
+  Estrategia:        hawkes
+  Período:           2017-08-17 04:00:00 - 2026-01-25 04:00:00
+  Velas:             73,865
+  Permutaciones:     1000
+  Best Parameters:   [0.125, 120]
+  Real PF:           1.0613
+  P-Value:           0.0030
+  Significativo (p < 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      18591.89%
+  CAGR:              85.95%
+  Max Drawdown:      -63.08%
+  Max DD Duration:   13,758 bars
+  Sharpe Ratio:      1.1051
+  Sortino Ratio:     0.9617
+  SQN:               3.2090
+  N Trades:          368
+  Win Rate:          53.80%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/BTC/figures/BTC_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/BTC/figures/BTC_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 88.4s
+  Velocidad:    11.3 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de ETH...
+  Rango disponible: 17/08/2017 - 25/01/2026
+  Datos cargados: 73,865 velas
+  Desde: 2017-08-17 04:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [0.125, 96]
+  Best PF:         1.0312
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/ETH/results/ETH_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            ETH
+  Estrategia:        hawkes
+  Período:           2017-08-17 04:00:00 - 2026-01-25 04:00:00
+  Velas:             73,865
+  Permutaciones:     1000
+  Best Parameters:   [0.125, 96]
+  Real PF:           1.0312
+  P-Value:           0.1050
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      3670.19%
+  CAGR:              53.80%
+  Max Drawdown:      -76.53%
+  Max DD Duration:   10,533 bars
+  Sharpe Ratio:      0.6115
+  Sortino Ratio:     0.5365
+  SQN:               1.7757
+  N Trades:          430
+  Win Rate:          50.23%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/ETH/figures/ETH_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/ETH/figures/ETH_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 87.5s
+  Velocidad:    11.4 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de BNB...
+  Rango disponible: 06/11/2017 - 25/01/2026
+  Datos cargados: 71,928 velas
+  Desde: 2017-11-06 03:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [0.125, 120]
+  Best PF:         1.0306
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/BNB/results/BNB_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            BNB
+  Estrategia:        hawkes
+  Período:           2017-11-06 03:00:00 - 2026-01-25 04:00:00
+  Velas:             71,928
+  Permutaciones:     1000
+  Best Parameters:   [0.125, 120]
+  Real PF:           1.0306
+  P-Value:           0.1310
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      3796.91%
+  CAGR:              56.22%
+  Max Drawdown:      -78.99%
+  Max DD Duration:   41,814 bars
+  Sharpe Ratio:      0.5678
+  Sortino Ratio:     0.4936
+  SQN:               1.6269
+  N Trades:          332
+  Win Rate:          50.90%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/BNB/figures/BNB_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/BNB/figures/BNB_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 89.2s
+  Velocidad:    11.2 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de SOL...
+  Rango disponible: 11/08/2020 - 25/01/2026
+  Datos cargados: 47,811 velas
+  Desde: 2020-08-11 06:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [0.125, 168]
+  Best PF:         1.0449
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/SOL/results/SOL_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            SOL
+  Estrategia:        hawkes
+  Período:           2020-08-11 06:00:00 - 2026-01-25 04:00:00
+  Velas:             47,811
+  Permutaciones:     1000
+  Best Parameters:   [0.125, 168]
+  Real PF:           1.0449
+  P-Value:           0.0420
+  Significativo (p < 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      17651.98%
+  CAGR:              158.29%
+  Max Drawdown:      -76.04%
+  Max DD Duration:   12,905 bars
+  Sharpe Ratio:      0.9594
+  Sortino Ratio:     0.9506
+  SQN:               2.2414
+  N Trades:          172
+  Win Rate:          59.30%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/SOL/figures/SOL_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/SOL/figures/SOL_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 58.2s
+  Velocidad:    17.2 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de XRP...
+  Rango disponible: 04/05/2018 - 25/01/2026
+  Datos cargados: 67,661 velas
+  Desde: 2018-05-04 08:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [0.125, 169]
+  Best PF:         1.0362
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/XRP/results/XRP_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            XRP
+  Estrategia:        hawkes
+  Período:           2018-05-04 08:00:00 - 2026-01-25 04:00:00
+  Velas:             67,661
+  Permutaciones:     1000
+  Best Parameters:   [0.125, 169]
+  Real PF:           1.0362
+  P-Value:           0.0660
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      8037.74%
+  CAGR:              76.75%
+  Max Drawdown:      -62.37%
+  Max DD Duration:   14,041 bars
+  Sharpe Ratio:      0.6885
+  Sortino Ratio:     0.6265
+  SQN:               1.9135
+  N Trades:          244
+  Win Rate:          44.26%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/XRP/figures/XRP_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/XRP/figures/XRP_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 82.4s
+  Velocidad:    12.1 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de ADA...
+  Rango disponible: 17/04/2018 - 25/01/2026
+  Datos cargados: 68,073 velas
+  Desde: 2018-04-17 04:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [0.125, 120]
+  Best PF:         1.0203
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/ADA/results/ADA_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            ADA
+  Estrategia:        hawkes
+  Período:           2018-04-17 04:00:00 - 2026-01-25 04:00:00
+  Velas:             68,073
+  Permutaciones:     1000
+  Best Parameters:   [0.125, 120]
+  Real PF:           1.0203
+  P-Value:           0.2300
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      1533.95%
+  CAGR:              43.26%
+  Max Drawdown:      -81.95%
+  Max DD Duration:   26,128 bars
+  Sharpe Ratio:      0.4356
+  Sortino Ratio:     0.4169
+  SQN:               1.2144
+  N Trades:          312
+  Win Rate:          51.28%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/ADA/figures/ADA_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/ADA/figures/ADA_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 84.3s
+  Velocidad:    11.9 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de DOGE...
+  Rango disponible: 05/07/2019 - 25/01/2026
+  Datos cargados: 57,453 velas
+  Desde: 2019-07-05 12:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [0.125, 144]
+  Best PF:         1.0434
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/DOGE/results/DOGE_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            DOGE
+  Estrategia:        hawkes
+  Período:           2019-07-05 12:00:00 - 2026-01-25 04:00:00
+  Velas:             57,453
+  Permutaciones:     1000
+  Best Parameters:   [0.125, 144]
+  Real PF:           1.0434
+  P-Value:           0.0580
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      15655.80%
+  CAGR:              116.30%
+  Max Drawdown:      -92.75%
+  Max DD Duration:   8,784 bars
+  Sharpe Ratio:      0.7295
+  Sortino Ratio:     0.6014
+  SQN:               1.8683
+  N Trades:          245
+  Win Rate:          50.61%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/DOGE/figures/DOGE_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/DOGE/figures/DOGE_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 70.2s
+  Velocidad:    14.3 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de TRX...
+  Rango disponible: 11/06/2018 - 25/01/2026
+  Datos cargados: 66,746 velas
+  Desde: 2018-06-11 11:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [0.125, 96]
+  Best PF:         1.0294
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/TRX/results/TRX_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            TRX
+  Estrategia:        hawkes
+  Período:           2018-06-11 11:00:00 - 2026-01-25 04:00:00
+  Velas:             66,746
+  Permutaciones:     1000
+  Best Parameters:   [0.125, 96]
+  Real PF:           1.0294
+  P-Value:           0.1450
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      1674.02%
+  CAGR:              45.85%
+  Max Drawdown:      -60.40%
+  Max DD Duration:   12,314 bars
+  Sharpe Ratio:      0.5387
+  Sortino Ratio:     0.4946
+  SQN:               1.4871
+  N Trades:          372
+  Win Rate:          46.77%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/TRX/figures/TRX_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/TRX/figures/TRX_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 80.8s
+  Velocidad:    12.4 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de AVAX...
+  Rango disponible: 22/09/2020 - 25/01/2026
+  Datos cargados: 46,803 velas
+  Desde: 2020-09-22 06:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [0.125, 169]
+  Best PF:         1.0508
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/AVAX/results/AVAX_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            AVAX
+  Estrategia:        hawkes
+  Período:           2020-09-22 06:00:00 - 2026-01-25 04:00:00
+  Velas:             46,803
+  Permutaciones:     1000
+  Best Parameters:   [0.125, 169]
+  Real PF:           1.0508
+  P-Value:           0.0240
+  Significativo (p < 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      24688.30%
+  CAGR:              180.62%
+  Max Drawdown:      -79.05%
+  Max DD Duration:   15,633 bars
+  Sharpe Ratio:      1.0582
+  Sortino Ratio:     1.0599
+  SQN:               2.4461
+  N Trades:          177
+  Win Rate:          51.98%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/AVAX/figures/AVAX_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/AVAX/figures/AVAX_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 56.7s
+  Velocidad:    17.6 tareas/s
+
+======================================================================
+MCPT IN-SAMPLE ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de DOT...
+  Rango disponible: 18/08/2020 - 25/01/2026
+  Datos cargados: 47,626 velas
+  Desde: 2020-08-18 23:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 1000
+======================================================================
+
+Ejecutando optimización in-sample...
+  Best Parameters: [0.125, 168]
+  Best PF:         1.0162
+======================================================================
+
+Ejecutando MCPT con 1000 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/DOT/results/DOT_insample_results.json
+
+======================================================================
+RESUMEN MCPT IN-SAMPLE
+======================================================================
+  Ticker:            DOT
+  Estrategia:        hawkes
+  Período:           2020-08-18 23:00:00 - 2026-01-25 04:00:00
+  Velas:             47,626
+  Permutaciones:     1000
+  Best Parameters:   [0.125, 168]
+  Real PF:           1.0162
+  P-Value:           0.4380
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE
+----------------------------------------------------------------------
+  Total Return:      366.64%
+  CAGR:              32.75%
+  Max Drawdown:      -85.27%
+  Max DD Duration:   15,633 bars
+  Sharpe Ratio:      0.3443
+  Sortino Ratio:     0.3205
+  SQN:               0.8029
+  N Trades:          176
+  Win Rate:          50.00%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/DOT/figures/DOT_insample_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/DOT/figures/DOT_insample_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 58.4s
+  Velocidad:    17.1 tareas/s
+
+======================================================================
+CESGA BATCH IN-SAMPLE
+======================================================================
+Tickers: 10
+Estrategia: hawkes
+Permutaciones: 1000
+Workers: 64
+======================================================================
+
+
+[1/10] BTC
+
+[2/10] ETH
+
+[3/10] BNB
+
+[4/10] SOL
+
+[5/10] XRP
+
+[6/10] ADA
+
+[7/10] DOGE
+
+[8/10] TRX
+
+[9/10] AVAX
+
+[10/10] DOT
+
+======================================================================
+COMPLETADO en 0:17:31.947892
+Exitosos: 10, Fallidos: 0
+======================================================================
+
+==============================================
+Job completado: Mon Jan 26 06:30:46 PM CET 2026
+==============================================
+
+*****************************************************************************
+*                                                                           *
+*                    JOB EFFICIENCY REPORT (seff 4837746)                   *
+*                                                                           *
+*****************************************************************************
+
+Job ID: 4837746
+Cluster: finisterrae3
+User/Group: curso396/ulc
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 64
+CPU Utilized: 13:07:54
+CPU Efficiency: 69.36% of 18:56:00 core-walltime
+Job Wall-clock time: 00:17:45
+Memory Utilized: 1.88 GB
+Memory Efficiency: 5.88% of 32.00 GB
+
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ ++   Memory Efficiency is too small. Please review the requested memory. ++
+ ++ It seems that you do not need that much memory so we recommend        ++
+ ++ requesting less memory in other similar jobs.                         ++
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+*****************************************************************************
+

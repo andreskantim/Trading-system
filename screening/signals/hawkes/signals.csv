@@ -1,0 +1,6 @@
+timestamp,ticker,signal_type,price,strategy,metadata
+2026-01-20 22:00:00+00:00,BTCUSDT,entry_short,88509.18,hawkes,"{'kappa': 0.125, 'lookback': 169}"
+2026-01-20 22:00:00+00:00,ETHUSDT,entry_short,2951.54,hawkes,"{'kappa': 0.125, 'lookback': 169}"
+2026-01-24 22:00:00+00:00,ETHUSDT,exit,2963.0,hawkes,"{'kappa': 0.125, 'lookback': 169}"
+2026-01-19 00:00:00+00:00,BNBUSDT,entry_short,918.88,hawkes,"{'kappa': 0.125, 'lookback': 169}"
+2026-01-24 08:00:00+00:00,BNBUSDT,exit,892.33,hawkes,"{'kappa': 0.125, 'lookback': 169}"

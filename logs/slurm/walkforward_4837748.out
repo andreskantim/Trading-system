@@ -1,0 +1,752 @@
+slurmstepd: info: Setting TMPDIR to /scratch/4837748. Previous errors about TMPDIR can be discarded
+Python: /mnt/netapp2/Store_uni/home/ulc/cursos/curso396/miniconda3/envs/trading_env/bin/python
+Conda env: trading_env
+✓ Dependencias disponibles
+==============================================
+SLURM Job: 4837748
+Nodo: ilk-247
+CPUs: 64
+Memoria: 32768 MB
+==============================================
+Grupo: crypto_10
+Estrategia: hawkes
+Permutaciones: 200
+Workers: 64
+==============================================
+
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de BTC...
+  Rango disponible: 17/08/2017 - 25/01/2026
+  Auto-split 50/50:
+    Train: 17/08/2017 - 08/11/2021
+    Walk:  08/11/2021 - 25/01/2026
+  Datos cargados: 73,865 velas
+  Desde: 2017-08-17 04:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  36,933 velas (4.2 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 0.9980
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/BTC/results/BTC_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            BTC
+  Estrategia:        hawkes
+  Período total:     2017-08-17 04:00:00 - 2026-01-25 04:00:00
+  Velas totales:     73,865
+  Train window:      36,933 velas
+  Permutaciones:     200
+  Real PF:           0.9980
+  P-Value:           0.5300
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      -6.70%
+  CAGR:              -0.82%
+  Max Drawdown:      -56.43%
+  Max DD Duration:   25,242 bars
+  Sharpe Ratio:      -0.0416
+  Sortino Ratio:     -0.0374
+  SQN:               -0.1207
+  N Trades:          37131
+  Win Rate:          0.25%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/BTC/figures/BTC_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/BTC/figures/BTC_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 161.9s (2.7 min)
+  Velocidad:    1.24 tareas/s
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de ETH...
+  Rango disponible: 17/08/2017 - 25/01/2026
+  Auto-split 50/50:
+    Train: 17/08/2017 - 08/11/2021
+    Walk:  08/11/2021 - 25/01/2026
+  Datos cargados: 73,865 velas
+  Desde: 2017-08-17 04:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  36,933 velas (4.2 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 1.0258
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/ETH/results/ETH_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            ETH
+  Estrategia:        hawkes
+  Período total:     2017-08-17 04:00:00 - 2026-01-25 04:00:00
+  Velas totales:     73,865
+  Train window:      36,933 velas
+  Permutaciones:     200
+  Real PF:           1.0258
+  P-Value:           0.1750
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      237.81%
+  CAGR:              15.53%
+  Max Drawdown:      -79.21%
+  Max DD Duration:   10,533 bars
+  Sharpe Ratio:      0.5386
+  Sortino Ratio:     0.5081
+  SQN:               1.5641
+  N Trades:          37150
+  Win Rate:          0.30%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/ETH/figures/ETH_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/ETH/figures/ETH_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 159.3s (2.7 min)
+  Velocidad:    1.26 tareas/s
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de BNB...
+  Rango disponible: 06/11/2017 - 25/01/2026
+  Auto-split 50/50:
+    Train: 06/11/2017 - 18/12/2021
+    Walk:  18/12/2021 - 25/01/2026
+  Datos cargados: 71,928 velas
+  Desde: 2017-11-06 03:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  35,965 velas (4.1 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 1.0202
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/BNB/results/BNB_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            BNB
+  Estrategia:        hawkes
+  Período total:     2017-11-06 03:00:00 - 2026-01-25 04:00:00
+  Velas totales:     71,928
+  Train window:      35,965 velas
+  Permutaciones:     200
+  Real PF:           1.0202
+  P-Value:           0.1800
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      134.27%
+  CAGR:              10.92%
+  Max Drawdown:      -59.65%
+  Max DD Duration:   12,905 bars
+  Sharpe Ratio:      0.4222
+  Sortino Ratio:     0.3981
+  SQN:               1.2099
+  N Trades:          36160
+  Win Rate:          0.24%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/BNB/figures/BNB_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/BNB/figures/BNB_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 145.5s (2.4 min)
+  Velocidad:    1.37 tareas/s
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de SOL...
+  Rango disponible: 11/08/2020 - 25/01/2026
+  Auto-split 50/50:
+    Train: 11/08/2020 - 05/05/2023
+    Walk:  05/05/2023 - 25/01/2026
+  Datos cargados: 47,811 velas
+  Desde: 2020-08-11 06:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  23,906 velas (2.7 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 1.0035
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/SOL/results/SOL_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            SOL
+  Estrategia:        hawkes
+  Período total:     2020-08-11 06:00:00 - 2026-01-25 04:00:00
+  Velas totales:     47,811
+  Train window:      23,906 velas
+  Permutaciones:     200
+  Real PF:           1.0035
+  P-Value:           0.4550
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      17.42%
+  CAGR:              2.99%
+  Max Drawdown:      -76.04%
+  Max DD Duration:   12,905 bars
+  Sharpe Ratio:      0.0810
+  Sortino Ratio:     0.0808
+  SQN:               0.1893
+  N Trades:          24007
+  Win Rate:          0.23%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/SOL/figures/SOL_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/SOL/figures/SOL_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 105.5s (1.8 min)
+  Velocidad:    1.90 tareas/s
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de XRP...
+  Rango disponible: 04/05/2018 - 25/01/2026
+  Auto-split 50/50:
+    Train: 04/05/2018 - 17/03/2022
+    Walk:  17/03/2022 - 25/01/2026
+  Datos cargados: 67,661 velas
+  Desde: 2018-05-04 08:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  33,831 velas (3.9 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 0.9814
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/XRP/results/XRP_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            XRP
+  Estrategia:        hawkes
+  Período total:     2018-05-04 08:00:00 - 2026-01-25 04:00:00
+  Velas totales:     67,661
+  Train window:      33,831 velas
+  Permutaciones:     200
+  Real PF:           0.9814
+  P-Value:           0.7750
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      -61.74%
+  CAGR:              -11.70%
+  Max Drawdown:      -77.06%
+  Max DD Duration:   32,495 bars
+  Sharpe Ratio:      -0.3772
+  Sortino Ratio:     -0.3474
+  SQN:               -1.0484
+  N Trades:          33961
+  Win Rate:          0.15%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/XRP/figures/XRP_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/XRP/figures/XRP_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 147.1s (2.5 min)
+  Velocidad:    1.36 tareas/s
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de ADA...
+  Rango disponible: 17/04/2018 - 25/01/2026
+  Auto-split 50/50:
+    Train: 17/04/2018 - 08/03/2022
+    Walk:  09/03/2022 - 25/01/2026
+  Datos cargados: 68,073 velas
+  Desde: 2018-04-17 04:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  34,037 velas (3.9 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 1.0079
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/ADA/results/ADA_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            ADA
+  Estrategia:        hawkes
+  Período total:     2018-04-17 04:00:00 - 2026-01-25 04:00:00
+  Velas totales:     68,073
+  Train window:      34,037 velas
+  Permutaciones:     200
+  Real PF:           1.0079
+  P-Value:           0.4000
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      60.62%
+  CAGR:              6.29%
+  Max Drawdown:      -67.66%
+  Max DD Duration:   22,217 bars
+  Sharpe Ratio:      0.1697
+  Sortino Ratio:     0.1661
+  SQN:               0.4730
+  N Trades:          34216
+  Win Rate:          0.27%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/ADA/figures/ADA_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/ADA/figures/ADA_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 149.3s (2.5 min)
+  Velocidad:    1.34 tareas/s
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de DOGE...
+  Rango disponible: 05/07/2019 - 25/01/2026
+  Auto-split 50/50:
+    Train: 05/07/2019 - 16/10/2022
+    Walk:  16/10/2022 - 25/01/2026
+  Datos cargados: 57,453 velas
+  Desde: 2019-07-05 12:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  28,727 velas (3.3 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 1.0113
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/DOGE/results/DOGE_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            DOGE
+  Estrategia:        hawkes
+  Período total:     2019-07-05 12:00:00 - 2026-01-25 04:00:00
+  Velas totales:     57,453
+  Train window:      28,727 velas
+  Permutaciones:     200
+  Real PF:           1.0113
+  P-Value:           0.2750
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      78.07%
+  CAGR:              9.20%
+  Max Drawdown:      -66.37%
+  Max DD Duration:   7,939 bars
+  Sharpe Ratio:      0.2273
+  Sortino Ratio:     0.2149
+  SQN:               0.5820
+  N Trades:          28864
+  Win Rate:          0.23%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/DOGE/figures/DOGE_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/DOGE/figures/DOGE_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 125.4s (2.1 min)
+  Velocidad:    1.59 tareas/s
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de TRX...
+  Rango disponible: 11/06/2018 - 25/01/2026
+  Auto-split 50/50:
+    Train: 11/06/2018 - 05/04/2022
+    Walk:  05/04/2022 - 25/01/2026
+  Datos cargados: 66,746 velas
+  Desde: 2018-06-11 11:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  33,374 velas (3.8 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 1.0197
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/TRX/results/TRX_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            TRX
+  Estrategia:        hawkes
+  Período total:     2018-06-11 11:00:00 - 2026-01-25 04:00:00
+  Velas totales:     66,746
+  Train window:      33,374 velas
+  Permutaciones:     200
+  Real PF:           1.0197
+  P-Value:           0.2250
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      80.90%
+  CAGR:              8.09%
+  Max Drawdown:      -60.40%
+  Max DD Duration:   12,314 bars
+  Sharpe Ratio:      0.3459
+  Sortino Ratio:     0.3155
+  SQN:               0.9548
+  N Trades:          33570
+  Win Rate:          0.27%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/TRX/figures/TRX_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/TRX/figures/TRX_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 134.4s (2.2 min)
+  Velocidad:    1.49 tareas/s
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de AVAX...
+  Rango disponible: 22/09/2020 - 25/01/2026
+  Auto-split 50/50:
+    Train: 22/09/2020 - 26/05/2023
+    Walk:  26/05/2023 - 25/01/2026
+  Datos cargados: 46,803 velas
+  Desde: 2020-09-22 06:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  23,402 velas (2.7 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 0.9962
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/AVAX/results/AVAX_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            AVAX
+  Estrategia:        hawkes
+  Período total:     2020-09-22 06:00:00 - 2026-01-25 04:00:00
+  Velas totales:     46,803
+  Train window:      23,402 velas
+  Permutaciones:     200
+  Real PF:           0.9962
+  P-Value:           0.5550
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      -15.82%
+  CAGR:              -3.17%
+  Max Drawdown:      -74.57%
+  Max DD Duration:   10,054 bars
+  Sharpe Ratio:      -0.0849
+  Sortino Ratio:     -0.0847
+  SQN:               -0.1962
+  N Trades:          23516
+  Win Rate:          0.22%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/AVAX/figures/AVAX_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/AVAX/figures/AVAX_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 103.7s (1.7 min)
+  Velocidad:    1.93 tareas/s
+
+======================================================================
+MCPT WALK-FORWARD ANALYSIS
+======================================================================
+
+Estrategia cargada: hawkes
+
+Cargando datos de DOT...
+  Rango disponible: 18/08/2020 - 25/01/2026
+  Auto-split 50/50:
+    Train: 18/08/2020 - 09/05/2023
+    Walk:  09/05/2023 - 25/01/2026
+  Datos cargados: 47,626 velas
+  Desde: 2020-08-18 23:00:00
+  Hasta: 2026-01-25 04:00:00
+
+Configuración:
+  Workers:       64
+  Permutaciones: 200
+  Train window:  23,814 velas (2.7 años)
+======================================================================
+
+Ejecutando walk-forward real...
+  Real PF: 0.9847
+======================================================================
+
+Ejecutando Walk-Forward MCPT con 200 permutaciones...
+
+Calculando estadísticas completas...
+  Resultados guardados: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/DOT/results/DOT_walkforward_results.json
+
+======================================================================
+RESUMEN MCPT WALK-FORWARD
+======================================================================
+  Ticker:            DOT
+  Estrategia:        hawkes
+  Período total:     2020-08-18 23:00:00 - 2026-01-25 04:00:00
+  Velas totales:     47,626
+  Train window:      23,814 velas
+  Permutaciones:     200
+  Real PF:           0.9847
+  P-Value:           0.7400
+  NO significativo (p >= 0.05)
+
+----------------------------------------------------------------------
+ESTADÍSTICAS CLAVE (Walk-Forward)
+----------------------------------------------------------------------
+  Total Return:      -46.15%
+  CAGR:              -10.76%
+  Max Drawdown:      -84.13%
+  Max DD Duration:   15,633 bars
+  Sharpe Ratio:      -0.3343
+  Sortino Ratio:     -0.3206
+  SQN:               -0.7795
+  N Trades:          23908
+  Win Rate:          0.17%
+======================================================================
+
+Generando gráficos...
+  Cumulative: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/DOT/figures/DOT_walkforward_cumulative.png
+  MCPT Histogram: /mnt/netapp2/Home_FT2/home/ulc/cursos/curso396/Trading-system/outputs/hawkes/ticker/DOT/figures/DOT_walkforward_mcpt.png
+
+======================================================================
+ANÁLISIS COMPLETADO
+======================================================================
+  Tiempo total: 104.8s (1.7 min)
+  Velocidad:    1.91 tareas/s
+
+======================================================================
+CESGA BATCH WALK-FORWARD
+======================================================================
+Tickers: 10
+Estrategia: hawkes
+Permutaciones: 200
+Workers: 64
+======================================================================
+
+
+[1/10] BTC
+
+[2/10] ETH
+
+[3/10] BNB
+
+[4/10] SOL
+
+[5/10] XRP
+
+[6/10] ADA
+
+[7/10] DOGE
+
+[8/10] TRX
+
+[9/10] AVAX
+
+[10/10] DOT
+
+======================================================================
+COMPLETADO en 0:30:21.821436
+Exitosos: 10, Fallidos: 0
+======================================================================
+
+==============================================
+Job completado: Mon Jan 26 06:43:36 PM CET 2026
+==============================================
+
+*****************************************************************************
+*                                                                           *
+*                    JOB EFFICIENCY REPORT (seff 4837748)                   *
+*                                                                           *
+*****************************************************************************
+
+Job ID: 4837748
+Cluster: finisterrae3
+User/Group: curso396/ulc
+State: COMPLETED (exit code 0)
+Nodes: 1
+Cores per node: 64
+CPU Utilized: 19:04:55
+CPU Efficiency: 58.49% of 1-08:37:20 core-walltime
+Job Wall-clock time: 00:30:35
+Memory Utilized: 1.75 GB
+Memory Efficiency: 5.46% of 32.00 GB
+
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ ++   Memory Efficiency is too small. Please review the requested memory. ++
+ ++ It seems that you do not need that much memory so we recommend        ++
+ ++ requesting less memory in other similar jobs.                         ++
+ +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 
+*****************************************************************************
+

@@ -1,0 +1,83 @@
+{
+  "ticker": "ETH",
+  "strategy": "hawkes",
+  "period": {
+    "start": "2017-08-17 04:00:00",
+    "end": "2026-01-25 04:00:00"
+  },
+  "n_candles": 73865,
+  "n_permutations": 1000,
+  "best_params": [
+    0.125,
+    96
+  ],
+  "real_pf": 1.0312032228213857,
+  "p_value": 0.105,
+  "mean_perm_pf": 1.0107851463287871,
+  "std_perm_pf": 0.016049603801914693,
+  "perm_better_count": 105,
+  "execution_time_seconds": 87.52307057380676,
+  "significant": false,
+  "stats": {
+    "performance": {
+      "total_return_pct": 3670.187974521644,
+      "cumulative_log_return": 3.6297099538267865,
+      "cagr_pct": 53.79717226925942,
+      "pnl": 3.6297099538267865
+    },
+    "risk": {
+      "max_drawdown_pct": -76.53294144135556,
+      "max_drawdown_duration": 10533,
+      "ulcer_index": 29.934115657092857
+    },
+    "volatility": {
+      "annualized_volatility_pct": 70.3961192055427,
+      "monthly_volatility_pct": 20.18194011445981,
+      "downside_volatility_pct": 80.2297855930313
+    },
+    "risk_return": {
+      "sharpe_ratio": 0.6114972214450994,
+      "sortino_ratio": 0.5365467572487992,
+      "calmar_ratio": 0.7029283241449992,
+      "sqn": 1.7756680728993028
+    },
+    "trades": {
+      "n_trades": 430,
+      "win_rate_pct": 50.23255813953489,
+      "profit_factor": 1.32360504150749,
+      "expectancy": 0.008441185939132062,
+      "avg_win_loss_ratio": 1.31134943927131
+    },
+    "distribution": {
+      "skewness": -0.2864796524465396,
+      "kurtosis": 46.704061590942615,
+      "p5": -0.009292672424667402,
+      "p25": -0.0,
+      "p50": 0.0,
+      "p75": 6.365818774689558e-05,
+      "p95": 0.009434914662665281
+    },
+    "robustness": {
+      "t_test_pvalue": 0.07579572378829745,
+      "mcpt_pvalue": 0.105
+    },
+    "temporal": {
+      "rolling_sharpe_mean": 0.5480328453957876,
+      "rolling_sharpe_std": 3.702585227131567,
+      "rolling_sharpe_min": -11.547369039580579,
+      "rolling_dd_mean": -17.14216140303568,
+      "rolling_dd_worst": -46.72598992160928
+    },
+    "dependencies": {
+      "autocorr_lag1": -0.0404112888202939,
+      "autocorr_lag5": -0.0033241363627443017,
+      "autocorr_lag24": -0.03677345157694128,
+      "hurst_exponent": 0.592512138615972
+    },
+    "concentration": {
+      "gini_coefficient": 0.5303474056628958,
+      "top_5_trades_pct": 6.829463391779381,
+      "top_10_trades_pct": 13.246520837731115
+    }
+  }
+}
